@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bijoy Lohar | Creative Developer & Founder of Shadow Arrow</title>
+  <meta name="description" content="Official portfolio of Bijoy Lohar, creative systems engineer, gaming streamer, and founder of Shadow Arrow.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://www.bijoylohar.in">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Bijoy Lohar">
+  <meta property="og:description" content="Founder of Shadow Arrow | Creative Systems Developer">
+  <meta property="og:url" content="https://www.bijoylohar.in">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="https://www.bijoylohar.in/bijoy-lohar.jpg">
+
+  <!-- Google Knowledge Graph Person Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://www.bijoylohar.in/#person",
+    "name": "Bijoy Lohar",
+    "alternateName": ["Arrow Gaming", "Lost Gaming"],
+    "birthDate": "2005-10-12",
+    "gender": "https://schema.org/Male",
+    "nationality": {
+      "@type": "Country",
+      "name": "India"
+    },
+    "url": "https://www.bijoylohar.in",
+    "image": [
+      "https://github.com/loharbijoy2005-a11y.png",
+      "https://www.bijoylohar.in/bijoy-lohar.jpg"
+    ],
+    "jobTitle": "Founder & Software Engineer",
+    "worksFor": {
+      "@type": "Corporation",
+      "@id": "https://www.shadowarrow.in/#organization",
+      "name": "Shadow Arrow",
+      "legalName": "Shadow Arrow",
+      "url": "https://www.shadowarrow.in"
+    },
+    "sameAs": [
+      "https://www.instagram.com/arrow_gaming_2005",
+      "https://www.instagram.com/lost_gaming_2005",
+      "https://www.facebook.com/share/1C6e2W4cQr/",
+      "https://github.com/loharbijoy2005-a11y"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Inter, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Editorial & Animation Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Cursor Spotlight Background Canvas (Scene 1) -->
+  <div class="cursor-spotlight" id="cursorSpotlight"></div>
+
+  <!-- Scene 1: Floating Frosted-Glass Pill Navbar -->
+  <div class="nav-wrapper animate-reveal" style="--reveal-delay: 0.1s;">
+    <header class="floating-navbar" id="navbar">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-dot"></span>
+        <span class="brand-name">Bijoy Lohar</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero" class="nav-item">Home</a>
+        <a href="#bento" class="nav-item">Overview</a>
+        <a href="#work" class="nav-item">Work</a>
+        <a href="#ecosystem" class="nav-item">Ecosystem</a>
+        <a href="#craft" class="nav-item">Craft</a>
+        <a href="#socials" class="nav-item">Profiles</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn-black-pill magnetic-target">Get In Touch ↗</a>
+      </div>
+    </header>
+  </div>
+
+  <main>
+    <!-- Scene 1 & 2: Hero Section & Interactive 3D Photo Deck -->
+    <section class="hero-editorial" id="hero">
+      <div class="hero-container">
+        
+        <!-- Live Radar Status Pill (Scene 1) -->
+        <div class="status-badge animate-reveal" style="--reveal-delay: 0.2s;">
+          <span class="radar-ping">
+            <span class="ping-wave"></span>
+            <span class="ping-center"></span>
+          </span>
+          <span>Available for High-Impact Systems & Architecture</span>
+        </div>
+
+        <!-- Scene 2: Interactive 3D Photo Deck (Fan-Out Taash Deck) -->
+        <div class="photo-deck-wrapper animate-reveal" style="--reveal-delay: 0.3s;">
+          <div class="photo-deck-container" id="photoDeck">
+            
+            <!-- Card Left (-6° Angle: Engineering Lab) -->
+            <div class="deck-card card-left" data-card-id="left" title="Click to spotlight: Engineering Lab">
+              <div class="card-inner">
+                <div class="card-visual visual-lab">
+                  <i data-lucide="laptop"></i>
+                  <span class="visual-tag">Engineering Lab</span>
+                </div>
+                <div class="card-caption">LOQ & Systems Setup</div>
+              </div>
+            </div>
+
+            <!-- Card Center (Primary Spotlight: Avatar) -->
+            <div class="deck-card card-center active-spotlight" data-card-id="center" title="Bijoy Lohar Founder Profile">
+              <div class="card-inner">
+                <img id="githubAvatar" src="https://github.com/loharbijoy2005-a11y.png" alt="Bijoy Lohar" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400';">
+                <div class="profile-shine"></div>
+                <div class="card-caption">Bijoy Lohar — Founder</div>
+              </div>
+            </div>
+
+            <!-- Card Right (+6° Angle: Arrow Gaming Hub) -->
+            <div class="deck-card card-right" data-card-id="right" title="Click to spotlight: Arrow Gaming Hub">
+              <div class="card-inner">
+                <div class="card-visual visual-stream">
+                  <i data-lucide="gamepad-2"></i>
+                  <span class="visual-tag">Arrow Gaming Hub</span>
+                </div>
+                <div class="card-caption">Stream & Creator Setup</div>
+              </div>
+            </div>
+
+          </div>
+          <p class="deck-hint-text"><i data-lucide="mouse-pointer"></i> Hover to fan-out photos • Click any card to cycle spotlight</p>
+        </div>
+
+        <!-- Kinetic Headline & Titles -->
+        <h1 class="editorial-title animate-reveal kinetic-text" style="--reveal-delay: 0.4s;">
+          Bijoy Lohar — <span class="accent-text">Architecting Resilient Systems</span>
+        </h1>
+        <p class="editorial-subtitle animate-reveal" style="--reveal-delay: 0.5s;">
+          Full-Stack Engineer, Business Founder, and Digital Creator based in West Bengal
+        </p>
+
+        <!-- Brief Editorial Bio -->
+        <p class="editorial-bio animate-reveal" style="--reveal-delay: 0.6s;">
+          Founder of Shadow Arrow based in Bishnupur. Engineering production-grade web infrastructure, custom software architecture, and interactive digital platforms.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="hero-actions animate-reveal" style="--reveal-delay: 0.7s;">
+          <a href="#bento" class="btn-primary-matte magnetic-target">
+            <span>Explore Systems & Work ↓</span>
+          </a>
+          <a href="#contact" class="btn-hairline-outline magnetic-target">
+            <span>Connect Directly →</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Scene 3: Asymmetrical Bento Grid & Ventures -->
+    <section class="section-padding editorial-section-alt" id="bento">
+      <div class="site-container">
+        
+        <div class="editorial-header scroll-reveal">
+          <span class="meta-label">SCENE 03 / ASYMMETRICAL BENTO GRID</span>
+          <h2 class="editorial-h2">Foundational Stack & Ventures</h2>
+        </div>
+
+        <!-- Asymmetrical Bento Grid -->
+        <div class="bento-grid">
+
+          <!-- Card 1 (Large): Core Stack & Interactive Badges -->
+          <div class="bento-card bento-large tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="bento-header">
+              <div class="bento-icon-box">
+                <i data-lucide="cpu"></i>
+              </div>
+              <span class="bento-badge">Pillar 01</span>
+            </div>
+            <h3>Core Architecture & Stack</h3>
+            <p class="bento-text">
+              Engineered with modern TypeScript ecosystems, cloud-native edge infrastructure, and resilient relational database systems.
+            </p>
+
+            <div class="interactive-tech-badges">
+              <span class="tech-pill-interactive" data-tech="TypeScript"><i data-lucide="code-2"></i> TypeScript</span>
+              <span class="tech-pill-interactive" data-tech="React/Next.js"><i data-lucide="layout"></i> React / Next.js</span>
+              <span class="tech-pill-interactive" data-tech="Node.js"><i data-lucide="server"></i> Node.js & Express</span>
+              <span class="tech-pill-interactive" data-tech="Cloudflare Edge"><i data-lucide="cloud"></i> Cloudflare Edge</span>
+              <span class="tech-pill-interactive" data-tech="PostgreSQL"><i data-lucide="database"></i> PostgreSQL & SQL</span>
+              <span class="tech-pill-interactive" data-tech="Docker"><i data-lucide="box"></i> Docker Containers</span>
+            </div>
+
+            <div class="bento-metrics-grid">
+              <div class="metric-box">
+                <span class="metric-num">99.9%</span>
+                <span class="metric-sub">Uptime Target</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-num">&lt;50ms</span>
+                <span class="metric-sub">API Latency</span>
+              </div>
+              <div class="metric-box">
+                <span class="metric-num">Full-Stack</span>
+                <span class="metric-sub">End-to-End</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 (Medium): Shadow Arrow (Flagship Venture) -->
+          <div class="bento-card bento-medium tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="bento-header">
+              <div class="bento-icon-box box-dark">
+                <i data-lucide="shield-check"></i>
+              </div>
+              <span class="bento-badge badge-dark">The Studio</span>
+            </div>
+            <h3>Shadow Arrow</h3>
+            <span class="bento-domain">https://www.shadowarrow.in</span>
+            <p class="bento-text">
+              The registered software engineering & web architecture studio founded by Bijoy Lohar. Custom enterprise solutions and low-latency cloud infrastructure.
+            </p>
+            <div class="bento-action-row">
+              <a href="https://www.shadowarrow.in" target="_blank" rel="noopener" class="btn-primary-matte w-full">
+                <span>Visit Shadow Arrow (shadowarrow.in)</span>
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 (Medium): OmniKart E-Commerce Showcase -->
+          <div class="bento-card bento-medium tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="bento-header">
+              <div class="bento-icon-box box-cyan">
+                <i data-lucide="shopping-bag"></i>
+              </div>
+              <span class="bento-badge badge-cyan">Commerce Platform</span>
+            </div>
+            <h3>OmniKart</h3>
+            <span class="bento-sublabel">Powered by Shadow Arrow Engine</span>
+            <p class="bento-text">
+              Next-generation e-commerce platform built for instant page transitions, dynamic inventory tracking, and seamless checkout flows.
+            </p>
+            <div class="bento-action-row">
+              <button class="btn-hairline-outline w-full modal-trigger" data-modal="omnikart">
+                <span>Explore OmniKart Specs</span>
+                <i data-lucide="info"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4 (Compact): Creator Hub Channels -->
+          <div class="bento-card bento-full tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="bento-header">
+              <div class="bento-icon-box box-purple">
+                <i data-lucide="radio"></i>
+              </div>
+              <span class="bento-badge">Creator Channels</span>
+            </div>
+            <h3>Digital Streamer & Social Hub</h3>
+            <p class="bento-text">
+              Direct channels for Arrow Gaming, Lost Gaming, Facebook, and GitHub open-source repositories.
+            </p>
+            <div class="social-chips-grid">
+              <a href="https://www.instagram.com/arrow_gaming_2005" target="_blank" rel="noopener" class="social-chip magnetic-target">
+                <i data-lucide="instagram" class="chip-icon"></i>
+                <span class="chip-name">Arrow Gaming</span>
+                <span class="chip-handle">@arrow_gaming_2005</span>
+                <i data-lucide="arrow-up-right" class="arrow-slide"></i>
+              </a>
+              <a href="https://www.instagram.com/lost_gaming_2005" target="_blank" rel="noopener" class="social-chip magnetic-target">
+                <i data-lucide="instagram" class="chip-icon"></i>
+                <span class="chip-name">Lost Gaming</span>
+                <span class="chip-handle">@lost_gaming_2005</span>
+                <i data-lucide="arrow-up-right" class="arrow-slide"></i>
+              </a>
+              <a href="https://www.facebook.com/share/1C6e2W4cQr/" target="_blank" rel="noopener" class="social-chip magnetic-target">
+                <i data-lucide="facebook" class="chip-icon"></i>
+                <span class="chip-name">Facebook</span>
+                <span class="chip-handle">Direct Profile</span>
+                <i data-lucide="arrow-up-right" class="arrow-slide"></i>
+              </a>
+              <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener" class="social-chip magnetic-target">
+                <i data-lucide="github" class="chip-icon"></i>
+                <span class="chip-name">GitHub</span>
+                <span class="chip-handle">loharbijoy2005-a11y</span>
+                <i data-lucide="arrow-up-right" class="arrow-slide"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Scene 4: Kinetic Lifestyle Infinite Photo Reel (Marquee) -->
+    <section class="marquee-section section-padding" id="lifestyle">
+      <div class="site-container">
+        <div class="editorial-header scroll-reveal">
+          <span class="meta-label">SCENE 04 / KINETIC LIFESTYLE MARQUEE</span>
+          <h2 class="editorial-h2">Infinite Photo Reel & Visual Log</h2>
+        </div>
+      </div>
+
+      <!-- Infinite Horizontal Auto-Scrolling Strip -->
+      <div class="marquee-wrapper">
+        <div class="marquee-track" id="marqueeTrack">
+          
+          <!-- Slide 1: Primary Founder Portrait -->
+          <div class="marquee-item">
+            <div class="marquee-card">
+              <img src="https://github.com/loharbijoy2005-a11y.png" alt="Bijoy Lohar Portrait" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400';">
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Bijoy Lohar</span>
+                <span class="marquee-title">Software Engineer & Founder</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Engineering Lab & Desk -->
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-lab">
+              <div class="marquee-svg-art">
+                <i data-lucide="laptop"></i>
+                <span>LOQ Engineering Lab</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Workspace</span>
+                <span class="marquee-title">System Architecture & Code</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Arrow Gaming Studio -->
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-stream">
+              <div class="marquee-svg-art">
+                <i data-lucide="gamepad-2"></i>
+                <span>Arrow Gaming Studio</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Content & Streams</span>
+                <span class="marquee-title">Live Gaming & Broadcasting</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Bishnupur Founder Office -->
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-office">
+              <div class="marquee-svg-art">
+                <i data-lucide="map-pin"></i>
+                <span>Bishnupur Headquarters</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Location</span>
+                <span class="marquee-title">Bishnupur, West Bengal, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Shadow Arrow Systems -->
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-sa">
+              <div class="marquee-svg-art">
+                <i data-lucide="shield-check"></i>
+                <span>Shadow Arrow Engine</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Venture</span>
+                <span class="marquee-title">Enterprise Software Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6: OmniKart Commerce Storefront -->
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-omni">
+              <div class="marquee-svg-art">
+                <i data-lucide="shopping-cart"></i>
+                <span>OmniKart Storefront</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">E-Commerce</span>
+                <span class="marquee-title">High-Speed Shopping Platform</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate Set for Seamless Continuous Loop -->
+          <div class="marquee-item">
+            <div class="marquee-card">
+              <img src="https://github.com/loharbijoy2005-a11y.png" alt="Bijoy Lohar Portrait" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400';">
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Bijoy Lohar</span>
+                <span class="marquee-title">Software Engineer & Founder</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="marquee-item">
+            <div class="marquee-card visual-card-lab">
+              <div class="marquee-svg-art">
+                <i data-lucide="laptop"></i>
+                <span>LOQ Engineering Lab</span>
+              </div>
+              <div class="marquee-overlay">
+                <span class="marquee-tag">Workspace</span>
+                <span class="marquee-title">System Architecture & Code</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Showcase Section -->
+    <section class="section-padding editorial-section" id="work">
+      <div class="site-container">
+        <div class="editorial-header scroll-reveal">
+          <span class="meta-label">SELECTED ENGINEERING</span>
+          <h2 class="editorial-h2">Featured Web Systems</h2>
+        </div>
+
+        <div class="work-grid">
+          
+          <article class="work-card tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="card-meta">
+              <span class="card-index">01</span>
+              <span class="card-tag">Systems Architecture</span>
+            </div>
+            <h3 class="card-heading">High-Throughput Web Gateway</h3>
+            <p class="card-body">
+              Ultra-low latency routing and micro-services infrastructure designed for high-concurrency client workloads and reliable uptime.
+            </p>
+            <div class="card-tech-list">
+              <span class="tech-pill-interactive">TypeScript</span>
+              <span class="tech-pill-interactive">Node.js</span>
+              <span class="tech-pill-interactive">Cloudflare Edge</span>
+              <span class="tech-pill-interactive">PostgreSQL</span>
+            </div>
+            <div class="card-link-wrapper">
+              <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener" class="editorial-link magnetic-target">
+                <span>View Architecture Specs</span>
+                <i data-lucide="arrow-up-right" class="link-icon"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="work-card tilt-card scroll-reveal">
+            <div class="glare-overlay"></div>
+            <div class="card-meta">
+              <span class="card-index">02</span>
+              <span class="card-tag">Full-Stack Application</span>
+            </div>
+            <h3 class="card-heading">StreamFlow Overlay & Creator Suite</h3>
+            <p class="card-body">
+              Real-time interactive broadcasting overlay engine and viewer metrics dashboard optimized for digital gaming streams.
+            </p>
+            <div class="card-tech-list">
+              <span class="tech-pill-interactive">React</span>
+              <span class="tech-pill-interactive">WebSockets</span>
+              <span class="tech-pill-interactive">Canvas API</span>
+              <span class="tech-pill-interactive">Tailwind CSS</span>
+            </div>
+            <div class="card-link-wrapper">
+              <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener" class="editorial-link magnetic-target">
+                <span>Explore Source Code</span>
+                <i data-lucide="arrow-up-right" class="link-icon"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Craft & Stack Section -->
+    <section class="section-padding editorial-section-alt" id="craft">
+      <div class="site-container">
+        <div class="editorial-header scroll-reveal">
+          <span class="meta-label">TECHNICAL STACK</span>
+          <h2 class="editorial-h2">Engineering Capabilities</h2>
+        </div>
+
+        <div class="craft-grid">
+          <div class="craft-column scroll-reveal">
+            <h4>Languages & Runtime</h4>
+            <ul class="craft-list">
+              <li><span class="craft-item-hover">TypeScript / JavaScript (ESNext)</span></li>
+              <li><span class="craft-item-hover">Node.js Async I/O</span></li>
+              <li><span class="craft-item-hover">Python Systems Tooling</span></li>
+              <li><span class="craft-item-hover">HTML5 & Semantic Standards</span></li>
+            </ul>
+          </div>
+
+          <div class="craft-column scroll-reveal">
+            <h4>Frameworks & UI</h4>
+            <ul class="craft-list">
+              <li><span class="craft-item-hover">React & Next.js Ecosystem</span></li>
+              <li><span class="craft-item-hover">Tailwind & Modular CSS Architecture</span></li>
+              <li><span class="craft-item-hover">WebSockets & Realtime State</span></li>
+              <li><span class="craft-item-hover">RESTful API Engineering</span></li>
+            </ul>
+          </div>
+
+          <div class="craft-column scroll-reveal">
+            <h4>Systems & Infra</h4>
+            <ul class="craft-list">
+              <li><span class="craft-item-hover">PostgreSQL & Relational DBs</span></li>
+              <li><span class="craft-item-hover">Cloudflare Edge Workers</span></li>
+              <li><span class="craft-item-hover">Git Workflow & Version Control</span></li>
+              <li><span class="craft-item-hover">Docker Container Deployment</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding editorial-section" id="contact">
+      <div class="site-container">
+        <div class="contact-box scroll-reveal">
+          <div class="contact-header-block">
+            <span class="meta-label">DIRECT CONTACT</span>
+            <h2 class="editorial-h2">Initiate a Conversation</h2>
+            <p class="contact-intro">
+              Whether you are looking to collaborate on high-performance web systems, custom infrastructure, or technical partnerships, send a direct line.
+            </p>
+            
+            <div class="contact-meta-row">
+              <span class="meta-tag"><i data-lucide="map-pin"></i> Bishnupur, West Bengal, India</span>
+              <span class="meta-tag"><i data-lucide="shield"></i> Founder @ Shadow Arrow</span>
+            </div>
+          </div>
+
+          <form id="contactForm" class="editorial-form">
+            <div class="form-row">
+              <div class="field-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="field-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="email@domain.com" required>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Project Inquiry / Technical Collaboration" required>
+            </div>
+
+            <div class="field-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Brief details about your project or inquiry..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary-matte w-full magnetic-target" id="submitBtn">
+              <span>Send Direct Message</span>
+              <i data-lucide="send" class="btn-icon"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Venture Modal Container -->
+  <div class="venture-modal-backdrop hidden" id="ventureModal">
+    <div class="venture-modal-card">
+      <button class="modal-close-btn" id="modalClose">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Editorial Minimal Footer -->
+  <footer class="editorial-footer">
+    <div class="site-container footer-flex">
+      <div class="footer-left-info">
+        <span class="footer-name">Bijoy Lohar</span>
+        <span class="footer-sub">Software Engineer & Founder of Shadow Arrow</span>
+      </div>
+
+      <div class="footer-right-links">
+        <a href="https://www.shadowarrow.in" target="_blank" rel="noopener">shadowarrow.in</a>
+        <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener">GitHub</a>
+        <a href="#hero">Back to Top ↑</a>
+      </div>
+    </div>
+    <div class="site-container footer-copy-row">
+      <p>© 2026 Bijoy Lohar. All rights reserved.</p>
+      <p class="mono-meta">Bishnupur, West Bengal, India</p>
+    </div>
+  </footer>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast-editorial hidden">
+    <span id="toastMessage">Message sent successfully!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
