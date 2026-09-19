@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2 } from "lucide-react";
+import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2, Globe, CheckCircle2 } from "lucide-react";
 
 export const CreatorMatrix: React.FC = () => {
   return (
     <section className="py-20 px-4 md:px-8 max-w-[1040px] mx-auto" id="creator-matrix">
       <div className="mb-10">
         <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
-          02 / CREATOR MATRIX & BROADCASTING
+          02 / CREATOR MATRIX & VERIFIED ENTITY
         </span>
         <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
-          Dual-Channel Media & Creator Hub
+          Dual-Channel Media & Knowledge Graph Entity
         </h2>
       </div>
 
@@ -84,8 +84,30 @@ export const CreatorMatrix: React.FC = () => {
 
       </div>
 
-      {/* Verified Social Network Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+      {/* Verified Knowledge Entity & Social Network Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+        
+        {/* Wikidata Verified Entity Card */}
+        <a
+          href="https://www.wikidata.org/wiki/Q141500295"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-5 bg-amberLight/60 border border-amberAccent/40 hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all"
+        >
+          <div className="flex items-center gap-3">
+            <Globe className="w-5 h-5 text-amberAccent" />
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="block font-heading font-bold text-sm text-deepInk">Wikidata Entity</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 fill-amber-100" />
+              </div>
+              <span className="font-mono text-xs text-amber-800 font-semibold">Q141500295</span>
+            </div>
+          </div>
+          <ArrowUpRight className="w-4 h-4 text-amber-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+        </a>
+
+        {/* Facebook */}
         <a
           href="https://www.facebook.com/share/1C6e2W4cQr/"
           target="_blank"
@@ -95,13 +117,14 @@ export const CreatorMatrix: React.FC = () => {
           <div className="flex items-center gap-3">
             <Facebook className="w-5 h-5 text-blue-600" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk">Facebook Profile</span>
-              <span className="font-mono text-xs text-slate-500">Direct Social Network</span>
+              <span className="block font-heading font-bold text-sm text-deepInk">Facebook</span>
+              <span className="font-mono text-xs text-slate-500">Direct Social Profile</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
 
+        {/* GitHub */}
         <a
           href="https://github.com/loharbijoy2005-a11y"
           target="_blank"
@@ -111,12 +134,13 @@ export const CreatorMatrix: React.FC = () => {
           <div className="flex items-center gap-3">
             <Github className="w-5 h-5 text-deepInk" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk">GitHub Engineering</span>
+              <span className="block font-heading font-bold text-sm text-deepInk">GitHub Hub</span>
               <span className="font-mono text-xs text-slate-500">loharbijoy2005-a11y</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
+
       </div>
 
     </section>

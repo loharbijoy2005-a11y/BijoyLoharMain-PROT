@@ -49,6 +49,7 @@ export default function RootLayout({
       "url": "https://www.shadowarrow.in"
     },
     "sameAs": [
+      "https://www.wikidata.org/wiki/Q141500295",
       "https://www.instagram.com/arrow_gaming_2005",
       "https://www.instagram.com/lost_gaming_2005",
       "https://www.facebook.com/share/1C6e2W4cQr/",
@@ -72,7 +73,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-[#F8FAFC] text-slate-900 selection:bg-slate-900 selection:text-white">
+      <body className="antialiased bg-studioCanvas text-deepInk selection:bg-deepInk selection:text-white">
         <div className="cursor-spotlight" id="cursorSpotlight" />
         {children}
       </body>
