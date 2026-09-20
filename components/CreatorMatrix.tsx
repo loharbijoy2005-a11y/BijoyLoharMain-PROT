@@ -1,35 +1,67 @@
 "use client";
 
 import React from "react";
-import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2, Globe, CheckCircle2 } from "lucide-react";
+import { motion, Variants } from "framer-motion";
+import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2 } from "lucide-react";
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 35 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 24,
+      stiffness: 200,
+    },
+  },
+};
 
 export const CreatorMatrix: React.FC = () => {
   return (
     <section className="py-20 px-4 md:px-8 max-w-[1040px] mx-auto" id="creator-matrix">
-      <div className="mb-10">
+      
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-10"
+      >
         <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
           02 / CREATOR MATRIX & VERIFIED ENTITY
         </span>
         <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
-          Dual-Channel Media & Knowledge Graph Entity
+          Dual-Channel Media & Creator Hub
         </h2>
-      </div>
+      </motion.div>
 
+      {/* Primary Channel Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Card 1: Arrow Gaming */}
-        <a
-          href="https://www.instagram.com/arrow_gaming_2005"
+        <motion.a
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          href="https://www.instagram.com/arrowgaming2005/"
           target="_blank"
           rel="noopener noreferrer"
-          className="group p-8 bg-studioCard border border-borderWarm rounded-3xl shadow-sm hover:shadow-xl hover:border-amberAccent transition-all flex flex-col justify-between"
+          className="group p-8 bg-studioCard border border-borderWarm rounded-3xl shadow-sm hover:shadow-2xl hover:border-amberAccent transition-all flex flex-col justify-between"
         >
           <div>
             <div className="flex justify-between items-center mb-6">
-              <div className="w-12 h-12 bg-amberLight text-amberAccent rounded-2xl flex items-center justify-center">
+              <motion.div
+                whileHover={{ rotate: 15, scale: 1.1 }}
+                className="w-12 h-12 bg-amberLight text-amberAccent rounded-2xl flex items-center justify-center shadow-sm"
+              >
                 <Gamepad2 className="w-6 h-6" />
-              </div>
-              <span className="px-3 py-1 bg-rose-100 text-rose-700 font-mono text-xs font-bold rounded-full flex items-center gap-1.5">
+              </motion.div>
+              <span className="px-3 py-1 bg-rose-100 text-rose-700 font-mono text-xs font-bold rounded-full flex items-center gap-1.5 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
                 Live Gaming Channel
               </span>
@@ -40,7 +72,7 @@ export const CreatorMatrix: React.FC = () => {
             </h3>
             <p className="font-mono text-xs text-amber-700 font-bold mb-3">@arrow_gaming_2005</p>
             <p className="text-sm text-slate-600 leading-relaxed">
-              Official gaming streams, esports gameplay highlights, and Free Fire content creation channel.
+              Official gaming streams, esports gameplay highlights, and digital content creation channel.
             </p>
           </div>
 
@@ -48,21 +80,30 @@ export const CreatorMatrix: React.FC = () => {
             <span>Follow @arrow_gaming_2005 on Instagram</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </div>
-        </a>
+        </motion.a>
 
         {/* Card 2: Lost Gaming */}
-        <a
+        <motion.a
+          variants={cardVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           href="https://www.instagram.com/lost_gaming_2005"
           target="_blank"
           rel="noopener noreferrer"
-          className="group p-8 bg-studioCard border border-borderWarm rounded-3xl shadow-sm hover:shadow-xl hover:border-amberAccent transition-all flex flex-col justify-between"
+          className="group p-8 bg-studioCard border border-borderWarm rounded-3xl shadow-sm hover:shadow-2xl hover:border-amberAccent transition-all flex flex-col justify-between"
         >
           <div>
             <div className="flex justify-between items-center mb-6">
-              <div className="w-12 h-12 bg-amberLight text-amberAccent rounded-2xl flex items-center justify-center">
+              <motion.div
+                whileHover={{ rotate: 15, scale: 1.1 }}
+                className="w-12 h-12 bg-amberLight text-amberAccent rounded-2xl flex items-center justify-center shadow-sm"
+              >
                 <Radio className="w-6 h-6" />
-              </div>
-              <span className="px-3 py-1 bg-amberLight text-amber-800 font-mono text-xs font-bold rounded-full">
+              </motion.div>
+              <span className="px-3 py-1 bg-amberLight text-amber-800 font-mono text-xs font-bold rounded-full shadow-sm">
                 Secondary Stream Hub
               </span>
             </div>
@@ -80,69 +121,61 @@ export const CreatorMatrix: React.FC = () => {
             <span>Follow @lost_gaming_2005 on Instagram</span>
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </div>
-        </a>
+        </motion.a>
 
       </div>
 
-      {/* Verified Knowledge Entity & Social Network Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+      {/* Verified Social Network Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         
-        {/* Wikidata Verified Entity Card */}
-        <a
-          href="https://www.wikidata.org/wiki/Q141500295"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-5 bg-amberLight/60 border border-amberAccent/40 hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all"
-        >
-          <div className="flex items-center gap-3">
-            <Globe className="w-5 h-5 text-amberAccent" />
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="block font-heading font-bold text-sm text-deepInk">Wikidata Entity</span>
-                <CheckCircle2 className="w-3.5 h-3.5 text-amber-700 fill-amber-100" />
-              </div>
-              <span className="font-mono text-xs text-amber-800 font-semibold">Q141500295</span>
-            </div>
-          </div>
-          <ArrowUpRight className="w-4 h-4 text-amber-700 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
-
         {/* Facebook */}
-        <a
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -4, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           href="https://www.facebook.com/share/1C6e2W4cQr/"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all"
+          className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all shadow-sm"
         >
           <div className="flex items-center gap-3">
             <Facebook className="w-5 h-5 text-blue-600" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk">Facebook</span>
+              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">Facebook</span>
               <span className="font-mono text-xs text-slate-500">Direct Social Profile</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
+        </motion.a>
 
         {/* GitHub */}
-        <a
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ y: -4, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           href="https://github.com/loharbijoy2005-a11y"
           target="_blank"
           rel="noopener noreferrer"
-          className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all"
+          className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all shadow-sm"
         >
           <div className="flex items-center gap-3">
             <Github className="w-5 h-5 text-deepInk" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk">GitHub Hub</span>
+              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">GitHub Hub</span>
               <span className="font-mono text-xs text-slate-500">loharbijoy2005-a11y</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-        </a>
+        </motion.a>
 
       </div>
 
     </section>
   );
 };
+
+export default CreatorMatrix;

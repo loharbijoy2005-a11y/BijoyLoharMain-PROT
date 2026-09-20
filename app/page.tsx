@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ExpeditionEcosystem } from "@/components/ExpeditionEcosystem";
 import { CreatorMatrix } from "@/components/CreatorMatrix";
+import { AboutMe } from "@/components/AboutMe";
 import { MomentsMarquee } from "@/components/MomentsMarquee";
 import { Footer } from "@/components/Footer";
 
@@ -17,6 +18,9 @@ export default function Home() {
       <main className="relative z-10">
         {/* Hero: The Identity Radar */}
         <Hero />
+
+        {/* Knowledge Graph Entity & About Me */}
+        <AboutMe />
 
         {/* The Founder's Ecosystem (Expedition) */}
         <ExpeditionEcosystem />

@@ -189,7 +189,7 @@ export const BentoGrid: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3">
               <a
-                href="https://www.instagram.com/arrow_gaming_2005"
+                href="https://www.instagram.com/arrowgaming2005/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between p-3 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl text-xs font-semibold text-slate-900 transition-all group"

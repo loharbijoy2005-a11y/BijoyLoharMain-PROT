@@ -45,7 +45,7 @@ export const Hero: React.FC = () => {
           <span className="text-borderSubtle">•</span>
           <span>Cloud Architect</span>
           <span className="text-borderSubtle">•</span>
-          <span>Free Fire Content Creator</span>
+          <span>Gaming & Digital Streamer</span>
           <span className="text-borderSubtle">•</span>
           <span>Bishnupur, India</span>
         </motion.div>
