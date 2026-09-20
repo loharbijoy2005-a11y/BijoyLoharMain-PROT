@@ -390,7 +390,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               </div>
               <div>
                 <h2 className="font-heading text-base font-bold text-deepInk">Fast Facts / Overview</h2>
-                <p className="text-xs font-mono text-slate-500">Verified Knowledge Graph Metadata</p>
+                <p className="text-xs font-medium text-slate-500">Personal Overview</p>
               </div>
             </div>
 
@@ -515,9 +515,9 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-center"
         >
           <div className="max-w-xl mx-auto space-y-1.5">
-            <h2 className="font-heading text-xl font-bold text-deepInk">Verified Official Channels & Social Networks</h2>
+            <h2 className="font-heading text-xl font-bold text-deepInk">Official Profiles & Channels</h2>
             <p className="text-xs sm:text-sm text-slate-500">
-              Verified links linked in Google Knowledge Graph structured data (`sameAs`).
+              Connect with me across official platforms and social channels.
             </p>
           </div>
 
