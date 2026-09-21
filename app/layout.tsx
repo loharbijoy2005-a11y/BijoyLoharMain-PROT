@@ -111,104 +111,227 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-// ─── Root Layout ─────────────────────────────────────────────────────────────
+// ─── TypeScript Interfaces for Schema Nodes ───────────────────────────────────
+// Typed strictly so the compiler catches any malformed node before build time.
+
+interface SchemaId {
+  "@id": string;
+}
+
+interface SchemaCountry {
+  "@type": "Country";
+  name: string;
+}
+
+interface SchemaPostalAddress {
+  "@type": "PostalAddress";
+  addressLocality: string;
+  addressRegion: string;
+  addressCountry: string;
+}
+
+interface SchemaOrganizationRef {
+  "@type": "Organization";
+  "@id": string;
+  name: string;
+  url: string;
+  sameAs: string[];
+}
+
+interface SchemaWebSiteNode {
+  "@type": "WebSite";
+  "@id": string;
+  url: string;
+  name: string;
+  publisher: SchemaId;
+}
+
+interface SchemaProfilePageNode {
+  "@type": "ProfilePage";
+  "@id": string;
+  url: string;
+  name: string;
+  inLanguage: string;
+  isPartOf: SchemaId;
+  mainEntity: SchemaId;
+  about: SchemaId;
+  datePublished: string;
+  dateModified: string;
+}
+
+interface SchemaPersonNode {
+  "@type": "Person";
+  "@id": string;
+  name: string;
+  givenName: string;
+  familyName: string;
+  gender: string;
+  birthDate: string;
+  jobTitle: string;
+  description: string;
+  url: string;
+  image: string[];
+  nationality: SchemaCountry;
+  homeLocation: SchemaPostalAddress;
+  worksFor: SchemaOrganizationRef;
+  knowsAbout: string[];
+  sameAs: string[];
+}
+
+interface SchemaOrganizationNode {
+  "@type": "Organization";
+  "@id": string;
+  name: string;
+  url: string;
+  founder: SchemaId;
+  sameAs: string[];
+}
+
+interface SchemaGraph {
+  "@context": "https://schema.org";
+  "@graph": [
+    SchemaWebSiteNode,
+    SchemaProfilePageNode,
+    SchemaPersonNode,
+    SchemaOrganizationNode,
+  ];
+}
+
+// ─── Root Layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // ── 1. Person Schema ────────────────────────────────────────────────────────
-  const personSchema = {
+  // ──────────────────────────────────────────────────────────────────────────
+  // Closed-Loop Knowledge Graph Schema
+  //
+  // Graph architecture (4 nodes, fully interlinked):
+  //   WebSite → ProfilePage → Person ↔ Organization
+  //
+  // SEO Design Decisions:
+  //   1. datePublished / dateModified use ISO-8601 with explicit +05:30 offset,
+  //      eliminating Google Search Console "Invalid datetime value" warnings.
+  //   2. `sameAs` contains only verified, live profile URLs.
+  //      Wikidata (unverified entry) and YouTube are intentionally excluded.
+  //   3. The schema is injected ONLY into <head> via <script type="application/ld+json">.
+  //      It is never rendered into visible DOM elements.
+  //   4. `homeLocation` uses PostalAddress (richer KP signal than Place).
+  //   5. `Person.worksFor` and `Organization.founder` form a closed bidirectional loop.
+  // ──────────────────────────────────────────────────────────────────────────
+  const jsonLdGraph: SchemaGraph = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${BASE_URL}/#person`,
-    "name": "Bijoy Lohar",
-    "alternateName": ["Arrow Gaming", "Lost Gaming"],
-    "birthDate": "2005-10-12",
-    "gender": "https://schema.org/Male",
-    "nationality": {
-      "@type": "Country",
-      "name": "India",
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Dapanjuri, Bishnupur",
-      "addressRegion": "West Bengal",
-      "addressCountry": "IN",
-    },
-    "url": `${BASE_URL}/`,
-    "image": OG_IMAGE,
-    "jobTitle": "Software Engineer & Founder",
-    "worksFor": {
-      "@type": "Corporation",
-      "@id": "https://www.shadowarrow.in/#organization",
-      "name": "Shadow Arrow",
-      "legalName": "Shadow Arrow",
-      "url": "https://www.crunchbase.com/organization/shadow-arrow",
-    },
-    "sameAs": [
-      "https://www.instagram.com/arrowgaming2005/",
-      "https://www.instagram.com/lost_gaming_2005",
-      "https://github.com/loharbijoy2005-a11y",
-      "https://www.facebook.com/share/1C6e2W4cQr/",
-      "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
-      "https://www.crunchbase.com/person/bijoy-lohar",
-      "https://www.shadowarrow.in",
-    ],
-  };
+    "@graph": [
 
-  // ── 2. WebSite Schema (enables Google Sitelinks Search Box) ────────────────
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${BASE_URL}/#website`,
-    "url": `${BASE_URL}/`,
-    "name": "Bijoy Lohar — Official Portfolio",
-    "description": DESCRIPTION,
-    "inLanguage": "en-IN",
-    "author": {
-      "@id": `${BASE_URL}/#person`,
-    },
-    "publisher": {
-      "@id": `${BASE_URL}/#person`,
-    },
-    "copyrightYear": 2024,
-    "copyrightHolder": {
-      "@id": `${BASE_URL}/#person`,
-    },
-  };
-
-  // ── 3. WebPage Schema (for the homepage) ───────────────────────────────────
-  const webPageSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "@id": `${BASE_URL}/#webpage`,
-    "url": `${BASE_URL}/`,
-    "name": TITLE,
-    "description": DESCRIPTION,
-    "inLanguage": "en-IN",
-    "isPartOf": {
-      "@id": `${BASE_URL}/#website`,
-    },
-    "about": {
-      "@id": `${BASE_URL}/#person`,
-    },
-    "mainEntity": {
-      "@id": `${BASE_URL}/#person`,
-    },
-    "datePublished": "2024-01-01",
-    "dateModified": new Date().toISOString().split("T")[0],
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": `${BASE_URL}/`,
+      // ── Node 1: WebSite ────────────────────────────────────────────────────
+      {
+        "@type": "WebSite",
+        "@id": "https://www.bijoylohar.in/#website",
+        "url": "https://www.bijoylohar.in/",
+        "name": "Bijoy Lohar",
+        "publisher": {
+          "@id": "https://www.bijoylohar.in/#person",
         },
-      ],
-    },
+      },
+
+      // ── Node 2: ProfilePage ───────────────────────────────────────────────
+      {
+        "@type": "ProfilePage",
+        "@id": "https://www.bijoylohar.in/#webpage",
+        "url": "https://www.bijoylohar.in/",
+        "name": "Bijoy Lohar | Official Profile",
+        "inLanguage": "en-IN",
+        "isPartOf": {
+          "@id": "https://www.bijoylohar.in/#website",
+        },
+        "mainEntity": {
+          "@id": "https://www.bijoylohar.in/#person",
+        },
+        "about": {
+          "@id": "https://www.bijoylohar.in/#person",
+        },
+        // Strict ISO-8601 with +05:30 timezone — passes W3C & Search Console validation
+        "datePublished": "2026-08-01T00:00:00+05:30",
+        "dateModified": "2026-09-21T15:00:00+05:30",
+      },
+
+      // ── Node 3: Person ────────────────────────────────────────────────────
+      {
+        "@type": "Person",
+        "@id": "https://www.bijoylohar.in/#person",
+        "name": "Bijoy Lohar",
+        "givenName": "Bijoy",
+        "familyName": "Lohar",
+        "alternateName": ["Arrow Gaming", "Lost Gaming"],
+        "gender": "https://schema.org/Male",
+        "birthDate": "2005-10-12",
+        "jobTitle": "Full-Stack Software Engineer, Creative Developer & Digital Creator",
+        "description": "Indian Full-Stack Software Engineer, Creative Developer, and Founder of Shadow Arrow. Also manages Arrow Gaming and Lost Gaming.",
+        "url": "https://www.bijoylohar.in/",
+        "image": [
+          "https://github.com/loharbijoy2005-a11y.png",
+          "https://www.bijoylohar.in/bijoy-lohar.jpg",
+        ],
+        "nationality": {
+          "@type": "Country",
+          "name": "India",
+        },
+        // PostalAddress gives stronger KP location signal than a plain Place node
+        "homeLocation": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bishnupur",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN",
+        },
+        // Bidirectional loop: Person.worksFor → Organization.@id
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://shadowarrow.in/#organization",
+          "name": "Shadow Arrow",
+          "url": "https://shadowarrow.in",
+          "sameAs": [
+            "https://www.crunchbase.com/organization/shadow-arrow",
+          ],
+        },
+        "knowsAbout": [
+          "Software Engineering",
+          "Full-Stack Web Development",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Cloud Architecture",
+          "API Systems",
+        ],
+        // Verified sameAs — canonical URLs only, no tracking tokens, no YouTube, no Wikidata
+        "sameAs": [
+          "https://www.crunchbase.com/person/bijoy-lohar",
+          "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+          "https://github.com/loharbijoy2005-a11y",
+          "https://github.com/ShadowArrow2005",
+          "https://www.instagram.com/arrowgaming2005",
+          "https://www.instagram.com/lost_gaming_2005",
+          "https://www.instagram.com/shadowarrow2005",
+          "https://www.facebook.com/bijoylohar2005",
+          "https://www.facebook.com/share/1C6e2W4cQr/",
+        ],
+      },
+
+      // ── Node 4: Organization ──────────────────────────────────────────────
+      {
+        "@type": "Organization",
+        "@id": "https://shadowarrow.in/#organization",
+        "name": "Shadow Arrow",
+        "url": "https://shadowarrow.in",
+        // Bidirectional loop: Organization.founder → Person.@id
+        "founder": {
+          "@id": "https://www.bijoylohar.in/#person",
+        },
+        "sameAs": [
+          "https://www.crunchbase.com/organization/shadow-arrow",
+        ],
+      },
+
+    ],
   };
 
   return (
@@ -222,22 +345,14 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* JSON-LD Structured Data — Person */}
+        {/*
+          Closed-Loop Knowledge Graph — 4 nodes: WebSite → ProfilePage → Person ↔ Organization
+          Injected strictly into <head> via JSON-LD.
+          Never rendered into visible DOM elements.
+        */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
-
-        {/* JSON-LD Structured Data — WebSite */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-
-        {/* JSON-LD Structured Data — WebPage / ProfilePage */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph, null, 0) }}
         />
       </head>
       <body className="antialiased bg-studioCanvas text-deepInk selection:bg-deepInk selection:text-white">

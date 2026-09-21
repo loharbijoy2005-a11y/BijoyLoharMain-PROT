@@ -14,39 +14,122 @@
   <meta property="og:type" content="profile">
   <meta property="og:image" content="https://www.bijoylohar.in/bijoy-lohar.jpg">
 
-  <!-- Google Knowledge Graph Person Schema (JSON-LD) -->
+  <!-- Multi-Entity JSON-LD Structured Data — Google Knowledge Panel & Search Console -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.bijoylohar.in/#person",
-    "name": "Bijoy Lohar",
-    "alternateName": ["Arrow Gaming", "Lost Gaming"],
-    "birthDate": "2005-10-12",
-    "gender": "https://schema.org/Male",
-    "nationality": {
-      "@type": "Country",
-      "name": "India"
-    },
-    "url": "https://www.bijoylohar.in",
-    "image": [
-      "https://github.com/loharbijoy2005-a11y.png",
-      "https://www.bijoylohar.in/bijoy-lohar.jpg"
-    ],
-    "jobTitle": "Founder & Software Engineer",
-    "worksFor": {
-      "@type": "Corporation",
-      "@id": "https://www.shadowarrow.in/#organization",
-      "name": "Shadow Arrow",
-      "legalName": "Shadow Arrow",
-      "url": "https://www.shadowarrow.in"
-    },
-    "sameAs": [
-      "https://www.wikidata.org/wiki/Q141500295",
-      "https://www.instagram.com/arrow_gaming_2005",
-      "https://www.instagram.com/lost_gaming_2005",
-      "https://www.facebook.com/share/1C6e2W4cQr/",
-      "https://github.com/loharbijoy2005-a11y"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.bijoylohar.in/#website",
+        "url": "https://www.bijoylohar.in/",
+        "name": "Bijoy Lohar - Official Portfolio",
+        "description": "Official portfolio of Bijoy Lohar — creative software engineer, cloud systems architect, and founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.",
+        "inLanguage": "en-IN",
+        "publisher": {
+          "@id": "https://www.bijoylohar.in/#person"
+        },
+        "copyrightHolder": {
+          "@id": "https://www.bijoylohar.in/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://www.bijoylohar.in/#webpage",
+        "url": "https://www.bijoylohar.in/",
+        "name": "Bijoy Lohar - Software Engineer & Founder of Shadow Arrow",
+        "dateCreated": "2026-09-01",
+        "dateModified": "2026-09-21T14:38:00+05:30",
+        "inLanguage": "en-IN",
+        "isPartOf": {
+          "@id": "https://www.bijoylohar.in/#website"
+        },
+        "mainEntity": {
+          "@id": "https://www.bijoylohar.in/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.bijoylohar.in/#person",
+        "name": "Bijoy Lohar",
+        "givenName": "Bijoy",
+        "familyName": "Lohar",
+        "alternateName": [
+          "Arrow Gaming",
+          "Lost Gaming"
+        ],
+        "gender": "https://schema.org/Male",
+        "birthDate": "2005-10-12",
+        "jobTitle": "Full-Stack Software Engineer, Creative Developer & Digital Creator",
+        "description": "Indian Full-Stack Software Engineer, Creative Developer, and Founder of Shadow Arrow. Also manages Arrow Gaming and Lost Gaming.",
+        "url": "https://www.bijoylohar.in/",
+        "image": [
+          "https://github.com/loharbijoy2005-a11y.png",
+          "https://www.bijoylohar.in/bijoy-lohar.jpg"
+        ],
+        "nationality": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "homeLocation": {
+          "@type": "Place",
+          "name": "Bishnupur, Bankura, West Bengal, India"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bishnupur",
+          "addressRegion": "West Bengal",
+          "addressCountry": "IN"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "@id": "https://shadowarrow.in/#organization",
+          "name": "Shadow Arrow",
+          "legalName": "Shadow Arrow",
+          "url": "https://shadowarrow.in",
+          "sameAs": [
+            "https://www.crunchbase.com/organization/shadow-arrow"
+          ]
+        },
+        "knowsAbout": [
+          "React",
+          "Next.js",
+          "TypeScript",
+          "Node.js",
+          "Serverless APIs",
+          "Full-Stack Web Engineering",
+          "Gaming Content Creation"
+        ],
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q141500295",
+          "https://www.crunchbase.com/person/bijoy-lohar",
+          "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+          "https://www.instagram.com/arrowgaming2005",
+          "https://www.instagram.com/arrow_gaming_2005",
+          "https://www.instagram.com/lost_gaming_2005",
+          "https://www.instagram.com/shadowarrow2005",
+          "https://www.facebook.com/bijoylohar2005",
+          "https://www.facebook.com/share/1C6e2W4cQr/",
+          "https://github.com/loharbijoy2005-a11y",
+          "https://github.com/ShadowArrow2005",
+          "https://www.youtube.com/@ArrowGaming2005",
+          "https://shadowarrow.in"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://shadowarrow.in/#organization",
+        "name": "Shadow Arrow",
+        "legalName": "Shadow Arrow",
+        "url": "https://shadowarrow.in",
+        "founder": {
+          "@id": "https://www.bijoylohar.in/#person"
+        },
+        "description": "Web Engineering and Digital SaaS studio founded by Bijoy Lohar.",
+        "sameAs": [
+          "https://www.crunchbase.com/organization/shadow-arrow"
+        ]
+      }
     ]
   }
   </script>
