@@ -10,6 +10,7 @@ import {
   Github,
   Instagram,
   Facebook,
+  Linkedin,
   Globe,
   ExternalLink,
   CheckCircle2,
@@ -21,11 +22,11 @@ import {
 
 export interface SocialLinks {
   github?: string;
+  linkedin?: string;
   instagramArrowGaming?: string;
   instagramLostGaming?: string;
   facebook?: string;
   shadowArrow?: string;
-  youtube?: string;
 }
 
 export interface AboutMeProps {
@@ -84,11 +85,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   imageUrl = "https://github.com/loharbijoy2005-a11y.png",
   socials = {
     github: "https://github.com/loharbijoy2005-a11y",
+    linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
     instagramArrowGaming: "https://www.instagram.com/arrowgaming2005/",
     instagramLostGaming: "https://www.instagram.com/lost_gaming_2005",
     facebook: "https://www.facebook.com/share/1C6e2W4cQr/",
     shadowArrow: "https://shadowarrow.in",
-    youtube: "https://www.youtube.com/@ArrowGaming2005",
   },
 }) => {
   const techStackPills = [
@@ -108,6 +109,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       icon: Github,
       glowColor: "hover:border-deepInk hover:bg-studioSubtle",
       badge: "Code Hub",
+    },
+    {
+      name: "LinkedIn",
+      handle: "bijoy-lohar",
+      url: socials.linkedin,
+      icon: Linkedin,
+      glowColor: "hover:border-blue-600 hover:bg-blue-50/50",
+      badge: "Professional Network",
     },
     {
       name: "Arrow Gaming",

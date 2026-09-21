@@ -165,6 +165,7 @@ interface SchemaPersonNode {
   name: string;
   givenName: string;
   familyName: string;
+  alternateName: string[];
   gender: string;
   birthDate: string;
   jobTitle: string;
