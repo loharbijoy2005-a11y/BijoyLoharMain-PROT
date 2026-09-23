@@ -85,13 +85,13 @@ export const metadata: Metadata = {
     gender: "male",
   },
 
-  // Twitter / X Card
+  // Twitter / X Card (Updated with Official Handle)
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
     images: [OG_IMAGE],
-    creator: "@arrowgaming2005",
+    creator: "@BijoyLohar2005",
   },
 
   // App / Icon config
@@ -101,19 +101,10 @@ export const metadata: Metadata = {
     apple: "/favicon.ico",
   },
 
-  // Verification (add your codes here when you get them from Google/Bing)
-  // verification: {
-  //   google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
-  //   other: { "msvalidate.01": "YOUR_BING_CODE" },
-  // },
-
-  // Category
   category: "technology",
 };
 
 // ─── TypeScript Interfaces for Schema Nodes ───────────────────────────────────
-// Typed strictly so the compiler catches any malformed node before build time.
-
 interface SchemaId {
   "@id": string;
 }
@@ -204,26 +195,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // ──────────────────────────────────────────────────────────────────────────
-  // Closed-Loop Knowledge Graph Schema
-  //
-  // Graph architecture (4 nodes, fully interlinked):
-  //   WebSite → ProfilePage → Person ↔ Organization
-  //
-  // SEO Design Decisions:
-  //   1. datePublished / dateModified use ISO-8601 with explicit +05:30 offset,
-  //      eliminating Google Search Console "Invalid datetime value" warnings.
-  //   2. `sameAs` contains only verified, live profile URLs.
-  //      Wikidata (unverified entry) and YouTube are intentionally excluded.
-  //   3. The schema is injected ONLY into <head> via <script type="application/ld+json">.
-  //      It is never rendered into visible DOM elements.
-  //   4. `homeLocation` uses PostalAddress (richer KP signal than Place).
-  //   5. `Person.worksFor` and `Organization.founder` form a closed bidirectional loop.
-  // ──────────────────────────────────────────────────────────────────────────
   const jsonLdGraph: SchemaGraph = {
     "@context": "https://schema.org",
     "@graph": [
-
       // ── Node 1: WebSite ────────────────────────────────────────────────────
       {
         "@type": "WebSite",
@@ -251,9 +225,8 @@ export default function RootLayout({
         "about": {
           "@id": "https://www.bijoylohar.in/#person",
         },
-        // Strict ISO-8601 with +05:30 timezone — passes W3C & Search Console validation
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-21T15:00:00+05:30",
+        "dateModified": "2026-09-23T05:46:00+05:30",
       },
 
       // ── Node 3: Person ────────────────────────────────────────────────────
@@ -277,14 +250,12 @@ export default function RootLayout({
           "@type": "Country",
           "name": "India",
         },
-        // PostalAddress gives stronger KP location signal than a plain Place node
         "homeLocation": {
           "@type": "PostalAddress",
           "addressLocality": "Bishnupur",
           "addressRegion": "West Bengal",
           "addressCountry": "IN",
         },
-        // Bidirectional loop: Person.worksFor → Organization.@id
         "worksFor": {
           "@type": "Organization",
           "@id": "https://shadowarrow.in/#organization",
@@ -303,12 +274,13 @@ export default function RootLayout({
           "Cloud Architecture",
           "API Systems",
         ],
-        // Verified sameAs — canonical URLs only, no tracking tokens, no YouTube, no Wikidata
+        // Verified sameAs — Canonical URLs
         "sameAs": [
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
           "https://github.com/loharbijoy2005-a11y",
           "https://github.com/ShadowArrow2005",
+          "https://x.com/BijoyLohar2005",
           "https://www.instagram.com/arrowgaming2005",
           "https://www.instagram.com/lost_gaming_2005",
           "https://www.instagram.com/shadowarrow2005",
@@ -323,7 +295,6 @@ export default function RootLayout({
         "@id": "https://shadowarrow.in/#organization",
         "name": "Shadow Arrow",
         "url": "https://shadowarrow.in",
-        // Bidirectional loop: Organization.founder → Person.@id
         "founder": {
           "@id": "https://www.bijoylohar.in/#person",
         },
@@ -331,14 +302,12 @@ export default function RootLayout({
           "https://www.crunchbase.com/organization/shadow-arrow",
         ],
       },
-
     ],
   };
 
   return (
     <html lang="en">
       <head>
-        {/* Preconnects for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -346,11 +315,6 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/*
-          Closed-Loop Knowledge Graph — 4 nodes: WebSite → ProfilePage → Person ↔ Organization
-          Injected strictly into <head> via JSON-LD.
-          Never rendered into visible DOM elements.
-        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph, null, 0) }}
