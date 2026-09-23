@@ -36,6 +36,7 @@ export interface SocialLinks {
   github?: string;
   linkedin?: string;
   x?: string;
+  instagramPersonal?: string;
   instagramArrowGaming?: string;
   instagramLostGaming?: string;
   facebook?: string;
@@ -100,6 +101,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     github: "https://github.com/loharbijoy2005-a11y",
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
     x: "https://x.com/BijoyLohar2005",
+    instagramPersonal: "https://www.instagram.com/bijoylohar_2005",
     instagramArrowGaming: "https://www.instagram.com/arrowgaming2005/",
     instagramLostGaming: "https://www.instagram.com/lost_gaming_2005",
     facebook: "https://www.facebook.com/share/1C6e2W4cQr/",
@@ -139,6 +141,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       icon: XIcon,
       glowColor: "hover:border-black hover:bg-studioSubtle",
       badge: "Official Handle",
+    },
+    {
+      name: "Instagram",
+      handle: "@bijoylohar_2005",
+      url: socials.instagramPersonal,
+      icon: Instagram,
+      glowColor: "hover:border-purple-500 hover:bg-purple-50/50",
+      badge: "Personal Profile",
     },
     {
       name: "Arrow Gaming",
