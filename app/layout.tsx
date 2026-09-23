@@ -4,9 +4,9 @@ import "./globals.css";
 // ─── Site-Wide Constants ──────────────────────────────────────────────────────
 const BASE_URL = "https://www.bijoylohar.in";
 const OG_IMAGE = "https://github.com/loharbijoy2005-a11y.png";
-const TITLE = "Bijoy Lohar | Software Engineer & Founder of Shadow Arrow";
+const TITLE = "Bijoy Lohar | Full-Stack Software Engineer & Founder";
 const DESCRIPTION =
-  "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer, recognized Google Developer Program (Premium Tier) member, and founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
+  "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
 
 // ─── Next.js Metadata Export ─────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -27,10 +27,7 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "React Developer",
     "Web Developer India",
-    "Google Developer Program",
-    "GDG Member",
     "Bishnupur West Bengal",
-    "Indian Software Engineer",
     "Founder Shadow Arrow",
     "Portfolio Bijoy Lohar",
   ],
@@ -69,7 +66,7 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 800,
         height: 800,
-        alt: "Bijoy Lohar — Software Engineer & Founder of Shadow Arrow",
+        alt: "Bijoy Lohar — Full-Stack Software Engineer",
         type: "image/png",
       },
     ],
@@ -215,7 +212,7 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-23T07:12:00+05:30",
+        "dateModified": "2026-09-23T07:30:00+05:30",
       },
       {
         "@type": "Person",
@@ -226,8 +223,8 @@ export default function RootLayout({
         "alternateName": ["Arrow Gaming", "Lost Gaming"],
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
-        "jobTitle": "Full-Stack Software Engineer, Creative Developer & Founder",
-        "description": "Indian Full-Stack Software Engineer, recognized Google Developer Program member, and Founder of Shadow Arrow.",
+        "jobTitle": "Full-Stack Software Engineer & Founder",
+        "description": "Indian Full-Stack Software Engineer, Founder of Shadow Arrow, specializing in scalable web systems and cloud infrastructure.",
         "url": "https://www.bijoylohar.in/",
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -256,11 +253,24 @@ export default function RootLayout({
           "Software Engineering",
           "Full-Stack Web Development",
           "TypeScript",
+          "JavaScript",
+          "Python",
+          "Java",
+          "C++",
+          "Go (Golang)",
           "React",
           "Next.js",
+          "Node.js",
+          "Express.js",
+          "MongoDB Atlas",
+          "Supabase",
           "Cloud Architecture",
+          "Cloudflare",
+          "Blender 3D",
+          "DaVinci Resolve",
           "API Systems",
         ],
+        // All canonical identities - Googlebot uses these to auto-verify your entity
         "sameAs": [
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
