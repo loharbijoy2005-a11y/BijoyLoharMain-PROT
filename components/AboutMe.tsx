@@ -18,6 +18,10 @@ import {
   ArrowRight,
   Server,
   Layers,
+  Cpu,
+  Video,
+  Box,
+  Award,
 } from "lucide-react";
 
 // Official Sharp Vector Icon for X (Twitter)
@@ -32,12 +36,30 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
+// Google Developers Color Vector Icon
+const GoogleDevIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
+    <path
+      d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"
+      fill="#4285F4"
+    />
+    <path
+      d="M8.5 13.5l2.5 2.5 5-5"
+      stroke="#fff"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export interface SocialLinks {
   github?: string;
   linkedin?: string;
   x?: string;
   instagramPersonal?: string;
   facebook?: string;
+  googleDevelopers?: string;
   shadowArrow?: string;
 }
 
@@ -98,6 +120,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   socials = {
     github: "https://github.com/loharbijoy2005-a11y",
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+    googleDevelopers: "https://developers.google.com/profile/u/101253410801307724262",
     x: "https://x.com/BijoyLohar2005",
     instagramPersonal: "https://www.instagram.com/bijoylohar_2005",
     facebook: "https://www.facebook.com/Bijoylohar.2005",
@@ -105,12 +128,22 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   },
 }) => {
   const techStackPills = [
-    { name: "React", icon: Code2 },
-    { name: "Next.js", icon: Layers },
     { name: "TypeScript", icon: Code2 },
+    { name: "JavaScript", icon: Code2 },
+    { name: "Python", icon: Code2 },
+    { name: "Java", icon: Cpu },
+    { name: "C++", icon: Cpu },
+    { name: "Go (Golang)", icon: Code2 },
+    { name: "Next.js", icon: Layers },
+    { name: "React", icon: Layers },
     { name: "Node.js", icon: Server },
+    { name: "Express.js", icon: Server },
+    { name: "MongoDB", icon: Server },
+    { name: "Supabase", icon: Server },
     { name: "Cloudflare", icon: Cloud },
-    { name: "Serverless APIs", icon: Zap },
+    { name: "Blender 3D", icon: Box },
+    { name: "DaVinci Resolve", icon: Video },
+    { name: "Git & CI/CD", icon: Github },
   ];
 
   const socialButtons = [
@@ -131,6 +164,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       badge: "Professional Network",
     },
     {
+      name: "Google Developer",
+      handle: "Premium Tier & GDG",
+      url: socials.googleDevelopers,
+      icon: GoogleDevIcon,
+      glowColor: "hover:border-blue-500 hover:bg-blue-50/50",
+      badge: "Google Certified",
+    },
+    {
       name: "X (Twitter)",
       handle: "@BijoyLohar2005",
       url: socials.x,
@@ -144,7 +185,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       url: socials.instagramPersonal,
       icon: Instagram,
       glowColor: "hover:border-purple-500 hover:bg-purple-50/50",
-      badge: "Official Profile",
+      badge: "Personal Profile",
     },
     {
       name: "Facebook",
@@ -169,7 +210,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       id="about-me"
       className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-studioCanvas text-deepInk overflow-hidden"
     >
-      {/* Warm Ambient Background Mesh Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           animate={{
@@ -204,7 +244,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
 
       <div className="relative max-w-[1040px] mx-auto space-y-12 z-10">
 
-        {/* Section Header Label */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -216,11 +255,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             01 / ABOUT & BIOGRAPHY
           </span>
           <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
-            Software Engineer, Founder & Digital Creator
+            Software Engineer, Founder & Creative Technologist
           </h2>
         </motion.div>
 
-        {/* 1. Hero & Intro Card */}
+        {/* 1. Hero Card */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -228,7 +267,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-sm"
         >
-          {/* Avatar / Profile Photo */}
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col items-center text-center">
             <motion.div
               animate={{ y: [0, -10, 0] }}
@@ -268,7 +306,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             </motion.div>
           </motion.div>
 
-          {/* Title, Headline & Tech Pills */}
           <div className="lg:col-span-8 space-y-5 text-center lg:text-left">
             <motion.div variants={itemVariants} className="space-y-1">
               <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-deepInk tracking-tight leading-tight">
@@ -288,17 +325,21 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                 <Briefcase className="w-3.5 h-3.5 text-amberAccent" />
                 Founder of {ventureName} (Web Engineering & SaaS Studio)
               </span>
+              <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 rounded-xl">
+                <Award className="w-3.5 h-3.5 text-blue-600" />
+                Google Developer Program (Premium Tier)
+              </span>
             </motion.div>
 
             <motion.p variants={itemVariants} className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              As a passionate <strong className="text-deepInk">Full-Stack Software Engineer, Creative Developer & Digital Creator</strong>, 
-              I architect high-performance web systems and digital products. I am the founder of <strong className="text-deepInk">{ventureName}</strong>, 
-              a Web Engineering & SaaS studio.
+              As a passionate <strong className="text-deepInk">Full-Stack Software Engineer, Creative Developer & Founder</strong>, 
+              I engineer scalable web architectures, automation pipelines, and robust digital systems. I am the founder of <strong className="text-deepInk">{ventureName}</strong>, 
+              delivering custom SaaS solutions and high-performance cloud applications.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="space-y-2 pt-1">
+            <motion.div variants={itemVariants} className="space-y-2.5 pt-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase block tracking-wider">
-                Tech Stack & Core Competencies:
+                Full Technical Competencies & Toolchain:
               </span>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 {techStackPills.map((pill) => {
@@ -307,8 +348,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                     <motion.span
                       key={pill.name}
                       variants={badgeVariants}
-                      whileHover={{ scale: 1.06, y: -2 }}
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-studioSubtle border border-borderWarm text-xs font-medium text-slate-700 shadow-sm cursor-default"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-studioSubtle border border-borderWarm text-xs font-medium text-slate-700 shadow-sm cursor-default"
                     >
                       <IconComp className="w-3.5 h-3.5 text-amberAccent" />
                       {pill.name}
@@ -344,7 +385,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </motion.div>
 
-        {/* 2. Full-Width Clean Biography Card */}
+        {/* 2. Biography Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -354,26 +395,25 @@ export const AboutMe: React.FC<AboutMeProps> = ({
         >
           <div className="space-y-4">
             <h3 className="font-heading text-2xl font-extrabold text-deepInk flex items-center gap-2.5">
-              <span>Biography & Media Presence</span>
+              <span>Biography & Engineering Background</span>
               <span className="w-2.5 h-2.5 rounded-full bg-amberAccent inline-block animate-ping" />
             </h3>
 
             <div className="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
                 Based in <strong className="text-deepInk font-semibold">Bishnupur, West Bengal, India</strong>, 
-                Bijoy Lohar specializes in engineering production-grade web applications, serverless API infrastructures, 
-                and low-latency cloud systems.
+                Bijoy Lohar is a Full-Stack Software Engineer recognized under the <strong className="text-deepInk font-semibold">Google Developer Program (Premium Tier)</strong> and active in the <strong className="text-deepInk font-semibold">Google Developer Groups (GDG)</strong> community.
               </p>
 
               <p>
                 As the founder of <strong className="text-amberAccent font-semibold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-deepInk font-bold">shadowarrow.in</a>), 
-                a Web Engineering & SaaS studio, Bijoy drives end-to-end cloud and web product development.
+                Bijoy leads technical architecture and product development, specializing in scalable web systems, serverless cloud APIs, and performant digital solutions.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* 3. Official Media & Profile Cards */}
+        {/* 3. Media & Profiles */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -384,7 +424,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           <div className="max-w-xl mx-auto space-y-1.5">
             <h3 className="font-heading text-xl font-bold text-deepInk">Official Media & Profiles</h3>
             <p className="text-xs sm:text-sm text-slate-500">
-              Connect across official web platforms and verified developer channels.
+              Verified developer handles, certified badges, and official studio links.
             </p>
           </div>
 
