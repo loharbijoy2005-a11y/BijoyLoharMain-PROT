@@ -20,9 +20,22 @@ import {
   Layers,
 } from "lucide-react";
 
+// Official Sharp Vector Icon for X (Twitter)
+const XIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 export interface SocialLinks {
   github?: string;
   linkedin?: string;
+  x?: string;
   instagramArrowGaming?: string;
   instagramLostGaming?: string;
   facebook?: string;
@@ -86,6 +99,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   socials = {
     github: "https://github.com/loharbijoy2005-a11y",
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+    x: "https://x.com/BijoyLohar2005",
     instagramArrowGaming: "https://www.instagram.com/arrowgaming2005/",
     instagramLostGaming: "https://www.instagram.com/lost_gaming_2005",
     facebook: "https://www.facebook.com/share/1C6e2W4cQr/",
@@ -117,6 +131,14 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       icon: Linkedin,
       glowColor: "hover:border-blue-600 hover:bg-blue-50/50",
       badge: "Professional Network",
+    },
+    {
+      name: "X (Twitter)",
+      handle: "@BijoyLohar2005",
+      url: socials.x,
+      icon: XIcon,
+      glowColor: "hover:border-black hover:bg-studioSubtle",
+      badge: "Official Handle",
     },
     {
       name: "Arrow Gaming",
@@ -191,7 +213,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       </div>
 
       <div className="relative max-w-[1040px] mx-auto space-y-12 z-10">
-        
+
         {/* Section Header Label */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -227,7 +249,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               }}
               className="relative group w-44 h-44 sm:w-52 sm:h-52 rounded-2xl p-1"
             >
-              {/* Rotating Warm Border */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
@@ -246,7 +267,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                 />
               </div>
 
-              {/* Verified Badge Icon */}
               <div className="absolute bottom-2 right-2 bg-studioCard text-amberAccent p-1.5 rounded-full border border-borderWarm shadow-md" title="Verified Entity">
                 <CheckCircle2 className="w-5 h-5 text-amberAccent" />
               </div>
@@ -286,7 +306,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               a Web Engineering & SaaS studio, and manage creator handles <strong className="text-deepInk">Arrow Gaming</strong> & <strong className="text-deepInk">Lost Gaming</strong>.
             </motion.p>
 
-            {/* Clean Tech Stack Pills */}
             <motion.div variants={itemVariants} className="space-y-2 pt-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase block tracking-wider">
                 Tech Stack & Core Competencies:
@@ -309,7 +328,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               </div>
             </motion.div>
 
-            {/* Interactive CTA Buttons */}
             <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-3 pt-3">
               <motion.a
                 whileHover={{ scale: 1.05 }}
