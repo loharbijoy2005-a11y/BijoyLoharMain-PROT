@@ -30,7 +30,6 @@ export const metadata: Metadata = {
     "Web Developer India",
     "Arrow Gaming",
     "Lost Gaming",
-    "Gaming Streamer India",
     "Bishnupur West Bengal",
     "Indian Software Engineer",
     "Founder Shadow Arrow",
@@ -62,7 +61,7 @@ export const metadata: Metadata = {
     },
   },
 
-  // Open Graph (Facebook, LinkedIn, WhatsApp previews)
+  // Open Graph
   openGraph: {
     type: "profile",
     url: `${BASE_URL}/`,
@@ -81,7 +80,7 @@ export const metadata: Metadata = {
     ],
     firstName: "Bijoy",
     lastName: "Lohar",
-    username: "arrowgaming2005",
+    username: "Bijoylohar.2005",
     gender: "male",
   },
 
@@ -226,7 +225,7 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-23T06:23:00+05:30",
+        "dateModified": "2026-09-23T06:36:00+05:30",
       },
 
       // ── Node 3: Person ────────────────────────────────────────────────────
@@ -240,7 +239,7 @@ export default function RootLayout({
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
         "jobTitle": "Full-Stack Software Engineer, Creative Developer & Digital Creator",
-        "description": "Indian Full-Stack Software Engineer, Creative Developer, and Founder of Shadow Arrow. Also manages Arrow Gaming and Lost Gaming.",
+        "description": "Indian Full-Stack Software Engineer, Creative Developer, and Founder of Shadow Arrow.",
         "url": "https://www.bijoylohar.in/",
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -274,19 +273,14 @@ export default function RootLayout({
           "Cloud Architecture",
           "API Systems",
         ],
-        // Verified sameAs — Canonical URLs
+        // Verified Canonical URLs - Only Personal Profiles
         "sameAs": [
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
           "https://github.com/loharbijoy2005-a11y",
-          "https://github.com/ShadowArrow2005",
           "https://x.com/BijoyLohar2005",
           "https://www.instagram.com/bijoylohar_2005",
-          "https://www.instagram.com/arrowgaming2005",
-          "https://www.instagram.com/lost_gaming_2005",
-          "https://www.instagram.com/shadowarrow2005",
-         
-          "https://www.facebook.com/share/1C6e2W4cQr/",
+          "https://www.facebook.com/Bijoylohar.2005",
         ],
       },
 
