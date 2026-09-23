@@ -6,7 +6,7 @@ const BASE_URL = "https://www.bijoylohar.in";
 const OG_IMAGE = "https://github.com/loharbijoy2005-a11y.png";
 const TITLE = "Bijoy Lohar | Software Engineer & Founder of Shadow Arrow";
 const DESCRIPTION =
-  "Official portfolio of Bijoy Lohar — creative software engineer, cloud systems architect, and founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
+  "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer, recognized Google Developer Program (Premium Tier) member, and founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
 
 // ─── Next.js Metadata Export ─────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   },
   description: DESCRIPTION,
 
-  // Keywords for Google crawlers
   keywords: [
     "Bijoy Lohar",
     "Shadow Arrow",
@@ -28,25 +27,22 @@ export const metadata: Metadata = {
     "Next.js Developer",
     "React Developer",
     "Web Developer India",
-    "Arrow Gaming",
-    "Lost Gaming",
+    "Google Developer Program",
+    "GDG Member",
     "Bishnupur West Bengal",
     "Indian Software Engineer",
     "Founder Shadow Arrow",
     "Portfolio Bijoy Lohar",
   ],
 
-  // Author
   authors: [{ name: "Bijoy Lohar", url: BASE_URL }],
   creator: "Bijoy Lohar",
   publisher: "Bijoy Lohar",
 
-  // Canonical
   alternates: {
     canonical: `${BASE_URL}/`,
   },
 
-  // Robots directive
   robots: {
     index: true,
     follow: true,
@@ -61,7 +57,6 @@ export const metadata: Metadata = {
     },
   },
 
-  // Open Graph
   openGraph: {
     type: "profile",
     url: `${BASE_URL}/`,
@@ -84,7 +79,6 @@ export const metadata: Metadata = {
     gender: "male",
   },
 
-  // Twitter / X Card
   twitter: {
     card: "summary_large_image",
     title: TITLE,
@@ -93,7 +87,6 @@ export const metadata: Metadata = {
     creator: "@BijoyLohar2005",
   },
 
-  // App / Icon config
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -103,7 +96,7 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-// ─── TypeScript Interfaces for Schema Nodes ───────────────────────────────────
+// ─── TypeScript Interfaces ────────────────────────────────────────────────────
 interface SchemaId {
   "@id": string;
 }
@@ -197,7 +190,6 @@ export default function RootLayout({
   const jsonLdGraph: SchemaGraph = {
     "@context": "https://schema.org",
     "@graph": [
-      // ── Node 1: WebSite ────────────────────────────────────────────────────
       {
         "@type": "WebSite",
         "@id": "https://www.bijoylohar.in/#website",
@@ -207,8 +199,6 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
       },
-
-      // ── Node 2: ProfilePage ───────────────────────────────────────────────
       {
         "@type": "ProfilePage",
         "@id": "https://www.bijoylohar.in/#webpage",
@@ -225,10 +215,8 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-23T06:36:00+05:30",
+        "dateModified": "2026-09-23T07:12:00+05:30",
       },
-
-      // ── Node 3: Person ────────────────────────────────────────────────────
       {
         "@type": "Person",
         "@id": "https://www.bijoylohar.in/#person",
@@ -238,8 +226,8 @@ export default function RootLayout({
         "alternateName": ["Arrow Gaming", "Lost Gaming"],
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
-        "jobTitle": "Full-Stack Software Engineer, Creative Developer & Digital Creator",
-        "description": "Indian Full-Stack Software Engineer, Creative Developer, and Founder of Shadow Arrow.",
+        "jobTitle": "Full-Stack Software Engineer, Creative Developer & Founder",
+        "description": "Indian Full-Stack Software Engineer, recognized Google Developer Program member, and Founder of Shadow Arrow.",
         "url": "https://www.bijoylohar.in/",
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -273,7 +261,6 @@ export default function RootLayout({
           "Cloud Architecture",
           "API Systems",
         ],
-        // Verified Canonical URLs - Only Personal Profiles
         "sameAs": [
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
@@ -281,10 +268,9 @@ export default function RootLayout({
           "https://x.com/BijoyLohar2005",
           "https://www.instagram.com/bijoylohar_2005",
           "https://www.facebook.com/Bijoylohar.2005",
+          "https://developers.google.com/profile/u/101253410801307724262",
         ],
       },
-
-      // ── Node 4: Organization ──────────────────────────────────────────────
       {
         "@type": "Organization",
         "@id": "https://shadowarrow.in/#organization",
