@@ -104,7 +104,7 @@ export const StudioFrame: React.FC = () => {
           <div className="absolute top-3 right-3 z-10">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900/80 backdrop-blur-md border border-white/15 text-white text-[11px] font-semibold rounded-full shadow-lg">
               <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
-              <span>Founder @ Shadow Arrow</span>
+              <span>Founder  Shadow Arrow</span>
             </span>
           </div>
 
