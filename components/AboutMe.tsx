@@ -37,8 +37,6 @@ export interface SocialLinks {
   linkedin?: string;
   x?: string;
   instagramPersonal?: string;
-  instagramArrowGaming?: string;
-  instagramLostGaming?: string;
   facebook?: string;
   shadowArrow?: string;
 }
@@ -102,9 +100,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
     x: "https://x.com/BijoyLohar2005",
     instagramPersonal: "https://www.instagram.com/bijoylohar_2005",
-    instagramArrowGaming: "https://www.instagram.com/arrowgaming2005/",
-    instagramLostGaming: "https://www.instagram.com/lost_gaming_2005",
-    facebook: "https://www.facebook.com/share/1C6e2W4cQr/",
+    facebook: "https://www.facebook.com/Bijoylohar.2005",
     shadowArrow: "https://shadowarrow.in",
   },
 }) => {
@@ -148,27 +144,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       url: socials.instagramPersonal,
       icon: Instagram,
       glowColor: "hover:border-purple-500 hover:bg-purple-50/50",
-      badge: "Personal Profile",
-    },
-    {
-      name: "Arrow Gaming",
-      handle: "@arrowgaming2005",
-      url: socials.instagramArrowGaming,
-      icon: Instagram,
-      glowColor: "hover:border-pink-500 hover:bg-pink-50/50",
-      badge: "Creator Channel",
-    },
-    {
-      name: "Lost Gaming",
-      handle: "@lost_gaming_2005",
-      url: socials.instagramLostGaming,
-      icon: Instagram,
-      glowColor: "hover:border-rose-500 hover:bg-rose-50/50",
-      badge: "Gaming Media",
+      badge: "Official Profile",
     },
     {
       name: "Facebook",
-      handle: "Bijoy Lohar",
+      handle: "Bijoylohar.2005",
       url: socials.facebook,
       icon: Facebook,
       glowColor: "hover:border-blue-500 hover:bg-blue-50/50",
@@ -313,7 +293,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             <motion.p variants={itemVariants} className="text-slate-600 text-sm sm:text-base leading-relaxed">
               As a passionate <strong className="text-deepInk">Full-Stack Software Engineer, Creative Developer & Digital Creator</strong>, 
               I architect high-performance web systems and digital products. I am the founder of <strong className="text-deepInk">{ventureName}</strong>, 
-              a Web Engineering & SaaS studio, and manage creator handles <strong className="text-deepInk">Arrow Gaming</strong> & <strong className="text-deepInk">Lost Gaming</strong>.
+              a Web Engineering & SaaS studio.
             </motion.p>
 
             <motion.div variants={itemVariants} className="space-y-2 pt-1">
@@ -389,28 +369,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                 As the founder of <strong className="text-amberAccent font-semibold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-deepInk font-bold">shadowarrow.in</a>), 
                 a Web Engineering & SaaS studio, Bijoy drives end-to-end cloud and web product development.
               </p>
-
-              <p>
-                Alongside engineering, Bijoy manages digital creator handles including{" "}
-                <a
-                  href="https://www.instagram.com/arrowgaming2005/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-deepInk underline decoration-amberAccent underline-offset-2 hover:text-amberAccent transition-colors"
-                >
-                  Arrow Gaming (@arrowgaming2005)
-                </a>{" "}
-                and{" "}
-                <a
-                  href="https://www.instagram.com/lost_gaming_2005"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-deepInk underline decoration-amberAccent underline-offset-2 hover:text-amberAccent transition-colors"
-                >
-                  Lost Gaming (@lost_gaming_2005)
-                </a>
-                , broadcasting gaming streams and tech content.
-              </p>
             </div>
           </div>
         </motion.div>
@@ -426,7 +384,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           <div className="max-w-xl mx-auto space-y-1.5">
             <h3 className="font-heading text-xl font-bold text-deepInk">Official Media & Profiles</h3>
             <p className="text-xs sm:text-sm text-slate-500">
-              Connect across official web platforms, gaming handles, and developer channels.
+              Connect across official web platforms and verified developer channels.
             </p>
           </div>
 
