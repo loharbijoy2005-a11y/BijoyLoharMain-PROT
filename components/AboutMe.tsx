@@ -21,7 +21,6 @@ import {
   Cpu,
   Video,
   Box,
-  Award,
 } from "lucide-react";
 
 // Official Sharp Vector Icon for X (Twitter)
@@ -36,7 +35,7 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
   </svg>
 );
 
-// Google Developers Color Vector Icon
+// Google Developers Vector Icon
 const GoogleDevIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg viewBox="0 0 24 24" className={className} fill="none" aria-hidden="true">
     <path
@@ -112,7 +111,7 @@ const badgeVariants: Variants = {
 
 export const AboutMe: React.FC<AboutMeProps> = ({
   name = "Bijoy Lohar",
-  jobTitle = "Full-Stack Software Engineer, Creative Developer & Digital Creator",
+  jobTitle = "Full-Stack Software Engineer & Founder",
   ventureName = "Shadow Arrow",
   location = "Bishnupur, West Bengal, India",
   siteUrl = "https://www.bijoylohar.in",
@@ -165,11 +164,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     },
     {
       name: "Google Developer",
-      handle: "Premium Tier & GDG",
+      handle: "bijoylohar",
       url: socials.googleDevelopers,
       icon: GoogleDevIcon,
       glowColor: "hover:border-blue-500 hover:bg-blue-50/50",
-      badge: "Google Certified",
+      badge: "Public Profile",
     },
     {
       name: "X (Twitter)",
@@ -255,7 +254,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             01 / ABOUT & BIOGRAPHY
           </span>
           <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
-            Software Engineer, Founder & Creative Technologist
+            Software Engineer & Tech Founder
           </h2>
         </motion.div>
 
@@ -295,7 +294,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                 />
               </div>
 
-              <div className="absolute bottom-2 right-2 bg-studioCard text-amberAccent p-1.5 rounded-full border border-borderWarm shadow-md" title="Verified Entity">
+              <div className="absolute bottom-2 right-2 bg-studioCard text-amberAccent p-1.5 rounded-full border border-borderWarm shadow-md" title="Verified Developer">
                 <CheckCircle2 className="w-5 h-5 text-amberAccent" />
               </div>
             </motion.div>
@@ -323,23 +322,19 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               </span>
               <span className="inline-flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1.5 rounded-xl">
                 <Briefcase className="w-3.5 h-3.5 text-amberAccent" />
-                Founder of {ventureName} (Web Engineering & SaaS Studio)
-              </span>
-              <span className="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1.5 rounded-xl">
-                <Award className="w-3.5 h-3.5 text-blue-600" />
-                Google Developer Program (Premium Tier)
+                Founder of {ventureName}
               </span>
             </motion.div>
 
             <motion.p variants={itemVariants} className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              As a passionate <strong className="text-deepInk">Full-Stack Software Engineer, Creative Developer & Founder</strong>, 
-              I engineer scalable web architectures, automation pipelines, and robust digital systems. I am the founder of <strong className="text-deepInk">{ventureName}</strong>, 
-              delivering custom SaaS solutions and high-performance cloud applications.
+              As a <strong className="text-deepInk">Full-Stack Software Engineer</strong>, 
+              I specialize in architecting scalable web applications, performant serverless backends, and reliable cloud infrastructures. 
+              Through <strong className="text-deepInk">{ventureName}</strong>, I engineer and deploy production-grade software solutions.
             </motion.p>
 
             <motion.div variants={itemVariants} className="space-y-2.5 pt-1">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase block tracking-wider">
-                Full Technical Competencies & Toolchain:
+                Technical Stack & Competencies:
               </span>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 {techStackPills.map((pill) => {
@@ -385,7 +380,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </motion.div>
 
-        {/* 2. Biography Card */}
+        {/* 2. Biography Card - 100% Solid & Bulletproof */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -395,25 +390,25 @@ export const AboutMe: React.FC<AboutMeProps> = ({
         >
           <div className="space-y-4">
             <h3 className="font-heading text-2xl font-extrabold text-deepInk flex items-center gap-2.5">
-              <span>Biography & Engineering Background</span>
+              <span>Biography & Background</span>
               <span className="w-2.5 h-2.5 rounded-full bg-amberAccent inline-block animate-ping" />
             </h3>
 
             <div className="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               <p>
                 Based in <strong className="text-deepInk font-semibold">Bishnupur, West Bengal, India</strong>, 
-                Bijoy Lohar is a Full-Stack Software Engineer recognized under the <strong className="text-deepInk font-semibold">Google Developer Program (Premium Tier)</strong> and active in the <strong className="text-deepInk font-semibold">Google Developer Groups (GDG)</strong> community.
+                Bijoy Lohar is a Full-Stack Software Engineer focused on developing high-performance web systems, modern user interfaces, and automated backend architectures.
               </p>
 
               <p>
                 As the founder of <strong className="text-amberAccent font-semibold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-deepInk font-bold">shadowarrow.in</a>), 
-                Bijoy leads technical architecture and product development, specializing in scalable web systems, serverless cloud APIs, and performant digital solutions.
+                Bijoy leads technical development, converting complex system requirements into scalable web applications and resilient digital infrastructures.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* 3. Media & Profiles */}
+        {/* 3. Media & Verified Profiles */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -422,9 +417,9 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-center"
         >
           <div className="max-w-xl mx-auto space-y-1.5">
-            <h3 className="font-heading text-xl font-bold text-deepInk">Official Media & Profiles</h3>
+            <h3 className="font-heading text-xl font-bold text-deepInk">Verified Profiles & Channels</h3>
             <p className="text-xs sm:text-sm text-slate-500">
-              Verified developer handles, certified badges, and official studio links.
+              Direct links to official code repositories, developer profiles, and web entities.
             </p>
           </div>
 
