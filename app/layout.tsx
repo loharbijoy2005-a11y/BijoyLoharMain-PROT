@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     gender: "male",
   },
 
-  // Twitter / X Card (Updated with Official Handle)
+  // Twitter / X Card
   twitter: {
     card: "summary_large_image",
     title: TITLE,
@@ -226,7 +226,7 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-23T05:46:00+05:30",
+        "dateModified": "2026-09-23T06:23:00+05:30",
       },
 
       // ── Node 3: Person ────────────────────────────────────────────────────
@@ -281,10 +281,11 @@ export default function RootLayout({
           "https://github.com/loharbijoy2005-a11y",
           "https://github.com/ShadowArrow2005",
           "https://x.com/BijoyLohar2005",
+          "https://www.instagram.com/bijoylohar_2005",
           "https://www.instagram.com/arrowgaming2005",
           "https://www.instagram.com/lost_gaming_2005",
           "https://www.instagram.com/shadowarrow2005",
-          "https://www.facebook.com/bijoylohar2005",
+         
           "https://www.facebook.com/share/1C6e2W4cQr/",
         ],
       },
