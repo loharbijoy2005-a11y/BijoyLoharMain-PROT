@@ -85,9 +85,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
+    shortcut: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
+    apple: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
   },
 
   category: "technology",
@@ -108,6 +108,11 @@ interface SchemaPostalAddress {
   addressLocality: string;
   addressRegion: string;
   addressCountry: string;
+}
+
+interface SchemaPersonRef {
+  "@type": "Person";
+  name: string;
 }
 
 interface SchemaOrganizationRef {
@@ -154,6 +159,8 @@ interface SchemaPersonNode {
   image: string[];
   nationality: SchemaCountry;
   homeLocation: SchemaPostalAddress;
+  parent?: SchemaPersonRef[];
+  sibling?: SchemaPersonRef[];
   worksFor: SchemaOrganizationRef;
   knowsAbout: string[];
   sameAs: string[];
@@ -212,7 +219,7 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-23T07:30:00+05:30",
+        "dateModified": "2026-09-25T21:30:00+05:30",
       },
       {
         "@type": "Person",
@@ -240,6 +247,22 @@ export default function RootLayout({
           "addressRegion": "West Bengal",
           "addressCountry": "IN",
         },
+        "parent": [
+          {
+            "@type": "Person",
+            "name": "Binod Lohar",
+          },
+          {
+            "@type": "Person",
+            "name": "Soma Lohar",
+          },
+        ],
+        "sibling": [
+          {
+            "@type": "Person",
+            "name": "Dipti Lohar",
+          },
+        ],
         "worksFor": {
           "@type": "Organization",
           "@id": "https://shadowarrow.in/#organization",
@@ -272,12 +295,22 @@ export default function RootLayout({
         ],
         // All canonical identities - Googlebot uses these to auto-verify your entity
         "sameAs": [
+          "https://orcid.org/0009-0004-5643-7612",
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
           "https://github.com/loharbijoy2005-a11y",
           "https://x.com/BijoyLohar2005",
           "https://www.instagram.com/bijoylohar_2005",
           "https://www.facebook.com/Bijoylohar.2005",
+          "https://linktr.ee/Bijoylohar",
+          "https://youtube.com/@bijoylohar2005",
+          "https://about.me/bijoylohar",
+          "https://www.pinterest.com/loharbijoy2005",
+          "https://www.threads.net/@bijoylohar_2005",
+          "https://gitlab.com/loharbijoy2005-a11y",
+          "https://medium.com/@Bijoylohar",
+          "https://www.imdb.com/name/nm18949942/",
+          "https://www.quora.com/profile/Bijoy-Lohar-13?ch=2&oid=3235105824&srid=5G7h2p&target_type=user",
           "https://developers.google.com/profile/u/101253410801307724262",
         ],
       },
@@ -299,6 +332,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" type="image/png" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
+        <link rel="shortcut icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
+        <link rel="apple-touch-icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
