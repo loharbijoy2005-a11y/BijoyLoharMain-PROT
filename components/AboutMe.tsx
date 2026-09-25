@@ -163,7 +163,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       badge: "Professional Network",
     },
     {
-      name: "Google Developer",
+      name: "Google Developer Program",
       handle: "bijoylohar",
       url: socials.googleDevelopers,
       icon: GoogleDevIcon,
