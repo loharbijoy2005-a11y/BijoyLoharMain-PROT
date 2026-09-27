@@ -70,20 +70,6 @@ bijoy-lohar-portfolio/
 
 ---
 
-## 🔧 SEO Improvements Log
-
-### 2026-09-27 — Critical SEO Fixes Applied
-
-| # | Fix | Impact |
-|---|---|---|
-| ✅ 1 | **robots.txt fixed** — removed `/_next/` from disallow | 🔴 Critical — Googlebot was blocked from loading JS/CSS, preventing rendering & Knowledge Panel |
-| ✅ 2 | **Title updated** — `"& Founder of Shadow Arrow"` added | Google now associates "Shadow Arrow" with Bijoy Lohar in search |
-| ✅ 3 | **Commudle added to sameAs** | More identity signals → faster Knowledge Panel activation |
-| ✅ 4 | **jobTitle & description updated** in JSON-LD schema | Richer structured data for Knowledge Graph |
-| ✅ 5 | **data/bijoy-lohar.json created** | Single source-of-truth for all profile data |
-
----
-
 ## 🚀 Deploy
 
 ```bash
