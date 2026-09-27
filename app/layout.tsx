@@ -4,7 +4,7 @@ import "./globals.css";
 // ─── Site-Wide Constants ──────────────────────────────────────────────────────
 const BASE_URL = "https://www.bijoylohar.in";
 const OG_IMAGE = "https://github.com/loharbijoy2005-a11y.png";
-const TITLE = "Bijoy Lohar | Full-Stack Software Engineer & Founder";
+const TITLE = "Bijoy Lohar | Full-Stack Software Engineer & Founder of Shadow Arrow";
 const DESCRIPTION =
   "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
 
@@ -128,7 +128,13 @@ interface SchemaWebSiteNode {
   "@id": string;
   url: string;
   name: string;
+  description?: string;
   publisher: SchemaId;
+  potentialAction?: {
+    "@type": "SearchAction";
+    target: { "@type": "EntryPoint"; urlTemplate: string };
+    "query-input": string;
+  };
 }
 
 interface SchemaProfilePageNode {
@@ -142,6 +148,11 @@ interface SchemaProfilePageNode {
   about: SchemaId;
   datePublished: string;
   dateModified: string;
+  speakable?: {
+    "@type": "SpeakableSpecification";
+    cssSelector: string[];
+  };
+  breadcrumb?: SchemaId;
 }
 
 interface SchemaPersonNode {
@@ -153,7 +164,7 @@ interface SchemaPersonNode {
   alternateName: string[];
   gender: string;
   birthDate: string;
-  jobTitle: string;
+  jobTitle: string | string[];
   description: string;
   url: string;
   image: string[];
@@ -164,6 +175,15 @@ interface SchemaPersonNode {
   worksFor: SchemaOrganizationRef;
   knowsAbout: string[];
   sameAs: string[];
+  mainEntityOfPage?: SchemaId;
+  knowsLanguage?: string[];
+  hasOccupation?: Array<{
+    "@type": "Occupation";
+    name: string;
+    occupationLocation: SchemaCountry;
+    description: string;
+    skills: string;
+  }>;
 }
 
 interface SchemaOrganizationNode {
@@ -175,6 +195,17 @@ interface SchemaOrganizationNode {
   sameAs: string[];
 }
 
+interface SchemaBreadcrumbListNode {
+  "@type": "BreadcrumbList";
+  "@id": string;
+  itemListElement: {
+    "@type": "ListItem";
+    position: number;
+    name: string;
+    item: string;
+  }[];
+}
+
 interface SchemaGraph {
   "@context": "https://schema.org";
   "@graph": [
@@ -182,6 +213,7 @@ interface SchemaGraph {
     SchemaProfilePageNode,
     SchemaPersonNode,
     SchemaOrganizationNode,
+    SchemaBreadcrumbListNode,
   ];
 }
 
@@ -199,8 +231,17 @@ export default function RootLayout({
         "@id": "https://www.bijoylohar.in/#website",
         "url": "https://www.bijoylohar.in/",
         "name": "Bijoy Lohar",
+        "description": "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow.",
         "publisher": {
           "@id": "https://www.bijoylohar.in/#person",
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.bijoylohar.in/?q={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
         },
       },
       {
@@ -219,7 +260,14 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-25T21:30:00+05:30",
+        "dateModified": "2026-09-27T18:00:00+05:30",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-title", ".hero-description", "h1", "h2"],
+        },
+        "breadcrumb": {
+          "@id": "https://www.bijoylohar.in/#breadcrumb",
+        },
       },
       {
         "@type": "Person",
@@ -227,11 +275,44 @@ export default function RootLayout({
         "name": "Bijoy Lohar",
         "givenName": "Bijoy",
         "familyName": "Lohar",
-        "alternateName": ["Arrow Gaming", "Lost Gaming"],
+        "alternateName": ["Bijoy Lohar"],
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
-        "jobTitle": "Full-Stack Software Engineer & Founder",
-        "description": "Indian Full-Stack Software Engineer, Founder of Shadow Arrow, specializing in scalable web systems and cloud infrastructure.",
+        "jobTitle": [
+          "Full-Stack Software Engineer",
+          "Systems Architect",
+          "Independent Computational Researcher",
+          "Technical Author",
+          "Founder",
+        ],
+        "description": "Indian multi-disciplinary technologist — Full-Stack Software Engineer, Systems Architect, Computational Researcher, Technical Author, and Founder of Shadow Arrow. Specializes in distributed computing, cloud-native infrastructure, visual computing, algorithmic systems, and scalable web architectures. Based in Bishnupur, West Bengal, India.",
+        "mainEntityOfPage": {
+          "@id": "https://www.bijoylohar.in/#webpage",
+        },
+        "knowsLanguage": ["en", "hi", "bn"],
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "Full-Stack Software Engineer & Systems Architect",
+            "occupationLocation": { "@type": "Country", "name": "India" },
+            "description": "Designs and builds distributed, cloud-native web systems, microservices architectures, real-time APIs, and scalable infrastructure. Expert in systems-level design and algorithmic efficiency.",
+            "skills": "TypeScript, JavaScript, Python, Go, C++, Java, React, Next.js, Node.js, Microservices, Distributed Computing, Cloud Architecture, Cloudflare, MongoDB, Supabase",
+          },
+          {
+            "@type": "Occupation",
+            "name": "Technical Author",
+            "occupationLocation": { "@type": "Country", "name": "India" },
+            "description": "Authors technical handbooks and algorithmic reference guides covering systems design, software engineering fundamentals, and computational theory. Works indexed on Google Books and Amazon.",
+            "skills": "Technical Writing, Algorithmic Reference Guides, Systems Design Documentation, Software Engineering Handbooks",
+          },
+          {
+            "@type": "Occupation",
+            "name": "Independent Computational Researcher",
+            "occupationLocation": { "@type": "Country", "name": "India" },
+            "description": "Conducts independent research in distributed computing, algorithmic efficiency, real-time graphics pipelines, and visual computing systems.",
+            "skills": "Distributed Systems, Algorithmic Research, Visual Computing, Real-Time Graphics Pipelines, Computational Theory, GPU Architecture",
+          },
+        ],
         "url": "https://www.bijoylohar.in/",
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -273,45 +354,53 @@ export default function RootLayout({
           ],
         },
         "knowsAbout": [
-          "Software Engineering",
-          "Full-Stack Web Development",
-          "TypeScript",
-          "JavaScript",
-          "Python",
-          "Java",
-          "C++",
-          "Go (Golang)",
-          "React",
-          "Next.js",
-          "Node.js",
-          "Express.js",
-          "MongoDB Atlas",
-          "Supabase",
-          "Cloud Architecture",
-          "Cloudflare",
-          "Blender 3D",
-          "DaVinci Resolve",
-          "API Systems",
+          // Core Languages
+          "Python", "Go (Golang)", "TypeScript", "C++", "Java", "JavaScript",
+          // Systems & Architecture
+          "Distributed Computing", "Systems Architecture", "Microservices",
+          "Cloud-Native Infrastructure", "Algorithmic Efficiency", "API Systems",
+          "Cloud Architecture", "Cloudflare", "Containerization", "Docker",
+          // Web & Full-Stack
+          "Full-Stack Web Development", "React", "Next.js", "Node.js",
+          "Express.js", "MongoDB Atlas", "Supabase",
+          // Visual Computing
+          "Visual Computing", "Real-Time Graphics Pipelines", "GPU Architecture",
+          "Blender 3D", "DaVinci Resolve", "3D Rendering",
+          // Research & Authorship
+          "Computational Research", "Technical Writing",
+          "Algorithmic Reference Guides", "Systems Design Documentation",
+          "Software Engineering Handbooks",
         ],
         // All canonical identities - Googlebot uses these to auto-verify your entity
         "sameAs": [
+          // Research & Academic
           "https://orcid.org/0009-0004-5643-7612",
+          "https://developers.google.com/profile/u/101253410801307724262",
+          // Authorship
+          "https://www.imdb.com/name/nm18949942/",
+          "https://www.amazon.com/author/bijoylohar",
+          "https://books.google.com/books?as_brr=0&q=bijoy+lohar",
+          // Professional
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+          "https://topmate.io/bijoy_lohar",
+          "https://www.commudle.com/users/Bijoylohar",
+          // Code Repositories
           "https://github.com/loharbijoy2005-a11y",
+          "https://gitlab.com/loharbijoy2005-a11y",
+          "https://hub.docker.com/u/bijoylohar",
+          // Social
           "https://x.com/BijoyLohar2005",
           "https://www.instagram.com/bijoylohar_2005",
+          "https://www.threads.net/@bijoylohar_2005",
           "https://www.facebook.com/Bijoylohar.2005",
-          "https://linktr.ee/Bijoylohar",
           "https://youtube.com/@bijoylohar2005",
+          "https://medium.com/@Bijoylohar",
+          "https://www.quora.com/profile/Bijoy-Lohar-13?ch=2&oid=3235105824&srid=5G7h2p&target_type=user",
+          // Discovery
+          "https://linktr.ee/Bijoylohar",
           "https://about.me/bijoylohar",
           "https://www.pinterest.com/loharbijoy2005",
-          "https://www.threads.net/@bijoylohar_2005",
-          "https://gitlab.com/loharbijoy2005-a11y",
-          "https://medium.com/@Bijoylohar",
-          "https://www.imdb.com/name/nm18949942/",
-          "https://www.quora.com/profile/Bijoy-Lohar-13?ch=2&oid=3235105824&srid=5G7h2p&target_type=user",
-          "https://developers.google.com/profile/u/101253410801307724262",
         ],
       },
       {
@@ -324,6 +413,30 @@ export default function RootLayout({
         },
         "sameAs": [
           "https://www.crunchbase.com/organization/shadow-arrow",
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.bijoylohar.in/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.bijoylohar.in/",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Bijoy Lohar — Full-Stack Software Engineer",
+            "item": "https://www.bijoylohar.in/#about",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Shadow Arrow — Founder",
+            "item": "https://shadowarrow.in",
+          },
         ],
       },
     ],

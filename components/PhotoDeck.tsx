@@ -32,8 +32,8 @@ const cardsData: PhotoCard[] = [
   },
   {
     id: 2,
-    title: "Arrow Gaming Hub",
-    subtitle: "Stream & Creator Studio",
+    title: "Visual Computing",
+    subtitle: "Real-time Graphics & Gaming",
     type: "visual-stream",
     icon: <Gamepad2 className="w-8 h-8 text-white" />,
     bgGradient: "from-zinc-900 to-zinc-950",

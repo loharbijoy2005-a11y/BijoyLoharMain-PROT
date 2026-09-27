@@ -32,8 +32,8 @@ const marqueeItems: MarqueeCardData[] = [
   },
   {
     id: 3,
-    tag: "Content & Streams",
-    title: "Arrow Gaming & Stream Studio",
+    tag: "Visual & Gaming",
+    title: "Visual Computing & Gaming",
     type: "visual",
     icon: <Gamepad2 className="w-8 h-8 text-white" />,
     bgGradient: "from-zinc-900 to-zinc-950",

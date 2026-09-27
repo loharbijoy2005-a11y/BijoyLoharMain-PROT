@@ -268,34 +268,49 @@ export const AboutMe: React.FC<AboutMeProps> = ({
         >
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col items-center text-center">
             <motion.div
-              animate={{ y: [0, -10, 0] }}
+              animate={{ y: [0, -8, 0] }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative group w-44 h-44 sm:w-52 sm:h-52 rounded-2xl p-1"
+              className="relative group w-48 h-48 sm:w-56 sm:h-56 rounded-3xl p-1.5 cursor-pointer"
             >
+              {/* Outer Glowing Gradient Aura */}
               <motion.div
                 animate={{ rotate: 360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-amber-400 via-amber-200 to-amber-600 opacity-80 blur-sm group-hover:opacity-100 transition-opacity"
+                transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-amber-500 via-yellow-300 to-amber-600 opacity-90 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all"
               />
 
-              <div className="relative w-full h-full rounded-xl overflow-hidden bg-studioSubtle p-1 border border-borderWarm">
+              {/* Inner Luxury Frame */}
+              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-slate-950 p-1 border-2 border-amber-400/60 shadow-[0_0_30px_rgba(245,158,11,0.25)] group-hover:shadow-[0_0_40px_rgba(245,158,11,0.45)] transition-shadow">
                 <img
                   src={imageUrl}
                   alt={name}
-                  className="w-full h-full object-cover rounded-lg transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-[18px] transition-transform duration-700 group-hover:scale-108"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.src = "https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400";
                   }}
                 />
+                
+                {/* Subtle Luxury Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-2 inset-x-2 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-500/30 flex items-center justify-between text-[11px] font-mono text-amber-300">
+                  <span className="font-bold flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Bijoy Lohar
+                  </span>
+                  <span className="text-[10px] text-slate-400">FOUNDER</span>
+                </div>
               </div>
 
-              <div className="absolute bottom-2 right-2 bg-studioCard text-amberAccent p-1.5 rounded-full border border-borderWarm shadow-md" title="Verified Developer">
-                <CheckCircle2 className="w-5 h-5 text-amberAccent" />
+              {/* Verified Developer Badge */}
+              <div className="absolute -top-2 -right-2 bg-slate-950 text-amber-400 p-2 rounded-2xl border border-amber-400/60 shadow-lg" title="Verified Founder & Developer Entity">
+                <CheckCircle2 className="w-5 h-5 text-amber-400 fill-amber-400/20" />
               </div>
             </motion.div>
 
