@@ -80,11 +80,3 @@ npm run build
 npx vercel --prod --yes
 ```
 
----
-
-## 💡 Next Steps for Google Knowledge Panel
-
-1. **Google Search Console** → Request Indexing for `bijoylohar.in`
-2. **Wait 1–4 weeks** for Google to re-crawl and update
-3. Add more content to Wikidata / Wikipedia (optional but powerful)
-4. Get mentions/links from trusted news/tech sites
