@@ -336,6 +336,13 @@ export default function RootLayout({
             "value": "0009-0004-5643-7612",
             "url": "https://orcid.org/0009-0004-5643-7612",
           },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Crunchbase",
+            "name": "Crunchbase Person ID",
+            "value": "bijoy-lohar",
+            "url": "https://www.crunchbase.com/person/bijoy-lohar",
+          },
         ],
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
