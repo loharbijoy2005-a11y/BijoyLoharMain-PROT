@@ -467,7 +467,7 @@ export default function RootLayout({
         "name": "Shadow Arrow",
         "url": "https://shadowarrow.in",
         "description": "Shadow Arrow is an Indian technology company founded by Bijoy Lohar, specializing in scalable web systems, cloud infrastructure, and modern software architecture.",
-        "foundingDate": "2024",
+        "foundingDate": "2025",
         "foundingLocation": {
           "@type": "Country",
           "name": "India",
