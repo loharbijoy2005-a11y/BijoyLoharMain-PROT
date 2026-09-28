@@ -167,6 +167,13 @@ interface SchemaPersonNode {
   jobTitle: string | string[];
   description: string;
   url: string;
+  identifier?: Array<{
+    "@type": "PropertyValue";
+    propertyID: string;
+    name: string;
+    value: string;
+    url: string;
+  }>;
   image: string[];
   nationality: SchemaCountry;
   homeLocation: SchemaPostalAddress;
