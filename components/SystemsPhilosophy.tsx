@@ -17,6 +17,8 @@ import {
   GitBranch,
 } from "lucide-react";
 
+import { HeroParticleSwarm } from "@/components/HeroParticleSwarm";
+
 /* ─────────────────────────────────────────────────────────────
    Framer-Motion variants
 ───────────────────────────────────────────────────────────── */
@@ -178,8 +180,11 @@ export const SystemsPhilosophy: React.FC = () => {
 
           </div>
 
-          {/* RIGHT — Flush-Right & Flush-Top Portrait Image (Sticks to Top-Right Screen Edge) */}
+          {/* RIGHT — Flush-Right & Flush-Top Portrait Image with Golden Swarm Particles */}
           <div className="lg:col-span-6 w-full h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/2 flex items-start justify-end z-0 pr-0 mr-0">
+            {/* Interactive Golden Particle Swarm Orbiting Face */}
+            <HeroParticleSwarm />
+
             <div className="hero-image-container w-full h-full flex justify-end items-start pr-0 mr-0">
               <img
                 src="https://github.com/loharbijoy2005-a11y.png"
