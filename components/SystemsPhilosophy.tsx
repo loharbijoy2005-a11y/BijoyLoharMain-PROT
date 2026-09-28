@@ -6,7 +6,7 @@ import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 
 export const SystemsPhilosophy: React.FC = () => {
   return (
-    <section className="py-20 md:py-28 px-4 md:px-8 max-w-[1240px] mx-auto relative overflow-hidden" id="systems-philosophy">
+    <section className="pt-28 pb-20 md:pt-36 md:pb-24 px-4 md:px-8 max-w-[1240px] mx-auto relative overflow-hidden" id="systems-philosophy">
       {/* Background Glowing Ambient Orbs */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-amber-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
