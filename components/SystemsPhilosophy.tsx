@@ -103,12 +103,12 @@ export const SystemsPhilosophy: React.FC = () => {
       ══════════════════════════════════════════════════ */}
       <section
         id="hero-story"
-        className="w-full min-h-screen relative overflow-hidden flex flex-col justify-between pt-0 pb-0"
+        className="w-full relative overflow-hidden flex flex-col justify-between pt-0 pb-8 sm:pb-12 min-h-0 lg:min-h-screen"
       >
         <div className="flex-1 w-full px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start z-10 relative">
 
           {/* LEFT — Typography & Narrative */}
-          <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left pt-16 sm:pt-20 pb-8 z-10 max-w-[720px]">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left pt-14 sm:pt-20 pb-4 z-10 max-w-[720px]">
 
             {/* Subtle pill badge */}
             <motion.div
@@ -223,7 +223,7 @@ export const SystemsPhilosophy: React.FC = () => {
       ══════════════════════════════════════════════════ */}
       <section
         id="origin-narrative"
-        className="py-24 px-6 md:px-12 max-w-[1040px] mx-auto text-left"
+        className="pt-6 sm:pt-10 pb-16 md:pb-24 px-4 sm:px-6 md:px-12 max-w-[1040px] mx-auto text-left"
       >
         <motion.div
           initial="hidden"
