@@ -44,16 +44,16 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center md:justify-between items-center max-w-[1240px] mx-auto px-6 pointer-events-none">
+    <div className="fixed top-3 left-0 right-0 z-50 flex justify-between items-center max-w-[1380px] mx-auto px-4 md:px-8 pointer-events-none">
       
-      {/* Left Brand Identifier - Minimal Dark */}
+      {/* Left Brand Identifier - Minimal Dark Gold */}
       <div className="pointer-events-auto flex items-center gap-2">
         <a 
-          href="#systems-philosophy" 
-          className="px-3.5 py-1.5 bg-[#12151E]/90 backdrop-blur-md border border-white/10 text-white font-mono text-xs font-bold rounded-full shadow-lg hover:border-amber-400 transition-all flex items-center gap-2"
+          href="#hero-story" 
+          className="px-4 py-2 bg-studioCard/90 backdrop-blur-md border border-borderWarm text-deepInk font-mono text-xs font-bold rounded-full shadow-lg hover:border-amberAccent transition-all flex items-center gap-2"
         >
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span>Bijoy Lohar</span>
+          <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
+          <span>Shadow Arrow &bull; Bijoy Lohar</span>
         </a>
       </div>
 

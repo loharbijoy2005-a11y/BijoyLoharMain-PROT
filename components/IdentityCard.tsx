@@ -20,7 +20,7 @@ const dockPhotos: DockItem[] = [
     label: "Portrait",
     icon: <User className="w-4 h-4" />,
     type: "image",
-    src: "https://github.com/loharbijoy2005-a11y.png",
+    src: "/hero-portrait.jpg",
     title: "Bijoy Lohar — Founder",
     tagline: "Systems Architect & Digital Creator",
   },

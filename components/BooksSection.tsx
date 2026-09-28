@@ -212,17 +212,17 @@ export const BooksSection: React.FC = () => {
                 No Published Books Yet — Live Listener Active
               </h3>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Jab aap Amazon KDP ya Google Books Partner Center par <strong className="text-deepInk font-semibold">"Bijoy Lohar"</strong> ke naam se koi book publish karoge, to wo is section me <strong className="text-amberAccent">automatically sync hokar live show hone lagegi!</strong>
+              <p className="text-sm text-muted leading-relaxed">
+                Jab aap Amazon KDP ya Google Books Partner Center par <strong className="text-deepInk font-semibold">&quot;Bijoy Lohar&quot;</strong> ke naam se koi book publish karoge, to wo is section me <strong className="text-amberAccent">automatically sync hokar live show hone lagegi!</strong>
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-mono text-slate-500">
+              <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-mono text-muted">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  Author Query: <code className="bg-slate-100 text-slate-800 px-1.5 py-0.5 rounded">Bijoy Lohar</code>
+                  <CheckCircle2 className="w-4 h-4 text-amberAccent" />
+                  Author Query: <code className="bg-amberSubtle text-amberAccent border border-borderWarm px-2 py-0.5 rounded-md font-bold">Bijoy Lohar</code>
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <CheckCircle2 className="w-4 h-4 text-amberAccent" />
                   Sources: Google Books API &amp; Amazon ISBN Index
                 </span>
               </div>

@@ -119,12 +119,12 @@ export const Footer: React.FC = () => {
             <span className="font-heading font-extrabold text-lg text-deepInk block">
               BIJOY LOHAR
             </span>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-muted">
               Founder of Shadow Arrow &bull; Systems Architect
             </span>
           </div>
 
-          <div className="flex gap-6 text-xs font-bold text-slate-700">
+          <div className="flex gap-6 text-xs font-bold text-muted">
             <a
               href="https://www.shadowarrow.in"
               target="_blank"
@@ -143,14 +143,14 @@ export const Footer: React.FC = () => {
               <span>GitHub</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
-            <a href="#hero" className="hover:text-amberAccent transition-colors">
+            <a href="#hero-story" className="hover:text-amberAccent transition-colors">
               Back to Top ↑
             </a>
           </div>
         </div>
 
-        <div className="pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-2">
-          <p>© 2026 Bijoy Lohar. Founder of Shadow Arrow.</p>
+        <div className="pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-muted gap-2">
+          <p>© 2026 Bijoy Lohar · Founder of Shadow Arrow · All Rights Reserved</p>
           <p className="font-mono">Bishnupur, West Bengal, India</p>
         </div>
 

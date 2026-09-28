@@ -18,7 +18,7 @@ const marqueeItems: MarqueeCardData[] = [
   {
     id: 1,
     tag: "Bijoy Lohar",
-    title: "Software Engineer & Founder",
+    title: "Systems Architect & Founder",
     type: "image",
     src: "https://github.com/loharbijoy2005-a11y.png",
   },
@@ -27,40 +27,40 @@ const marqueeItems: MarqueeCardData[] = [
     tag: "Workspace",
     title: "LOQ & System Architecture",
     type: "visual",
-    icon: <Laptop className="w-8 h-8 text-white" />,
-    bgGradient: "from-slate-800 to-slate-950",
+    icon: <Laptop className="w-8 h-8 text-amberAccent" />,
+    bgGradient: "from-[#1E1A12] to-[#12100B]",
   },
   {
     id: 3,
     tag: "Visual & Gaming",
-    title: "Visual Computing & Gaming",
+    title: "Visual Computing & Gaming Media",
     type: "visual",
-    icon: <Gamepad2 className="w-8 h-8 text-white" />,
-    bgGradient: "from-zinc-900 to-zinc-950",
+    icon: <Gamepad2 className="w-8 h-8 text-amberAccent" />,
+    bgGradient: "from-[#231E14] to-[#12100B]",
   },
   {
     id: 4,
     tag: "Location",
     title: "Bishnupur, West Bengal, India",
     type: "visual",
-    icon: <MapPin className="w-8 h-8 text-white" />,
-    bgGradient: "from-slate-700 to-slate-900",
+    icon: <MapPin className="w-8 h-8 text-amberAccent" />,
+    bgGradient: "from-[#1A1712] to-[#12100B]",
   },
   {
     id: 5,
     tag: "Venture Studio",
     title: "Shadow Arrow Enterprise Architecture",
     type: "visual",
-    icon: <ShieldCheck className="w-8 h-8 text-white" />,
-    bgGradient: "from-slate-900 to-black",
+    icon: <ShieldCheck className="w-8 h-8 text-amberAccent" />,
+    bgGradient: "from-[#2A2312] to-[#12100B]",
   },
   {
     id: 6,
     tag: "E-Commerce",
     title: "OmniKart High-Speed Platform",
     type: "visual",
-    icon: <ShoppingCart className="w-8 h-8 text-white" />,
-    bgGradient: "from-sky-700 to-sky-950",
+    icon: <ShoppingCart className="w-8 h-8 text-amberAccent" />,
+    bgGradient: "from-[#1E1A12] to-[#12100B]",
   },
 ];
 
@@ -71,13 +71,13 @@ export const MomentsMarquee: React.FC = () => {
   const duplicatedItems = [...marqueeItems, ...marqueeItems];
 
   return (
-    <section className="py-16 overflow-hidden relative">
-      <div className="max-w-[1060px] mx-auto px-4 mb-8">
-        <span className="font-mono text-[11px] font-semibold tracking-wider text-mutedText uppercase block mb-1">
-          SCENE 04 / KINETIC LIFESTYLE MARQUEE
+    <section className="py-20 overflow-hidden relative bg-studioCanvas border-b border-borderWarm">
+      <div className="max-w-[1060px] mx-auto px-4 mb-8 text-left border-l-2 border-amberAccent pl-5">
+        <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
+          06 / KINETIC LIFESTYLE MARQUEE
         </span>
-        <h2 className="font-heading font-bold text-3xl text-charcoal tracking-tight">
-          Infinite Photo Reel & Visual Log
+        <h2 className="font-heading font-extrabold text-3xl text-deepInk tracking-tight">
+          Infinite Photo Reel &amp; Visual Log
         </h2>
       </div>
 
@@ -106,9 +106,9 @@ export const MomentsMarquee: React.FC = () => {
           {duplicatedItems.map((item, idx) => (
             <motion.div
               key={`${item.id}-${idx}`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -4 }}
               transition={{ duration: 0.2 }}
-              className="w-[260px] h-[170px] rounded-2xl overflow-hidden border border-hairline bg-surface shadow-sm shrink-0 relative group cursor-pointer"
+              className="w-[270px] h-[180px] rounded-3xl overflow-hidden border border-borderWarm bg-studioCard shadow-md shrink-0 relative group cursor-pointer hover:border-amberAccent"
             >
               {item.type === "image" ? (
                 <img
@@ -116,26 +116,25 @@ export const MomentsMarquee: React.FC = () => {
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400";
+                    (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
                   }}
                 />
               ) : (
                 <div
-                  className={`w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br ${item.bgGradient} text-white group-hover:scale-105 transition-transform duration-300`}
+                  className={`w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-br ${item.bgGradient} text-deepInk group-hover:scale-105 transition-transform duration-300`}
                 >
                   {item.icon}
-                  <span className="font-mono text-xs font-semibold mt-2 text-slate-200">
+                  <span className="font-mono text-xs font-bold mt-2 text-deepInk text-center">
                     {item.title}
                   </span>
                 </div>
               )}
 
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-transparent to-transparent flex flex-col justify-end p-4 text-white opacity-90 group-hover:opacity-100 transition-opacity">
-                <span className="font-mono text-[10px] text-sky-400 uppercase tracking-wider font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-studioCanvas via-studioCanvas/40 to-transparent flex flex-col justify-end p-4 text-deepInk opacity-95 group-hover:opacity-100 transition-opacity">
+                <span className="font-mono text-[10px] text-amberAccent uppercase tracking-widest font-bold">
                   {item.tag}
                 </span>
-                <span className="text-xs font-semibold leading-tight line-clamp-1">
+                <span className="text-xs font-bold leading-tight line-clamp-1 text-deepInk">
                   {item.title}
                 </span>
               </div>
@@ -146,3 +145,5 @@ export const MomentsMarquee: React.FC = () => {
     </section>
   );
 };
+
+export default MomentsMarquee;

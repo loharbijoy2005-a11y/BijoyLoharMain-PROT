@@ -151,7 +151,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "loharbijoy2005-a11y",
       url: socials.github,
       icon: Github,
-      glowColor: "hover:border-deepInk hover:bg-studioSubtle",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Code Hub",
     },
     {
@@ -159,7 +159,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "bijoy-lohar",
       url: socials.linkedin,
       icon: Linkedin,
-      glowColor: "hover:border-blue-600 hover:bg-blue-50/50",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Professional Network",
     },
     {
@@ -167,7 +167,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "bijoylohar",
       url: socials.googleDevelopers,
       icon: GoogleDevIcon,
-      glowColor: "hover:border-blue-500 hover:bg-blue-50/50",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Public Profile",
     },
     {
@@ -175,7 +175,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "@BijoyLohar2005",
       url: socials.x,
       icon: XIcon,
-      glowColor: "hover:border-black hover:bg-studioSubtle",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Official Handle",
     },
     {
@@ -183,7 +183,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "@bijoylohar_2005",
       url: socials.instagramPersonal,
       icon: Instagram,
-      glowColor: "hover:border-purple-500 hover:bg-purple-50/50",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Personal Profile",
     },
     {
@@ -191,7 +191,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "Bijoylohar.2005",
       url: socials.facebook,
       icon: Facebook,
-      glowColor: "hover:border-blue-500 hover:bg-blue-50/50",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Official Profile",
     },
     {
@@ -199,7 +199,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       handle: "shadowarrow.in",
       url: socials.shadowArrow,
       icon: Briefcase,
-      glowColor: "hover:border-amberAccent hover:bg-amberLight/40",
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "SaaS & Web Studio",
     },
   ];
@@ -221,7 +221,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-amber-200/40 rounded-full blur-[140px]"
+          className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[140px]"
         />
 
         <motion.div
@@ -235,7 +235,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-100/50 rounded-full blur-[120px]"
+          className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-500/5 rounded-full blur-[120px]"
         />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -251,24 +251,24 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           className="flex flex-col items-start"
         >
           <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
-            01 / ABOUT & BIOGRAPHY
+            01 / ABOUT &amp; BIOGRAPHY
           </span>
-          <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
-            Software Engineer & Tech Founder
+          <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-5xl text-deepInk tracking-tight">
+            Software Engineer &amp; Tech Founder
           </h2>
         </motion.div>
 
-        {/* 1. Hero Card */}
+        {/* 1. Hero Card — High Contrast Luxury Studio Frame */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-sm"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-xl"
         >
           <motion.div variants={itemVariants} className="lg:col-span-4 flex flex-col items-center text-center">
             <motion.div
-              animate={{ y: [0, -8, 0] }}
+              animate={{ y: [0, -6, 0] }}
               transition={{
                 duration: 4,
                 repeat: Infinity,
@@ -276,53 +276,53 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               }}
               className="relative group w-48 h-48 sm:w-56 sm:h-56 rounded-3xl p-1.5 cursor-pointer"
             >
-              {/* Outer Glowing Gradient Aura */}
+              {/* Outer Glowing Golden Ambient Aura */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-amber-500 via-yellow-300 to-amber-600 opacity-90 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all"
+                className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-amberAccent via-yellow-400 to-amber-600 opacity-80 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all"
               />
 
-              {/* Inner Luxury Frame */}
-              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-slate-950 p-1 border-2 border-amber-400/60 shadow-[0_0_30px_rgba(245,158,11,0.25)] group-hover:shadow-[0_0_40px_rgba(245,158,11,0.45)] transition-shadow">
+              {/* Inner Luxury Dark Gold Frame */}
+              <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-studioCanvas p-1 border-2 border-amberAccent/70 shadow-[0_0_35px_rgba(229,193,88,0.3)] group-hover:shadow-[0_0_45px_rgba(229,193,88,0.5)] transition-shadow">
                 <img
                   src={imageUrl}
                   alt={name}
-                  className="w-full h-full object-cover rounded-[18px] transition-transform duration-700 group-hover:scale-108"
+                  className="w-full h-full object-cover rounded-[18px] transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://ui-avatars.com/api/?name=Bijoy+Lohar&background=09090b&color=fff&size=400";
+                    target.src = "https://ui-avatars.com/api/?name=Bijoy+Lohar&background=12100B&color=E5C158&size=400";
                   }}
                 />
                 
                 {/* Subtle Luxury Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-studioCanvas via-transparent to-transparent opacity-70 group-hover:opacity-40 transition-opacity" />
 
                 {/* Bottom Overlay Label */}
-                <div className="absolute bottom-2 inset-x-2 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-500/30 flex items-center justify-between text-[11px] font-mono text-amber-300">
+                <div className="absolute bottom-2 inset-x-2 bg-studioCanvas/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amberAccent/40 flex items-center justify-between text-[11px] font-mono text-amberAccent">
                   <span className="font-bold flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     Bijoy Lohar
                   </span>
-                  <span className="text-[10px] text-slate-400">FOUNDER</span>
+                  <span className="text-[10px] font-bold text-deepInk/80">FOUNDER</span>
                 </div>
               </div>
 
               {/* Verified Developer Badge */}
-              <div className="absolute -top-2 -right-2 bg-slate-950 text-amber-400 p-2 rounded-2xl border border-amber-400/60 shadow-lg" title="Verified Founder & Developer Entity">
-                <CheckCircle2 className="w-5 h-5 text-amber-400 fill-amber-400/20" />
+              <div className="absolute -top-2 -right-2 bg-studioCanvas text-amberAccent p-2 rounded-2xl border border-amberAccent/60 shadow-lg" title="Verified Founder & Developer Entity">
+                <CheckCircle2 className="w-5 h-5 text-amberAccent fill-amberAccent/20" />
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-4 flex items-center gap-2 text-xs font-mono font-bold text-slate-600">
+            <motion.div variants={itemVariants} className="mt-4 flex items-center gap-2 text-xs font-mono font-bold text-amberAccent/90">
               <Globe className="w-3.5 h-3.5 text-amberAccent" />
               <span>www.bijoylohar.in</span>
             </motion.div>
           </motion.div>
 
-          <div className="lg:col-span-8 space-y-5 text-center lg:text-left">
-            <motion.div variants={itemVariants} className="space-y-1">
-              <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-deepInk tracking-tight leading-tight">
+          <div className="lg:col-span-8 space-y-6 text-center lg:text-left">
+            <motion.div variants={itemVariants} className="space-y-1.5">
+              <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-deepInk tracking-tight leading-tight">
                 {name}
               </h1>
               <p className="text-base sm:text-lg text-amberAccent font-bold font-mono tracking-wide">
@@ -330,26 +330,26 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-mono font-semibold text-slate-700">
-              <span className="inline-flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1.5 rounded-xl">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs font-mono font-bold">
+              <span className="inline-flex items-center gap-2 bg-amberAccent/10 border border-amberAccent/30 text-amberAccent px-3.5 py-1.5 rounded-xl shadow-sm hover:border-amberAccent transition-all">
                 <MapPin className="w-3.5 h-3.5 text-amberAccent" />
                 {location}
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1.5 rounded-xl">
+              <span className="inline-flex items-center gap-2 bg-amberAccent/10 border border-amberAccent/30 text-amberAccent px-3.5 py-1.5 rounded-xl shadow-sm hover:border-amberAccent transition-all">
                 <Briefcase className="w-3.5 h-3.5 text-amberAccent" />
                 Founder of {ventureName}
               </span>
             </motion.div>
 
-            <motion.p variants={itemVariants} className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              As a <strong className="text-deepInk">Full-Stack Software Engineer</strong>, 
+            <motion.p variants={itemVariants} className="text-[#D4CEBF] text-sm sm:text-base leading-relaxed font-normal">
+              As a <strong className="text-deepInk font-bold">Full-Stack Software Engineer</strong>, 
               I specialize in architecting scalable web applications, performant serverless backends, and reliable cloud infrastructures. 
-              Through <strong className="text-deepInk">{ventureName}</strong>, I engineer and deploy production-grade software solutions.
+              Through <strong className="text-amberAccent font-bold">{ventureName}</strong>, I engineer and deploy production-grade software solutions.
             </motion.p>
 
             <motion.div variants={itemVariants} className="space-y-2.5 pt-1">
-              <span className="text-xs font-mono font-bold text-slate-500 uppercase block tracking-wider">
-                Technical Stack & Competencies:
+              <span className="text-xs font-mono font-bold text-amberAccent uppercase block tracking-wider">
+                Technical Stack &amp; Competencies:
               </span>
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 {techStackPills.map((pill) => {
@@ -359,7 +359,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                       key={pill.name}
                       variants={badgeVariants}
                       whileHover={{ scale: 1.05, y: -2 }}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-studioSubtle border border-borderWarm text-xs font-medium text-slate-700 shadow-sm cursor-default"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-studioSubtle border border-borderWarm hover:border-amberAccent/60 text-xs font-mono font-semibold text-deepInk shadow-sm cursor-default hover:bg-amberAccent/10 transition-all"
                     >
                       <IconComp className="w-3.5 h-3.5 text-amberAccent" />
                       {pill.name}
@@ -369,24 +369,24 @@ export const AboutMe: React.FC<AboutMeProps> = ({
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-3 pt-3">
+            <motion.div variants={itemVariants} className="flex flex-wrap justify-center lg:justify-start gap-4 pt-3">
               <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
                 href="https://shadowarrow.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-deepInk hover:bg-amberAccent text-white font-bold text-xs sm:text-sm shadow-md transition-all"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-black text-xs sm:text-sm shadow-[0_0_25px_rgba(229,193,88,0.3)] hover:shadow-[0_0_35px_rgba(229,193,88,0.5)] transition-all"
               >
                 <span>Visit Shadow Arrow Studio</span>
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
 
               <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-studioCard border border-borderWarm hover:border-amberAccent text-deepInk font-bold text-xs sm:text-sm shadow-sm transition-all"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-amberAccent/10 border border-amberAccent/40 hover:border-amberAccent hover:bg-amberAccent/20 text-deepInk font-heading font-bold text-xs sm:text-sm shadow-sm transition-all"
               >
                 <Zap className="w-4 h-4 text-amberAccent" />
                 <span>Get In Touch</span>
@@ -395,50 +395,58 @@ export const AboutMe: React.FC<AboutMeProps> = ({
           </div>
         </motion.div>
 
-        {/* 2. Biography Card - 100% Solid & Bulletproof */}
+        {/* 2. Biography Card - High Contrast Studio Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-sm space-y-6"
+          className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-lg space-y-6"
         >
           <div className="space-y-4">
             <h3 className="font-heading text-2xl font-extrabold text-deepInk flex items-center gap-2.5">
-              <span>Biography & Background</span>
+              <span>Biography &amp; Background</span>
               <span className="w-2.5 h-2.5 rounded-full bg-amberAccent inline-block animate-ping" />
             </h3>
 
-            <div className="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
+            <div className="space-y-4 text-[#D4CEBF] leading-relaxed text-sm sm:text-base">
               <p>
                 Based in <strong className="text-deepInk font-semibold">Bishnupur, West Bengal, India</strong>, 
                 Bijoy Lohar is a Full-Stack Software Engineer focused on developing high-performance web systems, modern user interfaces, and automated backend architectures.
               </p>
 
               <p>
-                As the founder of <strong className="text-amberAccent font-semibold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-deepInk font-bold">shadowarrow.in</a>), 
+                As the founder of <strong className="text-amberAccent font-bold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-amberAccent font-bold transition-colors">shadowarrow.in</a>), 
                 Bijoy leads technical development, converting complex system requirements into scalable web applications and resilient digital infrastructures.
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* 3. Media & Verified Profiles */}
+        {/* 3. Media & Verified Profiles — Solid Luxury Grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-8 shadow-sm space-y-6 text-center"
+          className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-10 shadow-lg space-y-8"
         >
-          <div className="max-w-xl mx-auto space-y-1.5">
-            <h3 className="font-heading text-xl font-bold text-deepInk">Verified Profiles & Channels</h3>
-            <p className="text-xs sm:text-sm text-slate-500">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-borderWarm pb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amberAccent uppercase tracking-widest mb-1">
+                <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
+                <span>Verified Entity &amp; Presence</span>
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-black text-deepInk tracking-tight">
+                Verified Profiles &amp; Channels
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-muted max-w-xs text-left sm:text-right font-normal leading-relaxed">
               Direct links to official code repositories, developer profiles, and web entities.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {socialButtons.map((btn) => {
               if (!btn.url) return null;
               const Icon = btn.icon;
@@ -448,25 +456,35 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                   href={btn.url}
                   target="_blank"
                   rel="noopener noreferrer me"
-                  whileHover={{ scale: 1.04, y: -4 }}
-                  whileTap={{ scale: 0.96 }}
-                  className={`flex items-center justify-between p-4 rounded-2xl bg-studioSubtle border border-borderWarm text-deepInk text-xs sm:text-sm font-semibold transition-all duration-300 shadow-sm group ${btn.glowColor}`}
+                  whileHover={{ scale: 1.02, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative flex items-center justify-between p-5 rounded-2xl bg-studioSubtle border border-borderWarm hover:border-amberAccent/70 text-deepInk transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(229,193,88,0.12)]"
                 >
-                  <div className="flex items-center gap-3 text-left">
-                    <Icon className="w-5 h-5 shrink-0 text-slate-700 group-hover:text-amberAccent transition-colors" />
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="font-bold text-deepInk group-hover:text-amberAccent transition-colors">{btn.name}</span>
+                  <div className="flex items-center gap-4 min-w-0 flex-1 pr-3">
+                    <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent group-hover:bg-amberAccent group-hover:text-studioCanvas group-hover:scale-105 transition-all duration-300 shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
+
+                    <div className="min-w-0 flex-1 space-y-0.5">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-heading font-extrabold text-sm sm:text-base text-deepInk group-hover:text-amberAccent transition-colors truncate">
+                          {btn.name}
+                        </span>
                         {btn.badge && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amberLight text-amber-800 font-bold border border-amberAccent/20">
+                          <span className="shrink-0 text-[10px] font-mono px-2 py-0.5 rounded-full bg-amberAccent/10 text-amberAccent font-bold border border-amberAccent/30 whitespace-nowrap">
                             {btn.badge}
                           </span>
                         )}
                       </div>
-                      <span className="text-xs font-mono text-slate-500 block">{btn.handle}</span>
+                      <span className="text-xs font-mono text-muted group-hover:text-deepInk transition-colors block truncate">
+                        {btn.handle}
+                      </span>
                     </div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+
+                  <div className="w-8 h-8 rounded-lg bg-studioCanvas/60 border border-borderSubtle flex items-center justify-center text-muted group-hover:text-amberAccent group-hover:border-amberAccent/50 group-hover:bg-amberAccent/10 transition-all shrink-0">
+                    <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
                 </motion.a>
               );
             })}

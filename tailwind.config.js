@@ -7,16 +7,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        studioCanvas: "#FBFBF9",
-        studioSubtle: "#F7F6F2",
-        studioCard: "#FFFFFF",
-        deepInk: "#09090B",
-        charcoalDark: "#18181B",
-        amberAccent: "#D97706",
-        amberLight: "#FEF3C7",
-        amberSubtle: "#FFFBEB",
-        borderWarm: "#E5E4DE",
-        borderSubtle: "#D4D3CC",
+        studioCanvas: "#12100B",
+        studioSubtle: "#18150F",
+        studioCard: "#1E1A12",
+        deepInk: "#FCF9F2",
+        charcoalDark: "#12100B",
+        amberAccent: "#E5C158",
+        amberLight: "#FBF0B9",
+        amberSubtle: "#2A2312",
+        borderWarm: "rgba(229, 193, 88, 0.18)",
+        borderSubtle: "rgba(229, 193, 88, 0.32)",
+        muted: "#C5B99D",
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

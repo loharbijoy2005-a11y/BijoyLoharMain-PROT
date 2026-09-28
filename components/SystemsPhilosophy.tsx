@@ -2,407 +2,458 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, 
-  ArrowDown, 
-  ArrowUpRight, 
-  CheckCircle2, 
-  Sparkles, 
-  ShieldCheck, 
-  Layers, 
-  Cpu, 
-  Compass, 
-  Flame, 
-  Terminal, 
-  BookOpen, 
-  Radio, 
-  Github, 
-  Linkedin
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Cpu,
+  Layers,
+  BookOpen,
+  Compass,
+  Github,
+  Linkedin,
+  Radio,
+  Flame,
+  FlaskConical,
+  GitBranch,
 } from "lucide-react";
 
+/* ─────────────────────────────────────────────────────────────
+   Framer-Motion variants
+───────────────────────────────────────────────────────────── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] },
+  }),
+};
+
+/* ─────────────────────────────────────────────────────────────
+   Section label component
+───────────────────────────────────────────────────────────── */
+const SectionLabel: React.FC<{ index: string; title: string }> = ({ index, title }) => (
+  <div className="space-y-1 border-l-2 border-amberAccent pl-5">
+    <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block">
+      {index}
+    </span>
+    <h2 className="font-heading font-black text-3xl sm:text-4xl text-deepInk tracking-tight">
+      {title}
+    </h2>
+  </div>
+);
+
+/* ─────────────────────────────────────────────────────────────
+   Pillar card
+───────────────────────────────────────────────────────────── */
+const PillarCard: React.FC<{
+  icon: React.ReactNode;
+  title: string;
+  role: string;
+  description: string;
+}> = ({ icon, title, role, description }) => (
+  <motion.div
+    variants={fadeUp}
+    className="p-7 rounded-2xl border border-borderWarm bg-studioCard hover:border-amberAccent/50 transition-all duration-300 space-y-4 group shadow-md"
+  >
+    <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent group-hover:scale-110 transition-transform duration-300">
+      {icon}
+    </div>
+    <div>
+      <h3 className="font-heading font-extrabold text-xl text-deepInk">{title}</h3>
+      <p className="font-mono text-xs font-bold text-amberAccent mt-0.5">{role}</p>
+    </div>
+    <p className="text-sm text-muted leading-relaxed">{description}</p>
+  </motion.div>
+);
+
+/* ─────────────────────────────────────────────────────────────
+   Timeline item
+───────────────────────────────────────────────────────────── */
+const TimelineItem: React.FC<{
+  year: string;
+  label: string;
+  heading: string;
+  body: string;
+}> = ({ year, label, heading, body }) => (
+  <motion.div variants={fadeUp} className="relative space-y-1.5">
+    <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-amberAccent border-4 border-studioCanvas" />
+    <span className="font-mono text-xs font-bold text-amberAccent">
+      {year} &bull; {label}
+    </span>
+    <h4 className="font-heading font-bold text-xl text-deepInk">{heading}</h4>
+    <p className="text-sm text-muted max-w-2xl leading-relaxed">{body}</p>
+  </motion.div>
+);
+
+/* ─────────────────────────────────────────────────────────────
+   Main Component
+───────────────────────────────────────────────────────────── */
 export const SystemsPhilosophy: React.FC = () => {
   return (
-    <div className="w-full bg-[#0B0C0E] text-white font-sans selection:bg-amber-500/30 selection:text-amber-300">
+    <div className="w-full font-sans selection:bg-amberAccent/25 selection:text-deepInk">
 
-      {/* SECTION 1: HERO SECTION (THE HOOK) */}
-      <section className="w-full min-h-screen relative overflow-hidden bg-[#0B0C0E] flex flex-col justify-between pt-24 pb-12" id="hero-story">
-        
-        {/* Main 2-Column Grid Canvas */}
-        <div className="flex-1 w-full max-w-[1340px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end z-10 relative">
-          
-          {/* Left Column: Typography & Narrative Hook */}
-          <div className="lg:col-span-7 space-y-8 text-left py-12 lg:py-16 z-10">
-            
-            {/* Subtle Golden Pill Badge */}
+      {/* ══════════════════════════════════════════════════
+          SECTION 1 — HERO (split 2-column)
+      ══════════════════════════════════════════════════ */}
+      {/* ══════════════════════════════════════════════════
+          SECTION 1 — HERO (split 2-column, flush right image, top aligned)
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="hero-story"
+        className="w-full min-h-screen relative overflow-hidden flex flex-col justify-between pt-0 pb-0"
+      >
+        <div className="flex-1 w-full pl-6 md:pl-12 pr-0 mr-0 grid grid-cols-1 lg:grid-cols-12 gap-4 items-start z-10 relative">
+
+          {/* LEFT — Typography & Narrative */}
+          <div className="lg:col-span-6 space-y-5 lg:space-y-6 text-left pt-14 md:pt-16 pb-12 z-10 pr-4 lg:pr-6 max-w-[720px]">
+
+            {/* Subtle pill badge */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-amber-500/10 border border-amber-500/20 rounded-full text-xs font-mono font-bold text-[#EAB308]"
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={0}
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-amberAccent/10 border border-amberAccent/30 rounded-full text-xs font-mono font-bold text-amberAccent"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#EAB308]" />
-              <span>FOR FOUNDERS, SCALE-UPS AND MSMES</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amberAccent animate-pulse" />
+              <span>FULL-STACK SOFTWARE ENGINEER &amp; SYSTEMS ARCHITECT &bull; FOUNDER OF SHADOW ARROW</span>
             </motion.div>
 
-            {/* Main Punchy Heading */}
+            {/* Main headline */}
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={1}
               className="space-y-1"
             >
-              <h1 className="font-heading font-black text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-[1.05]">
-                Stop chasing.
+              <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl text-deepInk tracking-tight leading-[1.06]">
+                Engineering Resilient Systems.
               </h1>
-              <h1 className="font-heading font-black text-5xl sm:text-7xl lg:text-8xl text-[#EAB308] tracking-tight leading-[1.05]">
-                Start scale-architecting.
+              <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl text-amberAccent tracking-tight leading-[1.06]">
+                Architecting Computational Scale.
               </h1>
             </motion.div>
 
-            {/* Subhead & Bio Punchline */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-4 max-w-2xl"
+            {/* Subtext */}
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={2}
+              className="text-muted text-base sm:text-lg leading-relaxed max-w-xl font-normal"
             >
-              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white leading-snug">
-                I build high-throughput systems that turn complex code into resilient digital engines.
-              </h3>
+              Full-Stack Software Engineer operating across high-throughput software architecture, cloud infrastructure, and real-time gaming systems.
+              Founder of <strong className="text-amberAccent font-bold">Shadow Arrow</strong> based in{" "}
+              <strong className="text-deepInk font-semibold">Bishnupur, West Bengal.</strong>
+            </motion.p>
 
-              <p className="text-slate-400 text-base sm:text-lg leading-relaxed font-sans font-normal">
-                Hi, I&apos;m <strong className="text-white font-bold">Bijoy Lohar</strong> — Founder of Shadow Arrow &amp; Systems Architect based in Bishnupur, West Bengal. I bridge the gap between high-level system design and execution, crafting software architectures built to withstand real-world scale.
-              </p>
-            </motion.div>
-
-            {/* Dual Pill CTA Buttons */}
+            {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="pt-2 flex flex-wrap items-center gap-4"
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={3}
+              className="flex flex-wrap items-center gap-4 pt-1"
             >
               <a
                 href="#origin-narrative"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-[#EAB308] text-slate-950 font-heading font-extrabold text-sm rounded-full shadow-[0_10px_30px_rgba(255,255,255,0.15)] hover:shadow-[0_10px_40px_rgba(234,179,8,0.4)] transition-all transform hover:-translate-y-1 group"
+                id="cta-read-biography"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-sm rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 group"
               >
-                <span>Read The Full Story</span>
-                <ArrowDown className="w-4 h-4 text-slate-950 group-hover:translate-y-0.5 transition-transform" />
+                <span>Read Biography</span>
+                <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
               </a>
 
               <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-white/20 hover:border-[#EAB308] hover:text-[#EAB308] text-white font-heading font-bold text-sm rounded-full transition-all"
+                href="#contact-network"
+                id="cta-direct-comms"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-borderSubtle hover:border-amberAccent hover:text-amberAccent text-deepInk font-heading font-bold text-sm rounded-full transition-all duration-200"
               >
-                <span>Connect Directly</span>
+                <span>Direct Comms</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </motion.div>
 
-            {/* Verified Note */}
-            <div className="pt-2 flex items-center gap-2 text-xs font-mono text-slate-400">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Verified Entity: <strong className="text-white">Bijoy Lohar</strong> - Founder Shadow Arrow</span>
-            </div>
-
           </div>
 
-          {/* Right Column: Hero Portrait with Exact Requested CSS Wrapper & Glow */}
-          <div className="lg:col-span-5 h-full relative flex items-end justify-center lg:justify-end min-h-[480px] lg:min-h-[660px] self-end z-10">
-            
-            <div className="hero-image-wrapper">
-              {/* Radial Golden Glow (z-index: 0) */}
-              <div className="hero-glow" />
-
-              {/* Cutout Portrait Image with Exact CSS Mask Gradient */}
+          {/* RIGHT — Flush-Right & Flush-Top Portrait Image (Sticks to Top-Right Screen Edge) */}
+          <div className="lg:col-span-6 w-full h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/2 flex items-start justify-end z-0 pr-0 mr-0">
+            <div className="hero-image-container w-full h-full flex justify-end items-start pr-0 mr-0">
               <img
                 src="https://github.com/loharbijoy2005-a11y.png"
-                alt="Bijoy Lohar — Founder & Systems Architect"
-                className="relative z-10"
+                alt="Bijoy Lohar — Systems Architect & Founder"
+                className="w-full max-w-[840px] h-full max-h-screen object-cover object-top-right align-top relative z-0 block pr-0 mr-0"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
+                }}
               />
             </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* SECTION 2: THE ORIGIN & THE HUSTLE (BIOGRAPHY / NARRATIVE) */}
-      <section className="py-24 px-6 md:px-12 max-w-[1040px] mx-auto text-left relative" id="origin-narrative">
-        <div className="space-y-10">
-          
-          <div className="space-y-2 border-l-2 border-[#EAB308] pl-5">
-            <span className="font-mono text-xs font-bold text-[#EAB308] uppercase tracking-widest block">
-              01 / THE BIOGRAPHY
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
-              The Origin &amp; The Hustle
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-slate-300 text-base md:text-lg leading-relaxed font-sans font-normal border-t border-white/10 pt-8">
-            <p>
-              Growing up in <strong className="text-white font-semibold">Bishnupur, West Bengal</strong>, my obsession with technology started not with simple user interfaces, but with a deep curiosity about how systems communicate beneath the surface. While most explored pre-built applications, I immersed myself in fundamental computing, low-level architecture, memory management, and distributed network logic.
-            </p>
-
-            <p>
-              My journey into software engineering was driven by first-principles problem solving. I discovered that writing code is easy, but engineering resilient architecture that handles thousands of concurrent requests without latency degradation requires absolute discipline and vision.
-            </p>
-
-            <p>
-              This passion culminated in founding <strong className="text-[#EAB308] font-bold">Shadow Arrow</strong> — an enterprise software architecture and cloud infrastructure studio dedicated to building high-speed web pipelines, sub-second catalogs, and distributed backend engines.
-            </p>
           </div>
 
         </div>
       </section>
 
-      {/* SECTION 3: ECOSYSTEM & VENTURES */}
-      <section className="py-20 px-6 md:px-12 max-w-[1140px] mx-auto text-left" id="ventures-ecosystem">
-        <div className="space-y-12">
-          
-          <div className="space-y-2">
-            <span className="font-mono text-xs font-bold text-[#EAB308] uppercase tracking-widest block">
-              02 / ECOSYSTEM
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-white tracking-tight">
-              Ventures &amp; Engineering Focus
-            </h2>
-          </div>
+      {/* ══════════════════════════════════════════════════
+          SECTION 2 — ORIGIN & BACKGROUND
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="origin-narrative"
+        className="py-24 px-6 md:px-12 max-w-[1040px] mx-auto text-left"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="space-y-10"
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel index="01 / BIOGRAPHY" title="Origin &amp; Background" />
+          </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            className="space-y-6 text-muted text-base md:text-lg leading-relaxed border-t border-borderWarm pt-8"
+          >
+            <p>
+              Growing up in{" "}
+              <strong className="text-deepInk font-semibold">Bishnupur, West Bengal</strong>, my
+              obsession with technology started with a deep curiosity about how systems communicate beneath the surface — memory hierarchies, distributed state, network topology, and high-performance computing.
+            </p>
+            <p>
+              My path into software engineering was built on first-principles discipline. Rather than relying solely on high-level frameworks, I started from low-level systems programming, tracing how data flows from backend servers to client engines.
+            </p>
+            <p>
+              This focus led to establishing{" "}
+              <strong className="text-amberAccent font-bold">Shadow Arrow</strong> in 2025 — an independent technical studio dedicated to high-throughput web architecture, sub-second API performance, cloud infrastructure, and modern software engineering.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
+          SECTION 3 — CORE PILLARS
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="core-pillars"
+        className="py-20 px-6 md:px-12 max-w-[1200px] mx-auto text-left"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="space-y-12"
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel index="02 / PRACTICE" title="Core Pillars" />
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            {/* Card 1 */}
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl hover:border-[#EAB308]/50 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#EAB308]">
-                <Flame className="w-6 h-6" />
-              </div>
-              <h3 className="font-heading font-extrabold text-2xl text-white">Shadow Arrow</h3>
-              <p className="font-mono text-xs text-[#EAB308] font-bold">Founder &amp; Managing Director</p>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Enterprise cloud architecture, web system development, and high-performance technical engineering studio.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl hover:border-[#EAB308]/50 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#EAB308]">
-                <Cpu className="w-6 h-6" />
-              </div>
-              <h3 className="font-heading font-extrabold text-2xl text-white">High-Speed Systems</h3>
-              <p className="font-mono text-xs text-[#EAB308] font-bold">Architectural Practice</p>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Sub-50ms API gateways, Cloudflare Edge workers, distributed databases, and real-time event streaming pipelines.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl hover:border-[#EAB308]/50 transition-all space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-[#EAB308]">
-                <BookOpen className="w-6 h-6" />
-              </div>
-              <h3 className="font-heading font-extrabold text-2xl text-white">Media &amp; Publications</h3>
-              <p className="font-mono text-xs text-[#EAB308] font-bold">Author &amp; Mentor</p>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Technical publications, Google Books indexing, developer mentorship on Topmate, and Commudle ecosystem keynotes.
-              </p>
-            </div>
-
+            <PillarCard
+              icon={<Cpu className="w-5 h-5" />}
+              title="High-Throughput Systems"
+              role="Cloud Architecture &amp; Backend Engineering"
+              description="Sub-50ms API gateways, Cloudflare Edge workers, distributed databases, real-time event streaming, and multi-region infrastructure with zero data degradation."
+            />
+            <PillarCard
+              icon={<Layers className="w-5 h-5" />}
+              title="Gaming &amp; Visual Computing"
+              role="Graphics &amp; Interactive Media"
+              description="High-frame-rate rendering graphics, gaming stream studio setups, interactive 3D WebGL simulators, and real-time broadcasting infrastructure."
+            />
+            <PillarCard
+              icon={<BookOpen className="w-5 h-5" />}
+              title="Technical Authorship &amp; Community"
+              role="Author &amp; Ecosystem Speaker"
+              description="Structured engineering books indexed on Google Books, active keynotes on Commudle, and 1-on-1 developer mentorship on Topmate."
+            />
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
-      {/* SECTION 4: TIMELINE OF KEY MILESTONES */}
-      <section className="py-20 px-6 md:px-12 max-w-[1040px] mx-auto text-left" id="milestones-timeline">
-        <div className="space-y-12">
-          
-          <div className="space-y-2">
-            <span className="font-mono text-xs font-bold text-[#EAB308] uppercase tracking-widest block">
-              03 / JOURNEY
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-white tracking-tight">
-              Timeline of Key Milestones
-            </h2>
+      {/* ══════════════════════════════════════════════════
+          SECTION 4 — JOURNEY TIMELINE
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="milestones-timeline"
+        className="py-20 px-6 md:px-12 max-w-[1040px] mx-auto text-left"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="space-y-12"
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel index="03 / JOURNEY" title="Timeline of Key Milestones" />
+          </motion.div>
+
+          <div className="space-y-9 relative border-l border-borderWarm pl-6 md:pl-8">
+            <TimelineItem
+              year="2023"
+              label="Gaming &amp; Visual Media"
+              heading="Deep Focus on Gaming &amp; Visual Media Ecosystems"
+              body="Pioneered live gameplay streaming setups, interactive media graphics, Arrow Gaming studio, and high-performance workstation optimization."
+            />
+            <TimelineItem
+              year="2024"
+              label="Scale &amp; E-Commerce Architecture"
+              heading="Engineered Sub-Second Catalog Pipelines"
+              body="Built and deployed high-performance serverless transaction pipelines, OmniKart e-commerce systems, and cloud-edge infrastructure."
+            />
+            <TimelineItem
+              year="2025"
+              label="Founding Shadow Arrow"
+              heading="Established Shadow Arrow Independent Studio"
+              body="Founded Shadow Arrow in 2025 to deliver high-throughput software architecture, enterprise cloud solutions, and digital utilities."
+            />
+            <TimelineItem
+              year="2026"
+              label="Authorship &amp; Next-Gen Systems"
+              heading="Technical Literature &amp; Architectural Leadership"
+              body="Expanding Google Books indexing, technical advisory, and next-generation real-time software systems."
+            />
           </div>
 
-          <div className="space-y-8 relative border-l border-white/10 pl-6 md:pl-8">
-            
-            {/* Item 1 */}
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-[#EAB308] border-4 border-[#0B0C0E]" />
-              <span className="font-mono text-xs font-bold text-[#EAB308]">2021 &bull; Early Foundations</span>
-              <h4 className="font-heading font-bold text-xl text-white">Deep-Dive into Systems Programming</h4>
-              <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Mastered computational fundamentals, C++, Python, distributed networking, and backend API engineering.
-              </p>
-            </div>
-
-            {/* Item 2 */}
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-[#EAB308] border-4 border-[#0B0C0E]" />
-              <span className="font-mono text-xs font-bold text-[#EAB308]">2023 &bull; Founding Shadow Arrow</span>
-              <h4 className="font-heading font-bold text-xl text-white">Established Independent Software Studio</h4>
-              <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Founded Shadow Arrow to deliver high-throughput web architectures, custom backend infrastructure, and scalable applications.
-              </p>
-            </div>
-
-            {/* Item 3 */}
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-[#EAB308] border-4 border-[#0B0C0E]" />
-              <span className="font-mono text-xs font-bold text-[#EAB308]">2024 &bull; Scale &amp; E-Commerce Architecture</span>
-              <h4 className="font-heading font-bold text-xl text-white">Engineered Sub-Second Catalog Pipelines</h4>
-              <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Built and deployed high-performance serverless transaction pipelines and OmniKart e-commerce systems.
-              </p>
-            </div>
-
-            {/* Item 4 */}
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-[#EAB308] border-4 border-[#0B0C0E]" />
-              <span className="font-mono text-xs font-bold text-[#EAB308]">2025 &bull; Author &amp; Mentorship Hub</span>
-              <h4 className="font-heading font-bold text-xl text-white">Technical Publications &amp; Community Growth</h4>
-              <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Expanded Google Books &amp; Amazon author indexing, active developer keynotes on Commudle, and 1-on-1 mentorship on Topmate.
-              </p>
-            </div>
-
-            {/* Item 5 */}
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-[#EAB308] border-4 border-[#0B0C0E]" />
-              <span className="font-mono text-xs font-bold text-[#EAB308]">2026 &bull; Next-Gen Real-Time Systems</span>
-              <h4 className="font-heading font-bold text-xl text-white">Visual Computing &amp; Graphics Pipelines</h4>
-              <p className="text-sm text-slate-400 max-w-2xl leading-relaxed">
-                Advancing high-frame-rate rendering graphics engines, interactive web simulators, and enterprise computational systems.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
+        </motion.div>
       </section>
 
-      {/* SECTION 5: CORE OPERATING PRINCIPLES */}
-      <section className="py-20 px-6 md:px-12 max-w-[1140px] mx-auto text-left" id="operating-principles">
-        <div className="space-y-12">
-          
-          <div className="space-y-2">
-            <span className="font-mono text-xs font-bold text-[#EAB308] uppercase tracking-widest block">
-              04 / PHILOSOPHY
-            </span>
-            <h2 className="font-heading font-black text-3xl sm:text-4xl text-white tracking-tight">
-              Core Operating Principles
-            </h2>
-          </div>
+      {/* ══════════════════════════════════════════════════
+          SECTION 5 — VENTURES & OPEN SOURCE
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="ventures-open-source"
+        className="py-20 px-6 md:px-12 max-w-[1200px] mx-auto text-left"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="space-y-12"
+        >
+          <motion.div variants={fadeUp}>
+            <SectionLabel index="04 / VENTURES" title="Ventures &amp; Open Source" />
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl space-y-3">
-              <span className="font-mono text-xs font-bold text-[#EAB308]">01. FIRST-PRINCIPLES</span>
-              <h3 className="font-heading font-bold text-xl text-white">Deconstruct to Core Truths</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Every problem is stripped down to foundational engineering logic before writing code or choosing technology stacks.
+            <motion.div
+              variants={fadeUp}
+              className="p-7 rounded-2xl border border-borderWarm bg-studioCard hover:border-amberAccent/50 transition-all duration-300 space-y-4 shadow-md"
+            >
+              <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent">
+                <Flame className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-heading font-extrabold text-xl text-deepInk">Shadow Arrow</h3>
+                <p className="font-mono text-xs font-bold text-amberAccent mt-0.5">Founder (Est. 2025)</p>
+              </div>
+              <p className="text-sm text-muted leading-relaxed">
+                Enterprise cloud architecture, web system development, and high-performance technical engineering studio serving scale-ups and MSMEs.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl space-y-3">
-              <span className="font-mono text-xs font-bold text-[#EAB308]">02. SCALABILITY FIRST</span>
-              <h3 className="font-heading font-bold text-xl text-white">Engineered for 10x Load</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Systems are architected from day one to handle high concurrency, multi-region failover, and zero data degradation.
+            <motion.div
+              variants={fadeUp}
+              className="p-7 rounded-2xl border border-borderWarm bg-studioCard hover:border-amberAccent/50 transition-all duration-300 space-y-4 shadow-md"
+            >
+              <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent">
+                <FlaskConical className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-heading font-extrabold text-xl text-deepInk">Web Utilities &amp; Digital Tools</h3>
+                <p className="font-mono text-xs font-bold text-amberAccent mt-0.5">Gaming &amp; Engineering Labs</p>
+              </div>
+              <p className="text-sm text-muted leading-relaxed">
+                Computational tools, gaming utilities, and engineering-grade web applications built as structured reference tools.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="p-8 bg-[#12151E] border border-white/10 rounded-3xl space-y-3">
-              <span className="font-mono text-xs font-bold text-[#EAB308]">03. ABSOLUTE OWNERSHIP</span>
-              <h3 className="font-heading font-bold text-xl text-white">End-to-End Execution</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Uncompromising commitment from architectural blueprint to live cloud production and long-term optimization.
+            <motion.div
+              variants={fadeUp}
+              className="p-7 rounded-2xl border border-borderWarm bg-studioCard hover:border-amberAccent/50 transition-all duration-300 space-y-4 shadow-md"
+            >
+              <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent">
+                <GitBranch className="w-5 h-5" />
+              </div>
+              <div>
+                <h3 className="font-heading font-extrabold text-xl text-deepInk">Open Repositories</h3>
+                <p className="font-mono text-xs font-bold text-amberAccent mt-0.5">GitHub Ecosystem</p>
+              </div>
+              <p className="text-sm text-muted leading-relaxed">
+                Structured open-source repositories spanning systems architecture patterns, high-performance algorithms, and reference implementations.
               </p>
-            </div>
-
+            </motion.div>
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
-      {/* SECTION 6: DIRECT CONTACT & NETWORK */}
-      <footer className="py-24 px-6 md:px-12 max-w-[1140px] mx-auto text-left border-t border-white/10" id="contact">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-7 space-y-6">
-            <span className="font-mono text-xs font-bold text-[#EAB308] uppercase tracking-widest block">
-              05 / DIRECT NETWORK
-            </span>
-            <h2 className="font-heading font-black text-4xl sm:text-5xl text-white tracking-tight">
-              Initiate a Technical Line
-            </h2>
-            <p className="text-slate-400 text-base max-w-lg leading-relaxed">
-              Whether you are looking to collaborate on high-throughput software architecture, Shadow Arrow partnerships, or technical advisory, reach out directly.
+      {/* ══════════════════════════════════════════════════
+          SECTION 6 — CONTACT & NETWORK (No Duplicate Copyright)
+      ══════════════════════════════════════════════════ */}
+      <section
+        id="contact-network"
+        className="py-24 px-6 md:px-12 max-w-[1200px] mx-auto border-t border-borderWarm"
+      >
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
+        >
+          {/* Left: Network links */}
+          <motion.div variants={fadeUp} className="lg:col-span-7 space-y-6">
+            <SectionLabel index="05 / NETWORK" title="Initiate a Technical Line" />
+            <p className="text-muted text-base max-w-lg leading-relaxed">
+              Available for high-throughput software architecture collaborations, Shadow Arrow partnerships,
+              technical advisory, and mentorship engagements.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a
-                href="https://www.commudle.com/users/Bijoylohar"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-slate-300 hover:text-[#EAB308] hover:border-[#EAB308] transition-all flex items-center gap-1.5"
-              >
-                <Radio className="w-3.5 h-3.5 text-[#EAB308]" />
-                <span>Commudle: @Bijoylohar</span>
-              </a>
-
-              <a
-                href="https://topmate.io/bijoy_lohar"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-slate-300 hover:text-[#EAB308] hover:border-[#EAB308] transition-all flex items-center gap-1.5"
-              >
-                <Compass className="w-3.5 h-3.5 text-[#EAB308]" />
-                <span>Topmate Mentorship</span>
-              </a>
-
-              <a
-                href="https://github.com/loharbijoy2005-a11y"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-slate-300 hover:text-[#EAB308] hover:border-[#EAB308] transition-all flex items-center gap-1.5"
-              >
-                <Github className="w-3.5 h-3.5 text-white" />
-                <span>GitHub</span>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/bijoy-lohar-5a508832b"
-                target="_blank"
-                rel="noreferrer"
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-mono text-slate-300 hover:text-[#EAB308] hover:border-[#EAB308] transition-all flex items-center gap-1.5"
-              >
-                <Linkedin className="w-3.5 h-3.5 text-sky-400" />
-                <span>LinkedIn</span>
-              </a>
+            <div className="flex flex-wrap gap-3 pt-1">
+              {[
+                { href: "https://www.commudle.com/users/Bijoylohar", icon: <Radio className="w-3.5 h-3.5" />, label: "Commudle: @Bijoylohar" },
+                { href: "https://topmate.io/bijoy_lohar", icon: <Compass className="w-3.5 h-3.5" />, label: "Topmate Mentorship" },
+                { href: "https://github.com/loharbijoy2005-a11y", icon: <Github className="w-3.5 h-3.5" />, label: "GitHub" },
+                { href: "https://www.linkedin.com/in/bijoy-lohar-5a508832b", icon: <Linkedin className="w-3.5 h-3.5" />, label: "LinkedIn" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-borderWarm bg-studioCard hover:border-amberAccent hover:text-amberAccent text-muted text-xs font-mono transition-all shadow-sm"
+                >
+                  <span className="text-amberAccent">{link.icon}</span>
+                  {link.label}
+                </a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-5 p-8 bg-[#12151E] border border-white/10 rounded-3xl space-y-4">
-            <h3 className="font-heading font-bold text-xl text-white">Direct Message Gateway</h3>
-            <p className="text-xs text-slate-400">Direct response within 24 hours.</p>
+          {/* Right: Direct email */}
+          <motion.div
+            variants={fadeUp}
+            className="lg:col-span-5 p-8 rounded-2xl border border-borderWarm bg-studioCard space-y-4 shadow-md"
+          >
+            <h3 className="font-heading font-bold text-xl text-deepInk">Direct Message Gateway</h3>
+            <p className="text-xs text-muted">Direct response within 24 hours.</p>
             <a
               href="mailto:bijoylohar@shadowarrow.in"
-              className="inline-flex items-center justify-center w-full py-3.5 bg-white hover:bg-[#EAB308] text-slate-950 font-heading font-extrabold text-sm rounded-full transition-all"
+              id="cta-send-email"
+              className="inline-flex items-center justify-center w-full py-3.5 rounded-full bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-sm transition-all duration-200 shadow-md"
             >
               Send Direct Email ↗
             </a>
-          </div>
-
-        </div>
-
-        <div className="mt-16 pt-8 border-t border-white/5 text-center text-xs font-mono text-slate-500">
-          © 2026 Bijoy Lohar. Founder of Shadow Arrow &bull; All Rights Reserved.
-        </div>
-      </footer>
+          </motion.div>
+        </motion.div>
+      </section>
 
     </div>
   );

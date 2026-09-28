@@ -5,23 +5,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #FBFBF9;
-    color: #09090B;
+    background-color: #12100B;
+    color: #FCF9F2;
   }
   body {
-    background-color: #FBFBF9;
-    color: #09090B;
+    background-color: #12100B;
+    color: #FCF9F2;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
   }
 }
 
-/* Blueprint Grid Pattern */
+/* Blueprint Grid Pattern - Rich Warm Gold */
 .blueprint-grid {
   background-size: 32px 32px;
   background-image:
-    linear-gradient(to right, rgba(217, 119, 6, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217, 119, 6, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(229, 193, 88, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(229, 193, 88, 0.04) 1px, transparent 1px);
 }
 
 /* Analog Grain Noise Overlay */
@@ -34,64 +34,46 @@
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Ambient Cursor Spotlight Canvas */
-.cursor-spotlight {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(217, 119, 6, 0.05) 0%, rgba(9, 9, 11, 0.01) 50%, transparent 70%);
-  z-index: 0;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
-}
-
-/* Custom Scrollbar */
+/* Custom Scrollbar Warm Gold */
 ::-webkit-scrollbar {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBFBF9;
+  background: #12100B;
 }
 ::-webkit-scrollbar-thumb {
-  background: #D4D3CC;
+  background: rgba(229, 193, 88, 0.25);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #D97706;
+  background: #E5C158;
 }
 
-/* Hero Image Blending & Glow CSS */
-.hero-image-wrapper {
+/* Hero Image True Blending — No Hardcoded Colors */
+.hero-image-container {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 100%;
+  height: 100%;
+  background: transparent;
 }
 
-.hero-image-wrapper img {
+.hero-image-container img {
   width: 100%;
-  max-height: 85vh;
-  object-fit: contain;
-  object-position: bottom;
-  /* Hard edges hatane aur background me seamlessly blend karne ke liye */
-  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 25%),
-                      linear-gradient(to left, transparent 0%, black 15%);
-  mask-image: linear-gradient(to top, transparent 0%, black 25%),
-              linear-gradient(to left, transparent 0%, black 15%);
-}
-
-.hero-glow {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
+  height: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  object-position: top right;
+  align-self: flex-start;
+  /* Smooth Fade ONLY on Left (towards text) and Bottom. Top and Right edges are SHARP & FLUSH */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 35%),
+    linear-gradient(to top, transparent 0%, black 25%);
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 35%),
+    linear-gradient(to top, transparent 0%, black 25%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
