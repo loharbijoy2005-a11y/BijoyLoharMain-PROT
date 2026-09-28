@@ -105,10 +105,10 @@ export const SystemsPhilosophy: React.FC = () => {
         id="hero-story"
         className="w-full min-h-screen relative overflow-hidden flex flex-col justify-between pt-0 pb-0"
       >
-        <div className="flex-1 w-full pl-6 md:pl-12 pr-0 mr-0 grid grid-cols-1 lg:grid-cols-12 gap-4 items-start z-10 relative">
+        <div className="flex-1 w-full px-4 sm:px-8 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start z-10 relative">
 
           {/* LEFT — Typography & Narrative */}
-          <div className="lg:col-span-6 space-y-5 lg:space-y-6 text-left pt-14 md:pt-16 pb-12 z-10 pr-4 lg:pr-6 max-w-[720px]">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left pt-16 sm:pt-20 pb-8 z-10 max-w-[720px]">
 
             {/* Subtle pill badge */}
             <motion.div
@@ -116,10 +116,10 @@ export const SystemsPhilosophy: React.FC = () => {
               initial="hidden"
               animate="show"
               custom={0}
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-amberAccent/10 border border-amberAccent/30 rounded-full text-xs font-mono font-bold text-amberAccent"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amberAccent/10 border border-amberAccent/30 rounded-full text-[10px] sm:text-xs font-mono font-bold text-amberAccent max-w-full flex-wrap"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-amberAccent animate-pulse" />
-              <span>FULL-STACK SOFTWARE ENGINEER &amp; SYSTEMS ARCHITECT &bull; FOUNDER OF SHADOW ARROW</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amberAccent animate-pulse shrink-0" />
+              <span className="break-words">FULL-STACK SOFTWARE ENGINEER &bull; SYSTEMS ARCHITECT &bull; FOUNDER OF SHADOW ARROW</span>
             </motion.div>
 
             {/* Main headline */}
@@ -130,10 +130,10 @@ export const SystemsPhilosophy: React.FC = () => {
               custom={1}
               className="space-y-1"
             >
-              <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl text-deepInk tracking-tight leading-[1.06]">
+              <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-7xl text-deepInk tracking-tight leading-[1.08]">
                 Engineering Resilient Systems.
               </h1>
-              <h1 className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl text-amberAccent tracking-tight leading-[1.06]">
+              <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-7xl text-amberAccent tracking-tight leading-[1.08]">
                 Architecting Computational Scale.
               </h1>
             </motion.div>
@@ -144,7 +144,7 @@ export const SystemsPhilosophy: React.FC = () => {
               initial="hidden"
               animate="show"
               custom={2}
-              className="text-muted text-base sm:text-lg leading-relaxed max-w-xl font-normal"
+              className="text-muted text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal"
             >
               Full-Stack Software Engineer operating across high-throughput software architecture, cloud infrastructure, and real-time gaming systems.
               Founder of <strong className="text-amberAccent font-bold">Shadow Arrow</strong> based in{" "}
@@ -157,12 +157,12 @@ export const SystemsPhilosophy: React.FC = () => {
               initial="hidden"
               animate="show"
               custom={3}
-              className="flex flex-wrap items-center gap-4 pt-1"
+              className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1"
             >
               <a
                 href="#origin-narrative"
                 id="cta-read-biography"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-sm rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs sm:text-sm rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 group"
               >
                 <span>Read Biography</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
@@ -171,17 +171,35 @@ export const SystemsPhilosophy: React.FC = () => {
               <a
                 href="#contact-network"
                 id="cta-direct-comms"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border border-borderSubtle hover:border-amberAccent hover:text-amberAccent text-deepInk font-heading font-bold text-sm rounded-full transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-transparent border border-borderSubtle hover:border-amberAccent hover:text-amberAccent text-deepInk font-heading font-bold text-xs sm:text-sm rounded-full transition-all duration-200"
               >
                 <span>Direct Comms</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
             </motion.div>
 
+            {/* Mobile Portrait Photo Card (Visible only on Mobile & Tablet) */}
+            <div className="lg:hidden mt-6 pt-2">
+              <div className="relative w-full max-w-[320px] rounded-3xl overflow-hidden border-2 border-amberAccent/40 shadow-2xl bg-studioCard">
+                <img
+                  src="https://github.com/loharbijoy2005-a11y.png"
+                  alt="Bijoy Lohar — Systems Architect & Founder"
+                  className="w-full h-auto object-cover rounded-3xl"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
+                  }}
+                />
+                <div className="absolute bottom-2 inset-x-2 bg-studioCanvas/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amberAccent/30 flex items-center justify-between text-[11px] font-mono text-amberAccent">
+                  <span className="font-bold">Bijoy Lohar</span>
+                  <span className="text-[10px] text-deepInk">FOUNDER</span>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          {/* RIGHT — Flush-Right & Flush-Top Portrait Image with Golden Swarm Particles */}
-          <div className="lg:col-span-6 w-full h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/2 flex items-start justify-end z-0 pr-0 mr-0">
+          {/* RIGHT — Desktop Flush-Right & Flush-Top Portrait Image */}
+          <div className="hidden lg:flex lg:col-span-6 w-full h-full lg:absolute lg:top-0 lg:right-0 lg:w-1/2 items-start justify-end z-0 pr-0 mr-0">
             {/* Interactive Golden Particle Swarm Orbiting Face */}
             <HeroParticleSwarm />
 

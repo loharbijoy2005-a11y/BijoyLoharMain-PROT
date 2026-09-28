@@ -4,8 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Laptop, Gamepad2, Rocket, ArrowUpRight } from "lucide-react";
 
-import { SoundFXToggle } from "@/components/SoundFXToggle";
-
 interface PersonaOption {
   id: string;
   label: string;
@@ -46,29 +44,28 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-3 left-0 right-0 z-50 flex justify-between items-center max-w-[1380px] mx-auto px-4 md:px-8 pointer-events-none">
+    <div className="fixed top-2.5 left-0 right-0 z-50 flex justify-between items-center max-w-[1380px] mx-auto px-3 sm:px-6 md:px-8 pointer-events-none">
       
-      {/* Left Brand Identifier & Audio FX Toggle */}
+      {/* Left Brand Identifier - Compact on Mobile */}
       <div className="pointer-events-auto flex items-center gap-2">
         <a 
           href="#hero-story" 
-          className="px-4 py-2 bg-studioCard/90 backdrop-blur-md border border-borderWarm text-deepInk font-mono text-xs font-bold rounded-full shadow-lg hover:border-amberAccent transition-all flex items-center gap-2"
+          className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-studioCard/90 backdrop-blur-md border border-borderWarm text-deepInk font-mono text-[11px] sm:text-xs font-bold rounded-full shadow-lg hover:border-amberAccent transition-all flex items-center gap-1.5 sm:gap-2 shrink-0"
         >
           <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
-          <span>Shadow Arrow &bull; Bijoy Lohar</span>
+          <span className="truncate max-w-[140px] sm:max-w-none">Shadow Arrow &bull; Bijoy Lohar</span>
         </a>
-        <SoundFXToggle />
       </div>
 
-      {/* Center/Right Floating Sleek Dark Capsule Navbar & White CTA */}
+      {/* Center/Right Floating Dark Capsule Navbar & White CTA */}
       <motion.header
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="pointer-events-auto flex items-center gap-3"
+        className="pointer-events-auto flex items-center gap-2 sm:gap-3"
       >
-        {/* Sleek Floating Dark Pill Capsule Navigation Bar */}
-        <div className="flex items-center gap-1 p-1 bg-[#12151E]/90 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
+        {/* Floating Dark Pill Capsule Navigation Bar — Hidden on Small Mobile, Visible on Tablet/Desktop */}
+        <div className="hidden md:flex items-center gap-1 p-1 bg-[#12151E]/90 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
           {personas.map((p) => {
             const isActive = activePersona === p.id;
             return (
@@ -96,9 +93,10 @@ export const Navbar: React.FC = () => {
         {/* Clean White Pill Button CTA */}
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-amber-300 text-slate-950 text-xs font-extrabold rounded-full transition-all shadow-lg hover:scale-105"
+          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-white hover:bg-amber-300 text-slate-950 text-[11px] sm:text-xs font-extrabold rounded-full transition-all shadow-lg hover:scale-105 shrink-0"
         >
-          <span>Open Direct Comms</span>
+          <span className="hidden sm:inline">Open Direct Comms</span>
+          <span className="sm:hidden">Comms</span>
           <ArrowUpRight className="w-3.5 h-3.5 text-slate-950" />
         </a>
       </motion.header>
