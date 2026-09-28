@@ -188,8 +188,14 @@ export const TerminalConsole: React.FC = () => {
     setInputVal("");
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    executeCommand(inputVal);
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      e.preventDefault();
       executeCommand(inputVal);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
@@ -304,7 +310,7 @@ export const TerminalConsole: React.FC = () => {
           ))}
 
           {/* Active Command Input Line */}
-          <div className="flex items-center gap-2.5 text-amberAccent pt-3 border-t border-amberAccent/20">
+          <form onSubmit={handleSubmit} className="flex items-center gap-2.5 text-amberAccent pt-3 border-t border-amberAccent/20">
             <span className="font-bold text-amberAccent shrink-0 font-mono text-xs sm:text-sm">
               shadow-arrow-os:~$
             </span>
@@ -321,12 +327,13 @@ export const TerminalConsole: React.FC = () => {
               spellCheck={false}
             />
             <button
-              onClick={() => executeCommand(inputVal)}
-              className="p-1.5 text-amberAccent hover:text-amberLight shrink-0"
+              type="submit"
+              className="p-1.5 text-amberAccent hover:text-amberLight shrink-0 cursor-pointer"
+              title="Execute command"
             >
               <CornerDownLeft className="w-4 h-4" />
             </button>
-          </div>
+          </form>
         </div>
       </motion.div>
     </section>
