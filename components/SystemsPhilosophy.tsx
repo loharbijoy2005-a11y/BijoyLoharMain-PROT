@@ -123,24 +123,31 @@ export const SystemsPhilosophy: React.FC = () => {
 
         </div>
 
-        {/* Right Column: Hero Portrait (Natural Blended Cutout) */}
-        <div className="lg:col-span-5 h-full relative flex items-end justify-center lg:justify-end min-h-[500px] lg:min-h-[680px]">
+        {/* Right Column: Hero Portrait (100% Seamless Studio Blended) */}
+        <div className="lg:col-span-5 h-full relative flex items-center justify-center lg:justify-end min-h-[500px] lg:min-h-[680px]">
           
-          {/* Subtle Bottom & Side Gradient Overlays for Seamless Canvas Blend */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14] via-transparent to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0A0D14] to-transparent z-10 pointer-events-none hidden lg:block" />
+          {/* Soft Radial Ambient Backlight */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] bg-amber-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
 
-          {/* Large Scale Portrait cutout */}
+          {/* 4-Side Gradient Overlays for Extra Seamless Canvas Blending */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0D14] via-transparent to-[#0A0D14]/70 z-10 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0D14] via-transparent to-[#0A0D14] z-10 pointer-events-none" />
+
+          {/* Large Scale Portrait with Radial Edge Feathering Mask */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full h-full max-w-[500px] flex items-end justify-center z-0"
+            className="relative w-full max-w-[480px] flex items-center justify-center z-0"
           >
             <img
               src="https://github.com/loharbijoy2005-a11y.png"
               alt="Bijoy Lohar"
-              className="w-full h-auto max-h-[680px] object-cover object-top filter brightness-105 contrast-105 rounded-b-none"
+              className="w-full h-auto max-h-[650px] object-cover filter brightness-105 contrast-105 transition-all"
+              style={{
+                WebkitMaskImage: "radial-gradient(ellipse at 50% 48%, black 40%, transparent 72%)",
+                maskImage: "radial-gradient(ellipse at 50% 48%, black 40%, transparent 72%)",
+              }}
             />
           </motion.div>
 
