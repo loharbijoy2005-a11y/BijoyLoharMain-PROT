@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Activity, ShieldCheck, Wifi, Clock, Cpu, Monitor, Sparkles } from "lucide-react";
+import { Activity, ShieldCheck, Wifi, Clock, Cpu, Monitor } from "lucide-react";
 import { ArchitectureVisualizer } from "@/components/ArchitectureVisualizer";
 
 export const SystemTelemetry: React.FC = () => {
@@ -120,11 +120,8 @@ export const SystemTelemetry: React.FC = () => {
 
           <div className="flex items-center gap-2 font-bold text-deepInk group-hover:text-amberAccent transition-colors">
             <ShieldCheck className="w-4 h-4 text-amberAccent group-hover:scale-110 transition-transform" />
-            <span className="flex items-center gap-2">
+            <span>
               SHADOW ARROW OS &bull; {isOnline ? "ALL SYSTEMS OPERATIONAL" : "OFFLINE MODE"}
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-normal px-2 py-0.5 rounded bg-amberAccent/10 text-amberAccent border border-amberAccent/30">
-                <Sparkles className="w-2.5 h-2.5" /> Tap for Topology
-              </span>
             </span>
           </div>
         </button>
