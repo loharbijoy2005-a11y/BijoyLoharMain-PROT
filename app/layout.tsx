@@ -260,10 +260,10 @@ export default function RootLayout({
           "@id": "https://www.bijoylohar.in/#person",
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
-        "dateModified": "2026-09-27T18:00:00+05:30",
+        "dateModified": "2026-09-28T19:05:00+05:30",
         "speakable": {
           "@type": "SpeakableSpecification",
-          "cssSelector": [".hero-title", ".hero-description", "h1", "h2"],
+          "cssSelector": ["h1", "h2"],
         },
         "breadcrumb": {
           "@id": "https://www.bijoylohar.in/#breadcrumb",
@@ -302,7 +302,7 @@ export default function RootLayout({
             "@type": "Occupation",
             "name": "Technical Author",
             "occupationLocation": { "@type": "Country", "name": "India" },
-            "description": "Authors technical handbooks and algorithmic reference guides covering systems design, software engineering fundamentals, and computational theory. Works indexed on Google Books and Amazon.",
+            "description": "Authors technical handbooks and algorithmic reference guides covering systems design, software engineering fundamentals, and computational theory. Works indexed on Google Books.",
             "skills": "Technical Writing, Algorithmic Reference Guides, Systems Design Documentation, Software Engineering Handbooks",
           },
           {
@@ -314,6 +314,22 @@ export default function RootLayout({
           },
         ],
         "url": "https://www.bijoylohar.in/",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "IMDb",
+            "name": "IMDb ID",
+            "value": "nm18949942",
+            "url": "https://www.imdb.com/name/nm18949942/",
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "name": "ORCID iD",
+            "value": "0009-0004-5643-7612",
+            "url": "https://orcid.org/0009-0004-5643-7612",
+          },
+        ],
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
           "https://www.bijoylohar.in/bijoy-lohar.jpg",
@@ -376,10 +392,8 @@ export default function RootLayout({
           // Research & Academic
           "https://orcid.org/0009-0004-5643-7612",
           "https://developers.google.com/profile/u/101253410801307724262",
-          // Authorship
+          // Authorship & Media
           "https://www.imdb.com/name/nm18949942/",
-          "https://www.amazon.com/author/bijoylohar",
-          "https://books.google.com/books?as_brr=0&q=bijoy+lohar",
           // Professional
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
@@ -396,7 +410,7 @@ export default function RootLayout({
           "https://www.facebook.com/Bijoylohar.2005",
           "https://youtube.com/@bijoylohar2005",
           "https://medium.com/@Bijoylohar",
-          "https://www.quora.com/profile/Bijoy-Lohar-13?ch=2&oid=3235105824&srid=5G7h2p&target_type=user",
+          "https://www.quora.com/profile/Bijoy-Lohar-13",
           // Discovery
           "https://linktr.ee/Bijoylohar",
           "https://about.me/bijoylohar",

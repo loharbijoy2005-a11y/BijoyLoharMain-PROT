@@ -8,6 +8,10 @@
     "jobTitle": "Full-Stack Software Engineer & Founder of Shadow Arrow",
     "description": "Indian Full-Stack Software Engineer and Founder of Shadow Arrow — specializing in scalable web systems, modern UI, and cloud infrastructure.",
     "url": "https://www.bijoylohar.in/",
+    "identifier": [
+      { "propertyID": "IMDb", "value": "nm18949942", "url": "https://www.imdb.com/name/nm18949942/" },
+      { "propertyID": "ORCID", "value": "0009-0004-5643-7612", "url": "https://orcid.org/0009-0004-5643-7612" }
+    ],
     "nationality": "India",
     "homeLocation": {
       "addressLocality": "Bishnupur",
@@ -33,26 +37,26 @@
     "description": "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow. Based in Bishnupur, West Bengal, India."
   },
   "sameAs": [
-    "https://www.bijoylohar.in",
     "https://orcid.org/0009-0004-5643-7612",
+    "https://developers.google.com/profile/u/101253410801307724262",
+    "https://www.imdb.com/name/nm18949942/",
     "https://www.crunchbase.com/person/bijoy-lohar",
     "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+    "https://topmate.io/bijoy_lohar",
+    "https://www.commudle.com/users/Bijoylohar",
     "https://github.com/loharbijoy2005-a11y",
+    "https://gitlab.com/loharbijoy2005-a11y",
+    "https://hub.docker.com/u/bijoylohar",
     "https://x.com/BijoyLohar2005",
     "https://www.instagram.com/bijoylohar_2005",
-    "https://www.facebook.com/Bijoylohar.2005",
-    "https://linktr.ee/Bijoylohar",
-    "https://youtube.com/@bijoylohar2005",
-    "https://about.me/bijoylohar",
-    "https://www.pinterest.com/loharbijoy2005",
     "https://www.threads.net/@bijoylohar_2005",
-    "https://gitlab.com/loharbijoy2005-a11y",
+    "https://www.facebook.com/Bijoylohar.2005",
+    "https://youtube.com/@bijoylohar2005",
     "https://medium.com/@Bijoylohar",
-    "https://www.imdb.com/name/nm18949942/",
-    "https://www.quora.com/profile/Bijoy-Lohar-13?ch=2&oid=3235105824&srid=5G7h2p&target_type=user",
-    "https://developers.google.com/profile/u/101253410801307724262",
-    "https://www.commudle.com/users/Bijoylohar",
-    "https://topmate.io/bijoy_lohar"
+    "https://www.quora.com/profile/Bijoy-Lohar-13",
+    "https://linktr.ee/Bijoylohar",
+    "https://about.me/bijoylohar",
+    "https://www.pinterest.com/loharbijoy2005"
   ],
   "knowsAbout": [
     "Software Engineering",
