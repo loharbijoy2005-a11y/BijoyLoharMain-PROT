@@ -1,264 +1,132 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { RefreshCw, Play, Pause } from "lucide-react";
-
-const STAGES = [
-  { id: 1, name: "Demand Creation & Edge Ingestion", desc: "Capturing high-velocity user traffic at global edge endpoints." },
-  { id: 2, name: "Helping & Security Filtering", desc: "Zero-Trust authentication barrier and rate limiting." },
-  { id: 3, name: "Trust Creation & Micro-Services", desc: "High-throughput serverless worker execution core." },
-  { id: 4, name: "Presentation & Event Streaming", desc: "Pub/Sub event matrix broadcasting real-time state." },
-  { id: 5, name: "Conversion & High-Throughput Scale", desc: "Resilient ACID data store and automatic scaling." },
-];
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 
 export const SystemsPhilosophy: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Track scroll position over section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 80%", "end 30%"],
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
-
-  const [currentStageIdx, setCurrentStageIdx] = useState<number>(0);
-  const [manualOverride, setManualOverride] = useState<boolean>(false);
-  const [isAutoPlay, setIsAutoPlay] = useState<boolean>(true);
-
-  // Update current stage index on scroll unless manual mode is selected
-  useEffect(() => {
-    const unsubscribe = smoothProgress.on("change", (v) => {
-      if (!manualOverride) {
-        const stage = Math.min(4, Math.floor(v * 5));
-        setCurrentStageIdx(stage);
-      }
-    });
-    return () => unsubscribe();
-  }, [smoothProgress, manualOverride]);
-
-  // Auto-play cycler if toggled
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlay && manualOverride) {
-      interval = setInterval(() => {
-        setCurrentStageIdx((prev) => (prev + 1) % 5);
-      }, 2000);
-    }
-    return () => clearInterval(interval);
-  }, [isAutoPlay, manualOverride]);
-
-  const activeStage = STAGES[currentStageIdx];
-  const progressRatio = (currentStageIdx + 1) / 5;
-
   return (
-    <section
-      ref={containerRef}
-      className="py-24 px-4 md:px-8 max-w-[1180px] mx-auto min-h-[90vh] flex items-center justify-center relative overflow-hidden"
-      id="systems-philosophy"
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+    <section className="py-20 md:py-28 px-4 md:px-8 max-w-[1240px] mx-auto relative overflow-hidden" id="systems-philosophy">
+      {/* Background Glowing Ambient Orbs */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-amber-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-        {/* Left Column: Big Impact Typography (Exact Copy & Style matching user's photo) */}
-        <div className="lg:col-span-6 space-y-8 text-left">
+      {/* Main 2-Column Dark Card Box (Matching durveshyadav.com Photo #1 Layout) */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+        className="bg-[#080B12] border border-amber-500/25 rounded-[36px] overflow-hidden shadow-[0_0_60px_rgba(245,158,11,0.1)] relative"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[560px]">
           
-          <div className="space-y-4">
-            <h2 className="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-400 leading-[1.12] tracking-tight">
-              Sales is the water. <br />
-              <span className="text-deepInk font-black block mt-1">
-                Marketing is the pipeline.
-              </span>
-            </h2>
-
-            <p className="font-heading font-bold text-2xl sm:text-3xl text-slate-500 leading-snug">
-              You build it, piece by piece.
-            </p>
-
-            <p className="font-heading font-black text-3xl sm:text-4xl text-deepInk leading-tight pt-2">
-              Build it right, and sales will flow automatically.
-            </p>
-          </div>
-
-          {/* Author Name */}
-          <div className="pt-6 border-t border-borderWarm flex items-center justify-between">
-            <div>
-              <span className="font-heading font-extrabold text-2xl text-deepInk block">
-                Bijoy Lohar
-              </span>
-              <span className="font-mono text-xs text-amber-700 font-bold uppercase tracking-wider">
-                Founder Shadow Arrow &bull; Systems Architect
-              </span>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Right Column: Exact Pipeline & Funnel Box (Matching User's Photo #2) */}
-        <div className="lg:col-span-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.97 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="p-6 sm:p-8 bg-[#0D111A] border border-amber-500/25 rounded-[32px] shadow-[0_0_60px_rgba(245,158,11,0.14)] text-white relative overflow-hidden"
-          >
+          {/* Left Column: High-Impact Copywriting (Exact durveshyadav.com style) */}
+          <div className="lg:col-span-7 p-8 sm:p-12 lg:p-14 space-y-6 text-left z-10">
             
-            {/* Top Labels along upper pipe route */}
-            <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-400 mb-2 px-4">
-              <span className={currentStageIdx >= 0 ? "text-amber-400 font-extrabold" : ""}>
-                Demand Creation
-              </span>
-              <span className={currentStageIdx >= 1 ? "text-amber-400 font-extrabold" : ""}>
-                Helping
-              </span>
-            </div>
+            {/* Top Audience Label */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 font-mono text-xs md:text-sm font-bold text-amber-400 uppercase tracking-wider"
+            >
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>For founders, scale-ups and MSMEs</span>
+            </motion.div>
 
-            {/* Sub-label under top pipe */}
-            <div className="text-center font-mono text-[11px] text-slate-500 mb-2">
-              Your marketing pipeline
-            </div>
+            {/* Massive Punchy Headline */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-heading font-extrabold text-5xl sm:text-6xl md:text-7xl text-white tracking-tight leading-[1.06]"
+            >
+              Stop chasing. <br />
+              <span className="text-amber-400 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+                Start attracting.
+              </span>
+            </motion.h2>
 
-            {/* Pipeline SVG Graphic Path with Animated Liquid Fill */}
-            <div className="relative w-full h-[260px] my-2">
-              <svg
-                className="w-full h-full"
-                viewBox="0 0 440 260"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {/* Sub-headline Statement */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="space-y-4 pt-1 max-w-xl"
+            >
+              <p className="font-heading font-semibold text-xl md:text-2xl text-slate-200 leading-snug">
+                Scale is the by-product of right architecture.
+              </p>
+              
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed font-sans">
+                Most founders have a great product and real hustle, but still fight for every scale.{" "}
+                <strong className="text-white font-bold">
+                  The problem isn&apos;t your effort. It&apos;s your marketing &amp; engineering system.
+                </strong>{" "}
+                I fix that.
+              </p>
+            </motion.div>
+
+            {/* CTA White Pill Button (Matching Photo #1) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="pt-4"
+            >
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-amber-400 text-slate-950 font-heading font-extrabold text-sm rounded-full shadow-lg transition-all transform hover:-translate-y-1 group"
               >
-                {/* Outer Pipe Shadow/Background Track */}
-                <path
-                  d="M 50 35 H 390 V 125 H 170 V 175"
-                  stroke="#1E293B"
-                  strokeWidth="32"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                {/* Inner Pipe Track */}
-                <path
-                  d="M 50 35 H 390 V 125 H 170 V 175"
-                  stroke="#0F172A"
-                  strokeWidth="24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <span>Get Systems &amp; Sales Blueprint</span>
+                <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </motion.div>
 
-                {/* Glowing Gold Liquid Pipeline Path */}
-                <motion.path
-                  d="M 50 35 H 390 V 125 H 170 V 175"
-                  stroke="url(#goldPipelineGradient)"
-                  strokeWidth="18"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  initial={{ pathLength: 0.2 }}
-                  animate={{ pathLength: Math.max(0.15, progressRatio) }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                />
-
-                {/* Animated Gold Capsule/Pulsing Liquid Ball moving inside pipe */}
-                <motion.circle
-                  r="9"
-                  fill="#FFF"
-                  filter="drop-shadow(0px 0px 8px #F59E0B)"
-                  animate={{
-                    cx: currentStageIdx === 0 ? 80 : currentStageIdx === 1 ? 380 : currentStageIdx === 2 ? 300 : 170,
-                    cy: currentStageIdx === 0 ? 35 : currentStageIdx === 1 ? 70 : currentStageIdx === 2 ? 125 : 175,
-                  }}
-                  transition={{ duration: 0.7, ease: "easeInOut" }}
-                />
-
-                {/* Funnel / Bucket Shape at Bottom */}
-                <path
-                  d="M 110 175 L 230 175 L 205 245 H 135 Z"
-                  stroke="#334155"
-                  strokeWidth="4"
-                  fill="#0B0F19"
-                />
-
-                {/* Liquid Level inside Funnel Bucket */}
-                <motion.path
-                  d="M 110 175 L 230 175 L 205 245 H 135 Z"
-                  fill="url(#goldPipelineGradient)"
-                  initial={{ opacity: 0.3 }}
-                  animate={{
-                    opacity: currentStageIdx >= 3 ? 0.95 : 0.3,
-                  }}
-                  transition={{ duration: 0.4 }}
-                />
-
-                {/* Text inside Funnel Bucket */}
-                <text
-                  x="170"
-                  y="218"
-                  textAnchor="middle"
-                  fill="#FFFFFF"
-                  fontSize="15"
-                  fontWeight="900"
-                  fontFamily="sans-serif"
-                  letterSpacing="1"
-                >
-                  Sales
-                </text>
-
-                <defs>
-                  <linearGradient id="goldPipelineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F59E0B" />
-                    <stop offset="50%" stopColor="#FBBF24" />
-                    <stop offset="100%" stopColor="#D97706" />
-                  </linearGradient>
-                </defs>
-              </svg>
-
-              {/* Middle Labels along second pipe segment */}
-              <div className="absolute top-[102px] left-6 right-6 flex items-center justify-between text-xs font-mono font-bold text-slate-400 pointer-events-none px-2">
-                <span className={currentStageIdx >= 4 ? "text-amber-400 font-extrabold" : ""}>
-                  Conversion
-                </span>
-                <span className={currentStageIdx >= 3 ? "text-amber-400 font-extrabold" : ""}>
-                  Presentation
-                </span>
-                <span className={currentStageIdx >= 2 ? "text-amber-400 font-extrabold" : ""}>
-                  Trust Creation
-                </span>
-              </div>
+            {/* Founder Verification Tag */}
+            <div className="pt-6 border-t border-slate-800/80 flex items-center gap-3 text-xs font-mono text-slate-400">
+              <ShieldCheck className="w-4 h-4 text-amber-400" />
+              <span>Verified Entity: <strong className="text-white">Bijoy Lohar</strong> — Founder Shadow Arrow</span>
             </div>
 
-            {/* Bottom Card Control Bar (Matching Photo: "Building: Demand Creation" & "0 of 5 built") */}
-            <div className="mt-4 pt-5 border-t border-amber-500/20 flex flex-wrap items-center justify-between text-xs font-mono text-slate-300 gap-3">
-              <div className="flex items-center gap-2">
-                <span className="text-slate-400">Building:</span>
-                <span className="font-extrabold text-amber-300">{activeStage.name}</span>
+          </div>
+
+          {/* Right Column: Bijoy Lohar Photo Banner (Exact Photo #1 Framing) */}
+          <div className="lg:col-span-5 h-full relative flex items-end justify-center lg:justify-end overflow-hidden min-h-[420px] lg:min-h-[580px]">
+            
+            {/* Ambient Lighting behind Photo */}
+            <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-[#080B12] via-transparent to-[#080B12] z-10 pointer-events-none" />
+            <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#080B12] to-transparent z-10 pointer-events-none" />
+
+            {/* Photo Container */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="relative w-full h-full max-w-[420px] flex items-end justify-center px-4"
+            >
+              <img
+                src="https://github.com/loharbijoy2005-a11y.png"
+                alt="Bijoy Lohar — Founder & Systems Architect"
+                className="w-full h-auto max-h-[520px] object-cover object-top rounded-2xl shadow-2xl filter brightness-105 contrast-105"
+              />
+
+              {/* Founder Overlay Chip */}
+              <div className="absolute bottom-6 left-6 z-20 px-4 py-2 bg-slate-950/90 backdrop-blur-md border border-amber-500/30 rounded-2xl shadow-xl text-left">
+                <span className="block font-heading font-extrabold text-sm text-white">Bijoy Lohar</span>
+                <span className="font-mono text-[11px] text-amber-400 font-bold">Founder Shadow Arrow</span>
               </div>
+            </motion.div>
 
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => {
-                    setManualOverride(true);
-                    setCurrentStageIdx((prev) => (prev + 1) % 5);
-                  }}
-                  className="px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 font-bold transition-all"
-                >
-                  {currentStageIdx} of 5 built
-                </button>
+          </div>
 
-                <button
-                  onClick={() => {
-                    setManualOverride(true);
-                    setIsAutoPlay(!isAutoPlay);
-                  }}
-                  title="Toggle Auto Flow"
-                  className="p-1.5 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-lg transition-colors"
-                >
-                  {isAutoPlay && manualOverride ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-            </div>
-
-          </motion.div>
         </div>
-
-      </div>
+      </motion.div>
     </section>
   );
 };
