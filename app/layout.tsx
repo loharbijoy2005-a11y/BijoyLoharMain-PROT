@@ -129,6 +129,7 @@ interface SchemaWebSiteNode {
   url: string;
   name: string;
   description?: string;
+  about?: SchemaId;
   publisher: SchemaId;
   potentialAction?: {
     "@type": "SearchAction";
@@ -148,6 +149,7 @@ interface SchemaProfilePageNode {
   about: SchemaId;
   datePublished: string;
   dateModified: string;
+  significantLink?: string[];
   speakable?: {
     "@type": "SpeakableSpecification";
     cssSelector: string[];
@@ -180,6 +182,9 @@ interface SchemaPersonNode {
   parent?: SchemaPersonRef[];
   sibling?: SchemaPersonRef[];
   worksFor: SchemaOrganizationRef;
+  founder?: SchemaId;
+  owns?: SchemaId;
+  award?: string[];
   knowsAbout: string[];
   sameAs: string[];
   mainEntityOfPage?: SchemaId;
@@ -198,7 +203,13 @@ interface SchemaOrganizationNode {
   "@id": string;
   name: string;
   url: string;
+  description?: string;
+  foundingDate?: string;
+  foundingLocation?: SchemaCountry;
+  numberOfEmployees?: { "@type": "QuantitativeValue"; value: number };
+  logo?: { "@type": "ImageObject"; url: string };
   founder: SchemaId;
+  member?: SchemaId;
   sameAs: string[];
 }
 
@@ -239,6 +250,9 @@ export default function RootLayout({
         "url": "https://www.bijoylohar.in/",
         "name": "Bijoy Lohar",
         "description": "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow.",
+        "about": {
+          "@id": "https://www.bijoylohar.in/#person",
+        },
         "publisher": {
           "@id": "https://www.bijoylohar.in/#person",
         },
@@ -268,6 +282,15 @@ export default function RootLayout({
         },
         "datePublished": "2026-08-01T00:00:00+05:30",
         "dateModified": "2026-09-28T19:05:00+05:30",
+        // High-authority profiles surfaced directly on this page node
+        "significantLink": [
+          "https://orcid.org/0009-0004-5643-7612",
+          "https://www.imdb.com/name/nm18949942/",
+          "https://www.crunchbase.com/person/bijoy-lohar",
+          "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
+          "https://github.com/loharbijoy2005-a11y",
+          "https://developers.google.com/profile/u/101253410801307724262",
+        ],
         "speakable": {
           "@type": "SpeakableSpecification",
           "cssSelector": ["h1", "h2"],
@@ -383,6 +406,13 @@ export default function RootLayout({
             "https://www.crunchbase.com/organization/shadow-arrow",
           ],
         },
+        // Explicit founder + ownership relationship — strongest KG trigger
+        "founder": {
+          "@id": "https://shadowarrow.in/#organization",
+        },
+        "owns": {
+          "@id": "https://shadowarrow.in/#organization",
+        },
         "knowsAbout": [
           // Core Languages
           "Python", "Go (Golang)", "TypeScript", "C++", "Java", "JavaScript",
@@ -436,7 +466,24 @@ export default function RootLayout({
         "@id": "https://shadowarrow.in/#organization",
         "name": "Shadow Arrow",
         "url": "https://shadowarrow.in",
+        "description": "Shadow Arrow is an Indian technology company founded by Bijoy Lohar, specializing in scalable web systems, cloud infrastructure, and modern software architecture.",
+        "foundingDate": "2024",
+        "foundingLocation": {
+          "@type": "Country",
+          "name": "India",
+        },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
+        },
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+        },
         "founder": {
+          "@id": "https://www.bijoylohar.in/#person",
+        },
+        "member": {
           "@id": "https://www.bijoylohar.in/#person",
         },
         "sameAs": [
