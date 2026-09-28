@@ -29,12 +29,6 @@ export const CreatorMatrix: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="mb-10"
       >
-        <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
-          02 / CREATOR MATRIX & VERIFIED ENTITY
-        </span>
-        <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
-          02 / DEVELOPER ECOSYSTEM & VERIFIED ENTITY
-        </span>
         <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-deepInk tracking-tight">
           Verified Developer & Creator Footprint
         </h2>

@@ -116,7 +116,7 @@ export const IdentityCard: React.FC = () => {
 
           {/* Top-Right Founder Overlay */}
           <div className="absolute top-4 right-4 z-20 px-3.5 py-1.5 bg-amberAccent text-deepInk font-bold font-mono text-xs rounded-full shadow-md">
-            Founder @ Shadow Arrow
+            Founder Shadow Arrow
           </div>
 
           {/* Bottom Gradient Caption */}

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { BookOpen, ExternalLink, Sparkles, RefreshCw, CheckCircle2, Clock, Info } from "lucide-react";
+import { BookOpen, ExternalLink, CheckCircle2, Clock, Info } from "lucide-react";
 
 export interface BookItem {
   id: string;
@@ -101,18 +101,7 @@ export const BooksSection: React.FC = () => {
           </h2>
         </motion.div>
 
-        {/* Live Status Badge */}
-        <div className="flex items-center gap-2 font-mono text-xs text-slate-700 bg-studioCard border border-borderWarm px-3.5 py-1.5 rounded-full shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-          <span className="font-bold">Live Sync Engine Active</span>
-          <button
-            onClick={fetchGoogleBooks}
-            title="Re-check Google Books Index"
-            className="ml-1 text-slate-400 hover:text-amberAccent transition-colors"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
-          </button>
-        </div>
+
       </div>
 
       {/* Conditional Display */}
@@ -217,10 +206,7 @@ export const BooksSection: React.FC = () => {
             </div>
 
             <div className="space-y-3 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 text-amber-800 border border-amber-500/20 font-mono text-xs font-bold rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-amberAccent" />
-                <span>Auto-Indexing Pipeline Ready</span>
-              </div>
+
 
               <h3 className="font-heading font-extrabold text-2xl text-deepInk">
                 No Published Books Yet — Live Listener Active

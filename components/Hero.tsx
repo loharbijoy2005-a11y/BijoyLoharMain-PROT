@@ -79,7 +79,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-wrap items-center justify-center gap-2 text-xs font-mono font-medium text-slate-700 bg-studioSubtle border border-borderWarm px-4 py-2 rounded-full mb-6"
         >
-          <span className="text-amberAccent font-bold">Founder @ Shadow Arrow</span>
+          <span className="text-amberAccent font-bold">Founder Shadow Arrow</span>
           <span className="text-borderSubtle">•</span>
           <span>Cloud Architect</span>
           <span className="text-borderSubtle">•</span>

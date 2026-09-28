@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-3.5 h-3.5 text-amberAccent" /> Bishnupur, West Bengal, India
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-amberAccent" /> Founder @ Shadow Arrow
+                <Shield className="w-3.5 h-3.5 text-amberAccent" /> Founder Shadow Arrow
               </span>
             </div>
           </div>
