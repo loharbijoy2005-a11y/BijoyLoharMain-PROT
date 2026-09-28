@@ -8,11 +8,15 @@ export const SystemsPhilosophy: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   return (
-    <section className="w-full min-h-screen relative overflow-hidden bg-[#0B0E17] text-white flex flex-col justify-between" id="systems-philosophy">
+    <section className="w-full min-h-screen relative overflow-hidden bg-[#0A0A0C] text-white flex flex-col justify-between" id="systems-philosophy">
       
-      {/* Background Radial Glow behind the Subject */}
-      <div className="absolute top-1/4 right-10 w-[550px] h-[550px] bg-amber-500/15 rounded-full blur-[130px] pointer-events-none z-0" />
-      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[100px] pointer-events-none z-0" />
+      {/* Background Radial Glow behind the Subject (z-index: 0, subtle 12% opacity) */}
+      <div 
+        className="absolute bottom-0 right-0 md:right-12 w-[550px] h-[550px] pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(circle at center, rgba(234, 179, 8, 0.12) 0%, transparent 60%)",
+        }}
+      />
 
       {/* Top Full-Width Navbar */}
       <header className="w-full px-6 md:px-12 py-6 flex items-center justify-between z-20 relative border-b border-white/5">
@@ -60,10 +64,10 @@ export const SystemsPhilosophy: React.FC = () => {
       </header>
 
       {/* Hero Section Split 2-Column Grid (100vw Immersive Canvas) */}
-      <div className="flex-1 w-full max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center z-10 relative py-12 lg:py-0">
+      <div className="flex-1 w-full max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end z-10 relative pt-12">
         
         {/* Left Column: Customized Copywriting Tailored for Bijoy Lohar */}
-        <div className="lg:col-span-7 space-y-8 text-left py-6">
+        <div className="lg:col-span-7 space-y-8 text-left py-12">
           
           {/* Tagline / Badge */}
           <motion.div
@@ -129,38 +133,25 @@ export const SystemsPhilosophy: React.FC = () => {
 
         </div>
 
-        {/* Right Column: Hero Portrait (100% Seamless Studio Edge Feathered) */}
-        <div className="lg:col-span-5 h-full relative flex items-center justify-center lg:justify-end min-h-[500px] lg:min-h-[660px]">
+        {/* Right Column: Hero Portrait (Smooth Mask Blending - z-index: 1 over z-index: 0 glow) */}
+        <div className="lg:col-span-5 h-full relative flex items-end justify-center lg:justify-end min-h-[500px] lg:min-h-[660px] z-10">
           
-          {/* Soft Radial Backlight Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] bg-amber-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
-
-          {/* Multi-directional Soft Gradient Vignette to Eliminate Box Edges Completely */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E17] via-transparent to-[#0B0E17]/80 z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0E17] via-transparent to-[#0B0E17] z-10 pointer-events-none" />
-
-          {/* Large Scale Portrait with Tight Soft Vignette & Blend Mode */}
+          {/* Large Scale Portrait with User's Exact Gradient Mask */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full max-w-[460px] flex items-center justify-center z-0 p-2"
+            className="relative w-full max-w-[500px] flex items-end justify-center z-10"
           >
-            <div 
-              className="w-full overflow-hidden rounded-[40px] relative shadow-[0_0_80px_rgba(0,0,0,0.8)] border border-white/10 bg-[#161822]"
+            <img
+              src="https://github.com/loharbijoy2005-a11y.png"
+              alt="Bijoy Lohar — Founder & Systems Architect"
+              className="w-full h-auto max-h-[680px] object-cover object-bottom transition-all"
               style={{
-                WebkitMaskImage: "linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-                WebkitMaskComposite: "source-in",
-                maskImage: "linear-gradient(to bottom, black 70%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-                maskComposite: "intersect",
+                WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 25%), linear-gradient(to left, transparent 0%, black 20%)",
+                maskImage: "linear-gradient(to top, transparent 0%, black 25%), linear-gradient(to left, transparent 0%, black 20%)",
               }}
-            >
-              <img
-                src="https://github.com/loharbijoy2005-a11y.png"
-                alt="Bijoy Lohar — Founder & Systems Architect"
-                className="w-full h-auto max-h-[640px] object-cover filter brightness-[1.03] contrast-[1.05] transition-all mix-blend-lighten"
-              />
-            </div>
+            />
           </motion.div>
 
         </div>
