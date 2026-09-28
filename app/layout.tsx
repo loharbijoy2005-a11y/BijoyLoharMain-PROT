@@ -182,7 +182,6 @@ interface SchemaPersonNode {
   parent?: SchemaPersonRef[];
   sibling?: SchemaPersonRef[];
   worksFor: SchemaOrganizationRef;
-  founder?: SchemaId;
   owns?: SchemaId;
   award?: string[];
   knowsAbout: string[];
@@ -406,10 +405,7 @@ export default function RootLayout({
             "https://www.crunchbase.com/organization/shadow-arrow",
           ],
         },
-        // Explicit founder + ownership relationship — strongest KG trigger
-        "founder": {
-          "@id": "https://shadowarrow.in/#organization",
-        },
+        // Explicit ownership relationship — strong KG trigger
         "owns": {
           "@id": "https://shadowarrow.in/#organization",
         },
