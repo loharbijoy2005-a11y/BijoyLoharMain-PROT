@@ -251,7 +251,7 @@ export const TerminalConsole: React.FC = () => {
             <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
             <span className="ml-3 text-xs font-bold text-amberAccent flex items-center gap-2">
               <Terminal className="w-3.5 h-3.5 text-amberAccent" />
-              Shadow Arrow OS &bull; bijoy@shadow-arrow-os:~ (zsh)
+              Shadow Arrow OS (zsh)
             </span>
           </div>
 
@@ -306,7 +306,7 @@ export const TerminalConsole: React.FC = () => {
           {/* Active Command Input Line */}
           <div className="flex items-center gap-2.5 text-amberAccent pt-3 border-t border-amberAccent/20">
             <span className="font-bold text-amberAccent shrink-0 font-mono text-xs sm:text-sm">
-              bijoy@shadow-arrow-os:~$
+              shadow-arrow-os:~$
             </span>
             <input
               ref={inputRef}
