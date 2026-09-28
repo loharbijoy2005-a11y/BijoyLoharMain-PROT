@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { SystemsPhilosophy } from "@/components/SystemsPhilosophy";
 import { ExpeditionEcosystem } from "@/components/ExpeditionEcosystem";
 import { CreatorMatrix } from "@/components/CreatorMatrix";
 import { AboutMe } from "@/components/AboutMe";
@@ -27,6 +28,9 @@ export default function Home() {
       <main className="relative z-10">
         {/* Hero: The Identity Radar */}
         <Hero />
+
+        {/* 10x Interactive Systems Philosophy & Pipeline Simulator */}
+        <SystemsPhilosophy />
 
         {/* Knowledge Graph Entity & About Me */}
         <AboutMe />
