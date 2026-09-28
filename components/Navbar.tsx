@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Laptop, Gamepad2, Rocket, ArrowUpRight } from "lucide-react";
 
+import { SoundFXToggle } from "@/components/SoundFXToggle";
+
 interface PersonaOption {
   id: string;
   label: string;
@@ -46,7 +48,7 @@ export const Navbar: React.FC = () => {
   return (
     <div className="fixed top-3 left-0 right-0 z-50 flex justify-between items-center max-w-[1380px] mx-auto px-4 md:px-8 pointer-events-none">
       
-      {/* Left Brand Identifier - Minimal Dark Gold */}
+      {/* Left Brand Identifier & Audio FX Toggle */}
       <div className="pointer-events-auto flex items-center gap-2">
         <a 
           href="#hero-story" 
@@ -55,6 +57,7 @@ export const Navbar: React.FC = () => {
           <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
           <span>Shadow Arrow &bull; Bijoy Lohar</span>
         </a>
+        <SoundFXToggle />
       </div>
 
       {/* Center/Right Floating Sleek Dark Capsule Navbar & White CTA */}

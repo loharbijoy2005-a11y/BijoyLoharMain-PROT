@@ -11,11 +11,15 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { TerminalConsole } from "@/components/TerminalConsole";
 import { BooksSection } from "@/components/BooksSection";
+import { CursorSpotlight } from "@/components/CursorSpotlight";
 
 export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden bg-studioCanvas text-deepInk blueprint-grid">
       <div className="grain-overlay" />
+
+      {/* Radial Torch Cursor Follower */}
+      <CursorSpotlight />
 
       {/* Scroll Progress Bar */}
       <ScrollProgress />

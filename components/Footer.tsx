@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { MapPin, Shield, Send, ArrowUpRight } from "lucide-react";
 
+import { SystemTelemetry } from "@/components/SystemTelemetry";
+
 export const Footer: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,24 +24,24 @@ export const Footer: React.FC = () => {
       <div className="max-w-[1040px] mx-auto px-4">
         
         {/* Direct Comms Contact Box */}
-        <div className="bg-studioSubtle border border-borderWarm rounded-3xl p-8 md:p-12 shadow-sm mb-20">
+        <div className="bg-studioSubtle border border-borderWarm rounded-3xl p-8 md:p-12 shadow-sm mb-12">
           <div className="max-w-[640px] mb-8">
             <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
               03 / DIRECT COMMUNICATIONS
             </span>
-            <h2 className="font-heading font-extrabold text-3xl text-deepInk tracking-tight mb-3">
+            <h2 className="font-heading font-black text-3xl text-deepInk tracking-tight mb-3">
               Open Direct Line
             </h2>
-            <p className="text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm text-[#D4CEBF] leading-relaxed">
               Whether you are looking to collaborate on high-throughput web architecture, Shadow Arrow partnerships, or technical consulting, send a direct note.
             </p>
 
-            <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono text-slate-700">
+            <div className="flex flex-wrap gap-4 mt-4 text-xs font-mono text-amberAccent font-bold">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-amberAccent" /> Bishnupur, West Bengal, India
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-amberAccent" /> Founder Shadow Arrow
+                <Shield className="w-3.5 h-3.5 text-amberAccent" /> Founder of Shadow Arrow
               </span>
             </div>
           </div>
@@ -47,7 +49,7 @@ export const Footer: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                <label className="block text-xs font-mono font-bold text-amberAccent uppercase mb-1">
                   Name
                 </label>
                 <input
@@ -58,7 +60,7 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <div>
-                <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+                <label className="block text-xs font-mono font-bold text-amberAccent uppercase mb-1">
                   Email
                 </label>
                 <input
@@ -71,7 +73,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+              <label className="block text-xs font-mono font-bold text-amberAccent uppercase mb-1">
                 Subject
               </label>
               <input
@@ -83,7 +85,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-mono font-bold text-slate-700 uppercase mb-1">
+              <label className="block text-xs font-mono font-bold text-amberAccent uppercase mb-1">
                 Message
               </label>
               <textarea
@@ -97,7 +99,7 @@ export const Footer: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-deepInk hover:bg-amberAccent text-white text-sm font-bold rounded-xl transition-all shadow-md"
+              className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas text-sm font-heading font-extrabold rounded-xl transition-all shadow-lg hover:shadow-[0_0_30px_rgba(229,193,88,0.4)]"
             >
               {loading ? (
                 <span>Sending Message...</span>
@@ -111,6 +113,11 @@ export const Footer: React.FC = () => {
               )}
             </button>
           </form>
+        </div>
+
+        {/* Live System Telemetry Metrics Widget */}
+        <div className="mb-10">
+          <SystemTelemetry />
         </div>
 
         {/* Footer Bottom Info */}
