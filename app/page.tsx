@@ -10,7 +10,6 @@ import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { TerminalConsole } from "@/components/TerminalConsole";
-import { ArchitectureVisualizer } from "@/components/ArchitectureVisualizer";
 import { BooksSection } from "@/components/BooksSection";
 import { CursorSpotlight } from "@/components/CursorSpotlight";
 
@@ -44,9 +43,6 @@ export default function Home() {
 
         {/* Golden Interactive CLI Terminal */}
         <TerminalConsole />
-
-        {/* Live Distributed System Architecture Visualizer */}
-        <ArchitectureVisualizer />
 
         {/* Published Books & Auto-Sync System */}
         <BooksSection />

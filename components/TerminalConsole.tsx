@@ -2,7 +2,8 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, CornerDownLeft, Trash2, ShieldAlert, Cpu, Sparkles, Code2, Globe, ShieldCheck } from "lucide-react";
+import { Terminal, CornerDownLeft, Trash2, ShieldAlert, Cpu, Sparkles, Code2, Globe, ShieldCheck, Activity } from "lucide-react";
+import { ArchitectureVisualizer } from "@/components/ArchitectureVisualizer";
 
 interface CommandHistoryItem {
   id: string;
@@ -17,6 +18,8 @@ export const TerminalConsole: React.FC = () => {
   const [commandIndex, setCommandIndex] = useState<number>(-1);
   const [commandList, setCommandList] = useState<string[]>([]);
   const [isMatrixActive, setIsMatrixActive] = useState(false);
+  const [isArchModalOpen, setIsArchModalOpen] = useState(false);
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -73,7 +76,7 @@ export const TerminalConsole: React.FC = () => {
             <div><span className="text-amberAccent font-bold">ventures</span> - Shadow Arrow &amp; flagship projects</div>
             <div><span className="text-amberAccent font-bold">books</span> - Author publication &amp; ISBN pipeline</div>
             <div><span className="text-amberAccent font-bold">contact</span> - Direct comms &amp; verified profiles</div>
-            <div><span className="text-amberAccent font-bold">system</span> - Real-time client browser telemetry</div>
+            <div><span className="text-amberAccent font-bold">system</span> - Launch live distributed architecture visualizer</div>
             <div><span className="text-amberAccent font-bold">sudo</span> - Root founder access authentication</div>
             <div><span className="text-amberAccent font-bold">matrix</span> - Toggle golden matrix glow effect</div>
             <div><span className="text-amberAccent font-bold">clear</span> - Clear console log output</div>
@@ -149,15 +152,21 @@ export const TerminalConsole: React.FC = () => {
           </div>
         </div>
       );
-    } else if (lower === "system" || lower === "status") {
+    } else if (lower === "system" || lower === "status" || lower === "arch" || lower === "topology") {
+      setIsArchModalOpen(true);
       outputNode = (
-        <div className="space-y-1 text-xs font-mono text-amberAccent py-1">
+        <div className="space-y-2 text-xs font-mono text-amberAccent py-1">
           <p className="font-bold flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>SHADOW ARROW OS &bull; ALL SYSTEMS OPERATIONAL</span>
           </p>
-          <p className="text-muted">Client Locale Time: {new Date().toLocaleString()}</p>
-          <p className="text-muted">User Agent: {typeof navigator !== "undefined" ? navigator.userAgent.substring(0, 50) + "..." : "Browser Client"}</p>
+          <p className="text-muted">Launching Live Topology Data Flow Inspector Modal...</p>
+          <button
+            onClick={() => setIsArchModalOpen(true)}
+            className="inline-flex items-center gap-2 mt-1 px-3 py-1.5 rounded-xl bg-amberAccent text-studioCanvas font-bold text-xs hover:bg-amberLight transition-all"
+          >
+            <Activity className="w-3.5 h-3.5" /> Re-open Architecture Topology Modal
+          </button>
         </div>
       );
     } else if (lower === "matrix") {
@@ -200,120 +209,98 @@ export const TerminalConsole: React.FC = () => {
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (commandList.length > 0) {
-        const nextIdx = commandIndex === -1 ? commandList.length - 1 : Math.max(0, commandIndex - 1);
-        setCommandIndex(nextIdx);
-        setInputVal(commandList[nextIdx]);
-      }
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (commandIndex >= 0) {
         const nextIdx = commandIndex + 1;
         if (nextIdx < commandList.length) {
           setCommandIndex(nextIdx);
-          setInputVal(commandList[nextIdx]);
-        } else {
-          setCommandIndex(-1);
-          setInputVal("");
+          setInputVal(commandList[commandList.length - 1 - nextIdx]);
         }
+      }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (commandIndex > 0) {
+        const prevIdx = commandIndex - 1;
+        setCommandIndex(prevIdx);
+        setInputVal(commandList[commandList.length - 1 - prevIdx]);
+      } else if (commandIndex === 0) {
+        setCommandIndex(-1);
+        setInputVal("");
       }
     }
   };
 
-  const quickCommands = ["profile", "skills", "ventures", "books", "contact", "system", "clear"];
-
   return (
-    <section className="py-20 px-4 sm:px-6 md:px-8 max-w-[1040px] mx-auto text-deepInk" id="terminal-console">
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="mb-8 border-b border-borderWarm pb-6"
-      >
-        <span className="font-mono text-xs font-bold text-amberAccent uppercase tracking-widest block mb-1">
-          03 / INTERACTIVE CLI CONSOLE
-        </span>
-        <h2 className="font-heading font-black text-3xl sm:text-4xl text-deepInk tracking-tight flex items-center gap-3">
-          Interactive Command Terminal
-          <span className="px-3 py-1 bg-amberAccent/10 text-amberAccent border border-amberAccent/30 text-xs font-mono rounded-full font-bold">
-            Gold Edition v3.0
-          </span>
-        </h2>
-      </motion.div>
-
-      {/* Terminal Window Container — High Contrast Dark Gold Studio Design */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="rounded-3xl border border-amberAccent/40 bg-[#0E0C08] shadow-[0_0_50px_rgba(229,193,88,0.18)] overflow-hidden font-mono"
-      >
-        {/* Top Header Bar */}
-        <div className="bg-[#18140D] px-5 py-3.5 border-b border-amberAccent/30 flex items-center justify-between">
+    <section className="py-16 px-4 max-w-[1040px] mx-auto" id="terminal">
+      {/* Outer Console Window Card */}
+      <div className={`bg-studioCard border rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ${
+        isMatrixActive 
+          ? "border-amberAccent shadow-[0_0_50px_rgba(229,193,88,0.25)]" 
+          : "border-borderWarm hover:border-amberAccent/40"
+      }`}>
+        {/* Terminal Header Bar */}
+        <div className="bg-studioSubtle px-4 py-3 border-b border-borderWarm flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-rose-500 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-amberAccent inline-block" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
-            <span className="ml-3 text-xs font-bold text-amberAccent flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-rose-500/80" />
+            <div className="w-3 h-3 rounded-full bg-amber-500/80" />
+            <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+            <span className="ml-2 font-mono text-xs font-bold text-deepInk flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-amberAccent" />
-              Shadow Arrow OS (zsh)
+              shadow-arrow-os &bull; zsh
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-muted">
-              <Cpu className="w-3.5 h-3.5 text-amberAccent" />
-              <span>ACTIVE NODE</span>
-            </span>
+          <div className="flex items-center gap-2">
             <button
               onClick={() => executeCommand("clear")}
-              title="Clear terminal log"
-              className="p-1.5 text-muted hover:text-amberAccent transition-colors rounded-lg hover:bg-amberAccent/10"
+              className="p-1.5 text-muted hover:text-rose-400 transition-colors rounded-lg hover:bg-studioCard"
+              title="Clear Terminal Output"
             >
-              <Trash2 className="w-4 h-4" />
+              <Trash2 className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        {/* Quick Command Chips */}
-        <div className="bg-[#12100B] px-4 py-2.5 border-b border-amberAccent/20 flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-muted text-xs font-mono font-bold mr-1 shrink-0">Quick Run:</span>
-          {quickCommands.map((cmd) => (
-            <button
-              key={cmd}
-              onClick={() => executeCommand(cmd)}
-              className="px-3 py-1 rounded-xl bg-amberAccent/10 border border-amberAccent/30 hover:border-amberAccent text-amberAccent hover:bg-amberAccent hover:text-studioCanvas transition-all font-mono text-xs font-bold shrink-0 shadow-sm"
-            >
-              {cmd}
-            </button>
-          ))}
-        </div>
-
-        {/* Console Log Scrollable Output Area */}
-        <div
-          ref={scrollContainerRef}
-          className={`p-5 md:p-7 min-h-[280px] max-h-[420px] overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-200 transition-colors ${
-            isMatrixActive ? "bg-black text-amberAccent border-amberAccent/50" : ""
-          }`}
-          onClick={() => inputRef.current?.focus()}
-        >
-          {history.map((item) => (
-            <div key={item.id} className="space-y-1">
-              <div className="flex items-center gap-2 text-amberAccent font-bold">
-                <span>❯</span>
-                <span className="text-amberAccent font-mono font-bold">{item.command}</span>
-                <span className="text-[10px] text-muted font-normal ml-auto">{item.timestamp}</span>
+        {/* Console Body Area */}
+        <div className="p-4 sm:p-6 font-mono">
+          {/* Scrollable Command Output History Box */}
+          <div 
+            ref={scrollContainerRef}
+            className="max-h-[380px] overflow-y-auto space-y-4 pr-2 scrollbar-thin scrollbar-thumb-amberAccent/20 scrollbar-track-transparent"
+          >
+            {history.map((item) => (
+              <div key={item.id} className="space-y-1">
+                {/* Command Line Prompt */}
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-deepInk">
+                  <span className="text-amberAccent font-bold">shadow-arrow-os:~$</span>
+                  <span className="font-bold text-amberAccent">{item.command}</span>
+                  <span className="ml-auto text-[10px] text-muted">{item.timestamp}</span>
+                </div>
+                {/* Command Output */}
+                <div className="pl-4 text-xs sm:text-sm text-[#D4CEBF] leading-relaxed">
+                  {item.output}
+                </div>
               </div>
-              <div className="pl-4 text-[#D4CEBF] font-normal">{item.output}</div>
-            </div>
-          ))}
+            ))}
+          </div>
 
-          {/* Active Command Input Line */}
-          <form onSubmit={handleSubmit} className="flex items-center gap-2.5 text-amberAccent pt-3 border-t border-amberAccent/20">
-            <span className="font-bold text-amberAccent shrink-0 font-mono text-xs sm:text-sm">
-              shadow-arrow-os:~$
+          {/* Quick Command Chips */}
+          <div className="mt-6 pt-4 border-t border-borderWarm flex flex-wrap items-center gap-2">
+            <span className="text-[11px] text-muted font-bold uppercase tracking-wider mr-1">
+              Quick Run:
             </span>
+            {["profile", "skills", "ventures", "books", "system", "contact", "clear"].map((cmd) => (
+              <button
+                key={cmd}
+                onClick={() => executeCommand(cmd)}
+                className="px-2.5 py-1 text-xs bg-studioSubtle hover:bg-amberAccent/20 border border-borderWarm hover:border-amberAccent text-deepInk hover:text-amberAccent rounded-xl font-mono font-bold transition-all"
+              >
+                {cmd}
+              </button>
+            ))}
+          </div>
+
+          {/* Native Form Input Field for Mobile Keyboard Enter Support */}
+          <form onSubmit={handleSubmit} className="mt-4 pt-3 border-t border-borderWarm/60 flex items-center gap-2">
+            <span className="text-amberAccent font-bold text-sm shrink-0">shadow-arrow-os:~$</span>
             <input
               ref={inputRef}
               type="text"
@@ -321,21 +308,28 @@ export const TerminalConsole: React.FC = () => {
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="type 'help' or any command..."
-              className="w-full bg-transparent border-none outline-none text-deepInk placeholder:text-muted font-mono text-xs sm:text-sm font-semibold"
-              autoCapitalize="none"
-              autoComplete="off"
-              spellCheck={false}
+              autoCapitalize="off"
+              autoCorrect="off"
+              spellCheck="false"
+              className="w-full bg-transparent text-sm text-deepInk font-mono font-semibold placeholder:text-muted/60 focus:outline-none"
             />
             <button
               type="submit"
-              className="p-1.5 text-amberAccent hover:text-amberLight shrink-0 cursor-pointer"
-              title="Execute command"
+              className="p-2 rounded-xl bg-amberAccent/10 border border-amberAccent/30 text-amberAccent hover:bg-amberAccent hover:text-studioCanvas transition-all shrink-0"
+              title="Execute Command"
             >
               <CornerDownLeft className="w-4 h-4" />
             </button>
           </form>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Architecture Visualizer Modal */}
+      <ArchitectureVisualizer
+        isModal={true}
+        isOpen={isArchModalOpen}
+        onClose={() => setIsArchModalOpen(false)}
+      />
     </section>
   );
 };

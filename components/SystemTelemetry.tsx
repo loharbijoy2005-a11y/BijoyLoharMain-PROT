@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Activity, ShieldCheck, Wifi, Clock, Cpu, Monitor, AlertCircle } from "lucide-react";
+import { Activity, ShieldCheck, Wifi, Clock, Cpu, Monitor, Sparkles } from "lucide-react";
+import { ArchitectureVisualizer } from "@/components/ArchitectureVisualizer";
 
 export const SystemTelemetry: React.FC = () => {
   const [localTime, setLocalTime] = useState<string>("");
@@ -10,6 +11,7 @@ export const SystemTelemetry: React.FC = () => {
   const [isOnline, setIsOnline] = useState<boolean>(true);
   const [gpuInfo, setGpuInfo] = useState<string>("");
   const [screenRes, setScreenRes] = useState<string>("");
+  const [isArchModalOpen, setIsArchModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     // 1. Real Local Time & Timezone
@@ -43,7 +45,6 @@ export const SystemTelemetry: React.FC = () => {
         if (debugInfo) {
           const renderer = (gl as WebGLRenderingContext).getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
           if (renderer) {
-            // Clean renderer string (e.g. NVIDIA GeForce RTX 3060, Apple M1, Intel Iris)
             const cleanGpu = renderer.replace(/ANGLE \((.*)\)/, "$1").split(",")[0];
             setGpuInfo(cleanGpu.length > 24 ? cleanGpu.substring(0, 24) + "..." : cleanGpu);
           }
@@ -98,60 +99,76 @@ export const SystemTelemetry: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full py-4 px-6 bg-studioCard border border-amberAccent/30 rounded-2xl shadow-lg flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
-      {/* Left System Status — 100% Real Live Listener */}
-      <div className="flex items-center gap-3">
-        {isOnline ? (
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
-          </span>
-        ) : (
-          <span className="relative flex h-3 w-3">
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500" />
-          </span>
-        )}
+    <>
+      <div className="w-full py-4 px-6 bg-studioCard border border-amberAccent/30 rounded-2xl shadow-lg flex flex-wrap items-center justify-between gap-4 text-xs font-mono">
+        {/* Left System Status Button — Clickable to trigger ArchitectureVisualizer Modal */}
+        <button
+          onClick={() => setIsArchModalOpen(true)}
+          className="group flex items-center gap-3 text-left hover:opacity-90 transition-all cursor-pointer"
+          title="Click to inspect Live System Topology & Data Flow Pipeline"
+        >
+          {isOnline ? (
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+            </span>
+          ) : (
+            <span className="relative flex h-3 w-3">
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500" />
+            </span>
+          )}
 
-        <div className="flex items-center gap-2 font-bold text-deepInk">
-          <ShieldCheck className="w-4 h-4 text-amberAccent" />
-          <span>
-            SHADOW ARROW OS &bull; {isOnline ? "ALL SYSTEMS OPERATIONAL" : "OFFLINE MODE"}
-          </span>
+          <div className="flex items-center gap-2 font-bold text-deepInk group-hover:text-amberAccent transition-colors">
+            <ShieldCheck className="w-4 h-4 text-amberAccent group-hover:scale-110 transition-transform" />
+            <span className="flex items-center gap-2">
+              SHADOW ARROW OS &bull; {isOnline ? "ALL SYSTEMS OPERATIONAL" : "OFFLINE MODE"}
+              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-normal px-2 py-0.5 rounded bg-amberAccent/10 text-amberAccent border border-amberAccent/30">
+                <Sparkles className="w-2.5 h-2.5" /> Tap for Topology
+              </span>
+            </span>
+          </div>
+        </button>
+
+        {/* Right Real Telemetry Metrics */}
+        <div className="flex flex-wrap items-center gap-3 text-muted">
+          {/* Real Network Latency */}
+          <div className="flex items-center gap-1.5 bg-amberAccent/10 border border-amberAccent/30 px-3 py-1 rounded-xl text-amberAccent font-bold">
+            <Wifi className="w-3.5 h-3.5 text-amberAccent" />
+            <span>PING: {realPing !== null ? `${realPing}ms` : "OFFLINE"}</span>
+          </div>
+
+          {/* Real Hardware GPU Renderer */}
+          {gpuInfo && (
+            <div className="hidden sm:flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-deepInk font-semibold">
+              <Cpu className="w-3.5 h-3.5 text-amberAccent" />
+              <span className="truncate max-w-[180px]">{gpuInfo}</span>
+            </div>
+          )}
+
+          {/* Real Display Resolution */}
+          {screenRes && (
+            <div className="hidden md:flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-deepInk font-semibold">
+              <Monitor className="w-3.5 h-3.5 text-amberAccent" />
+              <span>DISP: {screenRes}</span>
+            </div>
+          )}
+
+          {/* Real Timezone & Clock */}
+          <div className="flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-amberAccent font-bold">
+            <Clock className="w-3.5 h-3.5 text-amberAccent" />
+            <span>{localTime || "11:14 AM"}</span>
+            {timezone && <span className="text-[10px] text-muted font-normal">({timezone})</span>}
+          </div>
         </div>
       </div>
 
-      {/* Right Real Telemetry Metrics */}
-      <div className="flex flex-wrap items-center gap-3 text-muted">
-        {/* Real Network Latency */}
-        <div className="flex items-center gap-1.5 bg-amberAccent/10 border border-amberAccent/30 px-3 py-1 rounded-xl text-amberAccent font-bold">
-          <Wifi className="w-3.5 h-3.5 text-amberAccent" />
-          <span>PING: {realPing !== null ? `${realPing}ms` : "OFFLINE"}</span>
-        </div>
-
-        {/* Real Hardware GPU Renderer */}
-        {gpuInfo && (
-          <div className="hidden sm:flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-deepInk font-semibold">
-            <Cpu className="w-3.5 h-3.5 text-amberAccent" />
-            <span className="truncate max-w-[180px]">{gpuInfo}</span>
-          </div>
-        )}
-
-        {/* Real Display Resolution */}
-        {screenRes && (
-          <div className="hidden md:flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-deepInk font-semibold">
-            <Monitor className="w-3.5 h-3.5 text-amberAccent" />
-            <span>DISP: {screenRes}</span>
-          </div>
-        )}
-
-        {/* Real Timezone & Clock */}
-        <div className="flex items-center gap-1.5 bg-studioSubtle border border-borderWarm px-3 py-1 rounded-xl text-amberAccent font-bold">
-          <Clock className="w-3.5 h-3.5 text-amberAccent" />
-          <span>{localTime || "11:14 AM"}</span>
-          {timezone && <span className="text-[10px] text-muted font-normal">({timezone})</span>}
-        </div>
-      </div>
-    </div>
+      {/* Embedded Live System Architecture Modal */}
+      <ArchitectureVisualizer
+        isModal={true}
+        isOpen={isArchModalOpen}
+        onClose={() => setIsArchModalOpen(false)}
+      />
+    </>
   );
 };
 
