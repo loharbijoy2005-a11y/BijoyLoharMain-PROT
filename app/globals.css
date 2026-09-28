@@ -64,3 +64,34 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #D97706;
 }
+
+/* Hero Image Blending & Glow CSS */
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  object-position: bottom;
+  /* Hard edges hatane aur background me seamlessly blend karne ke liye */
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 25%),
+                      linear-gradient(to left, transparent 0%, black 15%);
+  mask-image: linear-gradient(to top, transparent 0%, black 25%),
+              linear-gradient(to left, transparent 0%, black 15%);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
