@@ -44,34 +44,42 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-auto flex items-center justify-between gap-4 w-full max-w-[1040px] px-5 py-2.5 bg-studioCanvas/90 backdrop-blur-md border border-borderWarm rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.03)]"
-      >
-        {/* Left: Brand Identity */}
-        <a href="#hero" className="font-mono text-xs font-bold tracking-wider text-deepInk hover:text-amberAccent transition-colors">
-          BIJOY LOHAR — EST. 2005
+    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center md:justify-between items-center max-w-[1240px] mx-auto px-6 pointer-events-none">
+      
+      {/* Left Brand Identifier - Minimal Dark */}
+      <div className="pointer-events-auto flex items-center gap-2">
+        <a 
+          href="#systems-philosophy" 
+          className="px-3.5 py-1.5 bg-[#12151E]/90 backdrop-blur-md border border-white/10 text-white font-mono text-xs font-bold rounded-full shadow-lg hover:border-amber-400 transition-all flex items-center gap-2"
+        >
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          <span>Bijoy Lohar</span>
         </a>
+      </div>
 
-        {/* Center: Interactive Persona Toggle */}
-        <div className="hidden md:flex items-center gap-1 p-1 bg-studioSubtle border border-borderWarm rounded-full">
+      {/* Center/Right Floating Sleek Dark Capsule Navbar & White CTA */}
+      <motion.header
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        className="pointer-events-auto flex items-center gap-3"
+      >
+        {/* Sleek Floating Dark Pill Capsule Navigation Bar */}
+        <div className="flex items-center gap-1 p-1 bg-[#12151E]/90 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
           {personas.map((p) => {
             const isActive = activePersona === p.id;
             return (
               <button
                 key={p.id}
                 onClick={() => handlePersonaToggle(p)}
-                className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                  isActive ? "text-deepInk font-semibold" : "text-slate-600 hover:text-deepInk"
+                className={`relative flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+                  isActive ? "text-amber-300 font-bold" : "text-slate-400 hover:text-white"
                 }`}
               >
                 {isActive && (
                   <motion.div
-                    layoutId="activePersonaPill"
-                    className="absolute inset-0 bg-white border border-borderWarm shadow-sm rounded-full"
+                    layoutId="activePersonaPillDark"
+                    className="absolute inset-0 bg-amber-500/20 border border-amber-500/40 rounded-full"
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -82,17 +90,18 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        {/* Right: Direct Comms CTA */}
-        <div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-deepInk hover:bg-amberAccent text-white text-xs font-semibold rounded-full transition-colors duration-200 shadow-sm"
-          >
-            <span>Open Direct Comms</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
-        </div>
+        {/* Clean White Pill Button CTA */}
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-1.5 px-4 py-2 bg-white hover:bg-amber-300 text-slate-950 text-xs font-extrabold rounded-full transition-all shadow-lg hover:scale-105"
+        >
+          <span>Open Direct Comms</span>
+          <ArrowUpRight className="w-3.5 h-3.5 text-slate-950" />
+        </a>
       </motion.header>
+
     </div>
   );
 };
+
+export default Navbar;
