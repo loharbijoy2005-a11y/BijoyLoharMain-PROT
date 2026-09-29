@@ -8,25 +8,30 @@ export const ServiceWorkerRegister: React.FC = () => {
   const [isOffline, setIsOffline] = useState<boolean>(false);
 
   useEffect(() => {
-    // Register Service Worker
+    // Register Service Worker immediately
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
+      const registerSW = () => {
         navigator.serviceWorker
           .register("/sw.js")
           .then((reg) => {
-            console.log("ServiceWorker registration successful with scope:", reg.scope);
+            console.log("ServiceWorker registered successfully:", reg.scope);
           })
           .catch((err) => {
-            console.warn("ServiceWorker registration failed:", err);
+            console.warn("ServiceWorker registration error:", err);
           });
-      });
+      };
+
+      if (document.readyState === "complete") {
+        registerSW();
+      } else {
+        window.addEventListener("load", registerSW);
+      }
     }
 
     // Monitor Online/Offline Status
     const handleOffline = () => setIsOffline(true);
     const handleOnline = () => setIsOffline(false);
 
-    // Initial check
     if (typeof navigator !== "undefined" && !navigator.onLine) {
       setIsOffline(true);
     }
@@ -48,7 +53,7 @@ export const ServiceWorkerRegister: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.95 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-3 bg-amberAccent/95 text-studioCanvas backdrop-blur-md rounded-2xl shadow-2xl border border-amberLight font-mono text-xs font-bold"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-4 py-3 bg-amberAccent text-studioCanvas backdrop-blur-md rounded-2xl shadow-2xl border border-amberLight font-mono text-xs font-bold"
         >
           <div className="p-1.5 bg-black/20 rounded-xl">
             <WifiOff className="w-4 h-4 text-studioCanvas animate-pulse" />

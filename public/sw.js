@@ -1,28 +1,28 @@
-// Bijoy Lohar Portfolio — High-Performance Offline Service Worker
-const CACHE_NAME = "bijoy-lohar-offline-v1";
+// Bijoy Lohar Portfolio — Robust Offline Service Worker (v2)
+const CACHE_NAME = "bijoy-lohar-offline-v2";
 
 const PRECACHE_ASSETS = [
   "/",
   "/manifest.json",
   "/hero-portrait.jpg",
-  "/bijoy-lohar.jpg",
-  "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
-  "https://github.com/loharbijoy2005-a11y.png"
+  "/bijoy-lohar.jpg"
 ];
 
-// Install Event: Cache essential app shell
+// Install Event: Install immediately and pre-cache core assets
 self.addEventListener("install", (event) => {
   self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(PRECACHE_ASSETS).catch((err) => {
-        console.warn("SW precache warning:", err);
-      });
+    caches.open(CACHE_NAME).then(async (cache) => {
+      try {
+        await cache.addAll(PRECACHE_ASSETS);
+      } catch (err) {
+        console.warn("SW precache error:", err);
+      }
     })
   );
 });
 
-// Activate Event: Cleanup stale caches
+// Activate Event: Take control immediately and delete old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -37,44 +37,75 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch Event: Network First with Cache Fallback for offline mode
+// Fetch Event: Cache-First for Static Chunks, Network-First for Navigation
 self.addEventListener("fetch", (event) => {
-  // Only intercept GET requests
   if (event.request.method !== "GET") return;
 
-  // Handle request with Network-First strategy, caching success responses
+  const url = new URL(event.request.url);
+
+  // Strategy 1: Cache-First for Next.js Static Chunks, CSS, Images, Fonts
+  if (
+    url.pathname.startsWith("/_next/static/") ||
+    url.pathname.endsWith(".png") ||
+    url.pathname.endsWith(".jpg") ||
+    url.pathname.endsWith(".jpeg") ||
+    url.pathname.endsWith(".svg") ||
+    url.pathname.endsWith(".webp") ||
+    url.pathname.endsWith(".ico") ||
+    url.pathname.endsWith(".css") ||
+    url.pathname.endsWith(".js")
+  ) {
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          // Return cached, but update in background
+          fetch(event.request).then((networkResponse) => {
+            if (networkResponse && networkResponse.status === 200) {
+              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
+            }
+          }).catch(() => {});
+          return cachedResponse;
+        }
+        return fetch(event.request).then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return networkResponse;
+        });
+      })
+    );
+    return;
+  }
+
+  // Strategy 2: Network-First with Cache Fallback for Pages & Navigation
   event.respondWith(
     fetch(event.request)
-      .then((response) => {
-        // If response is valid, save to cache asynchronously
-        if (response && response.status === 200 && response.type === "basic") {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
-          });
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
         }
-        return response;
+        return networkResponse;
       })
       .catch(async () => {
-        // Network failed (Offline!) -> Try finding in Cache
+        // Network failed (OFFLINE mode!)
         const cachedResponse = await caches.match(event.request);
         if (cachedResponse) {
           return cachedResponse;
         }
 
-        // If request is a page navigation, return cached root page '/'
-        if (event.request.mode === "navigate") {
+        // Navigation fallback (if requesting HTML page)
+        if (event.request.mode === "navigate" || event.request.headers.get("accept")?.includes("text/html")) {
           const rootPage = await caches.match("/");
           if (rootPage) {
             return rootPage;
           }
         }
 
-        // Fallback response for missing offline items
         return new Response("Offline Content", {
           status: 200,
-          statusText: "OK",
-          headers: new Headers({ "Content-Type": "text/html" })
+          headers: { "Content-Type": "text/html" }
         });
       })
   );
