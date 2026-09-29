@@ -13,6 +13,7 @@ import {
   Mail,
   Github,
   Linkedin,
+  Globe,
   ArrowRight,
   X,
   ExternalLink,

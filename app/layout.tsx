@@ -20,21 +20,32 @@ export const metadata: Metadata = {
 
   keywords: [
     "Bijoy Lohar",
-    "Shadow Arrow",
-    "Software Engineer",
-    "Full Stack Developer",
+    "bijoylohar.in",
+    "Bijoy Lohar Software Engineer",
+    "Bijoy Lohar Shadow Arrow",
+    "Bijoy Lohar Founder",
+    "Bijoy Lohar Author",
+    "Bijoy Lohar Bishnupur",
+    "Shadow Arrow Founder",
+    "Full Stack Developer India",
+    "Systems Architect India",
     "Cloud Architect",
     "Next.js Developer",
     "React Developer",
-    "Web Developer India",
-    "Bishnupur West Bengal",
-    "Founder Shadow Arrow",
-    "Portfolio Bijoy Lohar",
+    "Architecting Scalable Web Systems",
+    "Bijoy Lohar IMDb",
+    "Bijoy Lohar ORCID",
+    "Bijoy Lohar Wikidata",
+    "Bijoy Lohar Topmate",
+    "Bijoy Lohar GitHub",
+    "Bijoy Lohar LinkedIn",
   ],
 
   authors: [{ name: "Bijoy Lohar", url: BASE_URL }],
   creator: "Bijoy Lohar",
   publisher: "Bijoy Lohar",
+
+  referrer: "origin-when-cross-origin",
 
   alternates: {
     canonical: `${BASE_URL}/`,
@@ -51,6 +62,15 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
+    },
+  },
+
+  verification: {
+    google: "google-site-verification-placeholder",
+    yandex: "yandex-verification-placeholder",
+    other: {
+      "msvalidate.01": "BING_WEBMASTER_VERIFICATION_CODE",
+      "baidu-site-verification": "baidu-verification-code",
     },
   },
 
@@ -88,6 +108,12 @@ export const metadata: Metadata = {
     icon: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
     shortcut: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
     apple: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
+  },
+
+  other: {
+    "bingbot": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+    "slurp": "index, follow",
+    "duckduckbot": "index, follow",
   },
 
   category: "technology",
@@ -283,6 +309,7 @@ export default function RootLayout({
         "dateModified": "2026-09-28T19:05:00+05:30",
         // High-authority profiles surfaced directly on this page node
         "significantLink": [
+          "https://www.wikidata.org/wiki/Q141595273",
           "https://orcid.org/0009-0004-5643-7612",
           "https://www.imdb.com/name/nm18949942/",
           "https://www.crunchbase.com/person/bijoy-lohar",
@@ -344,6 +371,13 @@ export default function RootLayout({
         ],
         "url": "https://www.bijoylohar.in/",
         "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Wikidata",
+            "name": "Wikidata Item ID",
+            "value": "Q141595273",
+            "url": "https://www.wikidata.org/wiki/Q141595273",
+          },
           {
             "@type": "PropertyValue",
             "propertyID": "IMDb",
@@ -429,7 +463,8 @@ export default function RootLayout({
         ],
         // All canonical identities - Googlebot uses these to auto-verify your entity
         "sameAs": [
-          // Research & Academic
+          // Research & Knowledge Graph
+          "https://www.wikidata.org/wiki/Q141595273",
           "https://orcid.org/0009-0004-5643-7612",
           "https://developers.google.com/profile/u/101253410801307724262",
           // Authorship & Media
