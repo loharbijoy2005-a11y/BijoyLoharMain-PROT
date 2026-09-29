@@ -11,7 +11,9 @@
     "identifier": [
       { "propertyID": "IMDb", "value": "nm18949942", "url": "https://www.imdb.com/name/nm18949942/" },
       { "propertyID": "ORCID", "value": "0009-0004-5643-7612", "url": "https://orcid.org/0009-0004-5643-7612" },
-      { "propertyID": "Wikidata", "value": "Q141595273", "url": "https://www.wikidata.org/wiki/Q141595273" }
+      { "propertyID": "Wikidata", "value": "Q141595273", "url": "https://www.wikidata.org/wiki/Q141595273" },
+      { "propertyID": "Goodreads", "value": "bijoylohar", "url": "https://www.goodreads.com/bijoylohar" },
+      { "propertyID": "Amazon Author", "value": "bijoylohar", "url": "https://www.amazon.com/author/bijoylohar" }
     ],
     "nationality": "India",
     "homeLocation": {
@@ -44,6 +46,8 @@
     "https://developers.google.com/profile/u/101253410801307724262",
     "https://www.imdb.com/name/nm18949942/",
     "https://www.crunchbase.com/person/bijoy-lohar",
+    "https://www.goodreads.com/bijoylohar",
+    "https://www.amazon.com/author/bijoylohar",
     "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
     "https://topmate.io/bijoy_lohar",
     "https://www.commudle.com/users/Bijoylohar",

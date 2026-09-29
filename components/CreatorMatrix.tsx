@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2 } from "lucide-react";
+import { Instagram, Facebook, Github, ArrowUpRight, Radio, Gamepad2, BookOpen } from "lucide-react";
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 35 },
@@ -116,45 +116,45 @@ export const CreatorMatrix: React.FC = () => {
       {/* Verified Social Network Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         
-        {/* Topmate */}
+        {/* Goodreads Profile */}
         <motion.a
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           whileHover={{ y: -4, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          href="https://topmate.io/bijoy_lohar"
+          href="https://www.goodreads.com/bijoylohar"
           target="_blank"
           rel="noopener noreferrer"
           className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all shadow-sm"
         >
           <div className="flex items-center gap-3">
-            <Radio className="w-5 h-5 text-amberAccent" />
+            <BookOpen className="w-5 h-5 text-amberAccent" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">Topmate Mentorship</span>
-              <span className="font-mono text-xs text-slate-500">topmate.io/bijoy_lohar</span>
+              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">Goodreads Author</span>
+              <span className="font-mono text-xs text-slate-500">goodreads.com/bijoylohar</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </motion.a>
 
-        {/* GitHub */}
+        {/* Amazon Author Central */}
         <motion.a
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           whileHover={{ y: -4, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          href="https://github.com/loharbijoy2005-a11y"
+          href="https://www.amazon.com/author/bijoylohar"
           target="_blank"
           rel="noopener noreferrer"
           className="p-5 bg-studioCard border border-borderWarm hover:border-amberAccent rounded-2xl flex items-center justify-between group transition-all shadow-sm"
         >
           <div className="flex items-center gap-3">
-            <Github className="w-5 h-5 text-deepInk" />
+            <BookOpen className="w-5 h-5 text-amberAccent" />
             <div>
-              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">GitHub Repository Hub</span>
-              <span className="font-mono text-xs text-slate-500">loharbijoy2005-a11y</span>
+              <span className="block font-heading font-bold text-sm text-deepInk group-hover:text-amberAccent transition-colors">Amazon Author Central</span>
+              <span className="font-mono text-xs text-slate-500">amazon.com/author/bijoylohar</span>
             </div>
           </div>
           <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amberAccent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

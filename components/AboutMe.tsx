@@ -21,6 +21,7 @@ import {
   Cpu,
   Video,
   Box,
+  BookOpen,
 } from "lucide-react";
 
 // Official Sharp Vector Icon for X (Twitter)
@@ -60,6 +61,8 @@ export interface SocialLinks {
   instagramPersonal?: string;
   facebook?: string;
   googleDevelopers?: string;
+  goodreads?: string;
+  amazonAuthor?: string;
   shadowArrow?: string;
 }
 
@@ -122,6 +125,8 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
     wikidata: "https://www.wikidata.org/wiki/Q141595273",
     googleDevelopers: "https://developers.google.com/profile/u/101253410801307724262",
+    goodreads: "https://www.goodreads.com/bijoylohar",
+    amazonAuthor: "https://www.amazon.com/author/bijoylohar",
     x: "https://x.com/BijoyLohar2005",
     instagramPersonal: "https://www.instagram.com/bijoylohar_2005",
     facebook: "https://www.facebook.com/Bijoylohar.2005",
@@ -195,6 +200,22 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       icon: Facebook,
       glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Official Profile",
+    },
+    {
+      name: "Goodreads",
+      handle: "bijoylohar",
+      url: socials.goodreads,
+      icon: BookOpen,
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
+      badge: "Author Profile",
+    },
+    {
+      name: "Amazon Author Central",
+      handle: "author/bijoylohar",
+      url: socials.amazonAuthor,
+      icon: Globe,
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
+      badge: "Verified Author",
     },
     {
       name: "Shadow Arrow",

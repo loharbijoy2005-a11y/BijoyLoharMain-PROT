@@ -20,7 +20,7 @@ const cardsData: PhotoCard[] = [
     title: "Bijoy Lohar — Founder",
     subtitle: "Founder & Systems Architect",
     type: "image",
-    src: "/hero-portrait.jpg",
+    src: "https://github.com/loharbijoy2005-a11y.png",
   },
   {
     id: 1,

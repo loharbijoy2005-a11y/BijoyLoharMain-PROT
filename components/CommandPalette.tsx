@@ -135,11 +135,19 @@ export const CommandPalette: React.FC = () => {
       isExternal: true,
     },
     {
-      id: "linkedin",
-      title: "LinkedIn (Bijoy Lohar)",
+      id: "goodreads",
+      title: "Goodreads Author Profile (bijoylohar)",
       category: "Social & Comms",
-      icon: <Linkedin className="w-4 h-4 text-amberAccent" />,
-      action: () => openUrl("https://www.linkedin.com/in/bijoy-lohar-5a508832b"),
+      icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
+      action: () => openUrl("https://www.goodreads.com/bijoylohar"),
+      isExternal: true,
+    },
+    {
+      id: "amazon-author",
+      title: "Amazon Author Central (bijoylohar)",
+      category: "Social & Comms",
+      icon: <Globe className="w-4 h-4 text-amberAccent" />,
+      action: () => openUrl("https://www.amazon.com/author/bijoylohar"),
       isExternal: true,
     },
   ];

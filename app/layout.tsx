@@ -36,6 +36,8 @@ export const metadata: Metadata = {
     "Bijoy Lohar IMDb",
     "Bijoy Lohar ORCID",
     "Bijoy Lohar Wikidata",
+    "Bijoy Lohar Goodreads",
+    "Bijoy Lohar Amazon Author",
     "Bijoy Lohar Topmate",
     "Bijoy Lohar GitHub",
     "Bijoy Lohar LinkedIn",
@@ -313,6 +315,8 @@ export default function RootLayout({
           "https://orcid.org/0009-0004-5643-7612",
           "https://www.imdb.com/name/nm18949942/",
           "https://www.crunchbase.com/person/bijoy-lohar",
+          "https://www.goodreads.com/bijoylohar",
+          "https://www.amazon.com/author/bijoylohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
           "https://github.com/loharbijoy2005-a11y",
           "https://developers.google.com/profile/u/101253410801307724262",
@@ -399,6 +403,20 @@ export default function RootLayout({
             "value": "bijoy-lohar",
             "url": "https://www.crunchbase.com/person/bijoy-lohar",
           },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Goodreads",
+            "name": "Goodreads Author Profile",
+            "value": "bijoylohar",
+            "url": "https://www.goodreads.com/bijoylohar",
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Amazon Author",
+            "name": "Amazon Author Central Profile",
+            "value": "bijoylohar",
+            "url": "https://www.amazon.com/author/bijoylohar",
+          },
         ],
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -469,6 +487,8 @@ export default function RootLayout({
           "https://developers.google.com/profile/u/101253410801307724262",
           // Authorship & Media
           "https://www.imdb.com/name/nm18949942/",
+          "https://www.goodreads.com/bijoylohar",
+          "https://www.amazon.com/author/bijoylohar",
           // Professional
           "https://www.crunchbase.com/person/bijoy-lohar",
           "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
