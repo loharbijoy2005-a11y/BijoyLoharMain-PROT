@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     google: "google-site-verification-placeholder",
     yandex: "yandex-verification-placeholder",
     other: {
-      "msvalidate.01": "BING_WEBMASTER_VERIFICATION_CODE",
+      "msvalidate.01": "CCF23EA310A53F6626E9FB8459D29175",
       "baidu-site-verification": "baidu-verification-code",
     },
   },
