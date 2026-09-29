@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Laptop, Gamepad2, Rocket, ArrowUpRight } from "lucide-react";
+import { Laptop, Gamepad2, Rocket, ArrowUpRight, Sparkles } from "lucide-react";
 
 interface PersonaOption {
   id: string;
@@ -46,15 +46,33 @@ export const Navbar: React.FC = () => {
   return (
     <div className="fixed top-2.5 left-0 right-0 z-50 flex justify-between items-center max-w-[1380px] mx-auto px-3 sm:px-6 md:px-8 pointer-events-none">
       
-      {/* Left Brand Identifier - Compact on Mobile */}
+      {/* Left Animated Brand Identifier - Bijoy Lohar */}
       <div className="pointer-events-auto flex items-center gap-2">
-        <a 
+        <motion.a 
           href="#hero-story" 
-          className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-studioCard/90 backdrop-blur-md border border-borderWarm text-deepInk font-mono text-[11px] sm:text-xs font-bold rounded-full shadow-lg hover:border-amberAccent transition-all flex items-center gap-1.5 sm:gap-2 shrink-0"
+          initial={{ opacity: 0, x: -20, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="relative group px-3.5 py-1.5 sm:px-4 sm:py-2 bg-studioCard/90 backdrop-blur-md border border-borderWarm hover:border-amberAccent text-deepInk font-mono text-[11px] sm:text-xs font-black rounded-full shadow-lg transition-all flex items-center gap-2 shrink-0 overflow-hidden"
         >
-          <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
-          <span className="truncate max-w-[140px] sm:max-w-none">Shadow Arrow &bull; Bijoy Lohar</span>
-        </a>
+          {/* Glowing Animated Outer Border Effect */}
+          <span className="absolute inset-0 bg-gradient-to-r from-amberAccent/20 via-amber-400/30 to-amberAccent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full" />
+          
+          {/* Animated Pulsing Amber Indicator */}
+          <span className="relative z-10 flex items-center justify-center">
+            <span className="w-2.5 h-2.5 rounded-full bg-amberAccent animate-ping absolute opacity-75" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amberAccent shadow-[0_0_10px_rgba(229,193,88,0.9)] relative" />
+          </span>
+
+          {/* Name Text */}
+          <span className="relative z-10 font-heading font-black tracking-wide text-deepInk group-hover:text-amberAccent transition-colors">
+            Bijoy Lohar
+          </span>
+
+          <Sparkles className="relative z-10 w-3 h-3 text-amberAccent opacity-70 group-hover:opacity-100 group-hover:rotate-12 transition-all" />
+        </motion.a>
       </div>
 
       {/* Center/Right Floating Dark Capsule Navbar & White CTA */}
@@ -64,7 +82,7 @@ export const Navbar: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="pointer-events-auto flex items-center gap-2 sm:gap-3"
       >
-        {/* Floating Dark Pill Capsule Navigation Bar — Hidden on Small Mobile, Visible on Tablet/Desktop */}
+        {/* Floating Dark Pill Capsule Navigation Bar */}
         <div className="hidden md:flex items-center gap-1 p-1 bg-[#12151E]/90 backdrop-blur-md border border-white/10 rounded-full shadow-lg">
           {personas.map((p) => {
             const isActive = activePersona === p.id;
