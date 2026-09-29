@@ -152,10 +152,10 @@ export const BooksSection: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amberAccent uppercase tracking-widest mb-1">
             <span className="w-2 h-2 rounded-full bg-amberAccent animate-pulse" />
-            <span>04 / AUTHOR PUBLICATION PIPELINE</span>
+            <span>04 / BOOKS &amp; PUBLICATIONS</span>
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-4xl text-deepInk tracking-tight">
-            Author Footprint &amp; Publications
+            Published Books
           </h2>
         </motion.div>
 
