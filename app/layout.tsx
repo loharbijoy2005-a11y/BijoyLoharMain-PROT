@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ServiceWorkerRegister from "../components/ServiceWorkerRegister";
 
 // ─── Site-Wide Constants ──────────────────────────────────────────────────────
 const BASE_URL = "https://www.bijoylohar.in";
@@ -111,6 +112,7 @@ export const metadata: Metadata = {
     shortcut: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
     apple: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
   },
+  manifest: "/manifest.json",
 
   other: {
     "bingbot": "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
@@ -571,6 +573,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#09090B" />
         <link rel="icon" type="image/png" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
         <link rel="shortcut icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
         <link rel="apple-touch-icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
@@ -588,6 +592,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-studioCanvas text-deepInk selection:bg-deepInk selection:text-white">
         <div className="cursor-spotlight" id="cursorSpotlight" />
+        <ServiceWorkerRegister />
         {children}
       </body>
     </html>
