@@ -28,6 +28,7 @@ interface PaletteItem {
   action: () => void;
   shortcut?: string;
   isExternal?: boolean;
+  keywords?: string[];
 }
 
 export const CommandPalette: React.FC = () => {
@@ -77,6 +78,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Laptop className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#hero-story"),
       shortcut: "Hero",
+      keywords: ["bijoy", "bijoy bhai", "bijoy dada", "arrow da", "arrow dada", "wb arrow", "shadow arrow", "overview", "home"],
     },
     {
       id: "about",
@@ -85,6 +87,7 @@ export const CommandPalette: React.FC = () => {
       icon: <User className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#about-me"),
       shortcut: "About",
+      keywords: ["about", "bijoy", "bijoy bhai", "bijoy dada", "arrow da", "arrow dada", "founder", "shadow arrow", "wb arrow", "bio", "skills"],
     },
     {
       id: "expedition",
@@ -93,6 +96,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Cpu className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#expedition"),
       shortcut: "Expedition",
+      keywords: ["expedition", "shadow arrow", "wb arrow", "arrow da", "arrow dada", "projects", "architecture", "ecosystem", "systems"],
     },
     {
       id: "matrix",
@@ -101,6 +105,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Layers className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#creator-matrix"),
       shortcut: "Media",
+      keywords: ["media", "visual", "creator", "matrix", "youtube", "design", "video"],
     },
     {
       id: "terminal",
@@ -109,6 +114,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Terminal className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#terminal-console"),
       shortcut: "CLI",
+      keywords: ["cli", "terminal", "console", "command", "shell", "bash", "shadow arrow"],
     },
     {
       id: "books",
@@ -117,6 +123,7 @@ export const CommandPalette: React.FC = () => {
       icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#books"),
       shortcut: "Books",
+      keywords: ["books", "author", "goodreads", "amazon", "technical writing", "bijoy lohar"],
     },
     {
       id: "contact",
@@ -125,6 +132,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Mail className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#contact"),
       shortcut: "Contact",
+      keywords: ["contact", "email", "message", "bijoy bhai", "bijoy dada", "connect"],
     },
     {
       id: "github",
@@ -133,6 +141,7 @@ export const CommandPalette: React.FC = () => {
       icon: <Github className="w-4 h-4 text-amberAccent" />,
       action: () => openUrl("https://github.com/loharbijoy2005-a11y"),
       isExternal: true,
+      keywords: ["github", "code", "repos", "loharbijoy2005-a11y", "bijoy lohar"],
     },
     {
       id: "goodreads",
@@ -141,6 +150,7 @@ export const CommandPalette: React.FC = () => {
       icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
       action: () => openUrl("https://www.goodreads.com/bijoylohar"),
       isExternal: true,
+      keywords: ["goodreads", "author", "books", "bijoy lohar"],
     },
     {
       id: "amazon-author",
@@ -149,13 +159,18 @@ export const CommandPalette: React.FC = () => {
       icon: <Globe className="w-4 h-4 text-amberAccent" />,
       action: () => openUrl("https://www.amazon.com/author/bijoylohar"),
       isExternal: true,
+      keywords: ["amazon", "author", "books", "bijoy lohar"],
     },
   ];
 
-  const filteredItems = items.filter((item) =>
-    item.title.toLowerCase().includes(query.toLowerCase()) ||
-    item.category.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredItems = items.filter((item) => {
+    const q = query.toLowerCase();
+    const titleMatch = item.title.toLowerCase().includes(q);
+    const categoryMatch = item.category.toLowerCase().includes(q);
+    const shortcutMatch = item.shortcut?.toLowerCase().includes(q);
+    const keywordMatch = item.keywords?.some((k) => k.toLowerCase().includes(q));
+    return titleMatch || categoryMatch || shortcutMatch || keywordMatch;
+  });
 
   const handleKeyDownInModal = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowDown") {

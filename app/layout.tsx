@@ -21,9 +21,21 @@ export const metadata: Metadata = {
 
   keywords: [
     "Bijoy Lohar",
+    "Bijoy Bhai",
+    "Bijoy Dada",
+    "Arrow Dada",
+    "Arrow Da",
+    "Bijoy",
+    "Shadow Arrow",
+    "Wb Arrow",
     "bijoylohar.in",
     "Bijoy Lohar Software Engineer",
     "Bijoy Lohar Shadow Arrow",
+    "Bijoy Lohar Wb Arrow",
+    "Bijoy Bhai Shadow Arrow",
+    "Bijoy Dada Shadow Arrow",
+    "Arrow Da Shadow Arrow",
+    "Wb Arrow Founder",
     "Bijoy Lohar Founder",
     "Bijoy Lohar Author",
     "Bijoy Lohar Bishnupur",
@@ -158,6 +170,7 @@ interface SchemaWebSiteNode {
   "@id": string;
   url: string;
   name: string;
+  alternateName?: string[];
   description?: string;
   about?: SchemaId;
   publisher: SchemaId;
@@ -278,6 +291,15 @@ export default function RootLayout({
         "@id": "https://www.bijoylohar.in/#website",
         "url": "https://www.bijoylohar.in/",
         "name": "Bijoy Lohar",
+        "alternateName": [
+          "Wb Arrow",
+          "Bijoy Lohar",
+          "Bijoy Bhai",
+          "Bijoy Dada",
+          "Arrow Da",
+          "Arrow Dada",
+          "Shadow Arrow"
+        ],
         "description": "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow.",
         "about": {
           "@id": "https://www.bijoylohar.in/#person",
@@ -337,7 +359,20 @@ export default function RootLayout({
         "name": "Bijoy Lohar",
         "givenName": "Bijoy",
         "familyName": "Lohar",
-        "alternateName": ["Bijoy Lohar"],
+        "alternateName": [
+          "Bijoy Lohar",
+          "Bijoy Bhai",
+          "Bijoy Dada",
+          "Arrow Dada",
+          "Arrow Da",
+          "Bijoy",
+          "Bijoy Lohar (Bijoy Bhai)",
+          "Bijoy Lohar (Bijoy Dada)",
+          "Wb Arrow",
+          "Wb Arrow Founder",
+          "Shadow Arrow Founder",
+          "Shadow Arrow"
+        ],
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
         "jobTitle": [
