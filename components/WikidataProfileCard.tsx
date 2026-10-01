@@ -135,10 +135,10 @@ export const WikidataProfileCard: React.FC = () => {
                 Wikidata Knowledge Graph Entity
               </span>
 
-              {/* Live Edit Count Pill */}
+              {/* Live Contributions Pill */}
               <span className="px-3 py-0.5 bg-amberAccent/15 text-amberAccent border border-amberAccent/40 font-mono text-xs font-extrabold rounded-full flex items-center gap-1.5 shadow-sm">
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>{isLoading ? "Loading..." : `${formattedEditCount} Live Edits`}</span>
+                <span>{isLoading ? "Loading..." : `${formattedEditCount} Live Contributions`}</span>
                 <span className={`h-1.5 w-1.5 rounded-full ${isLiveSyncing ? "bg-amberAccent animate-ping" : "bg-emerald-400 animate-pulse"}`} />
               </span>
 
@@ -156,7 +156,7 @@ export const WikidataProfileCard: React.FC = () => {
 
             {/* Monospace URL & Headline Tagline */}
             <p className="font-mono text-xs text-amberAccent font-semibold mt-1.5 truncate">
-              https://www.wikidata.org/wiki/User:SHADOWARROW_2026 &bull; Wikidata Systems Architect &amp; Open Data Contributor
+              User:SHADOWARROW_2026 &bull; Wikidata Systems Architect &amp; Open Data Contributor
             </p>
 
             {/* Concise Bio */}
