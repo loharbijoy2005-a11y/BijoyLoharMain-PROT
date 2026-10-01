@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     "Architecting Scalable Web Systems",
     "Bijoy Lohar IMDb",
     "Bijoy Lohar ORCID",
-    "Bijoy Lohar Wikidata",
     "Bijoy Lohar Goodreads",
     "Bijoy Lohar Amazon Author",
     "Bijoy Lohar Topmate",
@@ -335,7 +334,6 @@ export default function RootLayout({
         "dateModified": "2026-09-28T19:05:00+05:30",
         // High-authority profiles surfaced directly on this page node
         "significantLink": [
-          "https://www.wikidata.org/wiki/Q141595273",
           "https://orcid.org/0009-0004-5643-7612",
           "https://www.imdb.com/name/nm18949942/",
           "https://www.crunchbase.com/person/bijoy-lohar",
@@ -412,13 +410,6 @@ export default function RootLayout({
         ],
         "url": "https://www.bijoylohar.in/",
         "identifier": [
-          {
-            "@type": "PropertyValue",
-            "propertyID": "Wikidata",
-            "name": "Wikidata Item ID",
-            "value": "Q141595273",
-            "url": "https://www.wikidata.org/wiki/Q141595273",
-          },
           {
             "@type": "PropertyValue",
             "propertyID": "IMDb",
@@ -519,7 +510,6 @@ export default function RootLayout({
         // All canonical identities - Googlebot uses these to auto-verify your entity
         "sameAs": [
           // Research & Knowledge Graph
-          "https://www.wikidata.org/wiki/Q141595273",
           "https://orcid.org/0009-0004-5643-7612",
           "https://developers.google.com/profile/u/101253410801307724262",
           // Authorship & Media

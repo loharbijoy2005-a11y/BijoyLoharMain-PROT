@@ -56,7 +56,6 @@ const GoogleDevIcon: React.FC<{ className?: string }> = ({ className }) => (
 export interface SocialLinks {
   github?: string;
   linkedin?: string;
-  wikidata?: string;
   x?: string;
   instagramPersonal?: string;
   facebook?: string;
@@ -123,7 +122,6 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   socials = {
     github: "https://github.com/loharbijoy2005-a11y",
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
-    wikidata: "https://www.wikidata.org/wiki/Q141595273",
     googleDevelopers: "https://developers.google.com/profile/u/101253410801307724262",
     goodreads: "https://www.goodreads.com/bijoylohar",
     amazonAuthor: "https://www.amazon.com/author/bijoylohar",
