@@ -31,8 +31,41 @@ const API_URL = `https://www.wikidata.org/w/api.php?action=query&list=users&usus
 const PROFILE_URL = `https://www.wikidata.org/wiki/User:${TARGET_USERNAME}`;
 const AUTO_REFRESH_INTERVAL_MS = 12000;
 
+// Scoreboard-style rolling digit component
+const RollingDigit: React.FC<{ digit: string }> = ({ digit }) => {
+  if (isNaN(Number(digit))) {
+    return <span>{digit}</span>;
+  }
+  const num = parseInt(digit, 10);
+  return (
+    <span className="inline-block h-[1.15em] overflow-hidden leading-none relative">
+      <motion.span
+        initial={false}
+        animate={{ y: `-${num * 10}%` }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col"
+      >
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+          <span key={n} className="h-[1.15em] flex items-center justify-center">
+            {n}
+          </span>
+        ))}
+      </motion.span>
+    </span>
+  );
+};
+
+const ScoreboardTicker: React.FC<{ value: string }> = ({ value }) => {
+  return (
+    <span className="inline-flex items-center font-mono">
+      {value.split("").map((char, i) => (
+        <RollingDigit key={`${i}-${char}`} digit={char} />
+      ))}
+    </span>
+  );
+};
+
 export const WikidataProfileCard: React.FC = () => {
-  // Start with default live count so it displays instantly with ZERO "Loading..." text flicker
   const [editCount, setEditCount] = useState<number>(2499);
   const [isLiveSyncing, setIsLiveSyncing] = useState<boolean>(false);
 
@@ -120,10 +153,11 @@ export const WikidataProfileCard: React.FC = () => {
                 Wikidata Knowledge Graph Entity
               </span>
 
-              {/* Instant Live Contributions Pill - Zero Loading Flicker */}
+              {/* Scoreboard Rolling Live Contributions Pill */}
               <span className="px-3 py-0.5 bg-amberAccent/15 text-amberAccent border border-amberAccent/40 font-mono text-xs font-extrabold rounded-full flex items-center gap-1.5 shadow-sm">
                 <TrendingUp className="w-3.5 h-3.5" />
-                <span>{formattedEditCount} Live Contributions</span>
+                <ScoreboardTicker value={formattedEditCount} />
+                <span>Live Contributions</span>
                 <span className={`h-1.5 w-1.5 rounded-full ${isLiveSyncing ? "bg-amberAccent animate-ping" : "bg-emerald-400 animate-pulse"}`} />
               </span>
 
