@@ -140,10 +140,23 @@ export const WikidataProfileCard: React.FC = () => {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         className="group relative p-6 md:p-8 bg-studioCard border border-borderWarm rounded-3xl transition-all duration-300 hover:border-amberAccent/60 hover:shadow-2xl shadow-md overflow-hidden text-deepInk"
       >
+        {/* Periodic White/Gold Glowing Light Beam Sweep */}
+        <motion.div
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: "250%", opacity: [0, 0.25, 0.6, 0.25, 0] }}
+          transition={{
+            repeat: Infinity,
+            repeatDelay: 3.5,
+            duration: 2.2,
+            ease: "easeInOut",
+          }}
+          className="pointer-events-none absolute inset-y-0 w-1/3 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent blur-sm z-20"
+        />
+
         {/* Subtle Warm Amber Backdrop Glow */}
         <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-amberAccent/10 blur-3xl group-hover:bg-amberAccent/15 transition-all duration-500" />
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
           <div className="flex-1 min-w-0">
             {/* Top Tag Row */}
             <div className="flex flex-wrap items-center gap-2.5 mb-2">
@@ -209,7 +222,7 @@ export const WikidataProfileCard: React.FC = () => {
             href={PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shrink-0 shadow-md self-start md:self-center"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shrink-0 shadow-md self-start md:self-center z-10"
           >
             <span>Verify Official Wikidata Profile</span>
             <ArrowUpRight className="w-4 h-4" />
