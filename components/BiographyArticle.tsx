@@ -31,20 +31,29 @@ const TOC_ITEMS: TocItem[] = [
 export const BiographyArticle: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
-  const [liveCount, setLiveCount] = useState<number>(15860);
+  const [liveCount, setLiveCount] = useState<number>(13537);
 
   useEffect(() => {
-    // Dynamic verified live metric simulation calculated from baseline
-    const baseTimestamp = 1770000000000;
-    const now = Date.now();
-    const elapsedSeconds = Math.max(0, Math.floor((now - baseTimestamp) / 1000));
-    const calculatedBase = 15860 + Math.floor(elapsedSeconds % 5000);
-    setLiveCount(calculatedBase);
+    // Fetch 100% authentic real-time edit count directly from official Wikimedia / Wikidata API
+    const fetchWikidataEdits = async () => {
+      try {
+        const res = await fetch(
+          "https://www.wikidata.org/w/api.php?action=query&list=users&ususers=SHADOWARROW%202026&usprop=editcount&format=json&origin=*"
+        );
+        if (res.ok) {
+          const data = await res.json();
+          const count = data?.query?.users?.[0]?.editcount;
+          if (typeof count === "number" && count > 0) {
+            setLiveCount(count);
+          }
+        }
+      } catch (err) {
+        console.error("Wikidata live count sync error:", err);
+      }
+    };
 
-    const interval = setInterval(() => {
-      setLiveCount((prev) => prev + (Math.random() > 0.45 ? 1 : 0));
-    }, 3200);
-
+    fetchWikidataEdits();
+    const interval = setInterval(fetchWikidataEdits, 15000); // Polling real API every 15s
     return () => clearInterval(interval);
   }, []);
 
@@ -369,10 +378,19 @@ export const BiographyArticle: React.FC = () => {
                     <div className="wiki-metric-item wiki-metric-item-live">
                       <div className="wiki-metric-label flex items-center justify-between">
                         <span>Live Contributions</span>
-                        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" title="Live sync from Wikidata API"></span>
                       </div>
                       <div className="wiki-metric-val wiki-metric-live-text font-mono">
-                        {liveCount.toLocaleString()}+ <span className="wiki-metric-sub">records</span>
+                        <a
+                          href="https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline text-emerald-800"
+                          title="View verified live edits for SHADOWARROW 2026 on Wikidata"
+                        >
+                          {liveCount.toLocaleString()}
+                        </a>{" "}
+                        <span className="wiki-metric-sub">edits</span>
                       </div>
                     </div>
                     <div className="wiki-metric-item">
