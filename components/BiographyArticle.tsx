@@ -50,7 +50,20 @@ const TOC_SECTIONS: TocItem[] = [
   { id: "external-links", label: "External links", level: 1, num: "10" },
 ];
 
+const calculateAge = (birthDateString: string = "2005-10-12"): number => {
+  const today = new Date();
+  const birthDate = new Date(birthDateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+  return age;
+};
+
 export const BiographyArticle: React.FC = () => {
+  const currentAge = calculateAge("2005-10-12");
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
   const [liveCount, setLiveCount] = useState<number>(13780);
@@ -423,7 +436,7 @@ export const BiographyArticle: React.FC = () => {
                 <tr>
                   <th scope="row" className="infobox-label">Born</th>
                   <td className="infobox-data">
-                    12 October 2005 <span className="noprint ForceAgeToShow">(age 20)</span><br />
+                    12 October 2005 <span className="noprint ForceAgeToShow">(age&#160;{currentAge})</span><br />
                     <span className="birthplace">
                       <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>,{" "}
                       <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a>,{" "}
