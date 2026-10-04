@@ -434,6 +434,11 @@ export const BiographyArticle: React.FC = () => {
                   </td>
                 </tr>
                 <tr>
+                  <th colSpan={2} className="infobox-header">
+                    Personal details
+                  </th>
+                </tr>
+                <tr>
                   <th scope="row" className="infobox-label">Born</th>
                   <td className="infobox-data">
                     12 October 2005 <span className="noprint ForceAgeToShow">(age&#160;{currentAge})</span><br />
@@ -944,6 +949,11 @@ export const BiographyArticle: React.FC = () => {
         .vector-theme-dark .infobox-above {
           background: #2d2d2d;
           color: #ffffff;
+        }
+        .vector-theme-dark .infobox-header {
+          background-color: #2a2a2a;
+          color: #ffffff;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .infobox-data {
           background: #1e1e1e;
@@ -1504,6 +1514,17 @@ export const BiographyArticle: React.FC = () => {
           padding: 4px 6px 8px;
           color: #54595d;
           border-bottom: 1px solid #a2a9b1;
+        }
+
+        .infobox-header {
+          background-color: #eaf3fb;
+          font-weight: 700;
+          font-size: 12px;
+          text-align: center;
+          padding: 4px 6px;
+          border-top: 1px solid #a2a9b1;
+          border-bottom: 1px solid #a2a9b1;
+          color: #202122;
         }
 
         .infobox-image {
