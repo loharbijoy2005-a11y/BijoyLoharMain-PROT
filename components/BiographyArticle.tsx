@@ -882,10 +882,16 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">6</span> Personal life
               </h2>
               <p>
-                Lohar resides in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>. He manages software projects at Shadow Arrow while pursuing his second-year undergraduate university coursework.
+                Lohar lives in his hometown of <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, where he resides with his family, including his parents, Binod and Soma Lohar, and his sister, Dipti Lohar.
               </p>
               <p>
-                In his spare time, he continues to study computer architectures, interactive graphics, and writes technical notes on autodidactic programming.
+                He maintains a home-based development environment where he balances ongoing client engineering work for Shadow Arrow with his academic schedule as a second-year undergraduate student under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>. His daily workflow involves writing and testing software, maintaining automated data bots, and studying computer science literature.
+              </p>
+              <p>
+                Outside of commercial software development, Lohar's personal interests include exploring computer hardware architectures, digital cinematography, node-based color grading in DaVinci Resolve, and 3D modeling in Blender. He also plays video games casually and follows developments in real-time graphics and game engines.
+              </p>
+              <p>
+                Lohar supports open-access learning and open educational resources. In his spare time, he provides informal guidance to students and beginners in his regional community who are interested in learning self-taught web development, command-line tools, and computer programming fundamentals.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
             </section>
 
