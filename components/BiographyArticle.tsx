@@ -688,10 +688,7 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .vector-toc-wrapper {
-          position: sticky;
-          top: 24px;
-          max-height: calc(100vh - 48px);
-          overflow-y: auto;
+          position: relative;
           padding-right: 8px;
         }
 
