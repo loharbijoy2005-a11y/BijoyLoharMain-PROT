@@ -2,26 +2,47 @@
 
 import React, { useState, useEffect } from "react";
 
+interface TocSubItem {
+  id: string;
+  label: string;
+  num: string;
+}
+
 interface TocItem {
   id: string;
   label: string;
   level: number;
   num?: string;
+  children?: TocSubItem[];
 }
 
-const TOC_ITEMS: TocItem[] = [
+const TOC_SECTIONS: TocItem[] = [
   { id: "article-top", label: "(Top)", level: 1 },
   { id: "early-life", label: "Early life and family background", level: 1, num: "1" },
   { id: "education", label: "Education and vocational background", level: 1, num: "2" },
   { id: "gaming", label: "Competitive gaming and early computing (2022–2023)", level: 1, num: "3" },
-  { id: "software-engineering", label: "Self-taught software engineering & technical career", level: 1, num: "4" },
-  { id: "autodidactic-journey", label: "Autodidactic journey and core programming", level: 2, num: "4.1" },
-  { id: "automation-scripting", label: "Automation bots and utility scripting", level: 2, num: "4.2" },
-  { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", level: 2, num: "4.3" },
-  { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", level: 2, num: "4.4" },
-  { id: "creative-pursuits", label: "Creative pursuits, writing, and media", level: 1, num: "5" },
-  { id: "authorship", label: "Authorship and technical writing", level: 2, num: "5.1" },
-  { id: "video-media", label: "Video creation, color science, and 3D animation", level: 2, num: "5.2" },
+  {
+    id: "software-engineering",
+    label: "Self-taught software engineering & technical career",
+    level: 1,
+    num: "4",
+    children: [
+      { id: "autodidactic-journey", label: "Autodidactic journey and core programming", num: "4.1" },
+      { id: "automation-scripting", label: "Automation bots and utility scripting", num: "4.2" },
+      { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", num: "4.3" },
+      { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", num: "4.4" },
+    ],
+  },
+  {
+    id: "creative-pursuits",
+    label: "Creative pursuits, writing, and media",
+    level: 1,
+    num: "5",
+    children: [
+      { id: "authorship", label: "Authorship and technical writing", num: "5.1" },
+      { id: "video-media", label: "Video creation, color science, and 3D animation", num: "5.2" },
+    ],
+  },
   { id: "philosophy-toolchain", label: "Technical philosophy and toolchain", level: 1, num: "6" },
   { id: "personal-life", label: "Personal life", level: 1, num: "7" },
   { id: "see-also", label: "See also", level: 1, num: "8" },
@@ -32,6 +53,14 @@ export const BiographyArticle: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
   const [liveCount, setLiveCount] = useState<number>(13537);
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    "software-engineering": true,
+    "creative-pursuits": true,
+  });
+  const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
+  const [pageTheme, setPageTheme] = useState<"light" | "dark">("light");
+  const [contentWidth, setContentWidth] = useState<"standard" | "wide">("standard");
+  const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
 
   useEffect(() => {
     // Fetch 100% authentic real-time edit count directly from official Wikimedia / Wikidata API
@@ -62,20 +91,42 @@ export const BiographyArticle: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+            const currentId = entry.target.id;
+            setActiveSection(currentId);
+
+            // Auto-expand parent if an active subsection is in view
+            TOC_SECTIONS.forEach((section) => {
+              if (section.children?.some((child) => child.id === currentId)) {
+                setExpandedSections((prev) => ({ ...prev, [section.id]: true }));
+              }
+            });
           }
         });
       },
       { rootMargin: "-10% 0px -70% 0px", threshold: 0.1 }
     );
 
-    TOC_ITEMS.forEach(({ id }) => {
+    const allIds: string[] = [];
+    TOC_SECTIONS.forEach((section) => {
+      allIds.push(section.id);
+      section.children?.forEach((child) => allIds.push(child.id));
+    });
+
+    allIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
+
+  const toggleSectionExpand = (sectionId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedSections((prev) => ({
+      ...prev,
+      [sectionId]: !prev[sectionId],
+    }));
+  };
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -84,11 +135,17 @@ export const BiographyArticle: React.FC = () => {
     }
   };
 
+  const fontSizeClass =
+    fontSize === "small" ? "wiki-text-small" : fontSize === "large" ? "wiki-text-large" : "wiki-text-standard";
+
+  const themeClass = pageTheme === "dark" ? "vector-theme-dark" : "vector-theme-light";
+  const widthClass = contentWidth === "wide" ? "vector-width-wide" : "vector-width-standard";
+
   return (
-    <div className="vector-2022-canvas">
+    <div className={`vector-2022-canvas ${themeClass}`}>
       {/* 3-COLUMN MODERN VECTOR 2022 ARCHITECTURE */}
-      <div className="vector-main-layout">
-        {/* COLUMN 1: LEFT STICKY TABLE OF CONTENTS */}
+      <div className={`vector-main-layout ${widthClass}`}>
+        {/* COLUMN 1: LEFT STICKY TABLE OF CONTENTS WITH COLLAPSIBLE ACCORDION */}
         <aside className="vector-column-toc">
           <div className="vector-toc-wrapper">
             <div className="vector-toc-header">
@@ -105,20 +162,65 @@ export const BiographyArticle: React.FC = () => {
             {tocOpen && (
               <nav className="vector-toc-nav" aria-label="Table of contents">
                 <ul className="vector-toc-list">
-                  {TOC_ITEMS.map((item) => {
-                    const isActive = activeSection === item.id;
+                  {TOC_SECTIONS.map((section) => {
+                    const isActive = activeSection === section.id;
+                    const hasChildren = Boolean(section.children && section.children.length > 0);
+                    const isExpanded = Boolean(expandedSections[section.id]);
+                    const isChildActive = section.children?.some((c) => c.id === activeSection);
+
                     return (
                       <li
-                        key={item.id}
-                        className={`vector-toc-item vector-toc-level-${item.level} ${isActive ? "vector-toc-item-active" : ""}`}
+                        key={section.id}
+                        className={`vector-toc-item vector-toc-level-1 ${
+                          isActive || isChildActive ? "vector-toc-item-active" : ""
+                        }`}
                       >
-                        <button
-                          onClick={() => scrollTo(item.id)}
-                          className="vector-toc-link"
-                        >
-                          {item.num && <span className="vector-toc-num">{item.num}</span>}
-                          <span className="vector-toc-text">{item.label}</span>
-                        </button>
+                        <div className="vector-toc-row">
+                          <button
+                            onClick={() => scrollTo(section.id)}
+                            className="vector-toc-link"
+                          >
+                            {section.num && <span className="vector-toc-num">{section.num}</span>}
+                            <span className="vector-toc-text">{section.label}</span>
+                          </button>
+
+                          {hasChildren && (
+                            <button
+                              onClick={(e) => toggleSectionExpand(section.id, e)}
+                              className="vector-toc-collapse-btn"
+                              title={isExpanded ? "Collapse section" : "Expand section"}
+                              aria-label={isExpanded ? "Collapse section" : "Expand section"}
+                            >
+                              <span className={`vector-toc-arrow ${isExpanded ? "vector-toc-arrow-down" : "vector-toc-arrow-right"}`}>
+                                ▾
+                              </span>
+                            </button>
+                          )}
+                        </div>
+
+                        {hasChildren && isExpanded && (
+                          <ul className="vector-toc-sublist">
+                            {section.children!.map((sub) => {
+                              const isSubActive = activeSection === sub.id;
+                              return (
+                                <li
+                                  key={sub.id}
+                                  className={`vector-toc-item vector-toc-level-2 ${
+                                    isSubActive ? "vector-toc-item-active" : ""
+                                  }`}
+                                >
+                                  <button
+                                    onClick={() => scrollTo(sub.id)}
+                                    className="vector-toc-link"
+                                  >
+                                    <span className="vector-toc-num">{sub.num}</span>
+                                    <span className="vector-toc-text">{sub.label}</span>
+                                  </button>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
                       </li>
                     );
                   })}
@@ -129,15 +231,93 @@ export const BiographyArticle: React.FC = () => {
         </aside>
 
         {/* COLUMN 2 & 3: MAIN ARTICLE AREA + FLOATING RIGHT INFOBOX */}
-        <main className="vector-column-article" id="content">
+        <main className={`vector-column-article ${fontSizeClass}`} id="content">
           <div className="vector-article-header">
             <h1 className="firstHeading mw-first-heading" id="article-top">
               Bijoy Lohar
             </h1>
-            <div className="vector-article-lang-bar">
-              <a href="/" className="vector-back-home-link">
-                ← Back to Portfolio
-              </a>
+
+            <div className="vector-article-tools flex items-center gap-3">
+              {/* APPEARANCE CONTROLS TOGGLE */}
+              <div className="relative">
+                <button
+                  onClick={() => setShowAppearanceMenu(!showAppearanceMenu)}
+                  className="vector-appearance-btn flex items-center gap-1.5 text-xs text-[#3366cc] hover:text-[#447ff5] font-sans font-medium px-2 py-1 rounded hover:bg-black/5"
+                  title="Page appearance settings (text size, width, theme)"
+                >
+                  <span>⚙ Appearance</span>
+                </button>
+
+                {showAppearanceMenu && (
+                  <div className="vector-appearance-dropdown">
+                    <div className="vector-appearance-group">
+                      <div className="vector-appearance-label">Text Size</div>
+                      <div className="vector-appearance-options">
+                        <button
+                          onClick={() => setFontSize("small")}
+                          className={`vector-opt-btn ${fontSize === "small" ? "active" : ""}`}
+                        >
+                          Small
+                        </button>
+                        <button
+                          onClick={() => setFontSize("standard")}
+                          className={`vector-opt-btn ${fontSize === "standard" ? "active" : ""}`}
+                        >
+                          Standard
+                        </button>
+                        <button
+                          onClick={() => setFontSize("large")}
+                          className={`vector-opt-btn ${fontSize === "large" ? "active" : ""}`}
+                        >
+                          Large
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="vector-appearance-group">
+                      <div className="vector-appearance-label">Width</div>
+                      <div className="vector-appearance-options">
+                        <button
+                          onClick={() => setContentWidth("standard")}
+                          className={`vector-opt-btn ${contentWidth === "standard" ? "active" : ""}`}
+                        >
+                          Standard
+                        </button>
+                        <button
+                          onClick={() => setContentWidth("wide")}
+                          className={`vector-opt-btn ${contentWidth === "wide" ? "active" : ""}`}
+                        >
+                          Wide
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="vector-appearance-group">
+                      <div className="vector-appearance-label">Color Theme</div>
+                      <div className="vector-appearance-options">
+                        <button
+                          onClick={() => setPageTheme("light")}
+                          className={`vector-opt-btn ${pageTheme === "light" ? "active" : ""}`}
+                        >
+                          Light
+                        </button>
+                        <button
+                          onClick={() => setPageTheme("dark")}
+                          className={`vector-opt-btn ${pageTheme === "dark" ? "active" : ""}`}
+                        >
+                          Dark
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="vector-article-lang-bar">
+                <a href="/" className="vector-back-home-link">
+                  ← Back to Portfolio
+                </a>
+              </div>
             </div>
           </div>
 
@@ -657,7 +837,7 @@ export const BiographyArticle: React.FC = () => {
       {/* AUTHENTIC VECTOR 2022 LIGHT THEME STYLING */}
       <style>{`
         /* ==========================================================
-           AUTHENTIC VECTOR 2022 WIKIPEDIA LIGHT AESTHETIC
+           AUTHENTIC VECTOR 2022 WIKIPEDIA LIGHT & DARK AESTHETIC
            ========================================================== */
         
         .vector-2022-canvas {
@@ -668,6 +848,124 @@ export const BiographyArticle: React.FC = () => {
           background-color: #f8f9fa;
           min-height: 100vh;
           -webkit-font-smoothing: antialiased;
+          transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        /* DARK THEME SUPPORT */
+        .vector-theme-dark {
+          background-color: #1a1a1a;
+          color: #e0e0e0;
+        }
+        .vector-theme-dark .vector-column-article {
+          background: #202124;
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .firstHeading {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .mw-body-content p {
+          color: #dadce0;
+        }
+        .vector-theme-dark .wiki-link {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-title {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .vector-toc-link {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
+          background: #303134;
+          color: #ffffff;
+        }
+        .vector-theme-dark .infobox {
+          background: #282a2d;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .infobox-above {
+          background: #303134;
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .infobox-data {
+          background: #202124;
+          color: #e8eaed;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .infobox-label {
+          background: #282a2d;
+          color: #bdc1c6;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable {
+          background: #202124;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable th {
+          background: #303134;
+          color: #f1f3f4;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable td {
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .wiki-contribution-box {
+          background: #1e261f;
+          border-color: #2e4d30;
+        }
+        .vector-theme-dark .wiki-contribution-header {
+          background: #172418;
+          border-color: #2e4d30;
+        }
+        .vector-theme-dark .wiki-contribution-title {
+          color: #81c784;
+        }
+        .vector-theme-dark .wiki-metric-item {
+          background: #232a24;
+          border-color: #384d3b;
+        }
+        .vector-theme-dark .wiki-metric-val {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .see-also-card {
+          background: #202124;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .catlinks {
+          background: #282a2d;
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .vector-appearance-dropdown {
+          background: #282a2d;
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .vector-opt-btn {
+          background: #202124;
+          border-color: #3c4043;
+          color: #bdc1c6;
+        }
+        .vector-theme-dark .vector-opt-btn.active {
+          background: #8ab4f8;
+          color: #202124;
+        }
+
+        /* TEXT SIZING CONTROLS */
+        .wiki-text-small {
+          font-size: 12.5px;
+          line-height: 1.55;
+        }
+        .wiki-text-standard {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+        .wiki-text-large {
+          font-size: 16px;
+          line-height: 1.75;
         }
 
         /* 3-COLUMN MODERN ARCHIVAL ARCHITECTURE */
@@ -676,28 +974,32 @@ export const BiographyArticle: React.FC = () => {
           margin: 0 auto;
           display: flex;
           align-items: flex-start;
-          padding: 24px 16px 48px;
-          gap: 24px;
+          padding: 20px 16px 48px;
+          gap: 28px;
           box-sizing: border-box;
           position: relative;
         }
 
-        /* LEFT TOC SIDEBAR (COMPLETELY HARD-FIXED TO VIEWPORT) */
+        .vector-width-wide {
+          max-width: 1680px;
+        }
+
+        /* LEFT TOC SIDEBAR (VECTOR 2022 STICKY SCROLL SPEC) */
         .vector-column-toc {
-          width: 240px;
+          width: 250px;
           flex-shrink: 0;
-          position: fixed;
-          top: 70px;
-          left: max(16px, calc(50vw - 704px));
-          height: calc(100vh - 80px);
+          position: sticky;
+          top: 16px;
+          max-height: calc(100vh - 2rem);
           overflow-y: auto;
           overflow-x: hidden;
           scrollbar-width: thin;
           scrollbar-color: #c8ccd1 transparent;
-          z-index: 30;
-          padding-top: 8px;
-          padding-right: 12px;
+          z-index: 20;
+          padding-top: 4px;
+          padding-right: 8px;
           box-sizing: border-box;
+          user-select: none;
         }
 
         .vector-column-toc::-webkit-scrollbar {
@@ -760,8 +1062,54 @@ export const BiographyArticle: React.FC = () => {
           margin-top: 4px;
         }
 
+        .vector-toc-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 4px;
+          width: 100%;
+          border-radius: 2px;
+          transition: background 0.12s ease;
+        }
+
+        .vector-toc-collapse-btn {
+          background: none;
+          border: none;
+          padding: 2px 6px;
+          cursor: pointer;
+          color: #54595d;
+          font-size: 13px;
+          line-height: 1;
+          border-radius: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.15s ease;
+        }
+        .vector-toc-collapse-btn:hover {
+          background: #eaecf0;
+          color: #202122;
+        }
+
+        .vector-toc-arrow {
+          display: inline-block;
+          transition: transform 0.18s ease;
+        }
+        .vector-toc-arrow-down {
+          transform: rotate(0deg);
+        }
+        .vector-toc-arrow-right {
+          transform: rotate(-90deg);
+        }
+
+        .vector-toc-sublist {
+          list-style: none;
+          padding: 0 0 0 12px;
+          margin: 2px 0 4px 6px;
+          border-left: 1px solid #eaecf0;
+        }
+
         .vector-toc-level-2 {
-          padding-left: 14px;
           margin-top: 3px;
         }
 
@@ -769,7 +1117,8 @@ export const BiographyArticle: React.FC = () => {
           display: flex;
           align-items: flex-start;
           gap: 6px;
-          width: 100%;
+          flex: 1;
+          min-width: 0;
           text-align: left;
           background: none;
           border: none;
@@ -786,6 +1135,7 @@ export const BiographyArticle: React.FC = () => {
           text-decoration: underline;
         }
 
+        .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-toc-item-active > .vector-toc-link {
           color: #202122;
           font-weight: bold;
@@ -802,13 +1152,69 @@ export const BiographyArticle: React.FC = () => {
 
         .vector-toc-text {
           flex: 1;
+          word-break: break-word;
+        }
+
+        /* APPEARANCE DROPDOWN MENU */
+        .vector-appearance-dropdown {
+          position: absolute;
+          top: calc(100% + 6px);
+          right: 0;
+          width: 260px;
+          background: #ffffff;
+          border: 1px solid #a2a9b1;
+          border-radius: 4px;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+          padding: 12px 14px;
+          z-index: 50;
+        }
+
+        .vector-appearance-group {
+          margin-bottom: 12px;
+        }
+        .vector-appearance-group:last-child {
+          margin-bottom: 0;
+        }
+
+        .vector-appearance-label {
+          font-size: 11px;
+          font-weight: 700;
+          color: #54595d;
+          text-transform: uppercase;
+          letter-spacing: 0.4px;
+          margin-bottom: 6px;
+        }
+
+        .vector-appearance-options {
+          display: flex;
+          gap: 6px;
+        }
+
+        .vector-opt-btn {
+          flex: 1;
+          font-size: 11.5px;
+          font-weight: 600;
+          padding: 4px 8px;
+          background: #f8f9fa;
+          border: 1px solid #c8ccd1;
+          border-radius: 2px;
+          cursor: pointer;
+          color: #202122;
+          transition: all 0.15s ease;
+        }
+        .vector-opt-btn:hover {
+          background: #eaecf0;
+        }
+        .vector-opt-btn.active {
+          background: #3366cc;
+          border-color: #3366cc;
+          color: #ffffff;
         }
 
         /* CENTER ARTICLE AREA */
         .vector-column-article {
           flex: 1;
           min-width: 0;
-          margin-left: 260px;
           background: #ffffff;
           padding: 28px 36px 48px;
           border: 1px solid #a2a9b1;
