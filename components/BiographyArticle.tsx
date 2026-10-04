@@ -73,7 +73,7 @@ export const BiographyArticle: React.FC = () => {
           const data = await res.json();
           const count = data?.query?.users?.[0]?.editcount;
           if (typeof count === "number" && count > 0) {
-            setLiveCount(Math.max(13780, count));
+            setLiveCount(count);
           }
         }
       } catch (err) {
@@ -82,7 +82,7 @@ export const BiographyArticle: React.FC = () => {
     };
 
     fetchWikidataEdits();
-    const interval = setInterval(fetchWikidataEdits, 15000);
+    const interval = setInterval(fetchWikidataEdits, 12000);
     return () => clearInterval(interval);
   }, []);
 
@@ -135,10 +135,15 @@ export const BiographyArticle: React.FC = () => {
     }
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({
+      const headerOffset = 64;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + (window.pageYOffset || document.documentElement.scrollTop || 0) - headerOffset;
+      
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
         behavior: "smooth",
-        block: "start",
       });
+
       if (typeof window !== "undefined" && window.history) {
         window.history.pushState(null, "", `#${id}`);
       }

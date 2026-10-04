@@ -86,7 +86,7 @@ export const WikidataProfileCard: React.FC = () => {
       const userData = data.query?.users?.[0];
 
       if (userData && typeof userData.editcount === "number" && userData.editcount > 0) {
-        setEditCount(Math.max(13780, userData.editcount));
+        setEditCount(userData.editcount);
       }
     } catch (err) {
       console.warn("Wikidata API sync notice (using local live count):", err);
