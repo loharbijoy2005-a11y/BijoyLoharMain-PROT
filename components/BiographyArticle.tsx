@@ -343,9 +343,6 @@ export const BiographyArticle: React.FC = () => {
               <h1 className="firstHeading mw-first-heading" id="article-top">
                 Bijoy Lohar
               </h1>
-              <div className="text-xs text-[#54595d] font-sans tracking-wide mt-1">
-                From Wikipedia, the free encyclopedia &bull; Archival Biographical Documentation
-              </div>
             </div>
           </div>
 
@@ -413,7 +410,13 @@ export const BiographyArticle: React.FC = () => {
                 <tr>
                   <th scope="row" className="infobox-label">Alma mater</th>
                   <td className="infobox-data">
-                    <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>
+                    <ul className="infobox-list">
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>
+                      </li>
+                      <li>Radhanagar High School (HS)</li>
+                      <li>Bishnupur High School (Secondary)</li>
+                    </ul>
                   </td>
                 </tr>
                 <tr>
@@ -467,10 +470,13 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">2</span> Education and vocational background
               </h2>
               <p>
-                Lohar pursued higher academic and vocational education under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
+                Lohar received his foundational secondary education at Bishnupur High School in Bankura, West Bengal. He subsequently completed his higher secondary schooling at Radhanagar High School, where his academic focus and inquisitive interest in computer systems, digital networking, and programmatic computation first began to materialize.
               </p>
               <p>
-                His academic pursuits across the university circle coincided with an intense regimen of independent autodidactic software engineering, systems design study, and open data exploration.
+                Following his school education, Lohar pursued higher academic and vocational studies under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
+              </p>
+              <p>
+                His formal education was coupled with a disciplined regimen of autodidactic software engineering, systems design, and open data architecture, prioritizing hands-on execution and computational theory alongside standard collegiate curricula.
               </p>
             </section>
 
