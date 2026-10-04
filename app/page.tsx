@@ -2,7 +2,6 @@ import { Navbar } from "@/components/Navbar";
 import { SystemsPhilosophy } from "@/components/SystemsPhilosophy";
 import { ExpeditionEcosystem } from "@/components/ExpeditionEcosystem";
 import { CreatorMatrix } from "@/components/CreatorMatrix";
-import { WikidataProfileCard } from "@/components/WikidataProfileCard";
 import { AboutMe } from "@/components/AboutMe";
 import { BentoGrid } from "@/components/BentoGrid";
 import { MomentsMarquee } from "@/components/MomentsMarquee";
@@ -41,11 +40,6 @@ export default function Home() {
 
         {/* Verified Entity & Creator Footprint */}
         <CreatorMatrix />
-
-        {/* Live Wikidata Profile Card */}
-        <div className="px-4 md:px-8">
-          <WikidataProfileCard />
-        </div>
 
         {/* Golden Interactive CLI Terminal */}
         <TerminalConsole />

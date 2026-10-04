@@ -131,7 +131,14 @@ export const Footer: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex gap-6 text-xs font-bold text-muted">
+          <div className="flex gap-6 text-xs font-bold text-muted flex-wrap">
+            <a
+              href="/biography"
+              className="hover:text-amberAccent flex items-center gap-1 transition-colors"
+            >
+              <span>Biography</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
             <a
               href="https://www.shadowarrow.in"
               target="_blank"
