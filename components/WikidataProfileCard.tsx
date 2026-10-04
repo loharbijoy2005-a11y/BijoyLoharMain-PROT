@@ -26,9 +26,9 @@ interface WikidataApiResponse {
   };
 }
 
-const TARGET_USERNAME = "SHADOWARROW 2026";
+const TARGET_USERNAME = "Bijoy Lohar 2005";
 const API_URL = `https://www.wikidata.org/w/api.php?action=query&list=users&ususers=${encodeURIComponent(TARGET_USERNAME)}&usprop=editcount|groups&format=json&origin=*`;
-const PROFILE_URL = `https://www.wikidata.org/wiki/User:SHADOWARROW_2026`;
+const PROFILE_URL = `https://www.wikidata.org/wiki/User:Bijoy_Lohar_2005`;
 const AUTO_REFRESH_INTERVAL_MS = 12000;
 
 // Scoreboard-style rolling digit component
@@ -188,7 +188,7 @@ export const WikidataProfileCard: React.FC = () => {
 
             {/* Monospace URL & Headline Tagline */}
             <p className="font-mono text-xs text-amberAccent font-semibold mt-1.5 truncate">
-              User:SHADOWARROW_2026 &bull; Wikidata Systems Architect &amp; Open Data Contributor
+              User:Bijoy_Lohar_2005 &bull; Wikidata Systems Architect &amp; Open Data Contributor
             </p>
 
             {/* Bio */}

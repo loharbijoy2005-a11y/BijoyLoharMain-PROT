@@ -457,8 +457,8 @@ export default function RootLayout({
             "@type": "PropertyValue",
             "propertyID": "Wikidata",
             "name": "Wikidata User ID",
-            "value": "SHADOWARROW_2026",
-            "url": "https://www.wikidata.org/wiki/User:SHADOWARROW_2026",
+            "value": "Bijoy_Lohar_2005",
+            "url": "https://www.wikidata.org/wiki/User:Bijoy_Lohar_2005",
           },
           {
             "@type": "PropertyValue",
@@ -544,7 +544,7 @@ export default function RootLayout({
           // Research & Knowledge Graph
           "https://orcid.org/0009-0004-5643-7612",
           "https://developers.google.com/profile/u/101253410801307724262",
-          "https://www.wikidata.org/wiki/User:SHADOWARROW_2026",
+          "https://www.wikidata.org/wiki/User:Bijoy_Lohar_2005",
           // Authorship & Media
           "https://www.imdb.com/name/nm18949942/",
           "https://www.goodreads.com/bijoylohar",

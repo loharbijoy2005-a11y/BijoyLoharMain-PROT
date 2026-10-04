@@ -38,7 +38,7 @@ export const BiographyArticle: React.FC = () => {
     const fetchWikidataEdits = async () => {
       try {
         const res = await fetch(
-          "https://www.wikidata.org/w/api.php?action=query&list=users&ususers=SHADOWARROW%202026&usprop=editcount&format=json&origin=*"
+          "https://www.wikidata.org/w/api.php?action=query&list=users&ususers=Bijoy%20Lohar%202005&usprop=editcount&format=json&origin=*"
         );
         if (res.ok) {
           const data = await res.json();
@@ -382,11 +382,11 @@ export const BiographyArticle: React.FC = () => {
                       </div>
                       <div className="wiki-metric-val wiki-metric-live-text font-mono">
                         <a
-                          href="https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026"
+                          href="https://www.wikidata.org/wiki/User:Bijoy_Lohar_2005"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline text-emerald-800"
-                          title="View verified live edits for SHADOWARROW 2026 on Wikidata"
+                          title="View verified live edits for Bijoy Lohar 2005 on Wikidata"
                         >
                           {liveCount.toLocaleString()}
                         </a>{" "}
