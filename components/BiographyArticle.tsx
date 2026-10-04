@@ -55,8 +55,8 @@ export const BiographyArticle: React.FC = () => {
   const [tocOpen, setTocOpen] = useState<boolean>(true);
   const [liveCount, setLiveCount] = useState<number>(13537);
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    "software-engineering": true,
-    "creative-pursuits": true,
+    "software-engineering": false,
+    "creative-pursuits": false,
   });
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
   const [pageTheme, setPageTheme] = useState<"light" | "dark">("light");
@@ -94,7 +94,7 @@ export const BiographyArticle: React.FC = () => {
             const currentId = entry.target.id;
             setActiveSection(currentId);
 
-            // Auto-expand parent section if child is active
+            // Auto-expand parent section only when user scrolls into its subsection
             TOC_SECTIONS.forEach((section) => {
               if (section.children?.some((child) => child.id === currentId)) {
                 setExpandedSections((prev) => ({ ...prev, [section.id]: true }));
@@ -103,7 +103,7 @@ export const BiographyArticle: React.FC = () => {
           }
         });
       },
-      { rootMargin: "-10% 0px -70% 0px", threshold: 0.1 }
+      { rootMargin: "-15% 0px -65% 0px", threshold: 0.1 }
     );
 
     const allIds: string[] = [];
@@ -121,6 +121,7 @@ export const BiographyArticle: React.FC = () => {
   }, []);
 
   const toggleSectionExpand = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
     setExpandedSections((prev) => ({
       ...prev,
@@ -131,7 +132,13 @@ export const BiographyArticle: React.FC = () => {
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const headerOffset = 64;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -262,6 +269,7 @@ export const BiographyArticle: React.FC = () => {
                     >
                       <div className="vector-toc-row">
                         <button
+                          type="button"
                           onClick={() => scrollTo(section.id)}
                           className="vector-toc-link"
                         >
@@ -271,14 +279,26 @@ export const BiographyArticle: React.FC = () => {
 
                         {hasChildren && (
                           <button
+                            type="button"
                             onClick={(e) => toggleSectionExpand(section.id, e)}
-                            className="vector-toc-collapse-btn"
+                            className={`vector-toc-collapse-btn ${isExpanded ? "is-expanded" : "is-collapsed"}`}
                             title={isExpanded ? "Collapse section" : "Expand section"}
                             aria-label={isExpanded ? "Collapse section" : "Expand section"}
+                            aria-expanded={isExpanded}
                           >
-                            <span className={`vector-toc-arrow ${isExpanded ? "vector-toc-arrow-down" : "vector-toc-arrow-right"}`}>
-                              ▾
-                            </span>
+                            <svg
+                              className={`vector-toc-chevron ${isExpanded ? "vector-toc-chevron-expanded" : ""}`}
+                              viewBox="0 0 20 20"
+                              fill="currentColor"
+                              width="13"
+                              height="13"
+                            >
+                              <path
+                                fillRule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
                           </button>
                         )}
                       </div>
@@ -827,6 +847,13 @@ export const BiographyArticle: React.FC = () => {
         .vector-theme-dark .vector-toc-link {
           color: #8ab4f8;
         }
+        .vector-theme-dark .vector-toc-collapse-btn {
+          color: #888888;
+        }
+        .vector-theme-dark .vector-toc-collapse-btn:hover {
+          background: #2a2a2a;
+          color: #ffffff;
+        }
         .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
           background: #2a2a2a;
@@ -921,13 +948,14 @@ export const BiographyArticle: React.FC = () => {
 
         /* TOP GLOBAL HEADER */
         .vector-global-header {
-          position: sticky;
+          position: fixed;
           top: 0;
           left: 0;
           right: 0;
+          width: 100%;
           background: #ffffff;
           border-bottom: 1px solid #c8ccd1;
-          z-index: 40;
+          z-index: 100;
           height: 52px;
         }
 
@@ -982,7 +1010,7 @@ export const BiographyArticle: React.FC = () => {
         .vector-main-layout {
           max-width: 1440px;
           margin: 0 auto;
-          padding: 18px 16px 48px;
+          padding: 68px 16px 48px;
           box-sizing: border-box;
           position: relative;
         }
@@ -990,15 +1018,15 @@ export const BiographyArticle: React.FC = () => {
         /* LEFT TOC SIDEBAR (FIXED TO VIEWPORT) */
         .vector-column-toc {
           position: fixed;
-          top: 70px;
+          top: 68px;
           left: max(16px, calc(50vw - 704px));
           width: 250px;
-          height: calc(100vh - 84px);
+          height: calc(100vh - 80px);
           overflow-y: auto;
           overflow-x: hidden;
           scrollbar-width: thin;
           scrollbar-color: #c8ccd1 transparent;
-          z-index: 30;
+          z-index: 40;
           padding-top: 4px;
           padding-right: 12px;
           box-sizing: border-box;
@@ -1071,7 +1099,7 @@ export const BiographyArticle: React.FC = () => {
         .vector-toc-collapse-btn {
           background: none;
           border: none;
-          padding: 2px 6px;
+          padding: 3px 5px;
           cursor: pointer;
           color: #54595d;
           font-size: 13px;
@@ -1080,22 +1108,20 @@ export const BiographyArticle: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.15s ease;
+          transition: background-color 0.15s ease, color 0.15s ease;
         }
         .vector-toc-collapse-btn:hover {
           background: #eaecf0;
           color: #202122;
         }
 
-        .vector-toc-arrow {
+        .vector-toc-chevron {
           display: inline-block;
-          transition: transform 0.18s ease;
-        }
-        .vector-toc-arrow-down {
+          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           transform: rotate(0deg);
         }
-        .vector-toc-arrow-right {
-          transform: rotate(-90deg);
+        .vector-toc-chevron-expanded {
+          transform: rotate(90deg);
         }
 
         .vector-toc-sublist {
