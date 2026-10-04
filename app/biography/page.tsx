@@ -49,12 +49,27 @@ const jsonLd = {
         }
       },
       nationality: { "@type": "Country", name: "India" },
-      jobTitle: "Founder & Lead Systems Architect",
+      jobTitle: "Software Engineer & Systems Architect",
       hasOccupation: [
         {
           "@type": "Occupation",
           name: "Software Engineer",
-          description: "Full-stack web systems engineering, automation bot design, and serverless cloud infrastructure."
+          description: "Full-stack web systems engineering, client portals, application architectures, and serverless infrastructure."
+        },
+        {
+          "@type": "Occupation",
+          name: "Full-Stack Developer",
+          description: "Modern frontend and backend engineering utilizing TypeScript, Next.js, Node.js, and SQL."
+        },
+        {
+          "@type": "Occupation",
+          name: "Systems Architect",
+          description: "Designing low-latency distributed web systems, API orchestration, and resilient cloud architectures."
+        },
+        {
+          "@type": "Occupation",
+          name: "Author & Technical Writer",
+          description: "Authoring technical documentation, systems design analyses, and literature."
         },
         {
           "@type": "Occupation",
@@ -68,21 +83,11 @@ const jsonLd = {
         },
         {
           "@type": "Occupation",
-          name: "Bot Automation Developer",
-          description: "Autonomous high-throughput ETL pipelines, rate-limited Wikibase bots, and batch entity reconciliation."
-        },
-        {
-          "@type": "Occupation",
-          name: "Author & Technical Writer",
-          description: "Authoring technical documentation, systems design analyses, and literature."
-        },
-        {
-          "@type": "Occupation",
           name: "Video Creator & Digital Media Specialist",
           description: "Post-production video engineering, color grading (DaVinci Resolve), and 3D modeling (Blender)."
         }
       ],
-      description: "Bijoy Lohar is an Indian self-taught software engineer, semantic data architect, author, digital video creator, and founder of Shadow Arrow, specialising in autonomous nationwide multi-domain knowledge-graph bots (ingesting civic, geographic, judicial, healthcare, and educational infrastructure into Wikidata), full-stack web platforms, and literature.",
+      description: "Bijoy Lohar is an Indian self-taught software engineer, systems architect, author, digital video creator, and founder of Shadow Arrow, specialising in full-stack software engineering, distributed systems architecture, autonomous semantic data pipelines, and literature.",
       parent: [
         { "@type": "Person", name: "Binod Lohar" },
         { "@type": "Person", name: "Soma Lohar" }
@@ -110,13 +115,8 @@ const jsonLd = {
         description: "Bespoke full-stack web engineering, client portals, and e-commerce infrastructure company."
       },
       knowsAbout: [
-        "Civic Data Ingestion",
-        "Automated Knowledge Graphs",
-        "Geospatial Data Engineering",
-        "Wikidata Semantic Systems",
-        "Multi-Domain ETL Pipelines",
-        "SPARQL & Wikibase APIs",
         "Full-Stack Web Engineering",
+        "Systems Architecture",
         "TypeScript",
         "JavaScript",
         "Python",
@@ -124,6 +124,12 @@ const jsonLd = {
         "Java",
         "SQL & Relational Databases",
         "REST APIs & Distributed Systems",
+        "Automated Knowledge Graphs",
+        "Civic Data Ingestion",
+        "Wikidata Semantic Systems",
+        "Geospatial Data Engineering",
+        "Multi-Domain ETL Pipelines",
+        "SPARQL & Wikibase APIs",
         "Workflow Automation & Bot Scripting",
         "DaVinci Resolve Color Science",
         "Blender 3D Modeling",

@@ -148,7 +148,7 @@ export const BiographyArticle: React.FC = () => {
                 </tr>
                 <tr>
                   <td colSpan={2} className="infobox-subheader role">
-                    Software Engineer • Semantic Data Architect • Tech Entrepreneur
+                    Software Engineer • Full-Stack Developer • Systems Architect • Author
                   </td>
                 </tr>
                 <tr>
@@ -202,10 +202,11 @@ export const BiographyArticle: React.FC = () => {
                   <td className="infobox-data role">
                     <ul className="infobox-list">
                       <li>Software Engineer</li>
+                      <li>Full-Stack Developer</li>
+                      <li>Systems Architect</li>
+                      <li>Author &amp; Technical Writer</li>
                       <li>Semantic Data Architect</li>
                       <li>Tech Entrepreneur</li>
-                      <li>Bot Automation Developer</li>
-                      <li>Author &amp; Technical Writer</li>
                       <li>Video Creator &amp; Digital Media Specialist <span className="infobox-subtext">(<a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb listed</a>)</span></li>
                     </ul>
                   </td>
@@ -222,10 +223,10 @@ export const BiographyArticle: React.FC = () => {
                   <th scope="row" className="infobox-label">Known for</th>
                   <td className="infobox-data">
                     <ul className="infobox-list">
-                      <li>Autonomous civic &amp; geo-data ingestion pipelines (Wikidata bots)</li>
-                      <li>Full-stack web engineering &amp; distributed systems</li>
-                      <li>Systems architecture &amp; custom ETL automations</li>
-                      <li>Technical literature and systems writing</li>
+                      <li>Full-stack software engineering</li>
+                      <li>Systems architecture &amp; distributed web platforms</li>
+                      <li>Autonomous semantic data pipelines (Wikidata)</li>
+                      <li>Digital literature &amp; systems writing</li>
                       <li>Digital video production &amp; post-engineering</li>
                     </ul>
                   </td>
@@ -258,7 +259,7 @@ export const BiographyArticle: React.FC = () => {
 
             {/* LEAD SECTION */}
             <p>
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, semantic data architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar is recognized for engineering autonomous multi-domain data ingestion pipelines that bridge India's civic, geographic, healthcare, judicial, and educational infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has earned recognition for full-stack software engineering, resilient distributed systems architecture, literature, and building high-throughput autonomous semantic data ingestion pipelines that bridge public infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
             </p>
 
             <p>
