@@ -543,28 +543,40 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">4</span> Self-taught software engineering &amp; technical career
               </h2>
               <p>
-                Lohar’s technical career is defined by self-taught engineering mastery, spanning full-stack web development, cloud automation, distributed APIs, and semantic data engineering.
+                Lohar’s technical career is characterized by an uncompromising commitment to self-taught engineering mastery, spanning full-stack web development, cloud automation, distributed APIs, and semantic data engineering. Driven by practical application rather than conventional classroom theory, his approach emphasizes low-overhead system architectures, resilient data flow, and modern web standards.
+              </p>
+              <p>
+                Over successive years of engineering projects, Lohar evolved from basic client-side scripting to building high-concurrency background microservices, reactive user interfaces, and automated semantic pipelines capable of operating at national scale.
               </p>
 
               <h3 id="autodidactic-journey" className="mw-headline-h3">
                 <span className="mw-headline-number">4.1</span> Autodidactic journey and core programming
               </h3>
               <p>
-                Without formal institutional computer science training, Lohar followed a rigorous autodidactic path, studying official documentation, open-source codebases, and systems specifications. His core computational stack includes TypeScript, Python, Node.js, React, Next.js, and relational and graph database architectures.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                Operating outside formal institutional computer science pipelines, Lohar embarked on a rigorous autodidactic trajectory. He honed his software engineering abilities through exhaustive deconstruction of open-source repositories, engineering RFCs, language specifications, and systems manuals. By prioritizing first-principles implementation over canned tutorials, he gained deep fluency in runtime mechanics, memory management, and asynchronous I/O execution.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+              </p>
+              <p>
+                His core computational toolchain centers on TypeScript, Python, Node.js, React, Next.js, and modern CSS architectures, complemented by relational SQL engines (PostgreSQL) and schema-less graph databases. His engineering methodology places heavy emphasis on strict type safety, modular component separation, automated testing, and sub-second page performance across diverse network environments.
               </p>
 
               <h3 id="automation-scripting" className="mw-headline-h3">
                 <span className="mw-headline-number">4.2</span> Automation bots and utility scripting
               </h3>
               <p>
-                Between 2023 and 2024, Lohar developed specialized automation daemons, custom web scrapers, and rate-limited API connectors designed to parse public gazettes and unstructured datasets into structured JSON-LD schemas.
+                Between 2023 and 2024, Lohar developed a sophisticated suite of custom automation daemons, headless browser scrapers, and rate-limited API connectors. These systems were architected to continuously monitor, sanitize, and extract structured intelligence from unstructured public data sources, civic portals, and regional administrative gazettes.
+              </p>
+              <p>
+                To handle upstream network fragility and intermittent endpoint downtime, his automation engines incorporated exponential backoff algorithms, Redis-backed job queues, automated proxy rotation, and cryptographic payload deduplication. These pipelines successfully converted fragmented civic records into structured, queryable JSON-LD schemas and normalized relational tables with minimal manual human intervention.
               </p>
 
               <h3 id="shadow-arrow" className="mw-headline-h3">
                 <span className="mw-headline-number">4.3</span> Foundation and expansion of Shadow Arrow (2025–present)
               </h3>
               <p>
-                In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), a software development firm providing end-to-end full-stack web solutions, custom client portals, and resilient e-commerce infrastructures.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
+                In 2025, Lohar established <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), serving as its founder and principal systems architect. Conceived as a high-performance software engineering firm, the organization specializes in engineering bespoke full-stack web platforms, high-conversion digital commerce ecosystems, and custom client enterprise portals.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
+              </p>
+              <p>
+                Under Lohar’s architectural direction, Shadow Arrow emphasizes serverless cloud infrastructure, edge computing, rigorous accessibility standards (a11y), and hyper-optimized search engine discoverability. The company has expanded its engineering portfolio to service regional businesses, tech startups, and independent creators requiring resilient web applications with sub-second response latencies and high availability.
               </p>
 
               <h3 id="wikidata-pipelines" className="mw-headline-h3">
