@@ -461,10 +461,30 @@ export const BiographyArticle: React.FC = () => {
                   <th scope="row" className="infobox-label">Occupations</th>
                   <td className="infobox-data role">
                     <ul className="infobox-list">
-                      <li>Software Engineer</li>
-                      <li>Full-Stack Developer</li>
-                      <li>Systems Architect</li>
-                      <li>Author &amp; Technical Writer</li>
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Software_engineer" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                          Software Engineer
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Web_developer" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                          Full-Stack Developer
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Systems_architect" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                          Systems Architect
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Author" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                          Author
+                        </a>
+                        {" "}&amp;{" "}
+                        <a href="https://en.wikipedia.org/wiki/Technical_writer" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                          Technical Writer
+                        </a>
+                      </li>
                     </ul>
                   </td>
                 </tr>
