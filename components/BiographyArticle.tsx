@@ -450,8 +450,12 @@ export const BiographyArticle: React.FC = () => {
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" className="infobox-label">Nationality</th>
-                  <td className="infobox-data category">Indian</td>
+                  <th scope="row" className="infobox-label">Citizenship</th>
+                  <td className="infobox-data category">
+                    <a href="https://en.wikipedia.org/wiki/India" target="_blank" rel="noopener noreferrer" className="wiki-link">
+                      India
+                    </a>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" className="infobox-label">Occupations</th>
