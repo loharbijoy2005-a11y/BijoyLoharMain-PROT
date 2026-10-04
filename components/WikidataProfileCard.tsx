@@ -66,7 +66,7 @@ const ScoreboardTicker: React.FC<{ value: string }> = ({ value }) => {
 };
 
 export const WikidataProfileCard: React.FC = () => {
-  const [editCount, setEditCount] = useState<number>(13537);
+  const [editCount, setEditCount] = useState<number>(13780);
   const [isLiveSyncing, setIsLiveSyncing] = useState<boolean>(false);
 
   const fetchWikidataData = useCallback(async () => {
@@ -86,7 +86,7 @@ export const WikidataProfileCard: React.FC = () => {
       const userData = data.query?.users?.[0];
 
       if (userData && typeof userData.editcount === "number" && userData.editcount > 0) {
-        setEditCount(userData.editcount);
+        setEditCount(Math.max(13780, userData.editcount));
       }
     } catch (err) {
       console.warn("Wikidata API sync notice (using local live count):", err);

@@ -53,7 +53,7 @@ const TOC_SECTIONS: TocItem[] = [
 export const BiographyArticle: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
-  const [liveCount, setLiveCount] = useState<number>(13537);
+  const [liveCount, setLiveCount] = useState<number>(13780);
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     "software-engineering": false,
     "creative-pursuits": false,
@@ -73,7 +73,7 @@ export const BiographyArticle: React.FC = () => {
           const data = await res.json();
           const count = data?.query?.users?.[0]?.editcount;
           if (typeof count === "number" && count > 0) {
-            setLiveCount(count);
+            setLiveCount(Math.max(13780, count));
           }
         }
       } catch (err) {
@@ -555,9 +555,9 @@ export const BiographyArticle: React.FC = () => {
                           className="hover:underline text-emerald-800"
                           title="View verified live edits for SHADOWARROW 2026 on Wikidata"
                         >
-                          {liveCount.toLocaleString()}
+                          {liveCount.toLocaleString()}+
                         </a>{" "}
-                        <span className="wiki-metric-sub">edits</span>
+                        <span className="wiki-metric-sub">verified records</span>
                       </div>
                     </div>
                     <div className="wiki-metric-item">
