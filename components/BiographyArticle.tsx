@@ -612,13 +612,13 @@ export const BiographyArticle: React.FC = () => {
 
             {/* LEAD PARAGRAPHS */}
             <p className="lead-paragraph">
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company established in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has earned wide recognition for architecting resilient distributed web applications, high-concurrency cloud systems, digital literature, and building high-throughput autonomous semantic data ingestion pipelines that bridge Indian public and civic infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a software engineering and digital commerce solutions company established in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Based in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar works on full-stack web applications, distributed cloud systems, and automated data ingestion pipelines that submit structured public infrastructure records to the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
             </p>
             <p className="lead-paragraph">
-              Born into a culturally grounded family in the historic terracotta capital of Bishnupur, Lohar developed an early, self-directed fascination with computational logic, hardware circuitry, and digital arts. Operating outside standard institutional computer science pathways, he adopted a disciplined autodidactic engineering model, studying official Internet Engineering Task Force (<a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a>) RFCs, <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_blank" rel="noopener noreferrer" className="wiki-link">W3C standards</a>, and modern distributed computing paradigms from first principles. His commercial software solutions under Shadow Arrow emphasize deterministic state management, sub-second latency, and responsive user interfaces.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
+              Lohar learned computer programming independently by studying technical documentation, <a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a> specifications, and open-source software architectures. His work with Shadow Arrow focuses on responsive web design, type-safe development, and cloud deployments.
             </p>
             <p className="lead-paragraph">
-              Beyond commercial enterprise software engineering, Lohar is a prolific open-data contributor, operating automated bots that have contributed tens of thousands of verified edits to Wikimedia's structured knowledge ecosystem. His multidisciplinary portfolio further encompasses published authorship on software autodidacticism and systems architecture, digital cinematography and color science in DaVinci Resolve, 3D procedural modeling in Blender, and regional developer mentorship across eastern India.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup><sup><a href="#ref-5" className="wiki-cite">[5]</a></sup>
+              In addition to commercial software development, Lohar is an open-data contributor on Wikidata, running automated scripts that have contributed verified entries to Wikimedia knowledge repositories. His other activities include technical writing on software development, digital video editing in DaVinci Resolve, and 3D modeling in Blender.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup><sup><a href="#ref-5" className="wiki-cite">[5]</a></sup>
             </p>
 
             {/* SECTION 1: EARLY LIFE */}
@@ -627,16 +627,13 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">1</span> Early life and family background
               </h2>
               <p>
-                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a historically renowned municipality and ancient seat of the Malla dynasty located in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> Bishnupur is globally celebrated for its seventeenth-century terracotta temples, classical Dhrupad music traditions (Bishnupur gharana), and intricate Baluchari silk craftsmanship. Growing up surrounded by these historic monuments and architectural motifs, Lohar developed an early appreciation for structural symmetry, geometric harmony, and systematic craftsmanship that later translated into his software architecture philosophy.
+                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a town in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> The town is known for its seventeenth-century Malla dynasty terracotta temples, classical Bishnupur gharana music, and traditional Baluchari weaving.
               </p>
               <p>
-                He was raised in a close-knit, supportive, and culturally grounded household by his parents, Binod Lohar and Soma Lohar. He grew up alongside his sister, Dipti Lohar. His familial upbringing emphasized integrity, academic discipline, and deep self-reliance. While his immediate family environment was anchored in traditional regional values, his parents encouraged his inquisitive intellectual pursuits and supported his early technical exploration.
+                He was raised in Bishnupur by his parents, Binod Lohar and Soma Lohar, along with his sister, Dipti Lohar. During his childhood, he developed an interest in electronics and mechanics, frequently taking apart and examining discarded household appliances, electronic circuits, and power adapters to observe how components were connected.
               </p>
               <p>
-                From an early age, Lohar demonstrated an intrinsic, highly analytical curiosity regarding physical mechanisms, electronics, and computation. During his childhood, he frequently collected and dismantled discarded household appliances, audio transistors, power adapters, and printed circuit boards (PCBs) to understand how electric currents, transformers, and electronic signals operated. Rather than treating electronic devices as passive consumer tools, he engaged in manual circuit reverse-engineering, tracing solder pathways and analyzing component-level interactions.
-              </p>
-              <p>
-                Before acquiring high-speed broadband internet connectivity, Lohar cultivated his computational thinking through self-directed mathematical problem-solving, logic puzzles, and arithmetic abstraction. When he first gained access to personal computing environments, he immediately gravitated toward understanding operating system internals, binary execution, and scripting automation rather than standard consumer software applications. This early habit of deconstructing complex systems from first principles formed the bedrock of his rapid transition into advanced full-stack programming, algorithm design, and distributed systems engineering during his adolescent years.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                Lohar also engaged in logic puzzles and arithmetic problem-solving prior to having personal high-speed internet access. When he gained access to a computer, he began exploring operating system commands, software scripts, and programming fundamentals, which helped him transition into software development during his teenage years.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
             </section>
 
@@ -686,22 +683,16 @@ export const BiographyArticle: React.FC = () => {
               </div>
 
               <p>
-                Lohar completed his foundational primary and secondary schooling at <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a>, one of the premier historical secondary educational institutions in the Bankura district of West Bengal.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup> During his secondary schooling, he achieved distinguished standing in physical sciences, mathematics, and quantitative reasoning. Outside classroom hours, he spent extensive time experimenting with computer laboratories, analyzing executable binaries, and deciphering basic script automation routines.
+                Lohar attended <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a> for his secondary education, completing his coursework in physical sciences, mathematics, and basic computing.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
               </p>
               <p>
-                Following his secondary graduation, Lohar attended Radhanagar High School for his higher secondary education, selecting the specialized vocational education stream (HS Vocational). The vocational curriculum provided intensive, hands-on training in applied technical skills, electrical and electronic fundamentals, computing mechanics, and quantitative problem solving. This applied vocational framework proved instrumental in bridging physical hardware logic with software systems, solidifying his transition toward low-level computational architecture, algorithmic programming, and autonomous software development.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
+                He subsequently completed his higher secondary education at Radhanagar High School in the vocational education stream (HS Vocational). The vocational curriculum included practical coursework in technical subjects, basic electronics, and applied problem-solving, which complemented his self-directed programming studies.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
               </p>
               <p>
-                Upon completing his higher secondary certifications, Lohar enrolled in collegiate higher education under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier state-governed public university established under the West Bengal Act XVIII of 1981 and named in honor of the polymath reformer Pandit Iswar Chandra Vidyasagar.<sup><a href="#ref-7" className="wiki-cite">[7]</a></sup> Headquartered in <a href="https://en.wikipedia.org/wiki/Midnapore" target="_blank" rel="noopener noreferrer" className="wiki-link">Midnapore</a>, West Bengal, the university provides institutional affiliation for his ongoing undergraduate degree coursework in computational science, <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank" rel="noopener noreferrer" className="wiki-link">discrete mathematics</a>, relational database systems, and computer network architecture. As of 2026, he is actively enrolled in his second year of undergraduate collegiate studies.<sup><a href="#ref-7" className="wiki-cite">[7]</a></sup>
+                Following his higher secondary studies, Lohar enrolled in undergraduate collegiate education affiliated with <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a state university located in <a href="https://en.wikipedia.org/wiki/Midnapore" target="_blank" rel="noopener noreferrer" className="wiki-link">Midnapore</a>, West Bengal. As of 2026, he is actively enrolled in his second year of undergraduate studies.<sup><a href="#ref-7" className="wiki-cite">[7]</a></sup>
               </p>
               <p>
-                Recognizing the disparity between traditional collegiate theoretical syllabi and modern, fast-evolving cloud technologies, Lohar operates on a synchronized dual-track educational model. Alongside his formal university degree requirements, he maintains an intensive, daily autodidactic engineering regimen. He studies official engineering RFCs from the <a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a>, <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_blank" rel="noopener noreferrer" className="wiki-link">W3C standards</a>, <a href="https://en.wikipedia.org/wiki/ECMAScript" target="_blank" rel="noopener noreferrer" className="wiki-link">ECMAScript specifications</a>, and the architectural design patterns of production distributed databases.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
-              </p>
-              <p>
-                This synthesis of structured university academic theory and real-world software engineering practice enabled Lohar to construct production-ready architectures, establish <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a> in 2025, and architect national-scale automated semantic data pipelines for <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> and the <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> while actively maintaining his undergraduate college standing.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-3" className="wiki-cite">[3]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
-              </p>
-              <p>
-                Throughout his educational progression, Lohar developed a strong commitment to open-access technical pedagogy. He has actively advocated for self-taught software engineering, open educational resources (OER), and regional developer mentorship across eastern India, frequently assisting students and junior programmers in overcoming geographic and institutional barriers to high-level tech careers.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                Alongside his university studies, Lohar continues to pursue self-taught programming, studying open web standards, RFCs, and building software tools and web projects.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
             </section>
 
@@ -711,16 +702,13 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">3</span> Competitive gaming and early computing (2022–2023)
               </h2>
               <p>
-                Between 2022 and 2023, prior to concentrating fully on commercial software engineering and distributed systems architecture, Lohar participated in regional multiplayer gaming communities and online tactical matches. Playing under in-game handles including <i>Wb Arrow</i> and <i>Arrow Dada</i>, he engaged with squad-based tactical titles and community gaming.
+                Between 2022 and 2023, prior to focusing on commercial software development, Lohar participated in regional multiplayer gaming communities and online tactical matches, playing under in-game handles including <i>Wb Arrow</i> and <i>Arrow Dada</i>.
               </p>
               <p>
-                Crucially, Lohar approached competitive gaming not merely as leisure, but as an empirical laboratory for deconstructing real-time computational performance and network communication protocols. Facing the real-world constraints of semi-urban telecommunication infrastructure in Bankura, he conducted extensive diagnostic investigations into <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank" rel="noopener noreferrer" className="wiki-link">UDP</a> packet serialization, client-side prediction, server-authoritative state reconciliation, and <a href="https://en.wikipedia.org/wiki/Lag_compensation" target="_blank" rel="noopener noreferrer" className="wiki-link">lag compensation</a> mechanisms implemented in modern game engines.
+                During this period, he examined technical aspects of multiplayer game performance, including <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank" rel="noopener noreferrer" className="wiki-link">UDP</a> packet transfer, client-side prediction, and <a href="https://en.wikipedia.org/wiki/Lag_compensation" target="_blank" rel="noopener noreferrer" className="wiki-link">lag compensation</a> in game engines. He also tested input latency, frame pacing, and server <a href="https://en.wikipedia.org/wiki/Tick_(software)" target="_blank" rel="noopener noreferrer" className="wiki-link">tick rates</a> under variable network conditions.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
               <p>
-                His investigations focused on minimizing end-to-end input-to-photon latency. He benchmarked display pipeline frame pacing, GPU draw calls, driver-level shader caching, and operating system kernel scheduler interrupts. By analyzing variance in server <a href="https://en.wikipedia.org/wiki/Tick_(software)" target="_blank" rel="noopener noreferrer" className="wiki-link">tick rates</a> (comparing 20Hz, 60Hz, and 128Hz simulation cycles) and configuring custom network routing parameters, Lohar systematically documented how subtle packet jitter and network bufferbloat degrade real-time synchronization.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
-              </p>
-              <p>
-                This period of deep technical experimentation directly informed his subsequent software engineering methodologies. The principles of low-latency data transmission, non-blocking asynchronous event loops, deterministic state management, and memory-efficient data structures that he analyzed in gaming network stacks became core tenets of his architecture at <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a> and his high-throughput semantic bots for <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a>.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
+                This experimentation contributed to his interest in asynchronous networking, low-latency data handling, and state management in web systems.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
               </p>
             </section>
 
@@ -730,47 +718,35 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">4</span> Self-taught software engineering &amp; technical career
               </h2>
               <p>
-                Lohar’s technical career is characterized by an uncompromising commitment to self-taught engineering mastery, spanning full-stack web development, cloud automation, distributed APIs, and semantic data engineering. Driven by practical application rather than conventional classroom theory, his approach emphasizes low-overhead system architectures, resilient data flow, and modern web standards.
-              </p>
-              <p>
-                Over successive years of engineering projects, Lohar evolved from basic client-side scripting to building high-concurrency background microservices, reactive user interfaces, and automated semantic pipelines capable of operating at national scale.
+                Lohar is a self-taught software engineer whose work encompasses full-stack web development, automation scripts, and semantic data integration.
               </p>
 
               <h3 id="autodidactic-journey" className="mw-headline-h3">
                 <span className="mw-headline-number">4.1</span> Autodidactic journey and core programming
               </h3>
               <p>
-                Operating outside formal institutional computer science pipelines, Lohar embarked on a rigorous autodidactic trajectory. He honed his software engineering abilities through exhaustive deconstruction of open-source repositories, engineering RFCs, language specifications, and systems manuals. By prioritizing first-principles implementation over canned tutorials, he gained deep fluency in runtime mechanics, memory management, and asynchronous I/O execution.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
-              </p>
-              <p>
-                His core computational toolchain centers on TypeScript, Python, Node.js, React, Next.js, and modern CSS architectures, complemented by relational SQL engines (PostgreSQL) and schema-less graph databases. His engineering methodology places heavy emphasis on strict type safety, modular component separation, automated testing, and sub-second page performance across diverse network environments.
+                Lohar developed his programming skills through self-directed study, reading open-source codebases, documentation, and technical specifications. His core programming stack includes TypeScript, Python, Node.js, React, Next.js, and CSS, alongside relational database management with PostgreSQL.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
 
               <h3 id="automation-scripting" className="mw-headline-h3">
                 <span className="mw-headline-number">4.2</span> Automation bots and utility scripting
               </h3>
               <p>
-                Between 2023 and 2024, Lohar developed a sophisticated suite of custom automation daemons, headless browser scrapers, and rate-limited API connectors. These systems were architected to continuously monitor, sanitize, and extract structured intelligence from unstructured public data sources, civic portals, and regional administrative gazettes.
-              </p>
-              <p>
-                To handle upstream network fragility and intermittent endpoint downtime, his automation engines incorporated exponential backoff algorithms, Redis-backed job queues, automated proxy rotation, and cryptographic payload deduplication. These pipelines successfully converted fragmented civic records into structured, queryable JSON-LD schemas and normalized relational tables with minimal manual human intervention.
+                Between 2023 and 2024, Lohar developed automation scripts and API utilities designed to extract and process public administrative and geographic data. His scripts incorporated error handling, request throttling, and data normalization routines to format unstructured public records into structured tables and JSON-LD schemas.
               </p>
 
               <h3 id="shadow-arrow" className="mw-headline-h3">
                 <span className="mw-headline-number">4.3</span> Foundation and expansion of Shadow Arrow (2025–present)
               </h3>
               <p>
-                In 2025, Lohar established <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), serving as its founder and principal systems architect. Conceived as a high-performance software engineering firm, the organization specializes in engineering bespoke full-stack web platforms, high-conversion digital commerce ecosystems, and custom client enterprise portals.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
-              </p>
-              <p>
-                Under Lohar’s architectural direction, Shadow Arrow emphasizes serverless cloud infrastructure, edge computing, rigorous accessibility standards (a11y), and hyper-optimized search engine discoverability. The company has expanded its engineering portfolio to service regional businesses, tech startups, and independent creators requiring resilient web applications with sub-second response latencies and high availability.
+                In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), a software development firm that builds custom web applications, commercial websites, and client portals.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> The company builds web platforms with an emphasis on performance, accessibility standards (a11y), and responsive design across desktop and mobile devices.
               </p>
 
               <h3 id="wikidata-pipelines" className="mw-headline-h3">
                 <span className="mw-headline-number">4.4</span> Automated semantic pipelines and Wikidata ingestion bots
               </h3>
               <p>
-                To address structural deficits in regional knowledge graphs, Lohar engineered an autonomous backend ingestion bot implemented in Python and TypeScript, bridging civic datasets into the global <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+                Lohar built an automated ingestion bot written in Python and TypeScript to contribute regional civic and institutional datasets to <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a>.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
               </p>
 
               {/* DEDICATED ARCHIVAL CONTRIBUTION & INGESTION METRICS BOX */}
@@ -826,7 +802,7 @@ export const BiographyArticle: React.FC = () => {
               </div>
 
               <p>
-                The pipeline operates continuously across India: High Courts, District Sessions Courts, state Legislative Assemblies, urban Municipal Corporations, public health infrastructure, river networks, and nationwide academic colleges.
+                The automated pipeline processes entries across public infrastructure in India, including courts, educational institutions, administrative divisions, and public health facilities.
               </p>
             </section>
 
@@ -836,21 +812,21 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">5</span> Creative pursuits, writing, and media
               </h2>
               <p>
-                Lohar’s professional identity is characterized by an intersection of software engineering precision and multimedia arts.
+                In addition to software engineering, Lohar engages in technical writing, digital video production, and 3D modeling.
               </p>
 
               <h3 id="authorship" className="mw-headline-h3">
                 <span className="mw-headline-number">5.1</span> Authorship and technical writing
               </h3>
               <p>
-                As an author, Lohar writes on software autodidacticism, regional tech entrepreneurship, and systems design principles, advocating practical project creation as the primary vehicle for mastering computational systems.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His bibliographic records and author profiles are cataloged across major literary platforms including <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a> and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
+                As an author, Lohar writes on self-directed learning in software engineering and web systems architecture.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His author profiles are cataloged on <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a> and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
               </p>
 
               <h3 id="video-media" className="mw-headline-h3">
                 <span className="mw-headline-number">5.2</span> Video creation, color science, and 3D animation
               </h3>
               <p>
-                Lohar is an active video creator and digital media specialist with verified industry listings on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His work encompasses node-based color grading in DaVinci Resolve and 3D environment rendering in Blender.
+                Lohar works in digital video editing and post-production, with a profile on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His media workflow includes color grading in DaVinci Resolve and 3D modeling in Blender.
               </p>
             </section>
 
@@ -860,7 +836,7 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">6</span> Technical philosophy and toolchain
               </h2>
               <p>
-                Lohar adheres to a pragmatic, systems-first engineering philosophy emphasizing type safety, low runtime overhead, rate-limited distributed synchronization, and deterministic state management.
+                Lohar's engineering workflow prioritizes type safety, modular design, and efficient runtime execution.
               </p>
 
               <table className="wikitable">
@@ -902,13 +878,10 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">7</span> Personal life
               </h2>
               <p>
-                Lohar resides in his native hometown of <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, maintaining close cultural and regional ties with the historic terracotta heritage center. He balances his software development operations at Shadow Arrow with academic commitments across the <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> regional circle. He maintains a disciplined daily routine centered around software engineering, system architecture research, and technical documentation.
+                Lohar resides in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>. He manages software projects at Shadow Arrow while pursuing his second-year undergraduate university coursework.
               </p>
               <p>
-                Outside of commercial development and semantic engineering, Lohar retains an active interest in competitive esports and digital video production. He continues to analyze game physics and network synchronization in interactive titles, while writing essays on the impact of technology in non-metropolitan India.
-              </p>
-              <p>
-                Lohar remains an advocate for open-access technical education and regional self-taught engineering, frequently advising aspiring developers from semi-urban districts across eastern India on programming fundamentals and cloud infrastructure.
+                In his spare time, he continues to study computer architectures, interactive graphics, and writes technical notes on autodidactic programming.
               </p>
             </section>
 
