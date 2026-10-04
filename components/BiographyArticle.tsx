@@ -1279,6 +1279,7 @@ export const BiographyArticle: React.FC = () => {
             border-left: none;
             border-right: none;
             padding: 18px 20px 36px;
+            max-width: 100%;
           }
         }
 
@@ -1287,21 +1288,71 @@ export const BiographyArticle: React.FC = () => {
             float: none;
             width: 100%;
             margin: 0 0 18px 0;
+            box-sizing: border-box;
           }
           .firstHeading {
             font-size: 24px;
+            line-height: 1.25;
           }
           .vector-column-article {
-            padding: 14px 14px 28px;
+            padding: 14px 12px 28px;
+            overflow-x: hidden;
+          }
+          .see-also-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .wikitable {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            font-size: 12px;
+          }
+          .wikitable th, .wikitable td {
+            padding: 6px 8px;
+            white-space: normal;
+          }
+          .wiki-metric-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+          }
+          .wiki-contribution-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
           }
         }
 
         @media (max-width: 480px) {
           .vector-main-layout {
-            padding: 12px 8px;
+            padding: 10px 6px;
           }
           .vector-column-article {
-            padding: 12px 10px 24px;
+            padding: 10px 8px 20px;
+          }
+          .firstHeading {
+            font-size: 21px;
+          }
+          .wiki-metric-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+          }
+          .see-also-card {
+            padding: 12px 12px 10px;
+            margin: 10px 0 16px;
+          }
+          .infobox-label {
+            width: 90px;
+            font-size: 11.5px;
+            padding: 5px 6px;
+          }
+          .infobox-data {
+            font-size: 11.5px;
+            padding: 5px 6px;
+          }
+          .vector-header {
+            padding: 8px 10px;
           }
         }
       `}</style>

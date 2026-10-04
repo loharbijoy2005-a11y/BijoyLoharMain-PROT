@@ -299,8 +299,9 @@ export const TerminalConsole: React.FC = () => {
           </div>
 
           {/* Native Form Input Field for Mobile Keyboard Enter Support */}
-          <form onSubmit={handleSubmit} className="mt-4 pt-3 border-t border-borderWarm/60 flex items-center gap-2">
-            <span className="text-amberAccent font-bold text-sm shrink-0">shadow-arrow-os:~$</span>
+          <form onSubmit={handleSubmit} className="mt-4 pt-3 border-t border-borderWarm/60 flex items-center gap-1.5 sm:gap-2">
+            <span className="text-amberAccent font-bold text-xs sm:text-sm shrink-0 hidden sm:inline">shadow-arrow-os:~$</span>
+            <span className="text-amberAccent font-bold text-sm shrink-0 sm:hidden">&gt;</span>
             <input
               ref={inputRef}
               type="text"

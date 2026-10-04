@@ -117,10 +117,20 @@ export const Navbar: React.FC = () => {
           </a>
         </div>
 
+        {/* Mobile Biography Link Button */}
+        <a
+          href="/biography"
+          title="Official Biography"
+          className="md:hidden inline-flex items-center gap-1 px-2.5 py-1.5 bg-studioCard/90 backdrop-blur-md border border-amberAccent/40 hover:border-amberAccent text-amberAccent text-[11px] font-bold rounded-full transition-all shadow-md shrink-0"
+        >
+          <span>Bio</span>
+          <ArrowUpRight className="w-3 h-3 text-amberAccent" />
+        </a>
+
         {/* Clean White Pill Button CTA */}
         <a
           href="#contact"
-          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-white hover:bg-amber-300 text-slate-950 text-[11px] sm:text-xs font-extrabold rounded-full transition-all shadow-lg hover:scale-105 shrink-0"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white hover:bg-amber-300 text-slate-950 text-[11px] sm:text-xs font-extrabold rounded-full transition-all shadow-lg hover:scale-105 shrink-0"
         >
           <span className="hidden sm:inline">Open Direct Comms</span>
           <span className="sm:hidden">Comms</span>
