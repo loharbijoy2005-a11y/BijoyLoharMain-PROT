@@ -230,6 +230,14 @@ interface SchemaPersonNode {
   sameAs: string[];
   mainEntityOfPage?: SchemaId;
   knowsLanguage?: string[];
+  subjectOf?: Array<{
+    "@type": string;
+    "@id": string;
+    url: string;
+    name: string;
+    headline?: string;
+    inLanguage?: string;
+  }>;
   hasOccupation?: Array<{
     "@type": "Occupation";
     name: string;
@@ -445,6 +453,30 @@ export default function RootLayout({
             "value": "bijoylohar",
             "url": "https://www.amazon.com/author/bijoylohar",
           },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Wikidata",
+            "name": "Wikidata User ID",
+            "value": "SHADOWARROW_2026",
+            "url": "https://www.wikidata.org/wiki/User:SHADOWARROW_2026",
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Biography",
+            "name": "Official Archival Biography",
+            "value": "bijoy-lohar-biography",
+            "url": "https://www.bijoylohar.in/biography",
+          },
+        ],
+        "subjectOf": [
+          {
+            "@type": "Article",
+            "@id": "https://www.bijoylohar.in/biography#article",
+            "url": "https://www.bijoylohar.in/biography",
+            "name": "Bijoy Lohar — Biography & Archival Documentation",
+            "headline": "Bijoy Lohar: Indian Self-Taught Software Engineer & Systems Architect",
+            "inLanguage": "en",
+          },
         ],
         "image": [
           "https://github.com/loharbijoy2005-a11y.png",
@@ -512,6 +544,7 @@ export default function RootLayout({
           // Research & Knowledge Graph
           "https://orcid.org/0009-0004-5643-7612",
           "https://developers.google.com/profile/u/101253410801307724262",
+          "https://www.wikidata.org/wiki/User:SHADOWARROW_2026",
           // Authorship & Media
           "https://www.imdb.com/name/nm18949942/",
           "https://www.goodreads.com/bijoylohar",

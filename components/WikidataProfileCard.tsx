@@ -215,18 +215,34 @@ export const WikidataProfileCard: React.FC = () => {
             </div>
           </div>
 
-          {/* Solid Hover Action Button */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={PROFILE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shrink-0 shadow-md self-start md:self-center z-10"
-          >
-            <span>Verify Official Wikidata Profile</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </motion.a>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row md:flex-col gap-2.5 shrink-0 self-start md:self-center z-10">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              id="wikidata-card-biography-link"
+              href="/biography"
+              title="Official Archival Biography & Complete Documentation for Bijoy Lohar"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-studioSubtle hover:bg-amberAccent/20 border border-amberAccent/40 hover:border-amberAccent text-deepInk font-heading font-extrabold text-xs rounded-full transition-all shadow-md"
+            >
+              <span>Read Official Biography</span>
+              <ArrowUpRight className="w-4 h-4 text-amberAccent" />
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              id="wikidata-card-profile-link"
+              href={PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Verify Official Wikidata Contributor Profile"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shadow-md"
+            >
+              <span>Verify Official Wikidata Profile</span>
+              <ArrowUpRight className="w-4 h-4" />
+            </motion.a>
+          </div>
         </div>
       </motion.div>
     </section>

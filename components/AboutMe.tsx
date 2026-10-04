@@ -440,6 +440,21 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                 As the founder of <strong className="text-amberAccent font-bold">{ventureName}</strong> (<a href="https://shadowarrow.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-amberAccent font-bold transition-colors">shadowarrow.in</a>), 
                 Bijoy leads technical development, converting complex system requirements into scalable web applications and resilient digital infrastructures.
               </p>
+
+              <div className="pt-2">
+                <motion.a
+                  whileHover={{ scale: 1.02, x: 2 }}
+                  whileTap={{ scale: 0.98 }}
+                  id="about-official-biography-link"
+                  href="/biography"
+                  title="Read Official Archival Biography and Complete Career Documentation"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amberAccent/10 border border-amberAccent/40 hover:border-amberAccent hover:bg-amberAccent/20 text-amberAccent font-mono text-xs font-bold transition-all shadow-sm"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-amberAccent" />
+                  <span>Read Full Encyclopedic Biography &amp; Documentation</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </motion.a>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -133,7 +133,9 @@ export const Footer: React.FC = () => {
 
           <div className="flex gap-6 text-xs font-bold text-muted flex-wrap">
             <a
+              id="footer-biography-link"
               href="/biography"
+              title="Read Official Archival Biography"
               className="hover:text-amberAccent flex items-center gap-1 transition-colors"
             >
               <span>Biography</span>
