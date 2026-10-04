@@ -19,36 +19,43 @@ interface TocItem {
 
 const TOC_SECTIONS: TocItem[] = [
   { id: "article-top", label: "(Top)", level: 1 },
-  { id: "early-life", label: "Early life and family background", level: 1, num: "1" },
-  { id: "education", label: "Education", level: 1, num: "2" },
-  { id: "gaming", label: "Competitive gaming and early computing (2022–2023)", level: 1, num: "3" },
+  {
+    id: "early-life",
+    label: "Early life and education",
+    level: 1,
+    num: "1",
+    children: [
+      { id: "education", label: "Education", num: "1.1" },
+    ],
+  },
+  { id: "gaming", label: "Competitive gaming and early computing (2022–2023)", level: 1, num: "2" },
   {
     id: "software-engineering",
     label: "Self-taught software engineering & technical career",
     level: 1,
-    num: "4",
+    num: "3",
     children: [
-      { id: "autodidactic-journey", label: "Autodidactic journey and core programming", num: "4.1" },
-      { id: "automation-scripting", label: "Automation bots and utility scripting", num: "4.2" },
-      { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", num: "4.3" },
-      { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", num: "4.4" },
+      { id: "autodidactic-journey", label: "Autodidactic journey and core programming", num: "3.1" },
+      { id: "automation-scripting", label: "Automation bots and utility scripting", num: "3.2" },
+      { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", num: "3.3" },
+      { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", num: "3.4" },
     ],
   },
   {
     id: "creative-pursuits",
     label: "Creative pursuits, writing, and media",
     level: 1,
-    num: "5",
+    num: "4",
     children: [
-      { id: "authorship", label: "Authorship and technical writing", num: "5.1" },
-      { id: "video-media", label: "Video creation, color science, and 3D animation", num: "5.2" },
+      { id: "authorship", label: "Authorship and technical writing", num: "4.1" },
+      { id: "video-media", label: "Video creation, color science, and 3D animation", num: "4.2" },
     ],
   },
-  { id: "philosophy-toolchain", label: "Technical philosophy and toolchain", level: 1, num: "6" },
-  { id: "personal-life", label: "Personal life", level: 1, num: "7" },
-  { id: "see-also", label: "See also", level: 1, num: "8" },
-  { id: "references", label: "References", level: 1, num: "9" },
-  { id: "external-links", label: "External links", level: 1, num: "10" },
+  { id: "philosophy-toolchain", label: "Technical philosophy and toolchain", level: 1, num: "5" },
+  { id: "personal-life", label: "Personal life", level: 1, num: "6" },
+  { id: "see-also", label: "See also", level: 1, num: "7" },
+  { id: "references", label: "References", level: 1, num: "8" },
+  { id: "external-links", label: "External links", level: 1, num: "9" },
 ];
 
 const calculateAge = (birthDateString: string = "2005-10-12"): number => {
@@ -621,10 +628,10 @@ export const BiographyArticle: React.FC = () => {
               In addition to commercial software development, Lohar is an open-data contributor on Wikidata, running automated scripts that have contributed verified entries to Wikimedia knowledge repositories. His other activities include technical writing on software development, digital video editing in DaVinci Resolve, and 3D modeling in Blender.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup><sup><a href="#ref-5" className="wiki-cite">[5]</a></sup>
             </p>
 
-            {/* SECTION 1: EARLY LIFE */}
+            {/* SECTION 1: EARLY LIFE AND EDUCATION */}
             <section id="early-life" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">1</span> Early life and family background
+                <span className="mw-headline-number">1</span> Early life and education
               </h2>
               <p>
                 Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a town in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> The town is known for its seventeenth-century Malla dynasty terracotta temples, classical Bishnupur gharana music, and traditional Baluchari weaving.
@@ -635,13 +642,10 @@ export const BiographyArticle: React.FC = () => {
               <p>
                 Lohar also engaged in logic puzzles and arithmetic problem-solving prior to having personal high-speed internet access. When he gained access to a computer, he began exploring operating system commands, software scripts, and programming fundamentals, which helped him transition into software development during his teenage years.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
-            </section>
 
-            {/* SECTION 2: EDUCATION */}
-            <section id="education" className="vector-section">
-              <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">2</span> Education
-              </h2>
+              <h3 id="education" className="mw-headline-h3">
+                <span className="mw-headline-number">1.1</span> Education
+              </h3>
 
               {/* WIKIPEDIA THUMBNAIL FLOAT CARD (LEFT - EXACT WIKIPEDIA ARTICLE LAYOUT) */}
               <div className="thumb tleft">
@@ -696,10 +700,10 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 3: COMPETITIVE GAMING */}
+            {/* SECTION 2: COMPETITIVE GAMING */}
             <section id="gaming" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">3</span> Competitive gaming and early computing (2022–2023)
+                <span className="mw-headline-number">2</span> Competitive gaming and early computing (2022–2023)
               </h2>
               <p>
                 Between 2022 and 2023, prior to focusing on commercial software development, Lohar participated in regional multiplayer gaming communities and online tactical matches, playing under in-game handles including <i>Wb Arrow</i> and <i>Arrow Dada</i>.
@@ -712,38 +716,38 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 4: SOFTWARE ENGINEERING */}
+            {/* SECTION 3: SOFTWARE ENGINEERING */}
             <section id="software-engineering" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">4</span> Self-taught software engineering &amp; technical career
+                <span className="mw-headline-number">3</span> Self-taught software engineering &amp; technical career
               </h2>
               <p>
                 Lohar is a self-taught software engineer whose work encompasses full-stack web development, automation scripts, and semantic data integration.
               </p>
 
               <h3 id="autodidactic-journey" className="mw-headline-h3">
-                <span className="mw-headline-number">4.1</span> Autodidactic journey and core programming
+                <span className="mw-headline-number">3.1</span> Autodidactic journey and core programming
               </h3>
               <p>
                 Lohar developed his programming skills through self-directed study, reading open-source codebases, documentation, and technical specifications. His core programming stack includes TypeScript, Python, Node.js, React, Next.js, and CSS, alongside relational database management with PostgreSQL.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
 
               <h3 id="automation-scripting" className="mw-headline-h3">
-                <span className="mw-headline-number">4.2</span> Automation bots and utility scripting
+                <span className="mw-headline-number">3.2</span> Automation bots and utility scripting
               </h3>
               <p>
                 Between 2023 and 2024, Lohar developed automation scripts and API utilities designed to extract and process public administrative and geographic data. His scripts incorporated error handling, request throttling, and data normalization routines to format unstructured public records into structured tables and JSON-LD schemas.
               </p>
 
               <h3 id="shadow-arrow" className="mw-headline-h3">
-                <span className="mw-headline-number">4.3</span> Foundation and expansion of Shadow Arrow (2025–present)
+                <span className="mw-headline-number">3.3</span> Foundation and expansion of Shadow Arrow (2025–present)
               </h3>
               <p>
                 In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), a software development firm that builds custom web applications, commercial websites, and client portals.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> The company builds web platforms with an emphasis on performance, accessibility standards (a11y), and responsive design across desktop and mobile devices.
               </p>
 
               <h3 id="wikidata-pipelines" className="mw-headline-h3">
-                <span className="mw-headline-number">4.4</span> Automated semantic pipelines and Wikidata ingestion bots
+                <span className="mw-headline-number">3.4</span> Automated semantic pipelines and Wikidata ingestion bots
               </h3>
               <p>
                 Lohar built an automated ingestion bot written in Python and TypeScript to contribute regional civic and institutional datasets to <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a>.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
@@ -806,34 +810,34 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 5: CREATIVE PURSUITS */}
+            {/* SECTION 4: CREATIVE PURSUITS */}
             <section id="creative-pursuits" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">5</span> Creative pursuits, writing, and media
+                <span className="mw-headline-number">4</span> Creative pursuits, writing, and media
               </h2>
               <p>
                 In addition to software engineering, Lohar engages in technical writing, digital video production, and 3D modeling.
               </p>
 
               <h3 id="authorship" className="mw-headline-h3">
-                <span className="mw-headline-number">5.1</span> Authorship and technical writing
+                <span className="mw-headline-number">4.1</span> Authorship and technical writing
               </h3>
               <p>
                 As an author, Lohar writes on self-directed learning in software engineering and web systems architecture.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His author profiles are cataloged on <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a> and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
               </p>
 
               <h3 id="video-media" className="mw-headline-h3">
-                <span className="mw-headline-number">5.2</span> Video creation, color science, and 3D animation
+                <span className="mw-headline-number">4.2</span> Video creation, color science, and 3D animation
               </h3>
               <p>
                 Lohar works in digital video editing and post-production, with a profile on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His media workflow includes color grading in DaVinci Resolve and 3D modeling in Blender.
               </p>
             </section>
 
-            {/* SECTION 6: TECHNICAL PHILOSOPHY */}
+            {/* SECTION 5: TECHNICAL PHILOSOPHY */}
             <section id="philosophy-toolchain" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">6</span> Technical philosophy and toolchain
+                <span className="mw-headline-number">5</span> Technical philosophy and toolchain
               </h2>
               <p>
                 Lohar's engineering workflow prioritizes type safety, modular design, and efficient runtime execution.
@@ -872,10 +876,10 @@ export const BiographyArticle: React.FC = () => {
               </table>
             </section>
 
-            {/* SECTION 7: PERSONAL LIFE */}
+            {/* SECTION 6: PERSONAL LIFE */}
             <section id="personal-life" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">7</span> Personal life
+                <span className="mw-headline-number">6</span> Personal life
               </h2>
               <p>
                 Lohar resides in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>. He manages software projects at Shadow Arrow while pursuing his second-year undergraduate university coursework.
@@ -885,10 +889,10 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 8: SEE ALSO */}
+            {/* SECTION 7: SEE ALSO */}
             <section id="see-also" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">8</span> See also
+                <span className="mw-headline-number">7</span> See also
               </h2>
               
               <div className="see-also-card">
@@ -917,10 +921,10 @@ export const BiographyArticle: React.FC = () => {
               </div>
             </section>
 
-            {/* SECTION 9: REFERENCES */}
+            {/* SECTION 8: REFERENCES */}
             <section id="references" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">9</span> References
+                <span className="mw-headline-number">8</span> References
               </h2>
               <ol className="references">
                 <li id="ref-1">
@@ -974,10 +978,10 @@ export const BiographyArticle: React.FC = () => {
               </ol>
             </section>
 
-            {/* SECTION 10: EXTERNAL LINKS */}
+            {/* SECTION 9: EXTERNAL LINKS */}
             <section id="external-links" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">10</span> External links
+                <span className="mw-headline-number">9</span> External links
               </h2>
               <ul className="vector-bullet-list">
                 <li>
