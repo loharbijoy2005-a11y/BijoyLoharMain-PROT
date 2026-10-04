@@ -58,6 +58,11 @@ const jsonLd = {
         },
         {
           "@type": "Occupation",
+          name: "Data Systems Architect & Bot Automation Developer",
+          description: "Autonomous semantic ETL pipelines, Wikidata knowledge-graph ingestion bots, and high-throughput batch reconciliation."
+        },
+        {
+          "@type": "Occupation",
           name: "Author & Technical Writer",
           description: "Authoring engineering documentation, analytical articles, and literature."
         },
@@ -72,7 +77,7 @@ const jsonLd = {
           description: "Founding and scaling Shadow Arrow, an e-commerce and full-stack software development venture."
         }
       ],
-      description: "Bijoy Lohar is an Indian self-taught software engineer, author, digital video creator, and founder of Shadow Arrow, specialising in full-stack web platforms, automation workflows, literature, and media production.",
+      description: "Bijoy Lohar is an Indian self-taught software engineer, data systems architect, author, digital video creator, and founder of Shadow Arrow, specialising in high-throughput autonomous Wikidata ingestion pipelines, full-stack web platforms, literature, and media production.",
       parent: [
         { "@type": "Person", name: "Binod Lohar" },
         { "@type": "Person", name: "Soma Lohar" }
@@ -100,6 +105,11 @@ const jsonLd = {
         description: "Bespoke full-stack web engineering, client portals, and e-commerce infrastructure company."
       },
       knowsAbout: [
+        "Automated Data Ingestion",
+        "Semantic Web",
+        "Wikidata Bot Architecture",
+        "SPARQL & Wikibase APIs",
+        "Batch Processing & ETL Pipelines",
         "Full-Stack Web Engineering",
         "TypeScript",
         "JavaScript",

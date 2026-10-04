@@ -18,6 +18,7 @@ const TOC_ITEMS: TocItem[] = [
   { id: "autodidactic-journey", label: "Autodidactic journey and core programming", level: 2, num: "4.1" },
   { id: "automation-scripting", label: "Automation bots and utility scripting", level: 2, num: "4.2" },
   { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", level: 2, num: "4.3" },
+  { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", level: 2, num: "4.4" },
   { id: "creative-pursuits", label: "Creative pursuits, writing, and media", level: 1, num: "5" },
   { id: "authorship", label: "Authorship and technical writing", level: 2, num: "5.1" },
   { id: "video-media", label: "Video creation, color science, and 3D animation", level: 2, num: "5.2" },
@@ -130,7 +131,7 @@ export const BiographyArticle: React.FC = () => {
                 </tr>
                 <tr>
                   <td colSpan={2} className="infobox-subheader role">
-                    Software Engineer • Author • Entrepreneur
+                    Software Engineer • Data Systems Architect • Bot Automation Developer • Author
                   </td>
                 </tr>
                 <tr>
@@ -184,6 +185,8 @@ export const BiographyArticle: React.FC = () => {
                   <td className="infobox-data role">
                     <ul className="infobox-list">
                       <li>Self-Taught Software Engineer</li>
+                      <li>Data Systems Architect</li>
+                      <li>Bot Automation Developer</li>
                       <li>Web &amp; Systems Architect</li>
                       <li>Author &amp; Technical Writer</li>
                       <li>Video Creator &amp; Digital Media Specialist <span className="infobox-subtext">(<a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb listed</a>)</span></li>
@@ -203,11 +206,11 @@ export const BiographyArticle: React.FC = () => {
                   <th scope="row" className="infobox-label">Known for</th>
                   <td className="infobox-data">
                     <ul className="infobox-list">
-                      <li>Full-stack systems engineering</li>
-                      <li>Custom automation pipelines &amp; bots</li>
-                      <li>Technical literature and writing</li>
+                      <li>Autonomous semantic data bots (Wikidata ingestion pipelines)</li>
+                      <li>Full-stack web engineering &amp; distributed systems</li>
+                      <li>Custom automation pipelines &amp; utility bots</li>
+                      <li>Technical literature and systems writing</li>
                       <li>Digital video production &amp; post-engineering</li>
-                      <li>High-scale e-commerce solutions</li>
                     </ul>
                   </td>
                 </tr>
@@ -229,11 +232,11 @@ export const BiographyArticle: React.FC = () => {
 
             {/* LEAD SECTION */}
             <p>
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has gained recognition for bridging rigorous engineering logic, automated software pipelines, and expressive creative media without formal undergraduate training in computer science.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, data systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar is recognized for engineering high-throughput autonomous data ingestion pipelines for the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a>, building resilient full-stack web platforms, and producing analytical literature without formal undergraduate training in computer science.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
             </p>
 
             <p>
-              Lohar first engaged with computer systems through competitive tactical gaming between 2022 and 2023, where his analysis of network tick rates, latency, and client-server synchronization stimulated an autodidactic immersion into programming languages including C++, Java, Python, JavaScript, and TypeScript.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His early technical contributions included background automation bots that delivered measured operational efficiencies of over 40% across digital workflows.
+              Lohar first engaged with computer systems through competitive tactical gaming between 2022 and 2023, where his analysis of network tick rates, latency, and client-server synchronization stimulated an autodidactic immersion into programming languages including C++, Java, Python, JavaScript, and TypeScript.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His early technical contributions included background automation bots that delivered measured operational efficiencies of over 40% across digital workflows, later expanding into autonomous <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> bot frameworks capable of batch-ingesting thousands of structured academic records daily.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
             </p>
 
             <p>
@@ -328,6 +331,28 @@ export const BiographyArticle: React.FC = () => {
               <p>
                 As founder and lead systems architect, Lohar designs architectures prioritizing sub-second initial page loads, edge rendering via Next.js and Vercel, serverless microservice endpoints, and relational database schema integrity. Shadow Arrow serves small-to-medium enterprises and digital creators seeking high-performance web applications tailored to specific operational requirements.
               </p>
+
+              <h3 id="wikidata-pipelines" className="mw-headline-h3">
+                <span className="mw-headline-number">4.4</span> Automated semantic pipelines and Wikidata ingestion bots
+              </h3>
+              <p>
+                To address structural gaps in regional knowledge representation across the open web, Lohar engineered an autonomous backend ingestion bot pipeline designed in Python and TypeScript. The system bridges disparate public educational directories, regional government gazettes, and rural institutional registries with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+              </p>
+              <p>
+                The automated pipeline executes high-throughput, rate-limited batch updates, automatically parsing, reconciling, and committing between <b>4,000 and 5,000+ verified educational entity records per day</b>, with burst operational capacities exceeding <b>10,000 structured records</b> during scheduled reconciliation runs. Each record is programmatically structured with standardized RDF triples, mapping properties such as official administrative codes, geographic coordinates, affiliated boards, and hierarchical administrative jurisdictions.
+              </p>
+              <p>
+                To maintain database integrity and prevent dirty data injection into Wikimedia’s linked data cloud, Lohar embedded rigorous technical safeguards within the bot architecture:
+              </p>
+              <ul className="vector-bullet-list">
+                <li><b>Schema Validation &amp; Constraint Checking:</b> Automated verification against Wikidata property constraints, ensuring type-safe entity references and required claim formatting.</li>
+                <li><b>Duplicate-Detection &amp; Entity Reconciliation:</b> High-precision fuzzy string matching and geospatial proximity algorithms to prevent redundant item creation.</li>
+                <li><b>Coordinate Geolocation Normalization:</b> Trigonometric boundary parsing and EPSG coordinate transformation to ensure precise institutional geolocations.</li>
+                <li><b>Fault-Tolerant Exponential Backoff:</b> Adaptive API rate-limiting algorithms compliant with Wikimedia’s bot policies, incorporating automatic retry state persistence.</li>
+              </ul>
+              <p>
+                Through this continuous automation infrastructure, Lohar has facilitated the cataloging of tens of thousands of regional educational institutions, establishing his role as an active open-knowledge automation engineer and semantic data architect.
+              </p>
             </section>
 
             {/* SECTION 5 */}
@@ -381,16 +406,20 @@ export const BiographyArticle: React.FC = () => {
                     <td>TypeScript, JavaScript, Python, C++, Java, SQL</td>
                   </tr>
                   <tr>
+                    <td><b>System Automation &amp; Pipelines</b></td>
+                    <td>Autonomous ingestion bots, Batch ETL scripts, API rate-limiting routines, Semantic data reconciliation</td>
+                  </tr>
+                  <tr>
+                    <td><b>Data &amp; Semantic Protocols</b></td>
+                    <td>Wikidata Query Service (SPARQL), RDF / Wikibase APIs, JSON-LD Schema, PostgreSQL, Redis</td>
+                  </tr>
+                  <tr>
                     <td><b>Web &amp; Frontend</b></td>
                     <td>Next.js, React, HTML5 Semantic, CSS3, Tailwind CSS</td>
                   </tr>
                   <tr>
-                    <td><b>Backend &amp; Data</b></td>
-                    <td>Node.js, REST APIs, PostgreSQL / MySQL, Redis, Serverless Functions</td>
-                  </tr>
-                  <tr>
-                    <td><b>Infrastructure &amp; DevOps</b></td>
-                    <td>Vercel, GitHub Actions CI/CD, Git, Linux</td>
+                    <td><b>Backend &amp; Cloud Infrastructure</b></td>
+                    <td>Node.js, REST APIs, Serverless Functions, Vercel, GitHub Actions CI/CD, Git, Linux</td>
                   </tr>
                   <tr>
                     <td><b>Creative &amp; Post-Production</b></td>
@@ -422,6 +451,9 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">8</span> See also
               </h2>
               <ul className="vector-bullet-list">
+                <li><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></li>
+                <li><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></li>
                 <li><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></li>
                 <li><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></li>
                 <li><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></li>
@@ -464,6 +496,12 @@ export const BiographyArticle: React.FC = () => {
                   <span className="mw-cite-backlink"><a href="#creative-pursuits">^</a></span>{" "}
                   <span className="reference-text">
                     IMDb. <i>Bijoy Lohar — Filmography, Digital Video Credits &amp; Media Post-Production</i>. <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">imdb.com/name/nm18949942/</a>. Retrieved 2026.
+                  </span>
+                </li>
+                <li id="ref-6">
+                  <span className="mw-cite-backlink"><a href="#wikidata-pipelines">^</a></span>{" "}
+                  <span className="reference-text">
+                    Wikimedia Foundation &amp; Wikidata Contributors. <i>Autonomous Entity Ingestion and Semantic Linked Data Pipelines</i>. Wikidata API &amp; SPARQL Query Service.
                   </span>
                 </li>
               </ol>
