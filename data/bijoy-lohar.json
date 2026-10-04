@@ -21,6 +21,21 @@
       "addressCountry": "IN"
     },
     "alternateName": ["Bijoy Lohar"],
+    "alumniOf": [
+      {
+        "name": "Vidyasagar University",
+        "url": "https://en.wikipedia.org/wiki/Vidyasagar_University",
+        "description": "Public state university in Midnapore, West Bengal"
+      },
+      {
+        "name": "Radhanagar High School",
+        "description": "Higher Secondary Education"
+      },
+      {
+        "name": "Bishnupur High School",
+        "description": "Secondary Education"
+      }
+    ],
     "family": {
       "parents": ["Binod Lohar", "Soma Lohar"],
       "siblings": ["Dipti Lohar"]

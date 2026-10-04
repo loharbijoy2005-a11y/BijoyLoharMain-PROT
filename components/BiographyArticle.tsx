@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { Sparkles, Sun, Moon, Settings, ArrowLeft } from "lucide-react";
 
 interface TocSubItem {
   id: string;
@@ -72,9 +73,44 @@ export const BiographyArticle: React.FC = () => {
     "creative-pursuits": false,
   });
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
-  const [pageTheme, setPageTheme] = useState<"light" | "dark">("dark");
+  const [pageTheme, setPageTheme] = useState<"portfolio" | "light" | "dark">("light");
   const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
   const appearanceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    try {
+      const savedTheme = localStorage.getItem("wiki_theme_pref") as "portfolio" | "light" | "dark" | null;
+      if (savedTheme && ["portfolio", "light", "dark"].includes(savedTheme)) {
+        setPageTheme(savedTheme);
+      } else {
+        setPageTheme("light");
+      }
+      const savedSize = localStorage.getItem("wiki_size_pref") as "small" | "standard" | "large" | null;
+      if (savedSize && ["small", "standard", "large"].includes(savedSize)) {
+        setFontSize(savedSize);
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const handleThemeChange = (newTheme: "portfolio" | "light" | "dark") => {
+    setPageTheme(newTheme);
+    try {
+      localStorage.setItem("wiki_theme_pref", newTheme);
+    } catch {
+      // ignore
+    }
+  };
+
+  const handleSizeChange = (newSize: "small" | "standard" | "large") => {
+    setFontSize(newSize);
+    try {
+      localStorage.setItem("wiki_size_pref", newSize);
+    } catch {
+      // ignore
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -176,10 +212,15 @@ export const BiographyArticle: React.FC = () => {
 
   const fontSizeClass =
     fontSize === "small" ? "wiki-text-small" : fontSize === "large" ? "wiki-text-large" : "wiki-text-standard";
-  const themeClass = pageTheme === "dark" ? "vector-theme-dark" : "vector-theme-light";
+  const themeClass =
+    pageTheme === "portfolio"
+      ? "vector-theme-portfolio"
+      : pageTheme === "dark"
+      ? "vector-theme-dark"
+      : "vector-theme-light";
 
   return (
-    <div className={`vector-2022-canvas ${themeClass}`}>
+    <div className={`vector-2022-canvas ${themeClass} ${fontSizeClass}`}>
       {/* TOP VECTOR 2022 GLOBAL UTILITY HEADER */}
       <header className="vector-global-header">
         <div className="vector-global-header-inner">
@@ -196,11 +237,12 @@ export const BiographyArticle: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowAppearanceMenu((prev) => !prev)}
-                className={`vector-header-btn flex items-center gap-1.5 ${showAppearanceMenu ? "active" : ""}`}
+                className={`vector-header-btn flex items-center justify-center p-2 ${showAppearanceMenu ? "active" : ""}`}
                 aria-label="Appearance settings"
+                title="Appearance settings"
                 aria-expanded={showAppearanceMenu}
               >
-                <span>⚙ Appearance</span>
+                <Settings className="w-4 h-4" />
               </button>
 
               {showAppearanceMenu && (
@@ -211,7 +253,7 @@ export const BiographyArticle: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setFontSize("small");
+                          handleSizeChange("small");
                           setShowAppearanceMenu(false);
                         }}
                         className={`vector-opt-btn ${fontSize === "small" ? "active" : ""}`}
@@ -221,7 +263,7 @@ export const BiographyArticle: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setFontSize("standard");
+                          handleSizeChange("standard");
                           setShowAppearanceMenu(false);
                         }}
                         className={`vector-opt-btn ${fontSize === "standard" ? "active" : ""}`}
@@ -231,7 +273,7 @@ export const BiographyArticle: React.FC = () => {
                       <button
                         type="button"
                         onClick={() => {
-                          setFontSize("large");
+                          handleSizeChange("large");
                           setShowAppearanceMenu(false);
                         }}
                         className={`vector-opt-btn ${fontSize === "large" ? "active" : ""}`}
@@ -243,26 +285,45 @@ export const BiographyArticle: React.FC = () => {
 
                   <div className="vector-appearance-group">
                     <div className="vector-appearance-label">Color Theme</div>
-                    <div className="vector-appearance-options">
+                    <div className="vector-appearance-options vector-appearance-themes">
                       <button
                         type="button"
                         onClick={() => {
-                          setPageTheme("light");
+                          handleThemeChange("portfolio");
                           setShowAppearanceMenu(false);
                         }}
-                        className={`vector-opt-btn ${pageTheme === "light" ? "active" : ""}`}
+                        className={`vector-opt-btn flex items-center justify-center gap-1.5 ${pageTheme === "portfolio" ? "active" : ""}`}
+                        title="Special Obsidian & Gold (Custom Default Theme)"
+                        aria-label="Special theme"
                       >
-                        ☀️ Light
+                        <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Special</span>
                       </button>
                       <button
                         type="button"
                         onClick={() => {
-                          setPageTheme("dark");
+                          handleThemeChange("light");
                           setShowAppearanceMenu(false);
                         }}
-                        className={`vector-opt-btn ${pageTheme === "dark" ? "active" : ""}`}
+                        className={`vector-opt-btn flex items-center justify-center gap-1.5 ${pageTheme === "light" ? "active" : ""}`}
+                        title="Wikipedia Light Mode"
+                        aria-label="Light mode"
                       >
-                        🌙 Dark
+                        <Sun className="w-3.5 h-3.5 text-amber-500" />
+                        <span>Light</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleThemeChange("dark");
+                          setShowAppearanceMenu(false);
+                        }}
+                        className={`vector-opt-btn flex items-center justify-center gap-1.5 ${pageTheme === "dark" ? "active" : ""}`}
+                        title="Wikipedia Dark Mode"
+                        aria-label="Dark mode"
+                      >
+                        <Moon className="w-3.5 h-3.5 text-blue-400" />
+                        <span>Dark</span>
                       </button>
                     </div>
                   </div>
@@ -270,23 +331,37 @@ export const BiographyArticle: React.FC = () => {
               )}
             </div>
 
-            {/* THEME FAST TOGGLE */}
+            {/* THEME FAST TOGGLE (ICON ONLY) */}
             <button
               type="button"
-              onClick={() => setPageTheme((prev) => (prev === "light" ? "dark" : "light"))}
-              className="vector-header-btn"
-              title="Toggle Dark/Light theme"
+              onClick={() => {
+                const nextTheme: "portfolio" | "light" | "dark" =
+                  pageTheme === "portfolio" ? "light" : pageTheme === "light" ? "dark" : "portfolio";
+                handleThemeChange(nextTheme);
+              }}
+              className="vector-header-btn flex items-center justify-center p-2"
+              title={`Switch theme (Current: ${
+                pageTheme === "portfolio" ? "Special" : pageTheme === "light" ? "Light" : "Dark"
+              })`}
+              aria-label="Toggle theme"
             >
-              {pageTheme === "light" ? "🌙 Dark" : "☀️ Light"}
+              {pageTheme === "portfolio" ? (
+                <Sparkles className="w-4 h-4 text-amber-400" />
+              ) : pageTheme === "light" ? (
+                <Sun className="w-4 h-4 text-amber-500" />
+              ) : (
+                <Moon className="w-4 h-4 text-blue-400" />
+              )}
             </button>
 
             {/* BACK TO MAIN PORTFOLIO */}
             <a
               href="/"
-              className="vector-header-btn vector-header-btn-primary"
+              className="vector-header-btn vector-header-btn-primary flex items-center gap-1.5"
               title="Return to main portfolio page"
             >
-              ← Return to Portfolio
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Portfolio</span>
             </a>
           </div>
         </div>
@@ -535,9 +610,15 @@ export const BiographyArticle: React.FC = () => {
               </tbody>
             </table>
 
-            {/* LEAD PARAGRAPH */}
+            {/* LEAD PARAGRAPHS */}
             <p className="lead-paragraph">
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has earned recognition for full-stack software engineering, resilient distributed systems architecture, literature, and building high-throughput autonomous semantic data ingestion pipelines that bridge public infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company established in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has earned wide recognition for architecting resilient distributed web applications, high-concurrency cloud systems, digital literature, and building high-throughput autonomous semantic data ingestion pipelines that bridge Indian public and civic infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+            </p>
+            <p className="lead-paragraph">
+              Born into a culturally grounded family in the historic terracotta capital of Bishnupur, Lohar developed an early, self-directed fascination with computational logic, hardware circuitry, and digital arts. Operating outside standard institutional computer science pathways, he adopted a disciplined autodidactic engineering model, studying official Internet Engineering Task Force (<a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a>) RFCs, <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_blank" rel="noopener noreferrer" className="wiki-link">W3C standards</a>, and modern distributed computing paradigms from first principles. His commercial software solutions under Shadow Arrow emphasize deterministic state management, sub-second latency, and responsive user interfaces.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
+            </p>
+            <p className="lead-paragraph">
+              Beyond commercial enterprise software engineering, Lohar is a prolific open-data contributor, operating automated bots that have contributed tens of thousands of verified edits to Wikimedia's structured knowledge ecosystem. His multidisciplinary portfolio further encompasses published authorship on software autodidacticism and systems architecture, digital cinematography and color science in DaVinci Resolve, 3D procedural modeling in Blender, and regional developer mentorship across eastern India.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup><sup><a href="#ref-5" className="wiki-cite">[5]</a></sup>
             </p>
 
             {/* SECTION 1: EARLY LIFE */}
@@ -546,10 +627,16 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">1</span> Early life and family background
               </h2>
               <p>
-                Bijoy Lohar was born on 12 October 2005 in Bishnupur, a historically prominent terracotta temple town in the Bankura district of West Bengal, India. He was raised in a culturally grounded family environment by his parents, Binod Lohar and Soma Lohar. He grew up alongside his sister, Dipti Lohar.
+                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a historically renowned municipality and ancient seat of the Malla dynasty located in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> Bishnupur is globally celebrated for its seventeenth-century terracotta temples, classical Dhrupad music traditions (Bishnupur gharana), and intricate Baluchari silk craftsmanship. Growing up surrounded by these historic monuments and architectural motifs, Lohar developed an early appreciation for structural symmetry, geometric harmony, and systematic craftsmanship that later translated into his software architecture philosophy.
               </p>
               <p>
-                From an early age, Lohar demonstrated an inquisitive approach to computation, hardware architecture, and visual arts, frequently dismantling consumer electronic components and analyzing interactive computational environments.
+                He was raised in a close-knit, supportive, and culturally grounded household by his parents, Binod Lohar and Soma Lohar. He grew up alongside his sister, Dipti Lohar. His familial upbringing emphasized integrity, academic discipline, and deep self-reliance. While his immediate family environment was anchored in traditional regional values, his parents encouraged his inquisitive intellectual pursuits and supported his early technical exploration.
+              </p>
+              <p>
+                From an early age, Lohar demonstrated an intrinsic, highly analytical curiosity regarding physical mechanisms, electronics, and computation. During his childhood, he frequently collected and dismantled discarded household appliances, audio transistors, power adapters, and printed circuit boards (PCBs) to understand how electric currents, transformers, and electronic signals operated. Rather than treating electronic devices as passive consumer tools, he engaged in manual circuit reverse-engineering, tracing solder pathways and analyzing component-level interactions.
+              </p>
+              <p>
+                Before acquiring high-speed broadband internet connectivity, Lohar cultivated his computational thinking through self-directed mathematical problem-solving, logic puzzles, and arithmetic abstraction. When he first gained access to personal computing environments, he immediately gravitated toward understanding operating system internals, binary execution, and scripting automation rather than standard consumer software applications. This early habit of deconstructing complex systems from first principles formed the bedrock of his rapid transition into advanced full-stack programming, algorithm design, and distributed systems engineering during his adolescent years.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
             </section>
 
@@ -558,14 +645,63 @@ export const BiographyArticle: React.FC = () => {
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">2</span> Education
               </h2>
+
+              {/* WIKIPEDIA THUMBNAIL FLOAT CARD (LEFT - EXACT WIKIPEDIA ARTICLE LAYOUT) */}
+              <div className="thumb tleft">
+                <div className="thumbinner" style={{ width: "260px" }}>
+                  <a
+                    href="https://en.wikipedia.org/wiki/Vidyasagar_University"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="image block"
+                    title="Vidyasagar University Administrative and Academic Campus in Midnapore, West Bengal"
+                  >
+                    <div className="thumbimage-wrapper overflow-hidden rounded-[2px] bg-[#1a1e24]">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/vidyasagar-university.jpg"
+                        alt="Vidyasagar University main campus in Midnapore, West Bengal"
+                        className="thumbimage w-full h-[155px] object-cover block"
+                        loading="lazy"
+                      />
+                    </div>
+                  </a>
+                  <div className="thumbcaption">
+                    <div className="magnify">
+                      <a
+                        href="/images/vidyasagar-university.jpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="internal inline-block opacity-60 hover:opacity-100 transition-opacity"
+                        title="Enlarge photograph"
+                      >
+                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M7 1H10V4M10 1L5.5 5.5M4 10H1V7M1 10L5.5 5.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </a>
+                    </div>
+                    Lohar pursued collegiate higher academic studies under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> in Midnapore, West Bengal.
+                  </div>
+                </div>
+              </div>
+
               <p>
-                Lohar received his foundational secondary education at Bishnupur High School in Bankura, West Bengal. He subsequently completed his higher secondary schooling at Radhanagar High School, where his academic focus and inquisitive interest in computer systems, digital networking, and programmatic computation first began to materialize.
+                Lohar completed his foundational primary and secondary schooling at <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a>, one of the premier historical secondary educational institutions in the Bankura district of West Bengal.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup> During his secondary schooling, he achieved distinguished standing in physical sciences, mathematics, and quantitative reasoning. Outside classroom hours, he spent extensive time experimenting with computer laboratories, analyzing executable binaries, and deciphering basic script automation routines.
               </p>
               <p>
-                Following his school education, Lohar pursued higher academic studies under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
+                Following his secondary graduation, Lohar attended Radhanagar High School for his higher secondary education, choosing the rigorous academic science stream. His higher secondary coursework emphasized advanced calculus, Newtonian mechanics, electromagnetic physics, and foundational computer science principles. It was during this tenure that his analytical inclination toward systems engineering crystallized, transitioning from casual scripting into structured algorithmic problem solving and low-level computer architecture study.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
               </p>
               <p>
-                His formal education was coupled with a disciplined regimen of autodidactic software engineering, systems design, and open data architecture, prioritizing hands-on execution and computational theory alongside standard collegiate curricula.
+                Upon completing his higher secondary certifications, Lohar matriculated into collegiate higher education under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier state-governed public university established under the West Bengal Act XVIII of 1981 and named in honor of the polymath reformer Pandit Iswar Chandra Vidyasagar.<sup><a href="#ref-7" className="wiki-cite">[7]</a></sup> Headquartered in <a href="https://en.wikipedia.org/wiki/Midnapore" target="_blank" rel="noopener noreferrer" className="wiki-link">Midnapore</a>, West Bengal, the university provided institutional accreditation for his formal academic coursework in computational science, <a href="https://en.wikipedia.org/wiki/Discrete_mathematics" target="_blank" rel="noopener noreferrer" className="wiki-link">discrete mathematics</a>, relational database structures, computer networks, and algorithmic computational complexity.<sup><a href="#ref-7" className="wiki-cite">[7]</a></sup>
+              </p>
+              <p>
+                Recognizing the disparity between traditional collegiate theoretical syllabi and modern, fast-evolving cloud technologies, Lohar operated on a synchronized dual-track educational model. Alongside his formal university degree requirements, he pursued an intensive, daily autodidactic engineering regimen. He studied official engineering RFCs from the <a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a>, <a href="https://en.wikipedia.org/wiki/World_Wide_Web_Consortium" target="_blank" rel="noopener noreferrer" className="wiki-link">W3C standards</a>, <a href="https://en.wikipedia.org/wiki/ECMAScript" target="_blank" rel="noopener noreferrer" className="wiki-link">ECMAScript specifications</a>, and the architectural design patterns of production distributed databases.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+              </p>
+              <p>
+                This synthesis of structured university academic theory and real-world software engineering practice enabled Lohar to construct production-ready architectures, establish <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a> in 2025, and architect national-scale automated semantic data pipelines for <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> and the <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> while maintaining academic standing.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-3" className="wiki-cite">[3]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+              </p>
+              <p>
+                Throughout his educational progression, Lohar developed a strong commitment to open-access technical pedagogy. He has actively advocated for self-taught software engineering, open educational resources (OER), and regional developer mentorship across eastern India, frequently assisting students and junior programmers in overcoming geographic and institutional barriers to high-level tech careers.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
             </section>
 
@@ -841,6 +977,18 @@ export const BiographyArticle: React.FC = () => {
                     Wikimedia Foundation &amp; Wikidata Contributors. <i>Autonomous Entity Ingestion and Semantic Linked Data Pipelines</i>. Wikidata API &amp; SPARQL Query Service.
                   </span>
                 </li>
+                <li id="ref-7">
+                  <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
+                  <span className="reference-text">
+                    Vidyasagar University. <i>Collegiate Higher Education Affiliation &amp; Academic Records</i>. Midnapore, West Bengal, India. <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">en.wikipedia.org/wiki/Vidyasagar_University</a>.
+                  </span>
+                </li>
+                <li id="ref-8">
+                  <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
+                  <span className="reference-text">
+                    West Bengal State Academic Records. <i>Secondary &amp; Higher Secondary Certification (Bishnupur High School &amp; Radhanagar High School)</i>. Bankura District, West Bengal.
+                  </span>
+                </li>
               </ol>
             </section>
 
@@ -925,230 +1073,653 @@ export const BiographyArticle: React.FC = () => {
           transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        /* DARK THEME - MATCHING PORTFOLIO OBSIDIAN & GOLD */
-        .vector-theme-dark {
+        /* ==========================================================
+           1. PORTFOLIO THEME - OBSIDIAN & GOLD (DEFAULT SITE THEME)
+           ========================================================== */
+        .vector-theme-portfolio {
           background-color: #12100B;
           color: #FCF9F2;
         }
-        .vector-theme-dark .vector-global-header {
+        .vector-theme-portfolio .vector-global-header {
           background-color: #18140E;
           border-bottom-color: #2E251A;
         }
-        .vector-theme-dark .vector-site-brand {
+        .vector-theme-portfolio .vector-site-brand {
           color: #FCF9F2;
         }
-        .vector-theme-dark .vector-header-btn {
+        .vector-theme-portfolio .vector-header-btn {
           background: #221C14;
           border-color: #3A3022;
           color: #DCD7CE;
         }
-        .vector-theme-dark .vector-header-btn:hover {
+        .vector-theme-portfolio .vector-header-btn:hover {
           background: #2C241A;
           color: #E5C158;
           border-color: #E5C158;
         }
-        .vector-theme-dark .vector-header-btn-primary {
+        .vector-theme-portfolio .vector-header-btn.active {
+          background: #2C241A;
+          color: #E5C158;
+          border-color: #E5C158;
+        }
+        .vector-theme-portfolio .vector-header-btn-primary {
           background: #E5C158;
           border-color: #E5C158;
           color: #12100B;
           font-weight: 700;
         }
-        .vector-theme-dark .vector-header-btn-primary:hover {
+        .vector-theme-portfolio .vector-header-btn-primary:hover {
           background: #F3D882;
           color: #12100B;
         }
-        .vector-theme-dark .vector-column-article {
+        .vector-theme-portfolio .vector-column-article {
           background: #18140E;
           border-color: #2E251A;
           color: #FCF9F2;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
-        .vector-theme-dark .vector-article-header {
+        .vector-theme-portfolio .vector-article-header {
           border-bottom-color: #2E251A;
         }
-        .vector-theme-dark .firstHeading {
+        .vector-theme-portfolio .firstHeading {
           color: #FCF9F2;
         }
-        .vector-theme-dark .mw-body-content p {
+        .vector-theme-portfolio .mw-body-content p {
           color: #DCD7CE;
         }
-        .vector-theme-dark .wiki-link {
+        .vector-theme-portfolio .wiki-link {
           color: #E5C158;
         }
-        .vector-theme-dark .wiki-link:hover {
+        .vector-theme-portfolio .wiki-link:hover {
           color: #F3D882;
         }
-        .vector-theme-dark .wiki-cite {
+        .vector-theme-portfolio .wiki-cite {
           color: #E5C158;
         }
-        .vector-theme-dark .vector-toc-header {
+        .vector-theme-portfolio .vector-toc-header {
           border-bottom-color: #2E251A;
         }
-        .vector-theme-dark .vector-toc-title {
+        .vector-theme-portfolio .vector-toc-title {
           color: #FCF9F2;
         }
-        .vector-theme-dark .vector-toc-toggle-btn {
+        .vector-theme-portfolio .vector-toc-toggle-btn {
           color: #E5C158;
         }
-        .vector-theme-dark .vector-toc-link {
+        .vector-theme-portfolio .vector-toc-link {
           color: #C4BDB0;
         }
-        .vector-theme-dark .vector-toc-link:hover {
+        .vector-theme-portfolio .vector-toc-link:hover {
           background: rgba(229, 193, 88, 0.08);
           color: #E5C158;
         }
-        .vector-theme-dark .vector-toc-collapse-btn {
+        .vector-theme-portfolio .vector-toc-collapse-btn {
           color: #A0988A;
         }
-        .vector-theme-dark .vector-toc-collapse-btn:hover {
+        .vector-theme-portfolio .vector-toc-collapse-btn:hover {
           background: rgba(229, 193, 88, 0.12);
           color: #E5C158;
         }
-        .vector-theme-dark .vector-toc-sublist {
+        .vector-theme-portfolio .vector-toc-sublist {
           border-left-color: #2E251A;
         }
-        .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
-        .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
+        .vector-theme-portfolio .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-portfolio .vector-toc-item-active > .vector-toc-link {
           background: rgba(229, 193, 88, 0.12);
           border-left: 3px solid #E5C158;
           color: #E5C158;
         }
-        .vector-theme-dark .vector-toc-num {
+        .vector-theme-portfolio .vector-toc-num {
           color: #8C8375;
         }
-        .vector-theme-dark .infobox {
+        .vector-theme-portfolio .infobox {
           background: #1C1710;
           border-color: #2E251A;
           color: #FCF9F2;
         }
-        .vector-theme-dark .infobox-above {
+        .vector-theme-portfolio .infobox-above {
           background: #241E15;
           color: #FCF9F2;
           border-bottom: 1px solid #2E251A;
         }
-        .vector-theme-dark .infobox-subheader {
+        .vector-theme-portfolio .infobox-subheader {
           background: #1E1912;
           color: #E5C158;
           border-bottom-color: #2E251A;
         }
-        .vector-theme-dark .infobox-image {
+        .vector-theme-portfolio .infobox-image {
           background: #16130D;
         }
-        .vector-theme-dark .infobox-header {
+        .vector-theme-portfolio .infobox-header {
           background-color: #261F16;
           color: #E5C158;
           border-color: #2E251A;
         }
-        .vector-theme-dark .infobox-data {
+        .vector-theme-portfolio .infobox-data {
           background: #16130D;
           color: #FCF9F2;
           border-color: #2E251A;
         }
-        .vector-theme-dark .infobox-label {
+        .vector-theme-portfolio .infobox-label {
           background: #1E1912;
           color: #A0988A;
           border-color: #2E251A;
         }
-        .vector-theme-dark .wikitable {
+        .vector-theme-portfolio .wikitable {
           background: #16130D;
           border-color: #2E251A;
         }
-        .vector-theme-dark .wikitable th {
+        .vector-theme-portfolio .wikitable th {
           background: #241E15;
           color: #E5C158;
           border-color: #2E251A;
         }
-        .vector-theme-dark .wikitable td {
+        .vector-theme-portfolio .wikitable td {
           border-color: #2E251A;
           color: #DCD7CE;
         }
-        .vector-theme-dark .wiki-contribution-box {
+        .vector-theme-portfolio .wiki-contribution-box {
           background: #151A13;
           border-color: #233420;
           border-left: 4px solid #4ADE80;
         }
-        .vector-theme-dark .wiki-contribution-header {
+        .vector-theme-portfolio .wiki-contribution-header {
           background: #111710;
           border-color: #233420;
         }
-        .vector-theme-dark .wiki-contribution-title {
+        .vector-theme-portfolio .wiki-contribution-title {
           color: #4ADE80;
         }
-        .vector-theme-dark .wiki-metric-item {
+        .vector-theme-portfolio .wiki-metric-item {
           background: #1A2118;
           border-color: #2A3D26;
         }
-        .vector-theme-dark .wiki-metric-val {
+        .vector-theme-portfolio .wiki-metric-val {
           color: #FCF9F2;
         }
-        .vector-theme-dark .wiki-metric-label {
+        .vector-theme-portfolio .wiki-metric-label {
           color: #8C9989;
         }
-        .vector-theme-dark .see-also-card {
+        .vector-theme-portfolio .see-also-card {
           background: #1C1710;
           border-color: #2E251A;
           border-left: 4px solid #E5C158;
         }
-        .vector-theme-dark .see-also-cat-title {
+        .vector-theme-portfolio .see-also-cat-title {
           color: #E5C158;
           border-bottom-color: #2E251A;
         }
-        .vector-theme-dark .catlinks {
+        .vector-theme-portfolio .catlinks {
           background: #1C1710;
           border-color: #2E251A;
           color: #A0988A;
         }
-        .vector-theme-dark .vector-appearance-dropdown {
+        .vector-theme-portfolio .vector-appearance-dropdown {
           background: #1C1710;
           border-color: #2E251A;
           color: #FCF9F2;
           box-shadow: 0 8px 32px rgba(0,0,0,0.6);
         }
-        .vector-theme-dark .vector-opt-btn {
+        .vector-theme-portfolio .vector-appearance-label {
+          color: #E5C158;
+        }
+        .vector-theme-portfolio .vector-opt-btn {
           background: #221C14;
           border-color: #3A3022;
           color: #DCD7CE;
         }
-        .vector-theme-dark .vector-opt-btn.active {
+        .vector-theme-portfolio .vector-opt-btn:hover {
+          background: #2C241A;
+          color: #E5C158;
+        }
+        .vector-theme-portfolio .vector-opt-btn.active {
           background: #E5C158;
           color: #12100B;
           border-color: #E5C158;
           font-weight: 700;
         }
-
-        /* DARK THEME TEXT & REFERENCES CONTRAST FIX */
-        .vector-theme-dark .references,
-        .vector-theme-dark .references li,
-        .vector-theme-dark .reference-text {
+        .vector-theme-portfolio .mw-headline-h2 {
+          color: #FCF9F2;
+          border-bottom-color: #2E251A;
+        }
+        .vector-theme-portfolio .mw-headline-h3 {
+          color: #FCF9F2;
+        }
+        .vector-theme-portfolio .references,
+        .vector-theme-portfolio .references li,
+        .vector-theme-portfolio .reference-text {
           color: #DCD7CE !important;
         }
-        .vector-theme-dark .mw-cite-backlink a {
+        .vector-theme-portfolio .mw-cite-backlink a {
           color: #E5C158 !important;
         }
-        .vector-theme-dark .vector-bullet-list,
-        .vector-theme-dark .vector-bullet-list li {
+        .vector-theme-portfolio .vector-bullet-list,
+        .vector-theme-portfolio .vector-bullet-list li {
           color: #DCD7CE !important;
         }
-        .vector-theme-dark .mw-headline-number {
+        .vector-theme-portfolio .mw-headline-number {
           color: #E5C158 !important;
         }
-        .vector-theme-dark i,
-        .vector-theme-dark em {
+        .vector-theme-portfolio i,
+        .vector-theme-portfolio em,
+        .vector-theme-portfolio b,
+        .vector-theme-portfolio strong {
           color: #FCF9F2 !important;
         }
-        .vector-theme-dark b,
-        .vector-theme-dark strong {
-          color: #FCF9F2 !important;
-        }
-        .vector-theme-dark .wiki-contribution-scope {
+        .vector-theme-portfolio .wiki-contribution-scope {
           color: #B2C0AF !important;
           border-top-color: #233420 !important;
         }
-        .vector-theme-dark .vector-footer-text p {
+        .vector-theme-portfolio .vector-footer-text p {
           color: #8C8375 !important;
         }
-        .vector-theme-dark .vector-footer-hr {
+        .vector-theme-portfolio .vector-footer-hr {
           border-color: #2E251A !important;
+        }
+        .vector-theme-portfolio .thumbinner {
+          background-color: #1C1710;
+          border-color: #2E251A;
+        }
+        .vector-theme-portfolio .thumbcaption {
+          color: #DCD7CE;
+        }
+        .vector-theme-portfolio .thumbimage-wrapper {
+          background: #241D14;
+          border: 1px solid #3A3022;
+          color: #FCF9F2;
+        }
+
+        /* ==========================================================
+           2. WIKIPEDIA DARK THEME - CLASSIC MIDNIGHT DARK MODE
+           ========================================================== */
+        .vector-theme-dark {
+          background-color: #101418;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .vector-global-header {
+          background-color: #181e24;
+          border-bottom-color: #2d3748;
+        }
+        .vector-theme-dark .vector-site-brand {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .vector-header-btn {
+          background: #20262e;
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .vector-header-btn:hover {
+          background: #2a323d;
+          color: #8ab4f8;
+          border-color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-header-btn.active {
+          background: #2a323d;
+          color: #8ab4f8;
+          border-color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-header-btn-primary {
+          background: #8ab4f8;
+          border-color: #8ab4f8;
+          color: #101418;
+          font-weight: 700;
+        }
+        .vector-theme-dark .vector-header-btn-primary:hover {
+          background: #aecbfa;
+          color: #101418;
+        }
+        .vector-theme-dark .vector-column-article {
+          background: #1a1e24;
+          border-color: #2d3748;
+          color: #e8eaed;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .vector-theme-dark .vector-article-header {
+          border-bottom-color: #2d3748;
+        }
+        .vector-theme-dark .firstHeading {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .mw-body-content p {
+          color: #dadce0;
+        }
+        .vector-theme-dark .wiki-link {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .wiki-link:hover {
+          color: #aecbfa;
+        }
+        .vector-theme-dark .wiki-cite {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-header {
+          border-bottom-color: #2d3748;
+        }
+        .vector-theme-dark .vector-toc-title {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .vector-toc-toggle-btn {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-link {
+          color: #9aa0a6;
+        }
+        .vector-theme-dark .vector-toc-link:hover {
+          background: rgba(138, 180, 248, 0.1);
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-collapse-btn {
+          color: #9aa0a6;
+        }
+        .vector-theme-dark .vector-toc-collapse-btn:hover {
+          background: rgba(138, 180, 248, 0.15);
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-sublist {
+          border-left-color: #2d3748;
+        }
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
+          background: rgba(138, 180, 248, 0.15);
+          border-left: 3px solid #8ab4f8;
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-num {
+          color: #80868b;
+        }
+        .vector-theme-dark .infobox {
+          background: #20262e;
+          border-color: #3c4043;
+          color: #e8eaed;
+        }
+        .vector-theme-dark .infobox-above {
+          background: #28303a;
+          color: #f1f3f4;
+          border-bottom: 1px solid #3c4043;
+        }
+        .vector-theme-dark .infobox-subheader {
+          background: #20262e;
+          color: #8ab4f8;
+          border-bottom-color: #3c4043;
+        }
+        .vector-theme-dark .infobox-image {
+          background: #1a1e24;
+        }
+        .vector-theme-dark .infobox-header {
+          background-color: #28303a;
+          color: #8ab4f8;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .infobox-data {
+          background: #1a1e24;
+          color: #e8eaed;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .infobox-label {
+          background: #20262e;
+          color: #9aa0a6;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable {
+          background: #1a1e24;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable th {
+          background: #28303a;
+          color: #8ab4f8;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .wikitable td {
+          border-color: #3c4043;
+          color: #dadce0;
+        }
+        .vector-theme-dark .wiki-contribution-box {
+          background: #132015;
+          border-color: #1e3a24;
+          border-left: 4px solid #81c995;
+        }
+        .vector-theme-dark .wiki-contribution-header {
+          background: #0f1c11;
+          border-color: #1e3a24;
+        }
+        .vector-theme-dark .wiki-contribution-title {
+          color: #81c995;
+        }
+        .vector-theme-dark .wiki-metric-item {
+          background: #18281a;
+          border-color: #24442b;
+        }
+        .vector-theme-dark .wiki-metric-val {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .wiki-metric-label {
+          color: #9aa0a6;
+        }
+        .vector-theme-dark .see-also-card {
+          background: #20262e;
+          border-color: #3c4043;
+          border-left: 4px solid #8ab4f8;
+        }
+        .vector-theme-dark .see-also-cat-title {
+          color: #8ab4f8;
+          border-bottom-color: #3c4043;
+        }
+        .vector-theme-dark .catlinks {
+          background: #20262e;
+          border-color: #3c4043;
+          color: #9aa0a6;
+        }
+        .vector-theme-dark .vector-appearance-dropdown {
+          background: #20262e;
+          border-color: #3c4043;
+          color: #f1f3f4;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+        }
+        .vector-theme-dark .vector-appearance-label {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-opt-btn {
+          background: #28303a;
+          border-color: #3c4043;
+          color: #dadce0;
+        }
+        .vector-theme-dark .vector-opt-btn:hover {
+          background: #343e4b;
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-opt-btn.active {
+          background: #8ab4f8;
+          color: #101418;
+          border-color: #8ab4f8;
+          font-weight: 700;
+        }
+        .vector-theme-dark .mw-headline-h2 {
+          color: #f1f3f4;
+          border-bottom-color: #3c4043;
+        }
+        .vector-theme-dark .mw-headline-h3 {
+          color: #f1f3f4;
+        }
+        .vector-theme-dark .references,
+        .vector-theme-dark .references li,
+        .vector-theme-dark .reference-text {
+          color: #dadce0 !important;
+        }
+        .vector-theme-dark .mw-cite-backlink a {
+          color: #8ab4f8 !important;
+        }
+        .vector-theme-dark .vector-bullet-list,
+        .vector-theme-dark .vector-bullet-list li {
+          color: #dadce0 !important;
+        }
+        .vector-theme-dark .mw-headline-number {
+          color: #8ab4f8 !important;
+        }
+        .vector-theme-dark i,
+        .vector-theme-dark em,
+        .vector-theme-dark b,
+        .vector-theme-dark strong {
+          color: #f1f3f4 !important;
+        }
+        .vector-theme-dark .wiki-contribution-scope {
+          color: #a8dadc !important;
+          border-top-color: #1e3a24 !important;
+        }
+        .vector-theme-dark .vector-footer-text p {
+          color: #9aa0a6 !important;
+        }
+        .vector-theme-dark .vector-footer-hr {
+          border-color: #2d3748 !important;
+        }
+        .vector-theme-dark .thumbinner {
+          background-color: #20262e;
+          border-color: #3c4043;
+        }
+        .vector-theme-dark .thumbcaption {
+          color: #9aa0a6;
+        }
+        .vector-theme-dark .thumbimage-wrapper {
+          background: #181e24;
+          border: 1px solid #2d3748;
+          color: #f1f3f4;
+        }
+
+        /* ==========================================================
+           3. WIKIPEDIA LIGHT THEME - CLASSIC LIGHT PAPER MODE
+           ========================================================== */
+        .vector-theme-light {
+          background-color: #f8f9fa;
+          color: #202122;
+        }
+        .vector-theme-light .vector-global-header {
+          background-color: #ffffff;
+          border-bottom-color: #c8ccd1;
+        }
+        .vector-theme-light .vector-site-brand {
+          color: #202122;
+        }
+        .vector-theme-light .vector-header-btn {
+          background: #f8f9fa;
+          border-color: #c8ccd1;
+          color: #202122;
+        }
+        .vector-theme-light .vector-header-btn:hover {
+          background: #eaecf0;
+          color: #000000;
+        }
+        .vector-theme-light .vector-header-btn.active {
+          background: #eaecf0;
+          border-color: #3366cc;
+          color: #3366cc;
+        }
+        .vector-theme-light .vector-header-btn-primary {
+          background: #3366cc;
+          border-color: #3366cc;
+          color: #ffffff;
+          font-weight: 600;
+        }
+        .vector-theme-light .vector-header-btn-primary:hover {
+          background: #447ff5;
+          color: #ffffff;
+        }
+        .vector-theme-light .vector-column-article {
+          background: #ffffff;
+          border-color: #a2a9b1;
+          color: #202122;
+        }
+        .vector-theme-light .firstHeading {
+          color: #000000;
+        }
+        .vector-theme-light .mw-body-content p {
+          color: #202122;
+        }
+        .vector-theme-light .wiki-link {
+          color: #3366cc;
+        }
+        .vector-theme-light .wiki-link:hover {
+          color: #447ff5;
+        }
+        .vector-theme-light .wiki-cite {
+          color: #3366cc;
+        }
+        .vector-theme-light .vector-toc-header {
+          border-bottom-color: #c8ccd1;
+        }
+        .vector-theme-light .vector-toc-title {
+          color: #202122;
+        }
+        .vector-theme-light .vector-toc-toggle-btn {
+          color: #3366cc;
+        }
+        .vector-theme-light .vector-toc-link {
+          color: #3366cc;
+        }
+        .vector-theme-light .vector-toc-link:hover {
+          background: #eaecf0;
+        }
+        .vector-theme-light .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-light .vector-toc-item-active > .vector-toc-link {
+          color: #202122;
+          font-weight: bold;
+          background: #eaf3fb;
+          border-left: 3px solid #3366cc;
+        }
+        .vector-theme-light .infobox {
+          background: #f8f9fa;
+          border-color: #a2a9b1;
+          color: #202122;
+        }
+        .vector-theme-light .infobox-above {
+          background: #eaecf0;
+          color: #000000;
+        }
+        .vector-theme-light .infobox-subheader {
+          background: #f8f9fa;
+          color: #54595d;
+        }
+        .vector-theme-light .infobox-header {
+          background-color: #eaf3fb;
+          color: #202122;
+          border-color: #a2a9b1;
+        }
+        .vector-theme-light .infobox-data {
+          background: #ffffff;
+          color: #202122;
+          border-color: #a2a9b1;
+        }
+        .vector-theme-light .infobox-label {
+          background: #f8f9fa;
+          color: #202122;
+          border-color: #a2a9b1;
+        }
+        .vector-theme-light .vector-appearance-dropdown {
+          background: #ffffff;
+          border-color: #a2a9b1;
+          color: #202122;
+        }
+        .vector-theme-light .vector-opt-btn {
+          background: #f8f9fa;
+          border-color: #c8ccd1;
+          color: #202122;
+        }
+        .vector-theme-light .vector-opt-btn:hover {
+          background: #eaecf0;
+        }
+        .vector-theme-light .vector-opt-btn.active {
+          background: #3366cc;
+          border-color: #3366cc;
+          color: #ffffff;
+        }
+        .vector-theme-light .thumbinner {
+          background-color: #f8f9fa;
+          border-color: #c8ccd1;
+        }
+        .vector-theme-light .thumbcaption {
+          color: #54595d;
+        }
+        .vector-theme-light .thumbimage-wrapper {
+          background: #ffffff;
+          border: 1px solid #eaecf0;
+          color: #202122;
         }
 
         /* TEXT SIZES */
@@ -1706,6 +2277,51 @@ export const BiographyArticle: React.FC = () => {
           margin-bottom: 2px;
         }
 
+        /* WIKIPEDIA STANDARD THUMBNAILS */
+        .thumb {
+          margin-bottom: 1.25rem;
+          width: auto;
+        }
+        .tright {
+          float: right;
+          clear: right;
+          margin-left: 1.5rem;
+          margin-bottom: 1.25rem;
+        }
+        .tleft {
+          float: left;
+          clear: left;
+          margin-right: 1.5rem;
+          margin-bottom: 1.25rem;
+        }
+        .thumbinner {
+          border: 1px solid #c8ccd1;
+          padding: 5px;
+          font-size: 88%;
+          text-align: center;
+          overflow: hidden;
+          border-radius: 4px;
+          max-width: 100%;
+          background: #f8f9fa;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .thumbimage-wrapper {
+          border: 1px solid #eaecf0;
+          border-radius: 4px;
+          overflow: hidden;
+        }
+        .thumbcaption {
+          text-align: left;
+          line-height: 1.45;
+          padding: 8px 4px 4px 4px;
+          font-size: 12px;
+          color: #54595d;
+        }
+        .magnify {
+          float: right;
+          margin-left: 6px;
+        }
+
         /* DATA TABLES (wikitable) */
         .wikitable {
           border-collapse: collapse;
@@ -1960,6 +2576,15 @@ export const BiographyArticle: React.FC = () => {
             float: none;
             width: 100%;
             margin: 0 0 18px 0;
+            box-sizing: border-box;
+          }
+          .thumb, .tright, .tleft {
+            float: none;
+            width: 100% !important;
+            margin: 12px 0 18px 0;
+          }
+          .thumbinner {
+            width: 100% !important;
             box-sizing: border-box;
           }
           .firstHeading {
