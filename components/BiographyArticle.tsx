@@ -698,7 +698,7 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">5.1</span> Authorship and technical writing
               </h3>
               <p>
-                As an author, Lohar writes on software autodidacticism, regional tech entrepreneurship, and systems design principles, advocating project creation as the primary vehicle for learning.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                As an author, Lohar writes on software autodidacticism, regional tech entrepreneurship, and systems design principles, advocating practical project creation as the primary vehicle for mastering computational systems.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His bibliographic records and author profiles are cataloged across major literary platforms including <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a> and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
               </p>
 
               <h3 id="video-media" className="mw-headline-h3">
@@ -857,19 +857,31 @@ export const BiographyArticle: React.FC = () => {
                   <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Website (shadowarrow.in)</a>
                 </li>
                 <li>
+                  <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Amazon Author Central</a>
+                </li>
+                <li>
+                  <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Goodreads</a>
+                </li>
+                <li>
                   <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub</a>
                 </li>
                 <li>
                   <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb</a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn</a>
+                  <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Identifier Profile (0009-0004-5643-7612)</a>
                 </li>
                 <li>
                   <a href="https://www.wikidata.org/wiki/User:SHADOWARROW_2026" target="_blank" rel="noopener noreferrer" className="wiki-link">SHADOWARROW 2026 on Wikidata</a>
                 </li>
                 <li>
-                  <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Profile (0009-0004-5643-7612)</a>
+                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn</a>
+                </li>
+                <li>
+                  <a href="https://developers.google.com/profile/u/101253410801307724262" target="_blank" rel="noopener noreferrer" className="wiki-link">Google Developer Profile</a>
+                </li>
+                <li>
+                  <a href="https://topmate.io/bijoy_lohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Topmate Mentorship &amp; Advisory Profile</a>
                 </li>
               </ul>
             </section>
