@@ -675,21 +675,42 @@ export const BiographyArticle: React.FC = () => {
           max-width: 1440px;
           margin: 0 auto;
           display: flex;
+          align-items: flex-start;
           padding: 24px 16px 48px;
           gap: 24px;
           box-sizing: border-box;
+          position: relative;
         }
 
-        /* LEFT TOC SIDEBAR */
+        /* LEFT TOC SIDEBAR (INDEPENDENT CLEAN STICKY SIDEBAR) */
         .vector-column-toc {
           width: 240px;
           flex-shrink: 0;
+          position: sticky;
+          top: 24px;
+          align-self: flex-start;
+          max-height: calc(100vh - 48px);
+          overflow-y: auto;
+          overflow-x: hidden;
+          scrollbar-width: thin;
+          scrollbar-color: #c8ccd1 transparent;
           padding-top: 8px;
+          padding-right: 12px;
+          box-sizing: border-box;
+        }
+
+        .vector-column-toc::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .vector-column-toc::-webkit-scrollbar-thumb {
+          background-color: #c8ccd1;
+          border-radius: 2px;
         }
 
         .vector-toc-wrapper {
           position: relative;
-          padding-right: 8px;
+          width: 100%;
         }
 
         .vector-toc-header {
