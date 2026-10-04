@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 interface TocSubItem {
   id: string;
@@ -61,6 +61,17 @@ export const BiographyArticle: React.FC = () => {
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
   const [pageTheme, setPageTheme] = useState<"light" | "dark">("light");
   const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
+  const appearanceRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (appearanceRef.current && !appearanceRef.current.contains(event.target as Node)) {
+        setShowAppearanceMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   useEffect(() => {
     // Fetch 100% authentic real-time edit count directly from official Wikimedia / Wikidata API
@@ -168,34 +179,48 @@ export const BiographyArticle: React.FC = () => {
 
           <div className="flex items-center gap-2 sm:gap-3">
             {/* APPEARANCE MENU DROPDOWN */}
-            <div className="relative">
+            <div className="relative" ref={appearanceRef}>
               <button
-                onClick={() => setShowAppearanceMenu(!showAppearanceMenu)}
-                className="vector-header-btn flex items-center gap-1.5"
+                type="button"
+                onClick={() => setShowAppearanceMenu((prev) => !prev)}
+                className={`vector-header-btn flex items-center gap-1.5 ${showAppearanceMenu ? "active" : ""}`}
                 aria-label="Appearance settings"
+                aria-expanded={showAppearanceMenu}
               >
                 <span>⚙ Appearance</span>
               </button>
 
               {showAppearanceMenu && (
-                <div className="vector-appearance-dropdown">
+                <div className="vector-appearance-dropdown" role="dialog" aria-label="Appearance settings">
                   <div className="vector-appearance-group">
                     <div className="vector-appearance-label">Text Size</div>
                     <div className="vector-appearance-options">
                       <button
-                        onClick={() => setFontSize("small")}
+                        type="button"
+                        onClick={() => {
+                          setFontSize("small");
+                          setShowAppearanceMenu(false);
+                        }}
                         className={`vector-opt-btn ${fontSize === "small" ? "active" : ""}`}
                       >
                         Small
                       </button>
                       <button
-                        onClick={() => setFontSize("standard")}
+                        type="button"
+                        onClick={() => {
+                          setFontSize("standard");
+                          setShowAppearanceMenu(false);
+                        }}
                         className={`vector-opt-btn ${fontSize === "standard" ? "active" : ""}`}
                       >
                         Standard
                       </button>
                       <button
-                        onClick={() => setFontSize("large")}
+                        type="button"
+                        onClick={() => {
+                          setFontSize("large");
+                          setShowAppearanceMenu(false);
+                        }}
                         className={`vector-opt-btn ${fontSize === "large" ? "active" : ""}`}
                       >
                         Large
@@ -207,16 +232,24 @@ export const BiographyArticle: React.FC = () => {
                     <div className="vector-appearance-label">Color Theme</div>
                     <div className="vector-appearance-options">
                       <button
-                        onClick={() => setPageTheme("light")}
+                        type="button"
+                        onClick={() => {
+                          setPageTheme("light");
+                          setShowAppearanceMenu(false);
+                        }}
                         className={`vector-opt-btn ${pageTheme === "light" ? "active" : ""}`}
                       >
-                        Light
+                        ☀️ Light
                       </button>
                       <button
-                        onClick={() => setPageTheme("dark")}
+                        type="button"
+                        onClick={() => {
+                          setPageTheme("dark");
+                          setShowAppearanceMenu(false);
+                        }}
                         className={`vector-opt-btn ${pageTheme === "dark" ? "active" : ""}`}
                       >
-                        Dark
+                        🌙 Dark
                       </button>
                     </div>
                   </div>
@@ -226,7 +259,8 @@ export const BiographyArticle: React.FC = () => {
 
             {/* THEME FAST TOGGLE */}
             <button
-              onClick={() => setPageTheme(pageTheme === "light" ? "dark" : "light")}
+              type="button"
+              onClick={() => setPageTheme((prev) => (prev === "light" ? "dark" : "light"))}
               className="vector-header-btn"
               title="Toggle Dark/Light theme"
             >
@@ -234,7 +268,11 @@ export const BiographyArticle: React.FC = () => {
             </button>
 
             {/* BACK TO MAIN PORTFOLIO */}
-            <a href="/" className="vector-header-btn vector-header-btn-primary">
+            <a
+              href="/"
+              className="vector-header-btn vector-header-btn-primary"
+              title="Return to main portfolio page"
+            >
               ← Return to Portfolio
             </a>
           </div>
@@ -952,13 +990,57 @@ export const BiographyArticle: React.FC = () => {
           font-size: 12.5px;
           line-height: 1.55;
         }
+        .wiki-text-small p,
+        .wiki-text-small li,
+        .wiki-text-small td,
+        .wiki-text-small th,
+        .wiki-text-small .lead-paragraph {
+          font-size: 12.5px !important;
+          line-height: 1.55 !important;
+        }
+        .wiki-text-small .mw-headline-h2 {
+          font-size: 18px !important;
+        }
+        .wiki-text-small .mw-headline-h3 {
+          font-size: 14.5px !important;
+        }
+
         .wiki-text-standard {
           font-size: 14px;
           line-height: 1.65;
         }
-        .wiki-text-large {
+        .wiki-text-standard p,
+        .wiki-text-standard li,
+        .wiki-text-standard td,
+        .wiki-text-standard th,
+        .wiki-text-standard .lead-paragraph {
+          font-size: 14px;
+          line-height: 1.65;
+        }
+        .wiki-text-standard .mw-headline-h2 {
+          font-size: 21px;
+        }
+        .wiki-text-standard .mw-headline-h3 {
           font-size: 16px;
+        }
+
+        .wiki-text-large {
+          font-size: 16.5px;
           line-height: 1.75;
+        }
+        .wiki-text-large p,
+        .wiki-text-large li,
+        .wiki-text-large td,
+        .wiki-text-large th,
+        .wiki-text-large .lead-paragraph {
+          font-size: 16.5px !important;
+          line-height: 1.75 !important;
+        }
+        .wiki-text-large .mw-headline-h2 {
+          font-size: 24px !important;
+        }
+        .wiki-text-large .mw-headline-h3 {
+          font-size: 18.5px !important;
         }
 
         /* TOP GLOBAL HEADER */
