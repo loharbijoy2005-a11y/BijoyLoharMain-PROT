@@ -682,18 +682,19 @@ export const BiographyArticle: React.FC = () => {
           position: relative;
         }
 
-        /* LEFT TOC SIDEBAR (INDEPENDENT CLEAN STICKY SIDEBAR) */
+        /* LEFT TOC SIDEBAR (COMPLETELY HARD-FIXED TO VIEWPORT) */
         .vector-column-toc {
           width: 240px;
           flex-shrink: 0;
-          position: sticky;
-          top: 24px;
-          align-self: flex-start;
-          max-height: calc(100vh - 48px);
+          position: fixed;
+          top: 70px;
+          left: max(16px, calc(50vw - 704px));
+          height: calc(100vh - 80px);
           overflow-y: auto;
           overflow-x: hidden;
           scrollbar-width: thin;
           scrollbar-color: #c8ccd1 transparent;
+          z-index: 30;
           padding-top: 8px;
           padding-right: 12px;
           box-sizing: border-box;
@@ -807,6 +808,7 @@ export const BiographyArticle: React.FC = () => {
         .vector-column-article {
           flex: 1;
           min-width: 0;
+          margin-left: 260px;
           background: #ffffff;
           padding: 28px 36px 48px;
           border: 1px solid #a2a9b1;
@@ -1294,6 +1296,7 @@ export const BiographyArticle: React.FC = () => {
             display: none;
           }
           .vector-column-article {
+            margin-left: 0;
             border-left: none;
             border-right: none;
             padding: 18px 20px 36px;
