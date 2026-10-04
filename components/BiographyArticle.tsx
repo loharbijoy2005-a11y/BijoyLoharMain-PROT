@@ -711,7 +711,16 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">3</span> Competitive gaming and early computing (2022–2023)
               </h2>
               <p>
-                Between 2022 and 2023, prior to focusing on commercial enterprise software systems, Lohar was active in regional competitive esports and tactical gaming communities. Competing under aliases including <i>Wb Arrow</i> and <i>Arrow Dada</i>, he studied network tick synchronization, input latency mitigation, and graphics pipeline optimizations.
+                Between 2022 and 2023, prior to concentrating fully on commercial software engineering and distributed systems architecture, Lohar was an active participant in regional competitive esports, tactical simulations, and digital gaming circles across eastern India. Competing under competitive in-game handles including <i>Wb Arrow</i> and <i>Arrow Dada</i>, he established a notable presence within regional multiplayer communities, recognized for strategic squad coordination, high-speed spatial reflexes, and analytical gameplay.
+              </p>
+              <p>
+                Crucially, Lohar approached competitive gaming not merely as leisure, but as an empirical laboratory for deconstructing real-time computational performance and network communication protocols. Facing the real-world constraints of semi-urban telecommunication infrastructure in Bankura, he conducted extensive diagnostic investigations into <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol" target="_blank" rel="noopener noreferrer" className="wiki-link">UDP</a> packet serialization, client-side prediction, server-authoritative state reconciliation, and <a href="https://en.wikipedia.org/wiki/Lag_compensation" target="_blank" rel="noopener noreferrer" className="wiki-link">lag compensation</a> mechanisms implemented in modern game engines.
+              </p>
+              <p>
+                His investigations focused on minimizing end-to-end input-to-photon latency. He benchmarked display pipeline frame pacing, GPU draw calls, driver-level shader caching, and operating system kernel scheduler interrupts. By analyzing variance in server <a href="https://en.wikipedia.org/wiki/Tick_(software)" target="_blank" rel="noopener noreferrer" className="wiki-link">tick rates</a> (comparing 20Hz, 60Hz, and 128Hz simulation cycles) and configuring custom network routing parameters, Lohar systematically documented how subtle packet jitter and network bufferbloat degrade real-time synchronization.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+              </p>
+              <p>
+                This period of deep technical experimentation directly informed his subsequent software engineering methodologies. The principles of low-latency data transmission, non-blocking asynchronous event loops, deterministic state management, and memory-efficient data structures that he analyzed in gaming network stacks became core tenets of his architecture at <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a> and his high-throughput semantic bots for <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a>.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
               </p>
             </section>
 
