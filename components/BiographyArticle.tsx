@@ -338,6 +338,38 @@ export const BiographyArticle: React.FC = () => {
               <p>
                 To address structural deficits and under-representation in regional and national knowledge graphs across the open web, Lohar engineered a comprehensive, multi-domain autonomous backend ingestion bot pipeline implemented in Python and TypeScript. Moving beyond single-domain constraints, the engine bridges public open datasets, official gazettes, and decentralized administrative directories with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
               </p>
+
+              {/* DEDICATED ARCHIVAL CONTRIBUTION & INGESTION METRICS BOX */}
+              <div className="wiki-contribution-box">
+                <div className="wiki-contribution-header">
+                  <span className="wiki-contribution-title">Autonomous Knowledge Graph Ingestion Registry</span>
+                  <span className="wiki-contribution-badge">Wikimedia Open Data Linked Bot</span>
+                </div>
+                <div className="wiki-contribution-body">
+                  <div className="wiki-metric-grid">
+                    <div className="wiki-metric-item">
+                      <div className="wiki-metric-label">Automated Throughput</div>
+                      <div className="wiki-metric-val">4,000 – 5,000+ <span className="wiki-metric-sub">records / day</span></div>
+                    </div>
+                    <div className="wiki-metric-item">
+                      <div className="wiki-metric-label">Peak Burst Capacity</div>
+                      <div className="wiki-metric-val">10,000+ <span className="wiki-metric-sub">records / cycle</span></div>
+                    </div>
+                    <div className="wiki-metric-item">
+                      <div className="wiki-metric-label">Target Infrastructure</div>
+                      <div className="wiki-metric-val">Wikidata <span className="wiki-metric-sub">(SPARQL / RDF Triples)</span></div>
+                    </div>
+                    <div className="wiki-metric-item">
+                      <div className="wiki-metric-label">Core Pipeline Engine</div>
+                      <div className="wiki-metric-val">Python / TypeScript <span className="wiki-metric-sub">ETL Daemons</span></div>
+                    </div>
+                  </div>
+                  <div className="wiki-contribution-scope">
+                    <b>Ingested National Domains:</b> High Courts &amp; Sessions Courts • District Hospitals &amp; Health Facilities • Rivers &amp; Hydrological Reservoirs • Municipal Bodies &amp; Tehsils • Universities &amp; Degree Colleges.
+                  </div>
+                </div>
+              </div>
+
               <p>
                 The pipeline operates continuously across a wide spectrum of civic, geographic, and institutional domains across India:
               </p>
@@ -461,8 +493,28 @@ export const BiographyArticle: React.FC = () => {
               </h2>
               <div className="see-also-card">
                 <div className="see-also-grid">
+                  {/* COLUMN 1: PRIMARY ENGINEERING & TECHNOLOGY FIRST */}
                   <div className="see-also-col">
-                    <div className="see-also-cat-title">Semantic Web &amp; Knowledge Engineering</div>
+                    <div className="see-also-cat-title">Engineering, Software Architecture &amp; Technology</div>
+                    <ul className="vector-bullet-list">
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></b> – Strongly typed, open-source programming language building on JavaScript
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></b> – Self-directed learning and autodidactic software engineering practice
+                      </li>
+                      <li>
+                        <b><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></b> – Bespoke software engineering and client portals venture
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank" rel="noopener noreferrer" className="wiki-link">ETL Pipelines</a></b> – Automated data extraction, transformation, and batch loading
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* COLUMN 2: SEMANTIC WEB, REGIONAL INFRASTRUCTURE & ACADEMIA */}
+                  <div className="see-also-col">
+                    <div className="see-also-cat-title">Open Data, Semantic Web &amp; Regional Context</div>
                     <ul className="vector-bullet-list">
                       <li>
                         <b><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></b> – Free, open multilingual knowledge base operated by Wikimedia Foundation
@@ -474,28 +526,10 @@ export const BiographyArticle: React.FC = () => {
                         <b><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></b> – Query language and protocol for RDF graph databases
                       </li>
                       <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank" rel="noopener noreferrer" className="wiki-link">ETL Pipelines</a></b> – Automated data extraction, transformation, and batch loading
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="see-also-col">
-                    <div className="see-also-cat-title">Engineering, Academia &amp; Region</div>
-                    <ul className="vector-bullet-list">
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></b> – Strongly typed programming language building on JavaScript
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></b> – Self-directed learning and autodidactic software engineering practice
-                      </li>
-                      <li>
                         <b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> – Public state university in West Bengal, India
                       </li>
                       <li>
                         <b><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></b> – Historic municipality and terracotta heritage center in West Bengal
-                      </li>
-                      <li>
-                        <b><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></b> – Bespoke software engineering and client portals venture
                       </li>
                     </ul>
                   </div>
@@ -964,6 +998,94 @@ export const BiographyArticle: React.FC = () => {
 
         .wikitable tr:nth-child(even) td {
           background: #f8f9fa;
+        }
+
+        /* AUTONOMOUS BOT CONTRIBUTION & REGISTRY BOX */
+        .wiki-contribution-box {
+          background: #ffffff;
+          border: 1px solid #a2a9b1;
+          border-left: 4px solid #2e7d32;
+          border-radius: 2px;
+          margin: 16px 0 20px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+          overflow: hidden;
+        }
+
+        .wiki-contribution-header {
+          background: #f4fbf5;
+          padding: 10px 14px;
+          border-bottom: 1px solid #d0e7d2;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .wiki-contribution-title {
+          font-weight: 700;
+          font-size: 13.5px;
+          color: #1b5e20;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .wiki-contribution-badge {
+          font-size: 11px;
+          background: #e8f5e9;
+          color: #2e7d32;
+          border: 1px solid #a5d6a7;
+          border-radius: 12px;
+          padding: 2px 8px;
+          font-weight: 600;
+          letter-spacing: 0.2px;
+        }
+
+        .wiki-contribution-body {
+          padding: 14px 16px;
+        }
+
+        .wiki-metric-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          gap: 14px;
+          margin-bottom: 12px;
+        }
+
+        .wiki-metric-item {
+          background: #f8f9fa;
+          border: 1px solid #eaecf0;
+          border-radius: 2px;
+          padding: 10px 12px;
+        }
+
+        .wiki-metric-label {
+          font-size: 11px;
+          color: #54595d;
+          text-transform: uppercase;
+          letter-spacing: 0.4px;
+          font-weight: 600;
+          margin-bottom: 4px;
+        }
+
+        .wiki-metric-val {
+          font-size: 15px;
+          font-weight: 700;
+          color: #202122;
+          font-family: inherit;
+        }
+
+        .wiki-metric-sub {
+          font-size: 11.5px;
+          font-weight: 400;
+          color: #54595d;
+        }
+
+        .wiki-contribution-scope {
+          font-size: 12.5px;
+          line-height: 1.5;
+          color: #333940;
+          padding-top: 10px;
+          border-top: 1px solid #f0f2f5;
         }
 
         /* SEE ALSO SECTION ENHANCEMENTS */
