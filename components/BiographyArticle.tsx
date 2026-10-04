@@ -1056,6 +1056,41 @@ export const BiographyArticle: React.FC = () => {
           color: #121212;
         }
 
+        /* DARK THEME TEXT & REFERENCES CONTRAST FIX */
+        .vector-theme-dark .references,
+        .vector-theme-dark .references li,
+        .vector-theme-dark .reference-text {
+          color: #d1d5db !important;
+        }
+        .vector-theme-dark .mw-cite-backlink a {
+          color: #8ab4f8 !important;
+        }
+        .vector-theme-dark .vector-bullet-list,
+        .vector-theme-dark .vector-bullet-list li {
+          color: #d1d5db !important;
+        }
+        .vector-theme-dark .mw-headline-number {
+          color: #9aa0a6 !important;
+        }
+        .vector-theme-dark i,
+        .vector-theme-dark em {
+          color: #e5e7eb !important;
+        }
+        .vector-theme-dark b,
+        .vector-theme-dark strong {
+          color: #ffffff !important;
+        }
+        .vector-theme-dark .wiki-contribution-scope {
+          color: #c0c7d0 !important;
+          border-top-color: #2b452f !important;
+        }
+        .vector-theme-dark .vector-footer-text p {
+          color: #9aa0a6 !important;
+        }
+        .vector-theme-dark .vector-footer-hr {
+          border-color: #333333 !important;
+        }
+
         /* TEXT SIZES */
         .wiki-text-small {
           font-size: 12.5px;
