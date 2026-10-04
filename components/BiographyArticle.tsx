@@ -47,6 +47,7 @@ const TOC_SECTIONS: TocItem[] = [
   { id: "personal-life", label: "Personal life", level: 1, num: "7" },
   { id: "see-also", label: "See also", level: 1, num: "8" },
   { id: "references", label: "References", level: 1, num: "9" },
+  { id: "external-links", label: "External links", level: 1, num: "10" },
 ];
 
 export const BiographyArticle: React.FC = () => {
@@ -59,7 +60,6 @@ export const BiographyArticle: React.FC = () => {
   });
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
   const [pageTheme, setPageTheme] = useState<"light" | "dark">("light");
-  const [contentWidth, setContentWidth] = useState<"standard" | "wide">("standard");
   const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
 
   useEffect(() => {
@@ -82,7 +82,7 @@ export const BiographyArticle: React.FC = () => {
     };
 
     fetchWikidataEdits();
-    const interval = setInterval(fetchWikidataEdits, 15000); // Polling real API every 15s
+    const interval = setInterval(fetchWikidataEdits, 15000);
     return () => clearInterval(interval);
   }, []);
 
@@ -94,7 +94,7 @@ export const BiographyArticle: React.FC = () => {
             const currentId = entry.target.id;
             setActiveSection(currentId);
 
-            // Auto-expand parent if an active subsection is in view
+            // Auto-expand parent section if child is active
             TOC_SECTIONS.forEach((section) => {
               if (section.children?.some((child) => child.id === currentId)) {
                 setExpandedSections((prev) => ({ ...prev, [section.id]: true }));
@@ -137,192 +137,196 @@ export const BiographyArticle: React.FC = () => {
 
   const fontSizeClass =
     fontSize === "small" ? "wiki-text-small" : fontSize === "large" ? "wiki-text-large" : "wiki-text-standard";
-
   const themeClass = pageTheme === "dark" ? "vector-theme-dark" : "vector-theme-light";
-  const widthClass = contentWidth === "wide" ? "vector-width-wide" : "vector-width-standard";
 
   return (
     <div className={`vector-2022-canvas ${themeClass}`}>
-      {/* 3-COLUMN MODERN VECTOR 2022 ARCHITECTURE */}
-      <div className={`vector-main-layout ${widthClass}`}>
-        {/* COLUMN 1: LEFT STICKY TABLE OF CONTENTS WITH COLLAPSIBLE ACCORDION */}
-        <aside className="vector-column-toc">
-          <div className="vector-toc-wrapper">
-            <div className="vector-toc-header">
-              <h2 className="vector-toc-title">Contents</h2>
-              <button
-                onClick={() => setTocOpen(!tocOpen)}
-                className="vector-toc-toggle-btn"
-                aria-label={tocOpen ? "Hide table of contents" : "Show table of contents"}
-              >
-                {tocOpen ? "hide" : "show"}
-              </button>
-            </div>
-
-            {tocOpen && (
-              <nav className="vector-toc-nav" aria-label="Table of contents">
-                <ul className="vector-toc-list">
-                  {TOC_SECTIONS.map((section) => {
-                    const isActive = activeSection === section.id;
-                    const hasChildren = Boolean(section.children && section.children.length > 0);
-                    const isExpanded = Boolean(expandedSections[section.id]);
-                    const isChildActive = section.children?.some((c) => c.id === activeSection);
-
-                    return (
-                      <li
-                        key={section.id}
-                        className={`vector-toc-item vector-toc-level-1 ${
-                          isActive || isChildActive ? "vector-toc-item-active" : ""
-                        }`}
-                      >
-                        <div className="vector-toc-row">
-                          <button
-                            onClick={() => scrollTo(section.id)}
-                            className="vector-toc-link"
-                          >
-                            {section.num && <span className="vector-toc-num">{section.num}</span>}
-                            <span className="vector-toc-text">{section.label}</span>
-                          </button>
-
-                          {hasChildren && (
-                            <button
-                              onClick={(e) => toggleSectionExpand(section.id, e)}
-                              className="vector-toc-collapse-btn"
-                              title={isExpanded ? "Collapse section" : "Expand section"}
-                              aria-label={isExpanded ? "Collapse section" : "Expand section"}
-                            >
-                              <span className={`vector-toc-arrow ${isExpanded ? "vector-toc-arrow-down" : "vector-toc-arrow-right"}`}>
-                                ▾
-                              </span>
-                            </button>
-                          )}
-                        </div>
-
-                        {hasChildren && isExpanded && (
-                          <ul className="vector-toc-sublist">
-                            {section.children!.map((sub) => {
-                              const isSubActive = activeSection === sub.id;
-                              return (
-                                <li
-                                  key={sub.id}
-                                  className={`vector-toc-item vector-toc-level-2 ${
-                                    isSubActive ? "vector-toc-item-active" : ""
-                                  }`}
-                                >
-                                  <button
-                                    onClick={() => scrollTo(sub.id)}
-                                    className="vector-toc-link"
-                                  >
-                                    <span className="vector-toc-num">{sub.num}</span>
-                                    <span className="vector-toc-text">{sub.label}</span>
-                                  </button>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-            )}
+      {/* TOP VECTOR 2022 GLOBAL UTILITY HEADER */}
+      <header className="vector-global-header">
+        <div className="vector-global-header-inner">
+          <div className="flex items-center gap-3">
+            <a href="/" className="vector-site-brand">
+              <span className="font-bold">BIJOY LOHAR</span>
+              <span className="text-xs text-[#54595d] font-normal hidden sm:inline">| Archival Registry</span>
+            </a>
           </div>
-        </aside>
 
-        {/* COLUMN 2 & 3: MAIN ARTICLE AREA + FLOATING RIGHT INFOBOX */}
-        <main className={`vector-column-article ${fontSizeClass}`} id="content">
-          <div className="vector-article-header">
-            <h1 className="firstHeading mw-first-heading" id="article-top">
-              Bijoy Lohar
-            </h1>
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* APPEARANCE MENU DROPDOWN */}
+            <div className="relative">
+              <button
+                onClick={() => setShowAppearanceMenu(!showAppearanceMenu)}
+                className="vector-header-btn flex items-center gap-1.5"
+                aria-label="Appearance settings"
+              >
+                <span>⚙ Appearance</span>
+              </button>
 
-            <div className="vector-article-tools flex items-center gap-3">
-              {/* APPEARANCE CONTROLS TOGGLE */}
-              <div className="relative">
-                <button
-                  onClick={() => setShowAppearanceMenu(!showAppearanceMenu)}
-                  className="vector-appearance-btn flex items-center gap-1.5 text-xs text-[#3366cc] hover:text-[#447ff5] font-sans font-medium px-2 py-1 rounded hover:bg-black/5"
-                  title="Page appearance settings (text size, width, theme)"
-                >
-                  <span>⚙ Appearance</span>
-                </button>
-
-                {showAppearanceMenu && (
-                  <div className="vector-appearance-dropdown">
-                    <div className="vector-appearance-group">
-                      <div className="vector-appearance-label">Text Size</div>
-                      <div className="vector-appearance-options">
-                        <button
-                          onClick={() => setFontSize("small")}
-                          className={`vector-opt-btn ${fontSize === "small" ? "active" : ""}`}
-                        >
-                          Small
-                        </button>
-                        <button
-                          onClick={() => setFontSize("standard")}
-                          className={`vector-opt-btn ${fontSize === "standard" ? "active" : ""}`}
-                        >
-                          Standard
-                        </button>
-                        <button
-                          onClick={() => setFontSize("large")}
-                          className={`vector-opt-btn ${fontSize === "large" ? "active" : ""}`}
-                        >
-                          Large
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="vector-appearance-group">
-                      <div className="vector-appearance-label">Width</div>
-                      <div className="vector-appearance-options">
-                        <button
-                          onClick={() => setContentWidth("standard")}
-                          className={`vector-opt-btn ${contentWidth === "standard" ? "active" : ""}`}
-                        >
-                          Standard
-                        </button>
-                        <button
-                          onClick={() => setContentWidth("wide")}
-                          className={`vector-opt-btn ${contentWidth === "wide" ? "active" : ""}`}
-                        >
-                          Wide
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="vector-appearance-group">
-                      <div className="vector-appearance-label">Color Theme</div>
-                      <div className="vector-appearance-options">
-                        <button
-                          onClick={() => setPageTheme("light")}
-                          className={`vector-opt-btn ${pageTheme === "light" ? "active" : ""}`}
-                        >
-                          Light
-                        </button>
-                        <button
-                          onClick={() => setPageTheme("dark")}
-                          className={`vector-opt-btn ${pageTheme === "dark" ? "active" : ""}`}
-                        >
-                          Dark
-                        </button>
-                      </div>
+              {showAppearanceMenu && (
+                <div className="vector-appearance-dropdown">
+                  <div className="vector-appearance-group">
+                    <div className="vector-appearance-label">Text Size</div>
+                    <div className="vector-appearance-options">
+                      <button
+                        onClick={() => setFontSize("small")}
+                        className={`vector-opt-btn ${fontSize === "small" ? "active" : ""}`}
+                      >
+                        Small
+                      </button>
+                      <button
+                        onClick={() => setFontSize("standard")}
+                        className={`vector-opt-btn ${fontSize === "standard" ? "active" : ""}`}
+                      >
+                        Standard
+                      </button>
+                      <button
+                        onClick={() => setFontSize("large")}
+                        className={`vector-opt-btn ${fontSize === "large" ? "active" : ""}`}
+                      >
+                        Large
+                      </button>
                     </div>
                   </div>
-                )}
-              </div>
 
-              <div className="vector-article-lang-bar">
-                <a href="/" className="vector-back-home-link">
-                  ← Back to Portfolio
-                </a>
-              </div>
+                  <div className="vector-appearance-group">
+                    <div className="vector-appearance-label">Color Theme</div>
+                    <div className="vector-appearance-options">
+                      <button
+                        onClick={() => setPageTheme("light")}
+                        className={`vector-opt-btn ${pageTheme === "light" ? "active" : ""}`}
+                      >
+                        Light
+                      </button>
+                      <button
+                        onClick={() => setPageTheme("dark")}
+                        className={`vector-opt-btn ${pageTheme === "dark" ? "active" : ""}`}
+                      >
+                        Dark
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
+
+            {/* THEME FAST TOGGLE */}
+            <button
+              onClick={() => setPageTheme(pageTheme === "light" ? "dark" : "light")}
+              className="vector-header-btn"
+              title="Toggle Dark/Light theme"
+            >
+              {pageTheme === "light" ? "🌙 Dark" : "☀️ Light"}
+            </button>
+
+            {/* BACK TO MAIN PORTFOLIO */}
+            <a href="/" className="vector-header-btn vector-header-btn-primary">
+              ← Return to Portfolio
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* 2-COLUMN STRICT VIEWPORT LAYOUT */}
+      <div className="vector-main-layout">
+        
+        {/* =========================================================
+            COLUMN 1: HARD-LOCKED FIXED TABLE OF CONTENTS (LEFT)
+            ========================================================= */}
+        <aside className="vector-column-toc">
+          <div className="vector-toc-header">
+            <h2 className="vector-toc-title">Contents</h2>
+            <button
+              onClick={() => setTocOpen(!tocOpen)}
+              className="vector-toc-toggle-btn"
+              aria-label={tocOpen ? "Hide table of contents" : "Show table of contents"}
+            >
+              {tocOpen ? "hide" : "show"}
+            </button>
           </div>
 
-          <div className="text-xs text-[#54595d] font-sans tracking-wide mb-4">
-            Archival Documentation &amp; Biography
+          {tocOpen && (
+            <nav className="vector-toc-nav" aria-label="Table of contents">
+              <ul className="vector-toc-list">
+                {TOC_SECTIONS.map((section) => {
+                  const isActive = activeSection === section.id;
+                  const hasChildren = Boolean(section.children && section.children.length > 0);
+                  const isExpanded = Boolean(expandedSections[section.id]);
+                  const isChildActive = section.children?.some((c) => c.id === activeSection);
+
+                  return (
+                    <li
+                      key={section.id}
+                      className={`vector-toc-item vector-toc-level-1 ${
+                        isActive || isChildActive ? "vector-toc-item-active" : ""
+                      }`}
+                    >
+                      <div className="vector-toc-row">
+                        <button
+                          onClick={() => scrollTo(section.id)}
+                          className="vector-toc-link"
+                        >
+                          {section.num && <span className="vector-toc-num">{section.num}</span>}
+                          <span className="vector-toc-text">{section.label}</span>
+                        </button>
+
+                        {hasChildren && (
+                          <button
+                            onClick={(e) => toggleSectionExpand(section.id, e)}
+                            className="vector-toc-collapse-btn"
+                            title={isExpanded ? "Collapse section" : "Expand section"}
+                            aria-label={isExpanded ? "Collapse section" : "Expand section"}
+                          >
+                            <span className={`vector-toc-arrow ${isExpanded ? "vector-toc-arrow-down" : "vector-toc-arrow-right"}`}>
+                              ▾
+                            </span>
+                          </button>
+                        )}
+                      </div>
+
+                      {hasChildren && isExpanded && (
+                        <ul className="vector-toc-sublist">
+                          {section.children!.map((sub) => {
+                            const isSubActive = activeSection === sub.id;
+                            return (
+                              <li
+                                key={sub.id}
+                                className={`vector-toc-item vector-toc-level-2 ${
+                                  isSubActive ? "vector-toc-item-active" : ""
+                                }`}
+                              >
+                                <button
+                                  onClick={() => scrollTo(sub.id)}
+                                  className="vector-toc-link"
+                                >
+                                  <span className="vector-toc-num">{sub.num}</span>
+                                  <span className="vector-toc-text">{sub.label}</span>
+                                </button>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          )}
+        </aside>
+
+        {/* =========================================================
+            COLUMN 2: FULL SCROLLING MAIN BIOGRAPHY STREAM (RIGHT)
+            ========================================================= */}
+        <main className={`vector-column-article ${fontSizeClass}`} id="content">
+          <div className="vector-article-header">
+            <div>
+              <h1 className="firstHeading mw-first-heading" id="article-top">
+                Bijoy Lohar
+              </h1>
+              <div className="text-xs text-[#54595d] font-sans tracking-wide mt-1">
+                From Wikipedia, the free encyclopedia &bull; Archival Biographical Documentation
+              </div>
+            </div>
           </div>
 
           <div className="mw-body-content">
@@ -368,24 +372,6 @@ export const BiographyArticle: React.FC = () => {
                   <td className="infobox-data category">Indian</td>
                 </tr>
                 <tr>
-                  <th scope="row" className="infobox-label">Alma mater</th>
-                  <td className="infobox-data">
-                    <ul className="infobox-list">
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> <span className="infobox-subtext">(B.Voc in Automobile, 2nd Year)</span>
-                      </li>
-                      <li>
-                        <b>Radhanagar High School</b>
-                        <div className="infobox-subtext">Higher Secondary (10+2)</div>
-                      </li>
-                      <li>
-                        <b>Bishnupur High School</b>
-                        <div className="infobox-subtext">Madhyamik (10th Secondary)</div>
-                      </li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
                   <th scope="row" className="infobox-label">Occupations</th>
                   <td className="infobox-data role">
                     <ul className="infobox-list">
@@ -393,138 +379,112 @@ export const BiographyArticle: React.FC = () => {
                       <li>Full-Stack Developer</li>
                       <li>Systems Architect</li>
                       <li>Author &amp; Technical Writer</li>
-                      <li>Semantic Data Architect</li>
-                      <li>Tech Entrepreneur</li>
-                      <li>Video Creator &amp; Digital Media Specialist <span className="infobox-subtext">(<a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb listed</a>)</span></li>
                     </ul>
                   </td>
                 </tr>
                 <tr>
                   <th scope="row" className="infobox-label">Years active</th>
-                  <td className="infobox-data">2023–present</td>
+                  <td className="infobox-data">2022–present</td>
                 </tr>
                 <tr>
-                  <th scope="row" className="infobox-label">Title</th>
+                  <th scope="row" className="infobox-label">Organization</th>
                   <td className="infobox-data">Founder &amp; Lead, <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></td>
+                </tr>
+                <tr>
+                  <th scope="row" className="infobox-label">Alma mater</th>
+                  <td className="infobox-data">
+                    <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>
+                  </td>
                 </tr>
                 <tr>
                   <th scope="row" className="infobox-label">Known for</th>
                   <td className="infobox-data">
-                    <ul className="infobox-list">
-                      <li>Full-stack software engineering</li>
-                      <li>Systems architecture &amp; distributed web platforms</li>
-                      <li>Autonomous semantic data pipelines (Wikidata)</li>
-                      <li>Digital literature &amp; systems writing</li>
-                      <li>Digital video production &amp; post-engineering</li>
-                    </ul>
+                    Full-stack software engineering, systems architecture, autonomous semantic data pipelines (Wikidata), digital literature
                   </td>
                 </tr>
                 <tr>
                   <th scope="row" className="infobox-label">Parent(s)</th>
                   <td className="infobox-data">
-                    Binod Lohar <span className="infobox-subtext">(father)</span><br />
-                    Soma Lohar <span className="infobox-subtext">(mother)</span>
+                    Binod Lohar (father)<br />
+                    Soma Lohar (mother)
                   </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="infobox-label">Relatives</th>
+                  <td className="infobox-data">Dipti Lohar (sister)</td>
                 </tr>
                 <tr>
                   <th scope="row" className="infobox-label">Website</th>
                   <td className="infobox-data">
-                    <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link url">bijoylohar.in</a>
+                    <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">bijoylohar.in</a><br />
+                    <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>
                   </td>
                 </tr>
               </tbody>
             </table>
 
-            {/* LEAD SECTION */}
-            <p>
+            {/* LEAD PARAGRAPH */}
+            <p className="lead-paragraph">
               <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar has earned recognition for full-stack software engineering, resilient distributed systems architecture, literature, and building high-throughput autonomous semantic data ingestion pipelines that bridge public infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
             </p>
 
-            <p>
-              Lohar first engaged with computer systems through competitive tactical gaming between 2022 and 2023, where his analysis of network tick rates, latency, and client-server synchronization stimulated an autodidactic immersion into programming languages including C++, Java, Python, JavaScript, and TypeScript.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His early technical contributions included background automation bots that delivered measured operational efficiencies of over 40% across digital workflows, subsequently evolving into broad-spectrum semantic bot frameworks capable of batch-reconciling thousands of civic and geographic entities daily.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
-            </p>
-
-            <p>
-              Alongside software engineering and the management of Shadow Arrow, Lohar is an active author of analytical and technical literature, as well as a video creator and post-production specialist with industry credits listed on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> He concurrently pursues an undergraduate Bachelor of Vocation (B.Voc) degree in Automobile Systems at <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>.
-            </p>
-
-            {/* SECTION 1 */}
+            {/* SECTION 1: EARLY LIFE */}
             <section id="early-life" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">1</span> Early life and family background
               </h2>
               <p>
-                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, an ancient municipality in the Bankura district of West Bengal renowned for its historic terracotta architecture and cultural heritage.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He was raised in a close-knit working-class family by his parents, Binod Lohar and Soma Lohar.
+                Bijoy Lohar was born on 12 October 2005 in Bishnupur, a historically prominent terracotta temple town in the Bankura district of West Bengal, India. He was raised in a culturally grounded family environment by his parents, Binod Lohar and Soma Lohar. He grew up alongside his sister, Dipti Lohar.
               </p>
               <p>
-                During his adolescent years in Bishnupur, Lohar exhibited an inquisitive orientation toward electronic circuits, consumer computing hardware, and literature. Despite geographic and infrastructural constraints relative to major metropolitan technology hubs, he leveraged publicly available documentation, open-source technical forums, and hardware experimentation to cultivate a working intuition for electronic and computational systems.
+                From an early age, Lohar demonstrated an inquisitive approach to computation, hardware architecture, and visual arts, frequently dismantling consumer electronic components and analyzing interactive computational environments.
               </p>
             </section>
 
-            {/* SECTION 2 */}
+            {/* SECTION 2: EDUCATION */}
             <section id="education" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">2</span> Education and vocational background
               </h2>
               <p>
-                Lohar received his primary and secondary schooling in the Bankura district. He attended <b>Bishnupur High School</b> for his Madhyamik (10th Secondary) examinations under the West Bengal Board of Secondary Education (WBBSE), where he developed strong foundations in analytical sciences and mathematics.
+                Lohar pursued higher academic and vocational education under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
               </p>
               <p>
-                He subsequently completed his Higher Secondary education (10+2) at <b>Radhanagar High School</b> under the West Bengal Council of Higher Secondary Education (WBCHSE). During this period, his interest in computer architecture and programming intensified, prompting him to dedicate his extracurricular hours to studying algorithm fundamentals and systems scripting.
-              </p>
-              <p>
-                Following his higher secondary schooling, Lohar enrolled at <b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> in West Bengal to pursue an undergraduate Bachelor of Vocation (B.Voc) degree in Automobile Systems, concurrently advancing his self-taught software engineering practice. The curriculum’s emphasis on applied mechanical thermodynamics, structural mechanics, and automation systems runs parallel to his autodidactic software engineering practice, instilling an interdisciplinary perspective that combines physical engineering rigor with digital software architecture.
+                His academic pursuits across the university circle coincided with an intense regimen of independent autodidactic software engineering, systems design study, and open data exploration.
               </p>
             </section>
 
-            {/* SECTION 3 */}
+            {/* SECTION 3: COMPETITIVE GAMING */}
             <section id="gaming" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">3</span> Competitive gaming and early computing (2022–2023)
               </h2>
               <p>
-                Between 2022 and 2023, Lohar participated in competitive tactical first-person esports titles, prominently <i><a href="https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive" target="_blank" rel="noopener noreferrer" className="wiki-link">Counter-Strike: Global Offensive</a></i> (CS:GO). Rather than viewing esports solely as recreation, Lohar approached the medium from an analytical systems perspective.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
-              </p>
-              <p>
-                He began investigating the engineering challenges governing multiplayer simulations:
-              </p>
-              <ul className="vector-bullet-list">
-                <li><b>Tick-Rate Synchronisation:</b> Examining client-side interpolation, sub-tick packet delivery, and deterministic server reconciliation.</li>
-                <li><b>Network Latency Optimization:</b> Investigating packet loss, jitter buffers, and routing optimizations across Indian ISP peering topologies.</li>
-                <li><b>Frame Rendering Pipelines:</b> Analyzing GPU draw calls, CPU bottlenecks, and memory overhead in real-time graphic engines.</li>
-              </ul>
-              <p>
-                This deep technical scrutiny served as the definitive catalyst that transitioned Lohar from a software consumer into an autodidactic systems engineer.
+                Between 2022 and 2023, prior to focusing on commercial enterprise software systems, Lohar was active in regional competitive esports and tactical gaming communities. Competing under aliases including <i>Wb Arrow</i> and <i>Arrow Dada</i>, he studied network tick synchronization, input latency mitigation, and graphics pipeline optimizations.
               </p>
             </section>
 
-            {/* SECTION 4 */}
+            {/* SECTION 4: SOFTWARE ENGINEERING */}
             <section id="software-engineering" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">4</span> Self-taught software engineering &amp; technical career
               </h2>
               <p>
-                Without enrollment in traditional university computer science degree tracks, Lohar devised an intensive, project-driven autodidactic curriculum centered on building real-world production systems.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+                Lohar’s technical career is defined by self-taught engineering mastery, spanning full-stack web development, cloud automation, distributed APIs, and semantic data engineering.
               </p>
 
               <h3 id="autodidactic-journey" className="mw-headline-h3">
                 <span className="mw-headline-number">4.1</span> Autodidactic journey and core programming
               </h3>
               <p>
-                Lohar’s programming journey commenced in late 2022 with low-level systems programming in <b>C++</b>, which instilled rigorous habits regarding memory management, pointer arithmetic, and algorithmic time complexity. He subsequently adopted <b>Java</b> to master object-oriented principles, design patterns, and JVM runtime internals, before integrating <b>Python</b> for rapid prototyping, data parsing, and automation scripting.
-              </p>
-              <p>
-                Recognizing the ubiquity of modern web platforms, Lohar transitioned toward full-stack web engineering, mastering modern ECMAScript standards, HTML5 semantic layout, CSS3 architecture, and <b>TypeScript</b>. TypeScript became his primary language for production systems due to its robust type inference, contract enforcement, and maintainability across large distributed codebases.
+                Without formal institutional computer science training, Lohar followed a rigorous autodidactic path, studying official documentation, open-source codebases, and systems specifications. His core computational stack includes TypeScript, Python, Node.js, React, Next.js, and relational and graph database architectures.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
 
               <h3 id="automation-scripting" className="mw-headline-h3">
                 <span className="mw-headline-number">4.2</span> Automation bots and utility scripting
               </h3>
               <p>
-                Between 2023 and 2024, Lohar developed a series of modular automation bots and background orchestration scripts engineered in Python and Node.js. These utilities addressed operational bottlenecks in data extraction, repetitive clerical verification, inventory monitoring, and API synchronization.
-              </p>
-              <p>
-                Deploying event-driven scheduling and fault-tolerant network retries, these tools successfully reduced manual task overhead by more than <b>40 percent</b> in live testing environments, demonstrating his capability to deliver tangible business efficiency through custom automation.
+                Between 2023 and 2024, Lohar developed specialized automation daemons, custom web scrapers, and rate-limited API connectors designed to parse public gazettes and unstructured datasets into structured JSON-LD schemas.
               </p>
 
               <h3 id="shadow-arrow" className="mw-headline-h3">
@@ -533,15 +493,12 @@ export const BiographyArticle: React.FC = () => {
               <p>
                 In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), a software development firm providing end-to-end full-stack web solutions, custom client portals, and resilient e-commerce infrastructures.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup>
               </p>
-              <p>
-                As founder and lead systems architect, Lohar designs architectures prioritizing sub-second initial page loads, edge rendering via Next.js and Vercel, serverless microservice endpoints, and relational database schema integrity. Shadow Arrow serves small-to-medium enterprises and digital creators seeking high-performance web applications tailored to specific operational requirements.
-              </p>
 
               <h3 id="wikidata-pipelines" className="mw-headline-h3">
                 <span className="mw-headline-number">4.4</span> Automated semantic pipelines and Wikidata ingestion bots
               </h3>
               <p>
-                To address structural deficits and under-representation in regional and national knowledge graphs across the open web, Lohar engineered a comprehensive, multi-domain autonomous backend ingestion bot pipeline implemented in Python and TypeScript. Moving beyond single-domain constraints, the engine bridges public open datasets, official gazettes, and decentralized administrative directories with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+                To address structural deficits in regional knowledge graphs, Lohar engineered an autonomous backend ingestion bot implemented in Python and TypeScript, bridging civic datasets into the global <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
               </p>
 
               {/* DEDICATED ARCHIVAL CONTRIBUTION & INGESTION METRICS BOX */}
@@ -597,118 +554,89 @@ export const BiographyArticle: React.FC = () => {
               </div>
 
               <p>
-                The pipeline operates continuously across a wide spectrum of civic, geographic, and institutional domains across India:
-              </p>
-              <ul className="vector-bullet-list">
-                <li><b>Civic &amp; Judicial Bodies:</b> Automated parsing, structural mapping, and property binding for High Courts, District Sessions Courts, state Legislative Assemblies, and urban Municipal Corporations.</li>
-                <li><b>Public Health Infrastructure:</b> Systematic entity modeling for government medical colleges, tertiary hospitals, district healthcare facilities, and regional community health centers.</li>
-                <li><b>Geographic &amp; Administrative Entities:</b> Dynamic geospatial ingestion of river networks, hydrological reservoirs, urban municipal territories, administrative tehsils, and district administrative subdivisions.</li>
-                <li><b>Academic &amp; Research Networks:</b> Nationwide cataloging of central and state universities, autonomous degree colleges, polytechnic institutions, and secondary educational boards.</li>
-              </ul>
-              <p>
-                The ingestion bot executes high-throughput, rate-limited batch updates, automatically structuring, reconciling, and committing between <b>4,000 and 5,000+ verified entity records per day</b>, with burst operational capacities exceeding <b>10,000 structured entries</b> during scheduled synchronization cycles. The system dynamically maps core Wikidata property constraints—including <code>P31</code> (instance of), <code>P17</code> (country), <code>P625</code> (coordinate location), and <code>P131</code> (located in the administrative territorial entity)—enforcing strict RDF triple formatting.
-              </p>
-              <p>
-                To safeguard the Wikimedia linked data cloud from corrupt or duplicate assertions, Lohar incorporated advanced algorithmic validation layers:
-              </p>
-              <ul className="vector-bullet-list">
-                <li><b>Spatial Geocoding &amp; Coordinate Normalization:</b> Trigonometric boundary parsing, EPSG transformations, and bounding-box validation against Indian administrative polygons.</li>
-                <li><b>Entity Deduplication &amp; QID Reconciliation:</b> High-confidence fuzzy string matching, alias cross-referencing, and SPARQL query verification against existing Wikibase QIDs to prevent entity replication.</li>
-                <li><b>Schema Constraint Enforcement:</b> Type-safe validation verifying required claims, inverse property logic, and standardized external identifier links.</li>
-                <li><b>Adaptive Rate-Limiting &amp; State Persistence:</b> Wikimedia-compliant bot protocols utilizing exponential backoff retry routines and persistent transaction logs for deterministic error recovery.</li>
-              </ul>
-              <p>
-                Through this continuous, multi-domain automation infrastructure, Lohar has facilitated the cataloging of tens of thousands of nationwide civic and geographical entities, establishing him as an active open-knowledge automation engineer and semantic data architect.
+                The pipeline operates continuously across India: High Courts, District Sessions Courts, state Legislative Assemblies, urban Municipal Corporations, public health infrastructure, river networks, and nationwide academic colleges.
               </p>
             </section>
 
-            {/* SECTION 5 */}
+            {/* SECTION 5: CREATIVE PURSUITS */}
             <section id="creative-pursuits" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">5</span> Creative pursuits, writing, and media
               </h2>
               <p>
-                Lohar’s professional identity is characterized by an intersection of engineering precision and multimedia arts.
+                Lohar’s professional identity is characterized by an intersection of software engineering precision and multimedia arts.
               </p>
 
               <h3 id="authorship" className="mw-headline-h3">
                 <span className="mw-headline-number">5.1</span> Authorship and technical writing
               </h3>
               <p>
-                As an author and essayist, Lohar has written extensively on software autodidacticism, regional tech entrepreneurship, and systems design principles. His technical writings aim to demystify complex computational concepts for aspiring regional developers, advocating for hands-on project creation as the primary mechanism for knowledge retention.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                As an author, Lohar writes on software autodidacticism, regional tech entrepreneurship, and systems design principles, advocating project creation as the primary vehicle for learning.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
 
               <h3 id="video-media" className="mw-headline-h3">
                 <span className="mw-headline-number">5.2</span> Video creation, color science, and 3D animation
               </h3>
               <p>
-                In addition to software development, Lohar is an active video creator and digital media specialist with verified industry listings on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His creative post-production work encompasses:
+                Lohar is an active video creator and digital media specialist with verified industry listings on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His work encompasses node-based color grading in DaVinci Resolve and 3D environment rendering in Blender.
               </p>
-              <ul className="vector-bullet-list">
-                <li><b>Color Grading &amp; Color Science:</b> Advanced node-based color correction and cinematic look generation in <a href="https://en.wikipedia.org/wiki/DaVinci_Resolve" target="_blank" rel="noopener noreferrer" className="wiki-link">DaVinci Resolve</a>.</li>
-                <li><b>3D Computer Graphics:</b> Hard-surface modeling, lighting, and procedural materials in <a href="https://en.wikipedia.org/wiki/Blender_(software)" target="_blank" rel="noopener noreferrer" className="wiki-link">Blender</a>.</li>
-                <li><b>Sound Design &amp; Pacing:</b> Multi-track audio normalization, dynamic EQ mastering, and rhythm-synchronized editing.</li>
-              </ul>
             </section>
 
-            {/* SECTION 6 */}
+            {/* SECTION 6: TECHNICAL PHILOSOPHY */}
             <section id="philosophy-toolchain" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">6</span> Technical philosophy and toolchain
               </h2>
               <p>
-                Lohar advocates for a "systems-first, build-to-learn" philosophy. He asserts that sustainable software engineering requires a profound comprehension of execution cost, network overhead, and maintainability rather than superficial library dependency.
+                Lohar adheres to a pragmatic, systems-first engineering philosophy emphasizing type safety, low runtime overhead, rate-limited distributed synchronization, and deterministic state management.
               </p>
 
               <table className="wikitable">
                 <thead>
                   <tr>
-                    <th>Domain</th>
-                    <th>Primary Toolchain &amp; Technologies</th>
+                    <th>Domain / Architecture</th>
+                    <th>Primary Technologies</th>
+                    <th>Implementation Scope &amp; Protocols</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><b>Core Programming</b></td>
-                    <td>TypeScript, JavaScript, Python, C++, Java, SQL</td>
+                    <td><b>Full-Stack Web Systems</b></td>
+                    <td>TypeScript, React, Next.js, Tailwind CSS, Node.js</td>
+                    <td>Server-side rendering (SSR), edge functions, responsive user interfaces, and component modularity.</td>
                   </tr>
                   <tr>
-                    <td><b>System Automation &amp; Pipelines</b></td>
-                    <td>Autonomous civic data ingestion bots, Multi-entity ETL pipelines (Judicial, Healthcare, Geographic &amp; Academic), SPARQL / Wikibase API reconciliation, Batch schema validation</td>
+                    <td><b>Semantic Web &amp; Data Bots</b></td>
+                    <td>Wikidata API, SPARQL, Python, TypeScript ETL</td>
+                    <td>Automated entity parsing, RDF triple binding, bounding-box coordinate validation, and Wikibase deduplication.</td>
                   </tr>
                   <tr>
-                    <td><b>Data &amp; Semantic Protocols</b></td>
-                    <td>Wikidata Query Service (SPARQL), RDF / Wikibase APIs, JSON-LD Schema, PostgreSQL, Redis</td>
+                    <td><b>Database &amp; Storage</b></td>
+                    <td>PostgreSQL, Redis, Supabase, Cloudflare R2</td>
+                    <td>ACID relational integrity, in-memory caching queues, JSONB indexing, and transactional data reconciliation.</td>
                   </tr>
                   <tr>
-                    <td><b>Web &amp; Frontend</b></td>
-                    <td>Next.js, React, HTML5 Semantic, CSS3, Tailwind CSS</td>
-                  </tr>
-                  <tr>
-                    <td><b>Backend &amp; Cloud Infrastructure</b></td>
-                    <td>Node.js, REST APIs, Serverless Functions, Vercel, GitHub Actions CI/CD, Git, Linux</td>
-                  </tr>
-                  <tr>
-                    <td><b>Creative &amp; Post-Production</b></td>
-                    <td>DaVinci Resolve (Color Science &amp; NLE), Blender (3D Graphics)</td>
+                    <td><b>Digital Media &amp; VFX</b></td>
+                    <td>DaVinci Resolve, Blender, Adobe Premiere Pro</td>
+                    <td>Node-based color science, timeline proxy editing, and 3D procedural modeling.</td>
                   </tr>
                 </tbody>
               </table>
             </section>
 
-            {/* SECTION 7 */}
+            {/* SECTION 7: PERSONAL LIFE */}
             <section id="personal-life" className="vector-section">
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">7</span> Personal life
               </h2>
               <p>
-                Lohar maintains his primary operational and residential base in his native hometown of <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, Bankura district, while balancing academic commitments under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> across the southern West Bengal region. His daily workflow is characterized by a disciplined, minimalist engineering regimen centered on continuous software construction, rigorous systems documentation review, and iterative product deployment for Shadow Arrow. Operating from outside metropolitan technology corridors, he has consistently leveraged high-speed edge cloud networks and asynchronous workflows to build and deploy production software.
+                Lohar resides in his native hometown of <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, maintaining close cultural and regional ties with the historic terracotta heritage center. He balances his software development operations at Shadow Arrow with academic commitments across the <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> regional circle. He maintains a disciplined daily routine centered around software engineering, system architecture research, and technical documentation.
               </p>
               <p>
-                Outside of commercial systems architecture, Lohar maintains an enduring enthusiasm for competitive tactical first-person esports, particularly titles in the <i><a href="https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive" target="_blank" rel="noopener noreferrer" className="wiki-link">Counter-Strike</a></i> series, which originally stimulated his interest into networking architectures, client-server tick rates, and packet latency optimization.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> He is also actively invested in digital media culture, exploring cinema post-production workflows including node-based color science in <a href="https://en.wikipedia.org/wiki/DaVinci_Resolve" target="_blank" rel="noopener noreferrer" className="wiki-link">DaVinci Resolve</a>, 3D procedural modeling in <a href="https://en.wikipedia.org/wiki/Blender_(software)" target="_blank" rel="noopener noreferrer" className="wiki-link">Blender</a>, and emerging consumer workstation hardware architectures.
+                Outside of commercial development and semantic engineering, Lohar retains an active interest in competitive esports and digital video production. He continues to analyze game physics and network synchronization in interactive titles, while writing essays on the impact of technology in non-metropolitan India.
               </p>
               <p>
-                Lohar is an outspoken proponent of autodidacticism (self-taught education) and the open-source software movement. He frequently advocates for transparent, project-driven engineering methodologies over rigid credentialism, maintaining that verifiable codebase output and functional software utilities provide the truest measure of technical capability. He routinely distributes open-source utility scripts, automation modules, and web experiments publicly on GitHub (<a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">@loharbijoy2005-a11y</a>) and his official portal (<a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">bijoylohar.in</a>).<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup><sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+                Lohar remains an advocate for open-access technical education and regional self-taught engineering, frequently advising aspiring developers from semi-urban districts across eastern India on programming fundamentals and cloud infrastructure.
               </p>
             </section>
 
@@ -717,46 +645,27 @@ export const BiographyArticle: React.FC = () => {
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">8</span> See also
               </h2>
+              
               <div className="see-also-card">
                 <div className="see-also-grid">
-                  {/* COLUMN 1: PRIMARY ENGINEERING & TECHNOLOGY FIRST */}
                   <div className="see-also-col">
                     <div className="see-also-cat-title">Engineering, Software Architecture &amp; Technology</div>
                     <ul className="vector-bullet-list">
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></b> – Strongly typed, open-source programming language building on JavaScript
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></b> – Self-directed learning and autodidactic software engineering practice
-                      </li>
-                      <li>
-                        <b><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></b> – Bespoke software engineering and client portals venture
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank" rel="noopener noreferrer" className="wiki-link">ETL Pipelines</a></b> – Automated data extraction, transformation, and batch loading
-                      </li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></b> – Strongly typed programming language building scalable JavaScript applications</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></b> – Self-directed learning and independent software mastery</li>
+                      <li><b><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></b> – Bespoke software engineering and client portals venture</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank" rel="noopener noreferrer" className="wiki-link">Extract, transform, load (ETL)</a></b> – Data integration pipeline architecture</li>
                     </ul>
                   </div>
 
-                  {/* COLUMN 2: SEMANTIC WEB, REGIONAL INFRASTRUCTURE & ACADEMIA */}
                   <div className="see-also-col">
                     <div className="see-also-cat-title">Open Data, Semantic Web &amp; Regional Context</div>
                     <ul className="vector-bullet-list">
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></b> – Free, open multilingual knowledge base operated by Wikimedia Foundation
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></b> – Standards framework for linked open data defined by W3C
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></b> – Query language and protocol for RDF graph databases
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> – Public state university in West Bengal, India
-                      </li>
-                      <li>
-                        <b><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></b> – Historic municipality and terracotta heritage center in West Bengal
-                      </li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></b> – Free, open multilingual knowledge base operated by Wikimedia Foundation</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></b> – Standards framework for linked open data defined by W3C</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></b> – Query language and protocol for RDF graph databases</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> – Public state university in West Bengal, India</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></b> – Historic municipality in West Bengal</li>
                     </ul>
                   </div>
                 </div>
@@ -808,6 +717,36 @@ export const BiographyArticle: React.FC = () => {
               </ol>
             </section>
 
+            {/* SECTION 10: EXTERNAL LINKS */}
+            <section id="external-links" className="vector-section">
+              <h2 className="mw-headline-h2">
+                <span className="mw-headline-number">10</span> External links
+              </h2>
+              <ul className="vector-bullet-list">
+                <li>
+                  <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Official Portfolio &amp; Archival Records (bijoylohar.in)</a>
+                </li>
+                <li>
+                  <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Website (shadowarrow.in)</a>
+                </li>
+                <li>
+                  <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub</a>
+                </li>
+                <li>
+                  <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb</a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn</a>
+                </li>
+                <li>
+                  <a href="https://www.wikidata.org/wiki/User:SHADOWARROW_2026" target="_blank" rel="noopener noreferrer" className="wiki-link">SHADOWARROW 2026 on Wikidata</a>
+                </li>
+                <li>
+                  <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Profile (0009-0004-5643-7612)</a>
+                </li>
+              </ul>
+            </section>
+
             {/* CATEGORIES FOOTER */}
             <div className="catlinks noprint" id="catlinks">
               <div className="mw-normal-catlinks">
@@ -834,12 +773,8 @@ export const BiographyArticle: React.FC = () => {
         </main>
       </div>
 
-      {/* AUTHENTIC VECTOR 2022 LIGHT THEME STYLING */}
+      {/* AUTHENTIC VECTOR 2022 CSS STYLING */}
       <style>{`
-        /* ==========================================================
-           AUTHENTIC VECTOR 2022 WIKIPEDIA LIGHT & DARK AESTHETIC
-           ========================================================== */
-        
         .vector-2022-canvas {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Lato, Helvetica, Arial, sans-serif;
           font-size: 14px;
@@ -851,110 +786,126 @@ export const BiographyArticle: React.FC = () => {
           transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        /* DARK THEME SUPPORT */
+        /* DARK THEME */
         .vector-theme-dark {
-          background-color: #1a1a1a;
+          background-color: #121212;
           color: #e0e0e0;
         }
+        .vector-theme-dark .vector-global-header {
+          background-color: #1e1e1e;
+          border-bottom-color: #333333;
+        }
+        .vector-theme-dark .vector-site-brand {
+          color: #ffffff;
+        }
+        .vector-theme-dark .vector-header-btn {
+          background: #282828;
+          border-color: #444444;
+          color: #cccccc;
+        }
+        .vector-theme-dark .vector-header-btn:hover {
+          background: #333333;
+          color: #ffffff;
+        }
         .vector-theme-dark .vector-column-article {
-          background: #202124;
-          border-color: #3c4043;
-          color: #e8eaed;
+          background: #1e1e1e;
+          border-color: #333333;
+          color: #e0e0e0;
         }
         .vector-theme-dark .firstHeading {
-          color: #f1f3f4;
+          color: #ffffff;
         }
         .vector-theme-dark .mw-body-content p {
-          color: #dadce0;
+          color: #cccccc;
         }
         .vector-theme-dark .wiki-link {
           color: #8ab4f8;
         }
         .vector-theme-dark .vector-toc-title {
-          color: #f1f3f4;
+          color: #ffffff;
         }
         .vector-theme-dark .vector-toc-link {
           color: #8ab4f8;
         }
         .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
-          background: #303134;
+          background: #2a2a2a;
           color: #ffffff;
         }
         .vector-theme-dark .infobox {
-          background: #282a2d;
-          border-color: #3c4043;
+          background: #252525;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .infobox-above {
-          background: #303134;
-          color: #f1f3f4;
+          background: #2d2d2d;
+          color: #ffffff;
         }
         .vector-theme-dark .infobox-data {
-          background: #202124;
-          color: #e8eaed;
-          border-color: #3c4043;
+          background: #1e1e1e;
+          color: #cccccc;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .infobox-label {
-          background: #282a2d;
-          color: #bdc1c6;
-          border-color: #3c4043;
+          background: #252525;
+          color: #aaaaaa;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .wikitable {
-          background: #202124;
-          border-color: #3c4043;
+          background: #1e1e1e;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .wikitable th {
-          background: #303134;
-          color: #f1f3f4;
-          border-color: #3c4043;
+          background: #2a2a2a;
+          color: #ffffff;
+          border-color: #3a3a3a;
         }
         .vector-theme-dark .wikitable td {
-          border-color: #3c4043;
-          color: #e8eaed;
+          border-color: #3a3a3a;
+          color: #cccccc;
         }
         .vector-theme-dark .wiki-contribution-box {
-          background: #1e261f;
-          border-color: #2e4d30;
+          background: #19241b;
+          border-color: #2b452f;
         }
         .vector-theme-dark .wiki-contribution-header {
-          background: #172418;
-          border-color: #2e4d30;
+          background: #131f15;
+          border-color: #2b452f;
         }
         .vector-theme-dark .wiki-contribution-title {
           color: #81c784;
         }
         .vector-theme-dark .wiki-metric-item {
-          background: #232a24;
-          border-color: #384d3b;
+          background: #1e2a20;
+          border-color: #2f4534;
         }
         .vector-theme-dark .wiki-metric-val {
-          color: #f1f3f4;
+          color: #ffffff;
         }
         .vector-theme-dark .see-also-card {
-          background: #202124;
-          border-color: #3c4043;
+          background: #1e1e1e;
+          border-color: #333333;
         }
         .vector-theme-dark .catlinks {
-          background: #282a2d;
-          border-color: #3c4043;
-          color: #e8eaed;
+          background: #252525;
+          border-color: #3a3a3a;
+          color: #cccccc;
         }
         .vector-theme-dark .vector-appearance-dropdown {
-          background: #282a2d;
-          border-color: #3c4043;
-          color: #e8eaed;
+          background: #252525;
+          border-color: #3a3a3a;
+          color: #e0e0e0;
         }
         .vector-theme-dark .vector-opt-btn {
-          background: #202124;
-          border-color: #3c4043;
-          color: #bdc1c6;
+          background: #1e1e1e;
+          border-color: #3a3a3a;
+          color: #aaaaaa;
         }
         .vector-theme-dark .vector-opt-btn.active {
           background: #8ab4f8;
-          color: #202124;
+          color: #121212;
         }
 
-        /* TEXT SIZING CONTROLS */
+        /* TEXT SIZES */
         .wiki-text-small {
           font-size: 12.5px;
           line-height: 1.55;
@@ -968,36 +919,88 @@ export const BiographyArticle: React.FC = () => {
           line-height: 1.75;
         }
 
-        /* 3-COLUMN MODERN ARCHIVAL ARCHITECTURE */
+        /* TOP GLOBAL HEADER */
+        .vector-global-header {
+          position: sticky;
+          top: 0;
+          left: 0;
+          right: 0;
+          background: #ffffff;
+          border-bottom: 1px solid #c8ccd1;
+          z-index: 40;
+          height: 52px;
+        }
+
+        .vector-global-header-inner {
+          max-width: 1440px;
+          margin: 0 auto;
+          height: 100%;
+          padding: 0 16px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .vector-site-brand {
+          font-size: 14px;
+          color: #202122;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .vector-header-btn {
+          font-size: 12px;
+          font-weight: 600;
+          padding: 5px 10px;
+          background: #f8f9fa;
+          border: 1px solid #c8ccd1;
+          border-radius: 2px;
+          color: #202122;
+          cursor: pointer;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          transition: all 0.15s ease;
+        }
+        .vector-header-btn:hover {
+          background: #eaecf0;
+          color: #000000;
+        }
+        .vector-header-btn-primary {
+          background: #3366cc;
+          border-color: #3366cc;
+          color: #ffffff;
+        }
+        .vector-header-btn-primary:hover {
+          background: #447ff5;
+          color: #ffffff;
+        }
+
+        /* 2-COLUMN STRICT LAYOUT WRAPPER */
         .vector-main-layout {
           max-width: 1440px;
           margin: 0 auto;
-          display: flex;
-          align-items: flex-start;
-          padding: 20px 16px 48px;
-          gap: 28px;
+          padding: 18px 16px 48px;
           box-sizing: border-box;
           position: relative;
         }
 
-        .vector-width-wide {
-          max-width: 1680px;
-        }
-
-        /* LEFT TOC SIDEBAR (VECTOR 2022 STICKY SCROLL SPEC) */
+        /* LEFT TOC SIDEBAR (FIXED TO VIEWPORT) */
         .vector-column-toc {
+          position: fixed;
+          top: 70px;
+          left: max(16px, calc(50vw - 704px));
           width: 250px;
-          flex-shrink: 0;
-          position: sticky;
-          top: 16px;
-          max-height: calc(100vh - 2rem);
+          height: calc(100vh - 84px);
           overflow-y: auto;
           overflow-x: hidden;
           scrollbar-width: thin;
           scrollbar-color: #c8ccd1 transparent;
-          z-index: 20;
+          z-index: 30;
           padding-top: 4px;
-          padding-right: 8px;
+          padding-right: 12px;
           box-sizing: border-box;
           user-select: none;
         }
@@ -1009,11 +1012,6 @@ export const BiographyArticle: React.FC = () => {
         .vector-column-toc::-webkit-scrollbar-thumb {
           background-color: #c8ccd1;
           border-radius: 2px;
-        }
-
-        .vector-toc-wrapper {
-          position: relative;
-          width: 100%;
         }
 
         .vector-toc-header {
@@ -1044,7 +1042,6 @@ export const BiographyArticle: React.FC = () => {
         }
         .vector-toc-toggle-btn:hover {
           text-decoration: underline;
-          color: #447ff5;
         }
 
         .vector-toc-list {
@@ -1069,7 +1066,6 @@ export const BiographyArticle: React.FC = () => {
           gap: 4px;
           width: 100%;
           border-radius: 2px;
-          transition: background 0.12s ease;
         }
 
         .vector-toc-collapse-btn {
@@ -1160,7 +1156,7 @@ export const BiographyArticle: React.FC = () => {
           position: absolute;
           top: calc(100% + 6px);
           right: 0;
-          width: 260px;
+          width: 240px;
           background: #ffffff;
           border: 1px solid #a2a9b1;
           border-radius: 4px;
@@ -1211,10 +1207,9 @@ export const BiographyArticle: React.FC = () => {
           color: #ffffff;
         }
 
-        /* CENTER ARTICLE AREA */
+        /* RIGHT MAIN ARTICLE COLUMN (SCROLLS NATURALLY) */
         .vector-column-article {
-          flex: 1;
-          min-width: 0;
+          margin-left: 280px;
           background: #ffffff;
           padding: 28px 36px 48px;
           border: 1px solid #a2a9b1;
@@ -1224,17 +1219,14 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .vector-article-header {
-          display: flex;
-          align-items: baseline;
-          justify-content: space-between;
           border-bottom: 1px solid #a2a9b1;
-          padding-bottom: 4px;
-          margin-bottom: 4px;
+          padding-bottom: 8px;
+          margin-bottom: 12px;
         }
 
         .firstHeading {
           font-family: "Linux Libertine", "Georgia", Times, serif;
-          font-size: 30px;
+          font-size: 32px;
           font-weight: 400;
           line-height: 1.25;
           margin: 0;
@@ -1242,33 +1234,15 @@ export const BiographyArticle: React.FC = () => {
           scroll-margin-top: 100px;
         }
 
-        .vector-article-lang-bar {
-          flex-shrink: 0;
-        }
-
-        .vector-back-home-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 4px;
-          font-size: 12.5px;
-          color: #3366cc;
-          text-decoration: none;
-          font-weight: 600;
-          padding: 4px 8px;
-          border-radius: 2px;
-          border: 1px solid #a2a9b1;
-          background: #f8f9fa;
-          transition: all 0.15s ease;
-        }
-        .vector-back-home-link:hover {
-          background: #eaecf0;
-          text-decoration: underline;
-        }
-
         .mw-body-content p {
           margin: 0 0 12px;
           text-align: justify;
           color: #202122;
+        }
+
+        .lead-paragraph {
+          font-size: 14.5px;
+          line-height: 1.65;
         }
 
         /* LINKS */
@@ -1278,15 +1252,12 @@ export const BiographyArticle: React.FC = () => {
         }
         .wiki-link:hover {
           text-decoration: underline;
-          color: #447ff5;
-        }
-        .wiki-link:visited {
-          color: #6b4ba1;
         }
 
         .wiki-cite {
+          font-size: 10.5px;
+          vertical-align: super;
           color: #3366cc;
-          font-size: 11px;
           text-decoration: none;
           font-weight: normal;
           padding: 0 1px;
@@ -1295,46 +1266,49 @@ export const BiographyArticle: React.FC = () => {
           text-decoration: underline;
         }
 
-        /* HEADINGS */
+        /* SECTION HEADINGS */
         .vector-section {
           margin-top: 24px;
-          scroll-margin-top: 100px;
         }
 
         .mw-headline-h2 {
           font-family: "Linux Libertine", "Georgia", Times, serif;
-          font-size: 22px;
+          font-size: 21px;
           font-weight: 400;
-          line-height: 1.3;
           border-bottom: 1px solid #a2a9b1;
           padding-bottom: 3px;
-          margin: 28px 0 12px;
+          margin: 22px 0 10px;
           color: #000000;
           display: flex;
           align-items: baseline;
-          gap: 8px;
-          scroll-margin-top: 100px;
+          gap: 6px;
+          scroll-margin-top: 80px;
+        }
+
+        .vector-theme-dark .mw-headline-h2 {
+          color: #ffffff;
+          border-bottom-color: #3a3a3a;
         }
 
         .mw-headline-h3 {
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-family: inherit;
           font-size: 16px;
           font-weight: 700;
-          line-height: 1.4;
-          border-bottom: 1px solid #eaecf0;
-          padding-bottom: 2px;
-          margin: 18px 0 8px;
+          margin: 16px 0 8px;
           color: #000000;
           display: flex;
           align-items: baseline;
-          gap: 8px;
-          scroll-margin-top: 100px;
+          gap: 6px;
+          scroll-margin-top: 80px;
+        }
+
+        .vector-theme-dark .mw-headline-h3 {
+          color: #ffffff;
         }
 
         .mw-headline-number {
-          font-size: 14px;
           color: #54595d;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-size: 13px;
           font-weight: normal;
         }
 
@@ -1342,105 +1316,93 @@ export const BiographyArticle: React.FC = () => {
           margin: 0 0 14px 20px;
           padding: 0;
           list-style: disc;
-          color: #202122;
         }
         .vector-bullet-list li {
-          margin-bottom: 4px;
+          margin-bottom: 6px;
+          line-height: 1.5;
         }
 
-        /* RIGHT FLOATING INFOBOX */
+        /* INFOBOX VCARD (FLOATING RIGHT) */
         .infobox {
+          border: 1px solid #a2a9b1;
+          background-color: #f8f9fa;
+          color: #202122;
+          padding: 5px;
+          font-size: 12.5px;
+          line-height: 1.45;
           float: right;
           clear: right;
-          margin: 0 0 16px 24px;
-          background: #f8f9fa;
-          border: 1px solid #a2a9b1;
+          margin: 0 0 18px 22px;
+          width: 290px;
+          border-spacing: 0;
           border-collapse: collapse;
-          width: 320px;
-          font-size: 13px;
-          line-height: 1.4;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         .infobox-above {
-          background: #cee0f2;
-          color: #000000;
-          font-family: "Linux Libertine", "Georgia", Times, serif;
-          font-size: 18px;
+          font-size: 16px;
           font-weight: bold;
+          background-color: #eaecf0;
           text-align: center;
-          padding: 8px 10px;
-          border-bottom: 1px solid #a2a9b1;
+          padding: 8px 6px;
+          color: #000000;
         }
 
         .infobox-subheader {
-          background: #eaf3fb;
-          text-align: center;
           font-size: 12px;
-          font-weight: 600;
-          color: #333333;
-          padding: 4px 8px;
+          font-weight: bold;
+          text-align: center;
+          padding: 4px 6px 8px;
+          color: #54595d;
           border-bottom: 1px solid #a2a9b1;
         }
 
         .infobox-image {
           text-align: center;
-          padding: 10px 10px 6px;
-          border-bottom: 1px solid #a2a9b1;
+          padding: 10px 0 6px;
           background: #ffffff;
         }
 
         .infobox-photo {
-          display: block;
           margin: 0 auto;
-          max-width: 280px;
-          width: 100%;
-          height: auto;
           border: 1px solid #c8ccd1;
-          border-radius: 2px;
+          display: block;
         }
 
         .infobox-caption {
-          font-size: 11.5px;
+          font-size: 11px;
           color: #54595d;
-          margin-top: 6px;
-          font-style: italic;
+          padding-top: 4px;
         }
 
         .infobox-label {
-          background: #eaecf0;
+          background: #f8f9fa;
+          font-weight: 700;
           color: #202122;
-          padding: 6px 10px;
-          font-weight: bold;
+          padding: 6px 8px;
           vertical-align: top;
           text-align: left;
-          font-size: 12.5px;
+          font-size: 12px;
           border-top: 1px solid #a2a9b1;
-          width: 105px;
-          white-space: nowrap;
+          width: 95px;
         }
 
         .infobox-data {
           background: #ffffff;
           color: #202122;
-          padding: 6px 10px;
+          padding: 6px 8px;
           vertical-align: top;
-          font-size: 12.5px;
+          font-size: 12px;
           border-top: 1px solid #a2a9b1;
         }
 
         .infobox-list {
           margin: 0;
-          padding: 0 0 0 14px;
+          padding: 0 0 0 12px;
           list-style: disc;
         }
         .infobox-list li {
-          margin-bottom: 3px;
-        }
-
-        .infobox-subtext {
-          font-size: 11px;
-          color: #54595d;
+          margin-bottom: 2px;
         }
 
         /* DATA TABLES (wikitable) */
@@ -1450,35 +1412,32 @@ export const BiographyArticle: React.FC = () => {
           margin: 14px 0 18px;
           font-size: 13px;
           background: #ffffff;
+          border: 1px solid #a2a9b1;
         }
 
         .wikitable th {
           background: #eaecf0;
-          border: 1px solid #a2a9b1;
-          padding: 8px 12px;
-          text-align: left;
-          font-weight: bold;
           color: #202122;
+          font-weight: bold;
+          padding: 8px 10px;
+          border: 1px solid #a2a9b1;
+          text-align: left;
         }
 
         .wikitable td {
+          padding: 8px 10px;
           border: 1px solid #a2a9b1;
-          padding: 7px 12px;
           vertical-align: top;
           color: #202122;
         }
 
-        .wikitable tr:nth-child(even) td {
-          background: #f8f9fa;
-        }
-
-        /* AUTONOMOUS BOT CONTRIBUTION & REGISTRY BOX */
+        /* DEDICATED CONTRIBUTION REGISTRY BOX */
         .wiki-contribution-box {
           background: #ffffff;
-          border: 1px solid #a2a9b1;
+          border: 1px solid #c8ccd1;
           border-left: 4px solid #2e7d32;
           border-radius: 2px;
-          margin: 16px 0 20px;
+          margin: 14px 0 18px;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
           overflow: hidden;
         }
@@ -1498,7 +1457,7 @@ export const BiographyArticle: React.FC = () => {
           font-weight: 700;
           font-size: 13.5px;
           color: #1b5e20;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-family: inherit;
         }
 
         .wiki-contribution-badge {
@@ -1509,7 +1468,6 @@ export const BiographyArticle: React.FC = () => {
           border-radius: 12px;
           padding: 2px 8px;
           font-weight: 600;
-          letter-spacing: 0.2px;
         }
 
         .wiki-contribution-body {
@@ -1558,7 +1516,6 @@ export const BiographyArticle: React.FC = () => {
           font-size: 15px;
           font-weight: 700;
           color: #202122;
-          font-family: inherit;
         }
 
         .wiki-metric-sub {
@@ -1597,25 +1554,19 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .see-also-cat-title {
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 700;
-          color: #202122;
+          color: #0b0080;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
           margin-bottom: 8px;
           padding-bottom: 4px;
-          border-bottom: 1px solid #eaecf0;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          border-bottom: 1px dashed #c8ccd1;
         }
 
-        .see-also-card .vector-bullet-list {
-          margin: 0;
-          padding-left: 18px;
-        }
-
-        .see-also-card .vector-bullet-list li {
-          margin-bottom: 8px;
-          line-height: 1.5;
-          font-size: 13px;
-          color: #404244;
+        .vector-theme-dark .see-also-cat-title {
+          color: #8ab4f8;
+          border-bottom-color: #3a3a3a;
         }
 
         /* REFERENCES */
@@ -1636,7 +1587,7 @@ export const BiographyArticle: React.FC = () => {
           margin-right: 4px;
         }
 
-        /* CATEGORIES BOX (catlinks) */
+        /* CATEGORIES BOX */
         .catlinks {
           margin-top: 36px;
           padding: 8px 12px;
@@ -1689,10 +1640,6 @@ export const BiographyArticle: React.FC = () => {
           margin: 0 0 6px;
         }
 
-        html {
-          scroll-behavior: smooth;
-        }
-
         /* ==========================================================
            RESPONSIVE BREAKPOINTS (Mobile & Tablet adaptiveness)
            ========================================================== */
@@ -1703,10 +1650,7 @@ export const BiographyArticle: React.FC = () => {
           }
           .vector-column-article {
             margin-left: 0;
-            border-left: none;
-            border-right: none;
             padding: 18px 20px 36px;
-            max-width: 100%;
           }
         }
 
@@ -1723,7 +1667,6 @@ export const BiographyArticle: React.FC = () => {
           }
           .vector-column-article {
             padding: 14px 12px 28px;
-            overflow-x: hidden;
           }
           .see-also-grid {
             grid-template-columns: 1fr;
@@ -1735,10 +1678,6 @@ export const BiographyArticle: React.FC = () => {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             font-size: 12px;
-          }
-          .wikitable th, .wikitable td {
-            padding: 6px 8px;
-            white-space: normal;
           }
           .wiki-metric-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -1753,7 +1692,7 @@ export const BiographyArticle: React.FC = () => {
 
         @media (max-width: 480px) {
           .vector-main-layout {
-            padding: 10px 6px;
+            padding: 10px 8px;
           }
           .vector-column-article {
             padding: 10px 8px 20px;
@@ -1769,20 +1708,10 @@ export const BiographyArticle: React.FC = () => {
             padding: 12px 12px 10px;
             margin: 10px 0 16px;
           }
-          .infobox-label {
-            width: 90px;
-            font-size: 11.5px;
-            padding: 5px 6px;
-          }
-          .infobox-data {
-            font-size: 11.5px;
-            padding: 5px 6px;
-          }
-          .vector-header {
-            padding: 8px 10px;
-          }
         }
       `}</style>
     </div>
   );
 };
+
+export default BiographyArticle;
