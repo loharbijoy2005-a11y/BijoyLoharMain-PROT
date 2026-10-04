@@ -19,7 +19,7 @@ interface TocItem {
 const TOC_SECTIONS: TocItem[] = [
   { id: "article-top", label: "(Top)", level: 1 },
   { id: "early-life", label: "Early life and family background", level: 1, num: "1" },
-  { id: "education", label: "Education and vocational background", level: 1, num: "2" },
+  { id: "education", label: "Education", level: 1, num: "2" },
   { id: "gaming", label: "Competitive gaming and early computing (2022–2023)", level: 1, num: "3" },
   {
     id: "software-engineering",
@@ -476,13 +476,13 @@ export const BiographyArticle: React.FC = () => {
             {/* SECTION 2: EDUCATION */}
             <section id="education" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">2</span> Education and vocational background
+                <span className="mw-headline-number">2</span> Education
               </h2>
               <p>
                 Lohar received his foundational secondary education at Bishnupur High School in Bankura, West Bengal. He subsequently completed his higher secondary schooling at Radhanagar High School, where his academic focus and inquisitive interest in computer systems, digital networking, and programmatic computation first began to materialize.
               </p>
               <p>
-                Following his school education, Lohar pursued higher academic and vocational studies under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
+                Following his school education, Lohar pursued higher academic studies under <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a>, a premier public state university headquartered in Midnapore, West Bengal.
               </p>
               <p>
                 His formal education was coupled with a disciplined regimen of autodidactic software engineering, systems design, and open data architecture, prioritizing hands-on execution and computational theory alongside standard collegiate curricula.
