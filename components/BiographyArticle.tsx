@@ -129,16 +129,19 @@ export const BiographyArticle: React.FC = () => {
     }));
   };
 
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
     const el = document.getElementById(id);
     if (el) {
-      const headerOffset = 64;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
+      el.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
+      if (typeof window !== "undefined" && window.history) {
+        window.history.pushState(null, "", `#${id}`);
+      }
     }
   };
 
@@ -268,14 +271,14 @@ export const BiographyArticle: React.FC = () => {
                       }`}
                     >
                       <div className="vector-toc-row">
-                        <button
-                          type="button"
-                          onClick={() => scrollTo(section.id)}
+                        <a
+                          href={`#${section.id}`}
+                          onClick={(e) => scrollTo(section.id, e)}
                           className="vector-toc-link"
                         >
                           {section.num && <span className="vector-toc-num">{section.num}</span>}
                           <span className="vector-toc-text">{section.label}</span>
-                        </button>
+                        </a>
 
                         {hasChildren && (
                           <button
@@ -314,13 +317,14 @@ export const BiographyArticle: React.FC = () => {
                                   isSubActive ? "vector-toc-item-active" : ""
                                 }`}
                               >
-                                <button
-                                  onClick={() => scrollTo(sub.id)}
+                                <a
+                                  href={`#${sub.id}`}
+                                  onClick={(e) => scrollTo(sub.id, e)}
                                   className="vector-toc-link"
                                 >
                                   <span className="vector-toc-num">{sub.num}</span>
                                   <span className="vector-toc-text">{sub.label}</span>
-                                </button>
+                                </a>
                               </li>
                             );
                           })}
@@ -1263,7 +1267,7 @@ export const BiographyArticle: React.FC = () => {
           line-height: 1.25;
           margin: 0;
           color: #000000;
-          scroll-margin-top: 100px;
+          scroll-margin-top: 74px;
         }
 
         .mw-body-content p {
@@ -1301,6 +1305,7 @@ export const BiographyArticle: React.FC = () => {
         /* SECTION HEADINGS */
         .vector-section {
           margin-top: 24px;
+          scroll-margin-top: 74px;
         }
 
         .mw-headline-h2 {
@@ -1314,7 +1319,7 @@ export const BiographyArticle: React.FC = () => {
           display: flex;
           align-items: baseline;
           gap: 6px;
-          scroll-margin-top: 80px;
+          scroll-margin-top: 74px;
         }
 
         .vector-theme-dark .mw-headline-h2 {
@@ -1331,7 +1336,7 @@ export const BiographyArticle: React.FC = () => {
           display: flex;
           align-items: baseline;
           gap: 6px;
-          scroll-margin-top: 80px;
+          scroll-margin-top: 74px;
         }
 
         .vector-theme-dark .mw-headline-h3 {
