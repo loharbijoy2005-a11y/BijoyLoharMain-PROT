@@ -423,7 +423,7 @@ export const BiographyArticle: React.FC = () => {
                 <tr>
                   <th scope="row" className="infobox-label">Born</th>
                   <td className="infobox-data">
-                    12 October 2005 <span className="noprint ForceAgeToShow">(age 20, turning 21)</span><br />
+                    12 October 2005 <span className="noprint ForceAgeToShow">(age 20)</span><br />
                     <span className="birthplace">
                       <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>,{" "}
                       <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a>,{" "}
