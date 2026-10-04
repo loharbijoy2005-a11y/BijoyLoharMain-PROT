@@ -72,7 +72,7 @@ export const BiographyArticle: React.FC = () => {
     "creative-pursuits": false,
   });
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
-  const [pageTheme, setPageTheme] = useState<"light" | "dark">("light");
+  const [pageTheme, setPageTheme] = useState<"light" | "dark">("dark");
   const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
   const appearanceRef = useRef<HTMLDivElement>(null);
 
@@ -925,170 +925,230 @@ export const BiographyArticle: React.FC = () => {
           transition: background-color 0.2s ease, color 0.2s ease;
         }
 
-        /* DARK THEME */
+        /* DARK THEME - MATCHING PORTFOLIO OBSIDIAN & GOLD */
         .vector-theme-dark {
-          background-color: #121212;
-          color: #e0e0e0;
+          background-color: #12100B;
+          color: #FCF9F2;
         }
         .vector-theme-dark .vector-global-header {
-          background-color: #1e1e1e;
-          border-bottom-color: #333333;
+          background-color: #18140E;
+          border-bottom-color: #2E251A;
         }
         .vector-theme-dark .vector-site-brand {
-          color: #ffffff;
+          color: #FCF9F2;
         }
         .vector-theme-dark .vector-header-btn {
-          background: #282828;
-          border-color: #444444;
-          color: #cccccc;
+          background: #221C14;
+          border-color: #3A3022;
+          color: #DCD7CE;
         }
         .vector-theme-dark .vector-header-btn:hover {
-          background: #333333;
-          color: #ffffff;
+          background: #2C241A;
+          color: #E5C158;
+          border-color: #E5C158;
+        }
+        .vector-theme-dark .vector-header-btn-primary {
+          background: #E5C158;
+          border-color: #E5C158;
+          color: #12100B;
+          font-weight: 700;
+        }
+        .vector-theme-dark .vector-header-btn-primary:hover {
+          background: #F3D882;
+          color: #12100B;
         }
         .vector-theme-dark .vector-column-article {
-          background: #1e1e1e;
-          border-color: #333333;
-          color: #e0e0e0;
+          background: #18140E;
+          border-color: #2E251A;
+          color: #FCF9F2;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .vector-theme-dark .vector-article-header {
+          border-bottom-color: #2E251A;
         }
         .vector-theme-dark .firstHeading {
-          color: #ffffff;
+          color: #FCF9F2;
         }
         .vector-theme-dark .mw-body-content p {
-          color: #cccccc;
+          color: #DCD7CE;
         }
         .vector-theme-dark .wiki-link {
-          color: #8ab4f8;
+          color: #E5C158;
+        }
+        .vector-theme-dark .wiki-link:hover {
+          color: #F3D882;
+        }
+        .vector-theme-dark .wiki-cite {
+          color: #E5C158;
+        }
+        .vector-theme-dark .vector-toc-header {
+          border-bottom-color: #2E251A;
         }
         .vector-theme-dark .vector-toc-title {
-          color: #ffffff;
+          color: #FCF9F2;
+        }
+        .vector-theme-dark .vector-toc-toggle-btn {
+          color: #E5C158;
         }
         .vector-theme-dark .vector-toc-link {
-          color: #8ab4f8;
+          color: #C4BDB0;
+        }
+        .vector-theme-dark .vector-toc-link:hover {
+          background: rgba(229, 193, 88, 0.08);
+          color: #E5C158;
         }
         .vector-theme-dark .vector-toc-collapse-btn {
-          color: #888888;
+          color: #A0988A;
         }
         .vector-theme-dark .vector-toc-collapse-btn:hover {
-          background: #2a2a2a;
-          color: #ffffff;
+          background: rgba(229, 193, 88, 0.12);
+          color: #E5C158;
+        }
+        .vector-theme-dark .vector-toc-sublist {
+          border-left-color: #2E251A;
         }
         .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
-          background: #2a2a2a;
-          color: #ffffff;
+          background: rgba(229, 193, 88, 0.12);
+          border-left: 3px solid #E5C158;
+          color: #E5C158;
+        }
+        .vector-theme-dark .vector-toc-num {
+          color: #8C8375;
         }
         .vector-theme-dark .infobox {
-          background: #252525;
-          border-color: #3a3a3a;
+          background: #1C1710;
+          border-color: #2E251A;
+          color: #FCF9F2;
         }
         .vector-theme-dark .infobox-above {
-          background: #2d2d2d;
-          color: #ffffff;
+          background: #241E15;
+          color: #FCF9F2;
+          border-bottom: 1px solid #2E251A;
+        }
+        .vector-theme-dark .infobox-subheader {
+          background: #1E1912;
+          color: #E5C158;
+          border-bottom-color: #2E251A;
+        }
+        .vector-theme-dark .infobox-image {
+          background: #16130D;
         }
         .vector-theme-dark .infobox-header {
-          background-color: #2a2a2a;
-          color: #ffffff;
-          border-color: #3a3a3a;
+          background-color: #261F16;
+          color: #E5C158;
+          border-color: #2E251A;
         }
         .vector-theme-dark .infobox-data {
-          background: #1e1e1e;
-          color: #cccccc;
-          border-color: #3a3a3a;
+          background: #16130D;
+          color: #FCF9F2;
+          border-color: #2E251A;
         }
         .vector-theme-dark .infobox-label {
-          background: #252525;
-          color: #aaaaaa;
-          border-color: #3a3a3a;
+          background: #1E1912;
+          color: #A0988A;
+          border-color: #2E251A;
         }
         .vector-theme-dark .wikitable {
-          background: #1e1e1e;
-          border-color: #3a3a3a;
+          background: #16130D;
+          border-color: #2E251A;
         }
         .vector-theme-dark .wikitable th {
-          background: #2a2a2a;
-          color: #ffffff;
-          border-color: #3a3a3a;
+          background: #241E15;
+          color: #E5C158;
+          border-color: #2E251A;
         }
         .vector-theme-dark .wikitable td {
-          border-color: #3a3a3a;
-          color: #cccccc;
+          border-color: #2E251A;
+          color: #DCD7CE;
         }
         .vector-theme-dark .wiki-contribution-box {
-          background: #19241b;
-          border-color: #2b452f;
+          background: #151A13;
+          border-color: #233420;
+          border-left: 4px solid #4ADE80;
         }
         .vector-theme-dark .wiki-contribution-header {
-          background: #131f15;
-          border-color: #2b452f;
+          background: #111710;
+          border-color: #233420;
         }
         .vector-theme-dark .wiki-contribution-title {
-          color: #81c784;
+          color: #4ADE80;
         }
         .vector-theme-dark .wiki-metric-item {
-          background: #1e2a20;
-          border-color: #2f4534;
+          background: #1A2118;
+          border-color: #2A3D26;
         }
         .vector-theme-dark .wiki-metric-val {
-          color: #ffffff;
+          color: #FCF9F2;
+        }
+        .vector-theme-dark .wiki-metric-label {
+          color: #8C9989;
         }
         .vector-theme-dark .see-also-card {
-          background: #1e1e1e;
-          border-color: #333333;
+          background: #1C1710;
+          border-color: #2E251A;
+          border-left: 4px solid #E5C158;
+        }
+        .vector-theme-dark .see-also-cat-title {
+          color: #E5C158;
+          border-bottom-color: #2E251A;
         }
         .vector-theme-dark .catlinks {
-          background: #252525;
-          border-color: #3a3a3a;
-          color: #cccccc;
+          background: #1C1710;
+          border-color: #2E251A;
+          color: #A0988A;
         }
         .vector-theme-dark .vector-appearance-dropdown {
-          background: #252525;
-          border-color: #3a3a3a;
-          color: #e0e0e0;
+          background: #1C1710;
+          border-color: #2E251A;
+          color: #FCF9F2;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.6);
         }
         .vector-theme-dark .vector-opt-btn {
-          background: #1e1e1e;
-          border-color: #3a3a3a;
-          color: #aaaaaa;
+          background: #221C14;
+          border-color: #3A3022;
+          color: #DCD7CE;
         }
         .vector-theme-dark .vector-opt-btn.active {
-          background: #8ab4f8;
-          color: #121212;
+          background: #E5C158;
+          color: #12100B;
+          border-color: #E5C158;
+          font-weight: 700;
         }
 
         /* DARK THEME TEXT & REFERENCES CONTRAST FIX */
         .vector-theme-dark .references,
         .vector-theme-dark .references li,
         .vector-theme-dark .reference-text {
-          color: #d1d5db !important;
+          color: #DCD7CE !important;
         }
         .vector-theme-dark .mw-cite-backlink a {
-          color: #8ab4f8 !important;
+          color: #E5C158 !important;
         }
         .vector-theme-dark .vector-bullet-list,
         .vector-theme-dark .vector-bullet-list li {
-          color: #d1d5db !important;
+          color: #DCD7CE !important;
         }
         .vector-theme-dark .mw-headline-number {
-          color: #9aa0a6 !important;
+          color: #E5C158 !important;
         }
         .vector-theme-dark i,
         .vector-theme-dark em {
-          color: #e5e7eb !important;
+          color: #FCF9F2 !important;
         }
         .vector-theme-dark b,
         .vector-theme-dark strong {
-          color: #ffffff !important;
+          color: #FCF9F2 !important;
         }
         .vector-theme-dark .wiki-contribution-scope {
-          color: #c0c7d0 !important;
-          border-top-color: #2b452f !important;
+          color: #B2C0AF !important;
+          border-top-color: #233420 !important;
         }
         .vector-theme-dark .vector-footer-text p {
-          color: #9aa0a6 !important;
+          color: #8C8375 !important;
         }
         .vector-theme-dark .vector-footer-hr {
-          border-color: #333333 !important;
+          border-color: #2E251A !important;
         }
 
         /* TEXT SIZES */
