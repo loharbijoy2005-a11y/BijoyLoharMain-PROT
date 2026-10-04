@@ -131,7 +131,7 @@ export const BiographyArticle: React.FC = () => {
                 </tr>
                 <tr>
                   <td colSpan={2} className="infobox-subheader role">
-                    Software Engineer • Data Systems Architect • Bot Automation Developer • Author
+                    Software Engineer • Semantic Data Architect • Tech Entrepreneur
                   </td>
                 </tr>
                 <tr>
@@ -184,13 +184,12 @@ export const BiographyArticle: React.FC = () => {
                   <th scope="row" className="infobox-label">Occupations</th>
                   <td className="infobox-data role">
                     <ul className="infobox-list">
-                      <li>Self-Taught Software Engineer</li>
-                      <li>Data Systems Architect</li>
+                      <li>Software Engineer</li>
+                      <li>Semantic Data Architect</li>
+                      <li>Tech Entrepreneur</li>
                       <li>Bot Automation Developer</li>
-                      <li>Web &amp; Systems Architect</li>
                       <li>Author &amp; Technical Writer</li>
                       <li>Video Creator &amp; Digital Media Specialist <span className="infobox-subtext">(<a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb listed</a>)</span></li>
-                      <li>Tech Entrepreneur</li>
                     </ul>
                   </td>
                 </tr>
@@ -206,9 +205,9 @@ export const BiographyArticle: React.FC = () => {
                   <th scope="row" className="infobox-label">Known for</th>
                   <td className="infobox-data">
                     <ul className="infobox-list">
-                      <li>Autonomous semantic data bots (Wikidata ingestion pipelines)</li>
+                      <li>Autonomous civic &amp; geo-data ingestion pipelines (Wikidata bots)</li>
                       <li>Full-stack web engineering &amp; distributed systems</li>
-                      <li>Custom automation pipelines &amp; utility bots</li>
+                      <li>Systems architecture &amp; custom ETL automations</li>
                       <li>Technical literature and systems writing</li>
                       <li>Digital video production &amp; post-engineering</li>
                     </ul>
@@ -232,11 +231,11 @@ export const BiographyArticle: React.FC = () => {
 
             {/* LEAD SECTION */}
             <p>
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, data systems architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar is recognized for engineering high-throughput autonomous data ingestion pipelines for the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a>, building resilient full-stack web platforms, and producing analytical literature without formal undergraduate training in computer science.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, semantic data architect, author, digital video creator, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a bespoke software engineering and digital commerce solutions company founded in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Operating from <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a> in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar is recognized for engineering autonomous multi-domain data ingestion pipelines that bridge India's civic, geographic, healthcare, judicial, and educational infrastructure into the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup>
             </p>
 
             <p>
-              Lohar first engaged with computer systems through competitive tactical gaming between 2022 and 2023, where his analysis of network tick rates, latency, and client-server synchronization stimulated an autodidactic immersion into programming languages including C++, Java, Python, JavaScript, and TypeScript.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His early technical contributions included background automation bots that delivered measured operational efficiencies of over 40% across digital workflows, later expanding into autonomous <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> bot frameworks capable of batch-ingesting thousands of structured academic records daily.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+              Lohar first engaged with computer systems through competitive tactical gaming between 2022 and 2023, where his analysis of network tick rates, latency, and client-server synchronization stimulated an autodidactic immersion into programming languages including C++, Java, Python, JavaScript, and TypeScript.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His early technical contributions included background automation bots that delivered measured operational efficiencies of over 40% across digital workflows, subsequently evolving into broad-spectrum semantic bot frameworks capable of batch-reconciling thousands of civic and geographic entities daily.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
             </p>
 
             <p>
@@ -336,22 +335,31 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">4.4</span> Automated semantic pipelines and Wikidata ingestion bots
               </h3>
               <p>
-                To address structural gaps in regional knowledge representation across the open web, Lohar engineered an autonomous backend ingestion bot pipeline designed in Python and TypeScript. The system bridges disparate public educational directories, regional government gazettes, and rural institutional registries with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+                To address structural deficits and under-representation in regional and national knowledge graphs across the open web, Lohar engineered a comprehensive, multi-domain autonomous backend ingestion bot pipeline implemented in Python and TypeScript. Moving beyond single-domain constraints, the engine bridges public open datasets, official gazettes, and decentralized administrative directories with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
               </p>
               <p>
-                The automated pipeline executes high-throughput, rate-limited batch updates, automatically parsing, reconciling, and committing between <b>4,000 and 5,000+ verified educational entity records per day</b>, with burst operational capacities exceeding <b>10,000 structured records</b> during scheduled reconciliation runs. Each record is programmatically structured with standardized RDF triples, mapping properties such as official administrative codes, geographic coordinates, affiliated boards, and hierarchical administrative jurisdictions.
-              </p>
-              <p>
-                To maintain database integrity and prevent dirty data injection into Wikimedia’s linked data cloud, Lohar embedded rigorous technical safeguards within the bot architecture:
+                The pipeline operates continuously across a wide spectrum of civic, geographic, and institutional domains across India:
               </p>
               <ul className="vector-bullet-list">
-                <li><b>Schema Validation &amp; Constraint Checking:</b> Automated verification against Wikidata property constraints, ensuring type-safe entity references and required claim formatting.</li>
-                <li><b>Duplicate-Detection &amp; Entity Reconciliation:</b> High-precision fuzzy string matching and geospatial proximity algorithms to prevent redundant item creation.</li>
-                <li><b>Coordinate Geolocation Normalization:</b> Trigonometric boundary parsing and EPSG coordinate transformation to ensure precise institutional geolocations.</li>
-                <li><b>Fault-Tolerant Exponential Backoff:</b> Adaptive API rate-limiting algorithms compliant with Wikimedia’s bot policies, incorporating automatic retry state persistence.</li>
+                <li><b>Civic &amp; Judicial Bodies:</b> Automated parsing, structural mapping, and property binding for High Courts, District Sessions Courts, state Legislative Assemblies, and urban Municipal Corporations.</li>
+                <li><b>Public Health Infrastructure:</b> Systematic entity modeling for government medical colleges, tertiary hospitals, district healthcare facilities, and regional community health centers.</li>
+                <li><b>Geographic &amp; Administrative Entities:</b> Dynamic geospatial ingestion of river networks, hydrological reservoirs, urban municipal territories, administrative tehsils, and district administrative subdivisions.</li>
+                <li><b>Academic &amp; Research Networks:</b> Nationwide cataloging of central and state universities, autonomous degree colleges, polytechnic institutions, and secondary educational boards.</li>
               </ul>
               <p>
-                Through this continuous automation infrastructure, Lohar has facilitated the cataloging of tens of thousands of regional educational institutions, establishing his role as an active open-knowledge automation engineer and semantic data architect.
+                The ingestion bot executes high-throughput, rate-limited batch updates, automatically structuring, reconciling, and committing between <b>4,000 and 5,000+ verified entity records per day</b>, with burst operational capacities exceeding <b>10,000 structured entries</b> during scheduled synchronization cycles. The system dynamically maps core Wikidata property constraints—including <code>P31</code> (instance of), <code>P17</code> (country), <code>P625</code> (coordinate location), and <code>P131</code> (located in the administrative territorial entity)—enforcing strict RDF triple formatting.
+              </p>
+              <p>
+                To safeguard the Wikimedia linked data cloud from corrupt or duplicate assertions, Lohar incorporated advanced algorithmic validation layers:
+              </p>
+              <ul className="vector-bullet-list">
+                <li><b>Spatial Geocoding &amp; Coordinate Normalization:</b> Trigonometric boundary parsing, EPSG transformations, and bounding-box validation against Indian administrative polygons.</li>
+                <li><b>Entity Deduplication &amp; QID Reconciliation:</b> High-confidence fuzzy string matching, alias cross-referencing, and SPARQL query verification against existing Wikibase QIDs to prevent entity replication.</li>
+                <li><b>Schema Constraint Enforcement:</b> Type-safe validation verifying required claims, inverse property logic, and standardized external identifier links.</li>
+                <li><b>Adaptive Rate-Limiting &amp; State Persistence:</b> Wikimedia-compliant bot protocols utilizing exponential backoff retry routines and persistent transaction logs for deterministic error recovery.</li>
+              </ul>
+              <p>
+                Through this continuous, multi-domain automation infrastructure, Lohar has facilitated the cataloging of tens of thousands of nationwide civic and geographical entities, establishing him as an active open-knowledge automation engineer and semantic data architect.
               </p>
             </section>
 
@@ -407,7 +415,7 @@ export const BiographyArticle: React.FC = () => {
                   </tr>
                   <tr>
                     <td><b>System Automation &amp; Pipelines</b></td>
-                    <td>Autonomous ingestion bots, Batch ETL scripts, API rate-limiting routines, Semantic data reconciliation</td>
+                    <td>Autonomous civic data ingestion bots, Multi-entity ETL pipelines (Judicial, Healthcare, Geographic &amp; Academic), SPARQL / Wikibase API reconciliation, Batch schema validation</td>
                   </tr>
                   <tr>
                     <td><b>Data &amp; Semantic Protocols</b></td>

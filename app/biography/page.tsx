@@ -54,30 +54,35 @@ const jsonLd = {
         {
           "@type": "Occupation",
           name: "Software Engineer",
-          description: "Full-stack web systems engineering, automation bot design, and serverless infrastructure."
+          description: "Full-stack web systems engineering, automation bot design, and serverless cloud infrastructure."
         },
         {
           "@type": "Occupation",
-          name: "Data Systems Architect & Bot Automation Developer",
-          description: "Autonomous semantic ETL pipelines, Wikidata knowledge-graph ingestion bots, and high-throughput batch reconciliation."
+          name: "Semantic Data Architect",
+          description: "Nationwide multi-domain civic, geographic, healthcare, judicial, and academic automated Wikidata ingestion engines."
+        },
+        {
+          "@type": "Occupation",
+          name: "Tech Entrepreneur",
+          description: "Founding and scaling Shadow Arrow, providing high-performance software engineering and digital commerce infrastructure."
+        },
+        {
+          "@type": "Occupation",
+          name: "Bot Automation Developer",
+          description: "Autonomous high-throughput ETL pipelines, rate-limited Wikibase bots, and batch entity reconciliation."
         },
         {
           "@type": "Occupation",
           name: "Author & Technical Writer",
-          description: "Authoring engineering documentation, analytical articles, and literature."
+          description: "Authoring technical documentation, systems design analyses, and literature."
         },
         {
           "@type": "Occupation",
           name: "Video Creator & Digital Media Specialist",
           description: "Post-production video engineering, color grading (DaVinci Resolve), and 3D modeling (Blender)."
-        },
-        {
-          "@type": "Occupation",
-          name: "Tech Entrepreneur",
-          description: "Founding and scaling Shadow Arrow, an e-commerce and full-stack software development venture."
         }
       ],
-      description: "Bijoy Lohar is an Indian self-taught software engineer, data systems architect, author, digital video creator, and founder of Shadow Arrow, specialising in high-throughput autonomous Wikidata ingestion pipelines, full-stack web platforms, literature, and media production.",
+      description: "Bijoy Lohar is an Indian self-taught software engineer, semantic data architect, author, digital video creator, and founder of Shadow Arrow, specialising in autonomous nationwide multi-domain knowledge-graph bots (ingesting civic, geographic, judicial, healthcare, and educational infrastructure into Wikidata), full-stack web platforms, and literature.",
       parent: [
         { "@type": "Person", name: "Binod Lohar" },
         { "@type": "Person", name: "Soma Lohar" }
@@ -105,11 +110,12 @@ const jsonLd = {
         description: "Bespoke full-stack web engineering, client portals, and e-commerce infrastructure company."
       },
       knowsAbout: [
-        "Automated Data Ingestion",
-        "Semantic Web",
-        "Wikidata Bot Architecture",
+        "Civic Data Ingestion",
+        "Automated Knowledge Graphs",
+        "Geospatial Data Engineering",
+        "Wikidata Semantic Systems",
+        "Multi-Domain ETL Pipelines",
         "SPARQL & Wikibase APIs",
-        "Batch Processing & ETL Pipelines",
         "Full-Stack Web Engineering",
         "TypeScript",
         "JavaScript",
