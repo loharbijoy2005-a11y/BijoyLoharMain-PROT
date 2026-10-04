@@ -31,23 +31,6 @@ const TOC_ITEMS: TocItem[] = [
 export const BiographyArticle: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
-  const [liveCount, setLiveCount] = useState<number>(14860);
-
-  useEffect(() => {
-    // Dynamic verified live metric simulation calculated from baseline
-    const baseTimestamp = 1770000000000;
-    const now = Date.now();
-    const elapsedSeconds = Math.max(0, Math.floor((now - baseTimestamp) / 1000));
-    // Steady incremental progression modeling continuous ingestion ticks
-    const calculatedBase = 14860 + Math.floor(elapsedSeconds % 5000);
-    setLiveCount(calculatedBase);
-
-    const interval = setInterval(() => {
-      setLiveCount((prev) => prev + (Math.random() > 0.4 ? 1 : 0));
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -232,16 +215,6 @@ export const BiographyArticle: React.FC = () => {
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" className="infobox-label">Wikidata Ingestion</th>
-                  <td className="infobox-data">
-                    <span className="inline-flex items-center gap-1.5 font-medium text-emerald-700">
-                      <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span id="wikidata-live-count">{liveCount.toLocaleString()}+</span> records
-                    </span>
-                    <div className="infobox-subtext">(Live sync active)</div>
-                  </td>
-                </tr>
-                <tr>
                   <th scope="row" className="infobox-label">Parent(s)</th>
                   <td className="infobox-data">
                     Binod Lohar <span className="infobox-subtext">(father)</span><br />
@@ -365,21 +338,6 @@ export const BiographyArticle: React.FC = () => {
               <p>
                 To address structural deficits and under-representation in regional and national knowledge graphs across the open web, Lohar engineered a comprehensive, multi-domain autonomous backend ingestion bot pipeline implemented in Python and TypeScript. Moving beyond single-domain constraints, the engine bridges public open datasets, official gazettes, and decentralized administrative directories with the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
               </p>
-
-              {/* LIVE INGESTION METRICS CALLOUT */}
-              <div className="my-4 p-3.5 bg-[#f8f9fa] border border-[#a2a9b1] rounded text-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
-                <div>
-                  <span className="font-semibold text-[#202122]">Autonomous Ingestion Metrics:</span>
-                  <span className="text-[#54595d] block sm:inline sm:ml-2">Live verified civic, geo &amp; academic entities committed</span>
-                </div>
-                <div className="flex items-center space-x-2 shrink-0">
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span id="live-ingestion-counter" className="font-mono font-bold text-[#202122] text-base">
-                    {liveCount.toLocaleString()}+
-                  </span>
-                </div>
-              </div>
-
               <p>
                 The pipeline operates continuously across a wide spectrum of civic, geographic, and institutional domains across India:
               </p>
@@ -501,16 +459,48 @@ export const BiographyArticle: React.FC = () => {
               <h2 className="mw-headline-h2">
                 <span className="mw-headline-number">8</span> See also
               </h2>
-              <ul className="vector-bullet-list">
-                <li><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></li>
-                <li><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></li>
-                <li><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></li>
-              </ul>
+              <div className="see-also-card">
+                <div className="see-also-grid">
+                  <div className="see-also-col">
+                    <div className="see-also-cat-title">Semantic Web &amp; Knowledge Engineering</div>
+                    <ul className="vector-bullet-list">
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a></b> – Free, open multilingual knowledge base operated by Wikimedia Foundation
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></b> – Standards framework for linked open data defined by W3C
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></b> – Query language and protocol for RDF graph databases
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Extract,_transform,_load" target="_blank" rel="noopener noreferrer" className="wiki-link">ETL Pipelines</a></b> – Automated data extraction, transformation, and batch loading
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="see-also-col">
+                    <div className="see-also-cat-title">Engineering, Academia &amp; Region</div>
+                    <ul className="vector-bullet-list">
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/TypeScript" target="_blank" rel="noopener noreferrer" className="wiki-link">TypeScript</a></b> – Strongly typed programming language building on JavaScript
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Autodidacticism" target="_blank" rel="noopener noreferrer" className="wiki-link">Autodidacticism</a></b> – Self-directed learning and autodidactic software engineering practice
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> – Public state university in West Bengal, India
+                      </li>
+                      <li>
+                        <b><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></b> – Historic municipality and terracotta heritage center in West Bengal
+                      </li>
+                      <li>
+                        <b><a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow</a></b> – Bespoke software engineering and client portals venture
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </section>
 
             {/* SECTION 9: REFERENCES */}
@@ -974,6 +964,49 @@ export const BiographyArticle: React.FC = () => {
 
         .wikitable tr:nth-child(even) td {
           background: #f8f9fa;
+        }
+
+        /* SEE ALSO SECTION ENHANCEMENTS */
+        .see-also-card {
+          background: #ffffff;
+          border: 1px solid #c8ccd1;
+          border-left: 4px solid #3366cc;
+          border-radius: 2px;
+          padding: 16px 20px 14px;
+          margin: 14px 0 22px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .see-also-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 24px;
+        }
+
+        .see-also-col {
+          min-width: 0;
+        }
+
+        .see-also-cat-title {
+          font-size: 13px;
+          font-weight: 700;
+          color: #202122;
+          margin-bottom: 8px;
+          padding-bottom: 4px;
+          border-bottom: 1px solid #eaecf0;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .see-also-card .vector-bullet-list {
+          margin: 0;
+          padding-left: 18px;
+        }
+
+        .see-also-card .vector-bullet-list li {
+          margin-bottom: 8px;
+          line-height: 1.5;
+          font-size: 13px;
+          color: #404244;
         }
 
         /* REFERENCES */
