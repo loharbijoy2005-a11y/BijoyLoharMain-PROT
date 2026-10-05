@@ -159,7 +159,7 @@ export const SystemsPhilosophy: React.FC = () => {
             <div className="lg:hidden mt-6 pt-2">
               <div className="relative w-full max-w-[320px] rounded-3xl overflow-hidden border-2 border-amberAccent/40 shadow-2xl bg-studioCard">
                 <Image
-                  src="/images/bijoy-lohar.png"
+                  src="/images/bijoy-lohar.webp"
                   alt="Bijoy Lohar — Systems Architect & Founder"
                   className="w-full h-auto object-cover rounded-3xl"
                   width={320}
@@ -183,7 +183,7 @@ export const SystemsPhilosophy: React.FC = () => {
 
             <div className="hero-image-container w-full h-full flex justify-end items-start pr-0 mr-0">
               <Image
-                src="/images/bijoy-lohar.png"
+                src="/images/bijoy-lohar.webp"
                 alt="Bijoy Lohar — Systems Architect & Founder"
                 className="w-full max-w-[840px] h-full max-h-screen object-cover object-top-right align-top relative z-0 block pr-0 mr-0"
                 width={840}

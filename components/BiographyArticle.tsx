@@ -671,17 +671,20 @@ export const BiographyArticle: React.FC = () => {
                     <div className="thumbimage-wrapper overflow-hidden rounded-[2px] bg-[#1a1e24]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="/images/vidyasagar-university.jpg"
+                        src="/images/vidyasagar-university.webp"
                         alt="Vidyasagar University main campus in Midnapore, West Bengal"
                         className="thumbimage w-full h-[155px] object-cover block"
                         loading="lazy"
+                        decoding="async"
+                        width={300}
+                        height={155}
                       />
                     </div>
                   </a>
                   <div className="thumbcaption">
                     <div className="magnify">
                       <a
-                        href="/images/vidyasagar-university.jpg"
+                        href="/images/vidyasagar-university.webp"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="internal inline-block opacity-60 hover:opacity-100 transition-opacity"
