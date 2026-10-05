@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { BiographyArticle } from "@/components/BiographyArticle";
 
 export const metadata: Metadata = {
-  title: "Biography — Bijoy Lohar",
+  title: {
+    absolute: "Bijoy Lohar Biography",
+  },
   description:
     "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, digital creator, and Founder of Shadow Arrow. Born in Bishnupur, Bankura, West Bengal, India on 12 October 2005.",
   alternates: {
@@ -11,16 +13,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: "https://www.bijoylohar.in/biography",
-    title: "Biography — Bijoy Lohar",
+    title: "Bijoy Lohar Biography",
     description:
       "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, digital creator, and founder of Shadow Arrow.",
-    images: [{ url: "https://www.bijoylohar.in/images/bijoy-lohar.png", width: 800, height: 800, alt: "Bijoy Lohar" }],
+    images: [{ url: "https://www.bijoylohar.in/images/bijoy-lohar.png", width: 800, height: 800, alt: "Bijoy Lohar Biography" }],
     firstName: "Bijoy",
     lastName: "Lohar",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Biography — Bijoy Lohar",
+    title: "Bijoy Lohar Biography",
     description:
       "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, and Founder of Shadow Arrow.",
     images: ["https://www.bijoylohar.in/images/bijoy-lohar.png"],
