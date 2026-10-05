@@ -451,11 +451,11 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                   whileTap={{ scale: 0.98 }}
                   id="about-official-biography-link"
                   href="/biography"
-                  title="Read Official Archival Biography and Complete Career Documentation"
+                  title="Read Official Biography of Bijoy Lohar"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amberAccent/10 border border-amberAccent/40 hover:border-amberAccent hover:bg-amberAccent/20 text-amberAccent font-mono text-xs font-bold transition-all shadow-sm"
                 >
                   <BookOpen className="w-3.5 h-3.5 text-amberAccent" />
-                  <span>Read Full Encyclopedic Biography &amp; Documentation</span>
+                  <span>Read Official Biography</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </motion.a>
               </div>

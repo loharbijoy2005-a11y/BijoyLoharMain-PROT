@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
           <a
             id="nav-biography-link"
             href="/biography"
-            title="Read Official Encyclopedic Biography & Archival Documentation"
+            title="Read Official Biography of Bijoy Lohar"
             className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-amber-300 hover:text-white hover:bg-white/10 transition-all border border-amber-500/30"
           >
             <span>Biography</span>
