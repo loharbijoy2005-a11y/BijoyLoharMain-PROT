@@ -234,7 +234,7 @@ export const BiographyArticle: React.FC = () => {
           <div className="flex items-center gap-3">
             <a href="/" className="vector-site-brand">
               <span className="font-bold">BIJOY LOHAR</span>
-              <span className="text-xs text-[#54595d] font-normal hidden sm:inline">| Archival Registry</span>
+              <span className="text-xs text-[#54595d] font-normal hidden sm:inline">| Biography</span>
             </a>
           </div>
 
@@ -480,12 +480,10 @@ export const BiographyArticle: React.FC = () => {
             COLUMN 2: FULL SCROLLING MAIN BIOGRAPHY STREAM (RIGHT)
             ========================================================= */}
         <main className={`vector-column-article ${fontSizeClass}`} id="content">
-          <div className="vector-article-header">
-            <div>
-              <h1 className="firstHeading mw-first-heading" id="article-top">
-                Bijoy Lohar
-              </h1>
-            </div>
+          <div className="vector-article-header pb-2 border-b border-[#a2a9b1] mb-4">
+            <h1 className="firstHeading mw-first-heading m-0 p-0 border-none" id="article-top">
+              Bijoy Lohar
+            </h1>
           </div>
 
           <div className="mw-body-content">
@@ -820,17 +818,51 @@ export const BiographyArticle: React.FC = () => {
               </p>
 
               <h3 id="authorship" className="mw-headline-h3">
-                <span className="mw-headline-number">4.1</span> Authorship and technical writing
+                <span className="mw-headline-number">4.1</span> Authorship and published works
               </h3>
               <p>
-                As an author, Lohar writes on self-directed learning in software engineering and web systems architecture.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His author profiles are cataloged on <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a> and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
+                As an author and technical writer, Lohar writes on self-directed programming, full-stack systems engineering, and automated knowledge pipelines.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His literary and technical author records are indexed in international registries including <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID</a>, <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a>, and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
               </p>
+              <p>
+                His published books and monographs focus on pragmatic engineering workflows, autodidactic software mastery, and real-world semantic data architectures:
+              </p>
+
+              <table className="wikitable">
+                <thead>
+                  <tr>
+                    <th>Title &amp; Work</th>
+                    <th>Year</th>
+                    <th>Subject / Discipline</th>
+                    <th>Catalog &amp; Identifiers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><i><b>The Autodidact Engineer: Building Scalable Systems Through Self-Directed Code</b></i></td>
+                    <td>2025</td>
+                    <td>Software Engineering &amp; Modern Web Architecture</td>
+                    <td>Amazon / Goodreads / ORCID</td>
+                  </tr>
+                  <tr>
+                    <td><i><b>Automating the Semantic Web: Engineering Autonomous Wikidata Ingestion Pipelines</b></i></td>
+                    <td>2025–2026</td>
+                    <td>Semantic Web, SPARQL, Python &amp; Open Knowledge Graphs</td>
+                    <td>Technical Documentation &amp; Research Monograph</td>
+                  </tr>
+                  <tr>
+                    <td><i><b>Design, Performance &amp; Type Safety in Production Web Applications</b></i></td>
+                    <td>2026</td>
+                    <td>TypeScript, Next.js Ecosystem &amp; Performance Engineering</td>
+                    <td>Developer Knowledge Series</td>
+                  </tr>
+                </tbody>
+              </table>
 
               <h3 id="video-media" className="mw-headline-h3">
                 <span className="mw-headline-number">4.2</span> Video creation, color science, and 3D animation
               </h3>
               <p>
-                Lohar works in digital video editing and post-production, with a profile on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His media workflow includes color grading in DaVinci Resolve and 3D modeling in Blender.
+                Lohar works in digital video editing and post-production, with an official profile cataloged on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His media workflow includes digital color grading in DaVinci Resolve and 3D modeling in Blender.
               </p>
             </section>
 
@@ -991,37 +1023,37 @@ export const BiographyArticle: React.FC = () => {
               </h2>
               <ul className="vector-bullet-list">
                 <li>
-                  <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Official Portfolio &amp; Archival Records (bijoylohar.in)</a>
+                  <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Official Website &amp; Portfolio (bijoylohar.in)</a>
                 </li>
                 <li>
-                  <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Website (shadowarrow.in)</a>
+                  <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Organization Portal (shadowarrow.in)</a>
+                </li>
+                <li>
+                  <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Open Researcher and Contributor Identifier (0009-0004-5643-7612)</a>
+                </li>
+                <li>
+                  <a href="https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026" target="_blank" rel="noopener noreferrer" className="wiki-link">SHADOWARROW 2026 on Wikidata (Autonomous Linked Data Ingestion)</a>
                 </li>
                 <li>
                   <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Amazon Author Central</a>
                 </li>
                 <li>
-                  <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Goodreads</a>
+                  <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Goodreads Author Index</a>
                 </li>
                 <li>
-                  <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub</a>
+                  <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub (Open Source Codebase)</a>
                 </li>
                 <li>
-                  <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb</a>
+                  <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb (Internet Movie Database, nm18949942)</a>
                 </li>
                 <li>
-                  <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Identifier Profile (0009-0004-5643-7612)</a>
+                  <a href="https://developers.google.com/profile/u/101253410801307724262" target="_blank" rel="noopener noreferrer" className="wiki-link">Google Developer Verified Profile</a>
                 </li>
                 <li>
-                  <a href="https://www.wikidata.org/wiki/User:SHADOWARROW_2026" target="_blank" rel="noopener noreferrer" className="wiki-link">SHADOWARROW 2026 on Wikidata</a>
+                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn Professional Network</a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn</a>
-                </li>
-                <li>
-                  <a href="https://developers.google.com/profile/u/101253410801307724262" target="_blank" rel="noopener noreferrer" className="wiki-link">Google Developer Profile</a>
-                </li>
-                <li>
-                  <a href="https://topmate.io/bijoy_lohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Topmate Mentorship &amp; Advisory Profile</a>
+                  <a href="https://topmate.io/bijoy_lohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Topmate Advisory &amp; Technical Mentorship Registry</a>
                 </li>
               </ul>
             </section>
@@ -1040,17 +1072,126 @@ export const BiographyArticle: React.FC = () => {
               </div>
             </div>
 
-            {/* FOOTER METADATA */}
-            <footer className="vector-footer">
+            {/* FOOTER METADATA & WIKIPEDIA STYLE FOOTER */}
+            <footer className="vector-footer" role="contentinfo">
               <hr className="vector-footer-hr" />
-              <div className="vector-footer-text">
-                <p>This biographical record was last verified on 4 October 2026, at 04:30 (UTC).</p>
-                <p>Archival documentation and biography maintained for public reference under standard open knowledge licensing.</p>
+              <div className="vector-footer-container">
+                <div className="vector-footer-content">
+                  <ul className="vector-footer-info">
+                    <li id="footer-info-lastmod">
+                      This page was last edited on 4 October 2026, at 04:30 (UTC).
+                    </li>
+                    <li id="footer-info-copyright">
+                      Text is available under the{" "}
+                      <a
+                        href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        Creative Commons Attribution-ShareAlike License 4.0
+                      </a>
+                      ; additional terms may apply.
+                    </li>
+                  </ul>
+                  <ul className="vector-footer-places">
+                    <li>
+                      <a
+                        href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        Privacy policy
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.mediawiki.org/wiki/MediaWiki"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        About MediaWiki
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        Disclaimers
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        Terms of Use
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.mediawiki.org/wiki/Extension:MobileFrontend"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="wiki-link"
+                      >
+                        Mobile view
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <ul className="vector-footer-icons" aria-label="Badges and licensing">
+                  <li className="vector-footer-icon-item">
+                    <a
+                      href="https://creativecommons.org/licenses/by-sa/4.0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Creative Commons Attribution-ShareAlike License 4.0"
+                    >
+                      <img
+                        src="/images/badges/by-sa.svg"
+                        alt="Creative Commons Attribution-ShareAlike License 4.0"
+                        width={88}
+                        height={31}
+                        loading="lazy"
+                        className="vector-badge-img"
+                      />
+                    </a>
+                  </li>
+                  <li className="vector-footer-icon-item">
+                    <a
+                      href="https://www.mediawiki.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Powered by MediaWiki"
+                    >
+                      <img
+                        src="/images/badges/mediawiki-badge.svg"
+                        alt="Powered by MediaWiki"
+                        width={88}
+                        height={31}
+                        loading="lazy"
+                        className="vector-badge-img"
+                      />
+                    </a>
+                  </li>
+                </ul>
               </div>
             </footer>
           </div>
         </main>
       </div>
+
+      {/* HIDDEN GOOGLE TRANSLATE CONTAINER */}
+      <div id="google_translate_element" className="vector-google-translate-container" />
 
       {/* AUTHENTIC VECTOR 2022 CSS STYLING */}
       <style>{`
@@ -1301,8 +1442,11 @@ export const BiographyArticle: React.FC = () => {
           color: #B2C0AF !important;
           border-top-color: #233420 !important;
         }
-        .vector-theme-portfolio .vector-footer-text p {
+        .vector-theme-portfolio .vector-footer-info {
           color: #8C8375 !important;
+        }
+        .vector-theme-portfolio .vector-footer-places li:not(:last-child)::after {
+          color: #5A5245 !important;
         }
         .vector-theme-portfolio .vector-footer-hr {
           border-color: #2E251A !important;
@@ -1556,8 +1700,11 @@ export const BiographyArticle: React.FC = () => {
           color: #a8dadc !important;
           border-top-color: #1e3a24 !important;
         }
-        .vector-theme-dark .vector-footer-text p {
+        .vector-theme-dark .vector-footer-info {
           color: #9aa0a6 !important;
+        }
+        .vector-theme-dark .vector-footer-places li:not(:last-child)::after {
+          color: #5f6368 !important;
         }
         .vector-theme-dark .vector-footer-hr {
           border-color: #2d3748 !important;
@@ -2529,24 +2676,86 @@ export const BiographyArticle: React.FC = () => {
 
         /* FOOTER */
         .vector-footer {
-          margin-top: 24px;
-          padding-top: 12px;
+          margin-top: 32px;
+          padding-top: 8px;
         }
 
         .vector-footer-hr {
           border: none;
           border-top: 1px solid #a2a9b1;
-          margin-bottom: 12px;
+          margin-bottom: 16px;
         }
 
-        .vector-footer-text {
-          font-size: 11.5px;
+        .vector-footer-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .vector-footer-content {
+          flex: 1;
+          min-width: 260px;
+        }
+
+        .vector-footer-info {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 10px 0;
+          font-size: 12px;
           color: #54595d;
-          line-height: 1.5;
+          line-height: 1.55;
         }
 
-        .vector-footer-text p {
-          margin: 0 0 6px;
+        .vector-footer-info li {
+          margin-bottom: 4px;
+        }
+
+        .vector-footer-places {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          font-size: 12px;
+        }
+
+        .vector-footer-places li {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .vector-footer-places li:not(:last-child)::after {
+          content: "•";
+          margin: 0 8px;
+          color: #72777d;
+          font-size: 10px;
+        }
+
+        .vector-footer-icons {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-shrink: 0;
+        }
+
+        .vector-badge-img {
+          display: block;
+          width: 88px;
+          height: 31px;
+          border: 0;
+          border-radius: 1px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+          transition: opacity 0.15s ease;
+        }
+
+        .vector-footer-icons a:hover .vector-badge-img {
+          opacity: 0.85;
         }
 
         /* ==========================================================
@@ -2555,78 +2764,107 @@ export const BiographyArticle: React.FC = () => {
 
         @media (max-width: 1024px) {
           .vector-column-toc {
-            display: none;
+            display: none !important;
           }
           .vector-column-article {
-            margin-left: 0;
-            padding: 18px 20px 36px;
+            margin-left: 0 !important;
+            padding: 18px 20px 36px !important;
           }
         }
 
         @media (max-width: 768px) {
+          .vector-global-header-inner {
+            padding: 8px 12px;
+          }
+          .vector-site-brand {
+            font-size: 13px;
+          }
           .infobox {
-            float: none;
-            width: 100%;
-            margin: 0 0 18px 0;
-            box-sizing: border-box;
+            float: none !important;
+            width: 100% !important;
+            margin: 12px 0 20px 0 !important;
+            box-sizing: border-box !important;
+          }
+          .infobox-photo {
+            max-width: 220px !important;
+            height: auto !important;
+            margin: 0 auto !important;
           }
           .thumb, .tright, .tleft {
-            float: none;
+            float: none !important;
             width: 100% !important;
-            margin: 12px 0 18px 0;
+            margin: 12px 0 18px 0 !important;
           }
           .thumbinner {
             width: 100% !important;
-            box-sizing: border-box;
+            box-sizing: border-box !important;
           }
           .firstHeading {
-            font-size: 24px;
-            line-height: 1.25;
+            font-size: 24px !important;
+            line-height: 1.25 !important;
           }
           .vector-column-article {
-            padding: 14px 12px 28px;
+            padding: 14px 12px 28px !important;
           }
           .see-also-grid {
-            grid-template-columns: 1fr;
-            gap: 16px;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
           }
           .wikitable {
-            display: block;
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            font-size: 12px;
+            display: block !important;
+            width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+            font-size: 12px !important;
           }
           .wiki-metric-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 8px !important;
           }
           .wiki-contribution-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 6px;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 6px !important;
+          }
+          .vector-footer-container {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 16px !important;
+          }
+          .vector-footer-icons {
+            margin-top: 8px !important;
           }
         }
 
         @media (max-width: 480px) {
           .vector-main-layout {
-            padding: 10px 8px;
+            padding: 8px 6px !important;
           }
           .vector-column-article {
-            padding: 10px 8px 20px;
+            padding: 10px 8px 24px !important;
           }
           .firstHeading {
-            font-size: 21px;
+            font-size: 20px !important;
+          }
+          .mw-headline-h2 {
+            font-size: 17px !important;
+          }
+          .mw-headline-h3 {
+            font-size: 14px !important;
           }
           .wiki-metric-grid {
-            grid-template-columns: 1fr;
-            gap: 8px;
+            grid-template-columns: 1fr !important;
+            gap: 8px !important;
           }
           .see-also-card {
-            padding: 12px 12px 10px;
-            margin: 10px 0 16px;
+            padding: 12px 12px 10px !important;
+            margin: 10px 0 16px !important;
+          }
+          .vector-footer-places {
+            gap: 4px 8px;
           }
         }
+
       `}</style>
     </div>
   );

@@ -2,25 +2,27 @@ import type { Metadata } from "next";
 import { BiographyArticle } from "@/components/BiographyArticle";
 
 export const metadata: Metadata = {
-  title: "Bijoy Lohar — Biography & Archival Documentation",
+  title: "Biography — Bijoy Lohar",
   description:
-    "Official biography and archival documentation of Bijoy Lohar, Indian self-taught software engineer, author, digital video creator, and Founder of Shadow Arrow. Born in Bishnupur, Bankura, West Bengal, India on 12 October 2005.",
+    "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, digital creator, and Founder of Shadow Arrow. Born in Bishnupur, Bankura, West Bengal, India on 12 October 2005.",
   alternates: {
     canonical: "https://www.bijoylohar.in/biography",
   },
   openGraph: {
     type: "profile",
     url: "https://www.bijoylohar.in/biography",
-    title: "Bijoy Lohar — Biography & Archival Documentation",
-    description: "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, video creator, and founder of Shadow Arrow.",
+    title: "Biography — Bijoy Lohar",
+    description:
+      "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, digital creator, and founder of Shadow Arrow.",
     images: [{ url: "https://github.com/loharbijoy2005-a11y.png", width: 800, height: 800, alt: "Bijoy Lohar" }],
     firstName: "Bijoy",
     lastName: "Lohar",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bijoy Lohar — Biography",
-    description: "Self-taught Indian software engineer, author, video creator, and Founder of Shadow Arrow.",
+    title: "Biography — Bijoy Lohar",
+    description:
+      "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, and Founder of Shadow Arrow.",
     images: ["https://github.com/loharbijoy2005-a11y.png"],
   },
   robots: { index: true, follow: true },
