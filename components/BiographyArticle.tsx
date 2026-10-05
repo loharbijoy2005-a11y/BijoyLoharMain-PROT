@@ -2516,9 +2516,26 @@ export const BiographyArticle: React.FC = () => {
           clear: right;
           margin: 0 0 18px 22px;
           width: 300px;
+          max-width: 100%;
           border-spacing: 0;
           border-collapse: collapse;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+          table-layout: fixed;
+          box-sizing: border-box;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
+        .infobox td,
+        .infobox th {
+          box-sizing: border-box;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
+        .infobox a {
+          overflow-wrap: anywhere;
+          word-break: break-word;
         }
 
         .infobox-above {
@@ -2593,7 +2610,7 @@ export const BiographyArticle: React.FC = () => {
           vertical-align: top;
           text-align: left;
           font-size: 12.5px;
-          width: 32%;
+          width: 35%;
           border: none;
         }
 
@@ -2603,6 +2620,7 @@ export const BiographyArticle: React.FC = () => {
           padding: 4px 4px 4px 0px;
           vertical-align: top;
           font-size: 12.5px;
+          width: 65%;
           border: none;
         }
 
@@ -3101,6 +3119,14 @@ export const BiographyArticle: React.FC = () => {
         }
 
         @media (max-width: 768px) {
+          .vector-main-layout {
+            display: block !important;
+            padding: 8px 6px !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
           .vector-global-header-inner {
             padding: 8px 12px;
           }
@@ -3110,13 +3136,40 @@ export const BiographyArticle: React.FC = () => {
           .infobox {
             float: none !important;
             width: 100% !important;
-            margin: 12px 0 20px 0 !important;
+            max-width: 100% !important;
+            margin: 12px auto 20px auto !important;
             box-sizing: border-box !important;
+            table-layout: fixed !important;
+            display: table !important;
           }
           .infobox-photo {
-            max-width: 220px !important;
+            max-width: min(100%, 220px) !important;
             height: auto !important;
             margin: 0 auto !important;
+            object-fit: cover !important;
+          }
+          .infobox-above {
+            font-size: 15px !important;
+            padding: 6px 8px !important;
+          }
+          .infobox-label {
+            width: 36% !important;
+            padding: 5px 6px 5px 4px !important;
+            font-size: 12px !important;
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+          }
+          .infobox-data {
+            width: 64% !important;
+            padding: 5px 6px 5px 2px !important;
+            font-size: 12px !important;
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
+          }
+          .infobox-data a,
+          .infobox-label a {
+            word-break: break-word !important;
+            overflow-wrap: anywhere !important;
           }
           .thumb, .tright, .tleft {
             float: none !important;
@@ -3130,9 +3183,28 @@ export const BiographyArticle: React.FC = () => {
           .firstHeading {
             font-size: 24px !important;
             line-height: 1.25 !important;
+            word-break: break-word !important;
           }
           .vector-column-article {
-            padding: 14px 12px 28px !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 12px 4px 28px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
+          .mw-body-content {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
+          .mw-body-content p {
+            text-align: left !important;
+            word-break: break-word !important;
+          }
+          .lead-paragraph {
+            font-size: 15px !important;
+            line-height: 1.65 !important;
           }
           .see-also-grid {
             grid-template-columns: 1fr !important;
@@ -3166,10 +3238,10 @@ export const BiographyArticle: React.FC = () => {
 
         @media (max-width: 480px) {
           .vector-main-layout {
-            padding: 8px 6px !important;
+            padding: 4px 2px !important;
           }
           .vector-column-article {
-            padding: 10px 8px 24px !important;
+            padding: 8px 4px 24px !important;
           }
           .firstHeading {
             font-size: 20px !important;
@@ -3179,6 +3251,23 @@ export const BiographyArticle: React.FC = () => {
           }
           .mw-headline-h3 {
             font-size: 14px !important;
+          }
+          .infobox {
+            margin: 10px 0 16px 0 !important;
+            font-size: 11.5px !important;
+          }
+          .infobox-photo {
+            max-width: min(100%, 180px) !important;
+          }
+          .infobox-label {
+            width: 38% !important;
+            padding: 4px 4px 4px 2px !important;
+            font-size: 11px !important;
+          }
+          .infobox-data {
+            width: 62% !important;
+            padding: 4px 4px 4px 2px !important;
+            font-size: 11px !important;
           }
           .wiki-metric-grid {
             grid-template-columns: 1fr !important;

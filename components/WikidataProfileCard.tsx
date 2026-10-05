@@ -131,14 +131,14 @@ export const WikidataProfileCard: React.FC = () => {
   ];
 
   return (
-    <section className="py-6 px-4 md:px-8 max-w-[1040px] mx-auto font-sans">
+    <section className="py-4 md:py-6 px-0 sm:px-2 max-w-[1040px] mx-auto font-sans w-full">
       <motion.div
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         whileHover={{ scale: 1.01, y: -4 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className="group relative p-6 md:p-8 bg-studioCard border border-borderWarm rounded-3xl transition-all duration-300 hover:border-amberAccent/60 hover:shadow-2xl shadow-md overflow-hidden text-deepInk"
+        className="group relative p-4 sm:p-6 md:p-8 bg-studioCard border border-borderWarm rounded-2xl sm:rounded-3xl transition-all duration-300 hover:border-amberAccent/60 hover:shadow-2xl shadow-md overflow-hidden text-deepInk w-full"
       >
         {/* Periodic White/Gold Glowing Light Beam Sweep */}
         <motion.div
@@ -156,49 +156,49 @@ export const WikidataProfileCard: React.FC = () => {
         {/* Subtle Warm Amber Backdrop Glow */}
         <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-amberAccent/10 blur-3xl group-hover:bg-amberAccent/15 transition-all duration-500" />
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-10">
-          <div className="flex-1 min-w-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 sm:gap-6 relative z-10">
+          <div className="flex-1 min-w-0 w-full">
             {/* Top Tag Row */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-2.5">
               <span className="font-mono text-xs font-bold text-amberAccent">03</span>
-              <span className="px-3 py-0.5 bg-amberAccent/10 text-amberAccent border border-amberAccent/30 font-mono text-xs font-bold rounded-full shadow-sm flex items-center gap-1.5">
-                <Database className="w-3.5 h-3.5" />
-                Wikidata Knowledge Graph Entity
+              <span className="px-2.5 sm:px-3 py-0.5 bg-amberAccent/10 text-amberAccent border border-amberAccent/30 font-mono text-[11px] sm:text-xs font-bold rounded-full shadow-sm flex items-center gap-1.5 max-w-full">
+                <Database className="w-3.5 h-3.5 shrink-0" />
+                <span className="break-normal">Wikidata Knowledge Graph Entity</span>
               </span>
 
               {/* Scoreboard Rolling Live Contributions Pill */}
-              <span className="px-3 py-0.5 bg-amberAccent/15 text-amberAccent border border-amberAccent/40 font-mono text-xs font-extrabold rounded-full flex items-center gap-1.5 shadow-sm">
-                <TrendingUp className="w-3.5 h-3.5" />
+              <span className="px-2.5 sm:px-3 py-0.5 bg-amberAccent/15 text-amberAccent border border-amberAccent/40 font-mono text-[11px] sm:text-xs font-extrabold rounded-full flex items-center gap-1.5 shadow-sm max-w-full">
+                <TrendingUp className="w-3.5 h-3.5 shrink-0" />
                 <ScoreboardTicker value={formattedEditCount} />
-                <span>Live Contributions</span>
-                <span className={`h-1.5 w-1.5 rounded-full ${isLiveSyncing ? "bg-amberAccent animate-ping" : "bg-emerald-400 animate-pulse"}`} />
+                <span className="whitespace-nowrap">Live Contributions</span>
+                <span className={`h-1.5 w-1.5 rounded-full shrink-0 ${isLiveSyncing ? "bg-amberAccent animate-ping" : "bg-emerald-400 animate-pulse"}`} />
               </span>
 
               {/* Standing Pill */}
-              <span className="px-3 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono text-xs font-bold rounded-full flex items-center gap-1">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+              <span className="px-2.5 sm:px-3 py-0.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 font-mono text-[11px] sm:text-xs font-bold rounded-full flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
                 <span>Zero Blocks</span>
               </span>
             </div>
 
             {/* Giant Title matching SHADOW ARROW typography */}
-            <h2 className="font-heading font-black text-3xl md:text-4xl text-deepInk group-hover:text-amberAccent transition-colors tracking-tight">
+            <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-deepInk group-hover:text-amberAccent transition-colors tracking-tight break-words">
               SHADOW ARROW
             </h2>
 
             {/* Monospace URL & Headline Tagline */}
-            <p className="font-mono text-xs text-amberAccent font-semibold mt-1.5 truncate">
+            <p className="font-mono text-[11px] sm:text-xs text-amberAccent font-semibold mt-1.5 break-words">
               User:SHADOWARROW_2026 &bull; Wikidata Systems Architect &amp; Open Data Contributor
             </p>
 
             {/* Bio */}
-            <p className="text-sm text-muted max-w-[660px] leading-relaxed mt-2.5 font-normal">
+            <p className="text-xs sm:text-sm text-muted max-w-[660px] leading-relaxed mt-2.5 font-normal break-words">
               Full-stack developer and open-source data architect specializing in automated knowledge graph enrichment, Indian administrative datasets, and resilient API automation pipelines.
             </p>
 
             {/* Interactive Verified Rights Badges */}
-            <div className="flex flex-wrap items-center gap-2 mt-4 pt-3 border-t border-borderWarm/60">
-              <span className="font-mono text-[11px] font-bold text-amberAccent uppercase tracking-widest mr-1">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-4 pt-3 border-t border-borderWarm/60">
+              <span className="font-mono text-[10px] sm:text-[11px] font-bold text-amberAccent uppercase tracking-widest mr-1">
                 Rights:
               </span>
               {verifiedRights.map((right) => (
@@ -206,7 +206,7 @@ export const WikidataProfileCard: React.FC = () => {
                   key={right.id}
                   whileHover={{ scale: 1.05, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-studioCanvas/90 border border-borderWarm text-deepInk font-heading font-bold text-xs hover:border-amberAccent hover:text-amberAccent transition-all shadow-sm cursor-default"
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-studioCanvas/90 border border-borderWarm text-deepInk font-heading font-bold text-[11px] sm:text-xs hover:border-amberAccent hover:text-amberAccent transition-all shadow-sm cursor-default"
                 >
                   {right.icon}
                   <span>{right.label}</span>
@@ -217,14 +217,14 @@ export const WikidataProfileCard: React.FC = () => {
 
           {/* Solid Hover Action Button */}
           <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
             id="wikidata-card-profile-link"
             href={PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
             title="Verify Official Wikidata Contributor Profile"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shrink-0 shadow-md self-start md:self-center z-10"
+            className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 bg-amberAccent hover:bg-amberLight text-studioCanvas font-heading font-extrabold text-xs rounded-full transition-all shrink-0 shadow-md text-center mt-2 md:mt-0 z-10"
           >
             <span>Verify Official Wikidata Profile</span>
             <ArrowUpRight className="w-4 h-4" />
