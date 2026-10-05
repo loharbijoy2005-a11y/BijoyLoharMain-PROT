@@ -35,9 +35,22 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://www.bijoylohar.in/biography#person",
       name: "Bijoy Lohar",
-      alternateName: ["Bijoy Bhai", "Arrow Dada", "Wb Arrow", "loharbijoy2005-a11y"],
       givenName: "Bijoy",
       familyName: "Lohar",
+      additionalName: "Bijoy",
+      alternateName: [
+        "Bijoy",
+        "Bijoy Lohar",
+        "Bijoy (Software Engineer)",
+        "Bijoy (Founder of Shadow Arrow)",
+        "Bijoy Bhai",
+        "Bijoy Dada",
+        "Arrow Dada",
+        "Arrow Da",
+        "Wb Arrow",
+        "loharbijoy2005-a11y"
+      ],
+      disambiguatingDescription: "Bijoy (also known as Bijoy Lohar) is an Indian self-taught software engineer, systems architect, author, and founder of Shadow Arrow.",
       gender: "Male",
       birthDate: "2005-10-12",
       birthPlace: {

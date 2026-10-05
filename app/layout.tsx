@@ -49,12 +49,24 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
 
   keywords: [
+    "Bijoy",
     "Bijoy Lohar",
+    "Bijoy Developer",
+    "Bijoy Software Engineer",
+    "Bijoy Founder",
+    "Bijoy Systems Architect",
+    "Bijoy Shadow Arrow",
+    "Bijoy Bishnupur",
+    "Bijoy West Bengal",
+    "Bijoy India",
+    "Bijoy Tech",
+    "Who is Bijoy",
+    "Bijoy portfolio",
+    "Bijoy official website",
     "Bijoy Bhai",
     "Bijoy Dada",
     "Arrow Dada",
     "Arrow Da",
-    "Bijoy",
     "Shadow Arrow",
     "Wb Arrow",
     "bijoylohar.in",
@@ -234,7 +246,9 @@ interface SchemaPersonNode {
   name: string;
   givenName: string;
   familyName: string;
+  additionalName?: string;
   alternateName: string[];
+  disambiguatingDescription?: string;
   gender: string;
   birthDate: string;
   jobTitle: string | string[];
@@ -394,20 +408,25 @@ export default function RootLayout({
         "name": "Bijoy Lohar",
         "givenName": "Bijoy",
         "familyName": "Lohar",
+        "additionalName": "Bijoy",
         "alternateName": [
+          "Bijoy",
           "Bijoy Lohar",
+          "Bijoy (Software Engineer)",
+          "Bijoy (Founder of Shadow Arrow)",
           "Bijoy Bhai",
           "Bijoy Dada",
           "Arrow Dada",
           "Arrow Da",
-          "Bijoy",
           "Bijoy Lohar (Bijoy Bhai)",
           "Bijoy Lohar (Bijoy Dada)",
           "Wb Arrow",
           "Wb Arrow Founder",
           "Shadow Arrow Founder",
-          "Shadow Arrow"
+          "Shadow Arrow",
+          "loharbijoy2005-a11y"
         ],
+        "disambiguatingDescription": "Bijoy (also known as Bijoy Lohar) is an Indian self-taught software engineer, systems architect, author, and founder of Shadow Arrow.",
         "gender": "https://schema.org/Male",
         "birthDate": "2005-10-12",
         "jobTitle": [
