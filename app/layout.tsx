@@ -684,7 +684,7 @@ export default function RootLayout({
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
-        <link rel="preload" as="image" href="/images/bijoy-lohar.webp" fetchPriority="high" type="image/webp" />
+        <link rel="preload" as="image" href="/images/bijoy-lohar.png" fetchPriority="high" />
 
         <script
           type="application/ld+json"
