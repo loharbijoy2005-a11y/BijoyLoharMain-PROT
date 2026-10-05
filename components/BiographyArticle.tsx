@@ -47,7 +47,7 @@ const TOC_SECTIONS: TocItem[] = [
     level: 1,
     num: "4",
     children: [
-      { id: "authorship", label: "Authorship and technical writing", num: "4.1" },
+      { id: "authorship", label: "Authorship and published works", num: "4.1" },
       { id: "video-media", label: "Video creation, color science, and 3D animation", num: "4.2" },
     ],
   },
@@ -968,49 +968,61 @@ export const BiographyArticle: React.FC = () => {
                 <li id="ref-1">
                   <span className="mw-cite-backlink"><a href="#article-top">^</a></span>{" "}
                   <span className="reference-text">
-                    Lohar, Bijoy. <i>Official Biography and Portfolio</i>. <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">bijoylohar.in</a>. Retrieved 4 October 2026.
+                    Lohar, Bijoy. <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">"Official Biography and Portfolio"</a>. <i>bijoylohar.in</i>. Retrieved 4 October 2026.
                   </span>
                 </li>
                 <li id="ref-2">
                   <span className="mw-cite-backlink"><a href="#software-engineering">^</a></span>{" "}
                   <span className="reference-text">
-                    Lohar, Bijoy. <i>Open Source Software Repositories and Systems Development</i>. GitHub. <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">github.com/loharbijoy2005-a11y</a>. Retrieved 2026.
+                    Lohar, Bijoy. <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">"Open Source Software Repositories and Systems Development"</a>. <i>GitHub</i>. Retrieved 2026.
                   </span>
                 </li>
                 <li id="ref-3">
                   <span className="mw-cite-backlink"><a href="#shadow-arrow">^</a></span>{" "}
                   <span className="reference-text">
-                    Shadow Arrow. <i>Full-Stack Web Engineering and Commercial Architecture</i>. <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>. Bishnupur, West Bengal, India.
+                    Shadow Arrow. <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">"Full-Stack Web Engineering and Commercial Architecture"</a>. <i>Shadow Arrow</i>. Bishnupur, West Bengal, India.
                   </span>
                 </li>
                 <li id="ref-4">
                   <span className="mw-cite-backlink"><a href="#autodidactic-journey">^</a></span>{" "}
                   <span className="reference-text">
-                    Lohar, Bijoy. <i>Systems Architecture, Network Tick Dynamics, and Autodidactic Software Engineering</i>. Technical notes and essays. Bishnupur, Bankura, India.
+                    Lohar, Bijoy. <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">"Systems Architecture, Network Tick Dynamics, and Autodidactic Software Engineering"</a>. Technical notes and essays. Bishnupur, Bankura, India.
                   </span>
                 </li>
                 <li id="ref-5">
                   <span className="mw-cite-backlink"><a href="#creative-pursuits">^</a></span>{" "}
                   <span className="reference-text">
-                    IMDb. <i>Bijoy Lohar — Filmography, Digital Video Credits &amp; Media Post-Production</i>. <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">imdb.com/name/nm18949942/</a>. Retrieved 2026.
+                    IMDb. <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">"Bijoy Lohar — Filmography, Digital Video Credits &amp; Media Post-Production"</a>. <i>IMDb</i>. Retrieved 2026.
                   </span>
                 </li>
                 <li id="ref-6">
                   <span className="mw-cite-backlink"><a href="#wikidata-pipelines">^</a></span>{" "}
                   <span className="reference-text">
-                    Wikimedia Foundation &amp; Wikidata Contributors. <i>Autonomous Entity Ingestion and Semantic Linked Data Pipelines</i>. Wikidata API &amp; SPARQL Query Service.
+                    Wikimedia Foundation &amp; Wikidata Contributors. <a href="https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026" target="_blank" rel="noopener noreferrer" className="wiki-link">"Autonomous Entity Ingestion and Semantic Linked Data Pipelines"</a>. <i>Wikidata API &amp; SPARQL Query Service</i>.
                   </span>
                 </li>
                 <li id="ref-7">
                   <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
                   <span className="reference-text">
-                    Vidyasagar University. <i>Collegiate Higher Education Affiliation &amp; Academic Records</i>. Midnapore, West Bengal, India. <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">en.wikipedia.org/wiki/Vidyasagar_University</a>.
+                    Vidyasagar University. <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">"Collegiate Higher Education Affiliation &amp; Academic Records"</a>. Midnapore, West Bengal, India.
                   </span>
                 </li>
                 <li id="ref-8">
                   <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
                   <span className="reference-text">
                     West Bengal State Academic Records. <i>Secondary &amp; Higher Secondary Certification (Bishnupur High School &amp; Radhanagar High School)</i>. Bankura District, West Bengal.
+                  </span>
+                </li>
+                <li id="ref-9">
+                  <span className="mw-cite-backlink"><a href="#authorship">^</a></span>{" "}
+                  <span className="reference-text">
+                    Lohar, Bijoy (2024–2026). <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">"Published Technical Works and Software Systems Architecture Monographs"</a>. <i>Goodreads Author Index</i>.
+                  </span>
+                </li>
+                <li id="ref-10">
+                  <span className="mw-cite-backlink"><a href="#external-links">^</a></span>{" "}
+                  <span className="reference-text">
+                    ORCID. <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">"Bijoy Lohar — Open Researcher and Contributor Identifier (0009-0004-5643-7612)"</a>. <i>ORCID Registry</i>.
                   </span>
                 </li>
               </ol>
@@ -1023,10 +1035,10 @@ export const BiographyArticle: React.FC = () => {
               </h2>
               <ul className="vector-bullet-list">
                 <li>
-                  <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Official Website &amp; Portfolio (bijoylohar.in)</a>
+                  <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Official Website &amp; Portfolio</a>
                 </li>
                 <li>
-                  <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Organization Portal (shadowarrow.in)</a>
+                  <a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">Shadow Arrow Official Organization Portal</a>
                 </li>
                 <li>
                   <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID Open Researcher and Contributor Identifier (0009-0004-5643-7612)</a>
@@ -1041,19 +1053,19 @@ export const BiographyArticle: React.FC = () => {
                   <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on Goodreads Author Index</a>
                 </li>
                 <li>
-                  <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub (Open Source Codebase)</a>
+                  <a href="https://github.com/loharbijoy2005-a11y" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on GitHub</a>
                 </li>
                 <li>
-                  <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb (Internet Movie Database, nm18949942)</a>
+                  <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on IMDb</a>
                 </li>
                 <li>
                   <a href="https://developers.google.com/profile/u/101253410801307724262" target="_blank" rel="noopener noreferrer" className="wiki-link">Google Developer Verified Profile</a>
                 </li>
                 <li>
-                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn Professional Network</a>
+                  <a href="https://www.linkedin.com/in/bijoy-lohar-5a508832b" target="_blank" rel="noopener noreferrer" className="wiki-link">Bijoy Lohar on LinkedIn</a>
                 </li>
                 <li>
-                  <a href="https://topmate.io/bijoy_lohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Topmate Advisory &amp; Technical Mentorship Registry</a>
+                  <a href="https://topmate.io/bijoy_lohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Topmate Mentorship &amp; Advisory Profile</a>
                 </li>
               </ul>
             </section>
