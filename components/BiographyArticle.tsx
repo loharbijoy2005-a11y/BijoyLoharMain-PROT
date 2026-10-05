@@ -984,7 +984,7 @@ export const BiographyArticle: React.FC = () => {
                 <li id="ref-1">
                   <span className="mw-cite-backlink"><a href="#article-top">^</a></span>{" "}
                   <span className="reference-text">
-                    Lohar, Bijoy. <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">"Official Biography and Portfolio"</a>. <i>bijoylohar.in</i>. Retrieved 4 October 2026.
+                    Lohar, Bijoy. <a href="https://www.bijoylohar.in" target="_blank" rel="noopener noreferrer" className="wiki-link">"Official Website &amp; Portfolio"</a>. <i>bijoylohar.in</i>. Retrieved 4 October 2026.
                   </span>
                 </li>
                 <li id="ref-2">
