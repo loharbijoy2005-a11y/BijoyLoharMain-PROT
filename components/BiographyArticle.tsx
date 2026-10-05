@@ -496,11 +496,6 @@ export const BiographyArticle: React.FC = () => {
                   </th>
                 </tr>
                 <tr>
-                  <td colSpan={2} className="infobox-subheader role">
-                    Software Engineer • Full-Stack Developer • Systems Architect • Author
-                  </td>
-                </tr>
-                <tr>
                   <td colSpan={2} className="infobox-image">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -510,8 +505,23 @@ export const BiographyArticle: React.FC = () => {
                       width={280}
                       height={280}
                     />
-                    <div className="infobox-caption">Official portrait</div>
+                    <div className="infobox-caption">Official portrait (2026)</div>
                   </td>
+                </tr>
+                <tr>
+                  <th colSpan={2} className="infobox-header infobox-header-role">
+                    Founder and Lead Systems Architect of Shadow Arrow
+                  </th>
+                </tr>
+                <tr>
+                  <td colSpan={2} className="infobox-office-block">
+                    <b>In office</b><br />
+                    <span>2025 – present</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" className="infobox-label">Preceded by</th>
+                  <td className="infobox-data"><i>Position established</i></td>
                 </tr>
                 <tr>
                   <th colSpan={2} className="infobox-header">
@@ -521,10 +531,11 @@ export const BiographyArticle: React.FC = () => {
                 <tr>
                   <th scope="row" className="infobox-label">Born</th>
                   <td className="infobox-data">
+                    Bijoy Lohar<br />
                     12 October 2005 <span className="noprint ForceAgeToShow">(age&#160;{currentAge})</span><br />
                     <span className="birthplace">
                       <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>,{" "}
-                      <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a>,{" "}
+                      <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a>,<br />
                       <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India
                     </span>
                   </td>
@@ -543,17 +554,17 @@ export const BiographyArticle: React.FC = () => {
                     <ul className="infobox-list">
                       <li>
                         <a href="https://en.wikipedia.org/wiki/Software_engineer" target="_blank" rel="noopener noreferrer" className="wiki-link">
-                          Software Engineer
+                          Software engineer
                         </a>
                       </li>
                       <li>
                         <a href="https://en.wikipedia.org/wiki/Web_developer" target="_blank" rel="noopener noreferrer" className="wiki-link">
-                          Full-Stack Developer
+                          Full-stack developer
                         </a>
                       </li>
                       <li>
                         <a href="https://en.wikipedia.org/wiki/Systems_architect" target="_blank" rel="noopener noreferrer" className="wiki-link">
-                          Systems Architect
+                          Systems architect
                         </a>
                       </li>
                       <li>
@@ -562,7 +573,7 @@ export const BiographyArticle: React.FC = () => {
                         </a>
                         {" "}&amp;{" "}
                         <a href="https://en.wikipedia.org/wiki/Technical_writer" target="_blank" rel="noopener noreferrer" className="wiki-link">
-                          Technical Writer
+                          technical writer
                         </a>
                       </li>
                     </ul>
@@ -581,7 +592,7 @@ export const BiographyArticle: React.FC = () => {
                   <td className="infobox-data">
                     <ul className="infobox-list">
                       <li>
-                        <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> (currently enrolled, 2nd year)
+                        <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> (undergraduate, 2nd year)
                       </li>
                       <li>Radhanagar High School (HS Vocational)</li>
                       <li>Bishnupur High School (Secondary)</li>
@@ -595,7 +606,7 @@ export const BiographyArticle: React.FC = () => {
                   </td>
                 </tr>
                 <tr>
-                  <th scope="row" className="infobox-label">Parent(s)</th>
+                  <th scope="row" className="infobox-label">Parents</th>
                   <td className="infobox-data">
                     Binod Lohar (father)<br />
                     Soma Lohar (mother)
@@ -1317,37 +1328,40 @@ export const BiographyArticle: React.FC = () => {
           color: #8C8375;
         }
         .vector-theme-portfolio .infobox {
-          background: #1C1710;
+          background: #18140E;
           border-color: #2E251A;
           color: #FCF9F2;
         }
         .vector-theme-portfolio .infobox-above {
-          background: #241E15;
+          background: #241D14;
+          color: #E5C158;
+          border-bottom: 1px solid #2E251A;
+        }
+        .vector-theme-portfolio .infobox-subheader,
+        .vector-theme-portfolio .infobox-office-block {
+          background: #1A150E;
           color: #FCF9F2;
           border-bottom: 1px solid #2E251A;
         }
-        .vector-theme-portfolio .infobox-subheader {
-          background: #1E1912;
-          color: #E5C158;
-          border-bottom-color: #2E251A;
-        }
         .vector-theme-portfolio .infobox-image {
-          background: #16130D;
+          background: transparent;
         }
         .vector-theme-portfolio .infobox-header {
-          background-color: #261F16;
+          background-color: #241D14;
           color: #E5C158;
           border-color: #2E251A;
         }
+        .vector-theme-portfolio .infobox-header-role {
+          background-color: #241D14;
+          color: #E5C158;
+        }
         .vector-theme-portfolio .infobox-data {
-          background: #16130D;
+          background: transparent;
           color: #FCF9F2;
-          border-color: #2E251A;
         }
         .vector-theme-portfolio .infobox-label {
-          background: #1E1912;
-          color: #A0988A;
-          border-color: #2E251A;
+          background: transparent;
+          color: #FCF9F2;
         }
         .vector-theme-portfolio .wikitable {
           background: #16130D;
@@ -1575,37 +1589,40 @@ export const BiographyArticle: React.FC = () => {
           color: #80868b;
         }
         .vector-theme-dark .infobox {
-          background: #20262e;
+          background: #181e24;
           border-color: #3c4043;
           color: #e8eaed;
         }
         .vector-theme-dark .infobox-above {
-          background: #28303a;
-          color: #f1f3f4;
+          background: #202b38;
+          color: #8ab4f8;
           border-bottom: 1px solid #3c4043;
         }
-        .vector-theme-dark .infobox-subheader {
-          background: #20262e;
-          color: #8ab4f8;
-          border-bottom-color: #3c4043;
+        .vector-theme-dark .infobox-subheader,
+        .vector-theme-dark .infobox-office-block {
+          background: #161c22;
+          color: #e8eaed;
+          border-bottom: 1px solid #3c4043;
         }
         .vector-theme-dark .infobox-image {
-          background: #1a1e24;
+          background: transparent;
         }
         .vector-theme-dark .infobox-header {
-          background-color: #28303a;
+          background-color: #202b38;
           color: #8ab4f8;
           border-color: #3c4043;
         }
+        .vector-theme-dark .infobox-header-role {
+          background-color: #202b38;
+          color: #8ab4f8;
+        }
         .vector-theme-dark .infobox-data {
-          background: #1a1e24;
+          background: transparent;
           color: #e8eaed;
-          border-color: #3c4043;
         }
         .vector-theme-dark .infobox-label {
-          background: #20262e;
-          color: #9aa0a6;
-          border-color: #3c4043;
+          background: transparent;
+          color: #f1f3f4;
         }
         .vector-theme-dark .wikitable {
           background: #1a1e24;
@@ -1815,32 +1832,41 @@ export const BiographyArticle: React.FC = () => {
           border-left: 3px solid #3366cc;
         }
         .vector-theme-light .infobox {
-          background: #f8f9fa;
-          border-color: #a2a9b1;
+          background: #ffffff;
+          border-color: #c8ccd1;
           color: #202122;
         }
         .vector-theme-light .infobox-above {
-          background: #eaecf0;
-          color: #000000;
+          background: #eaf3ff;
+          color: #002bb8;
+          border-bottom: 1px solid #c8ccd1;
         }
-        .vector-theme-light .infobox-subheader {
+        .vector-theme-light .infobox-subheader,
+        .vector-theme-light .infobox-office-block {
           background: #f8f9fa;
-          color: #54595d;
+          color: #202122;
+          border-bottom: 1px solid #c8ccd1;
+        }
+        .vector-theme-light .infobox-image {
+          background: transparent;
         }
         .vector-theme-light .infobox-header {
-          background-color: #eaf3fb;
-          color: #202122;
-          border-color: #a2a9b1;
+          background-color: #eaf3ff;
+          color: #000000;
+          border-top: 1px solid #c8ccd1;
+          border-bottom: 1px solid #c8ccd1;
+        }
+        .vector-theme-light .infobox-header-role {
+          background-color: #eaf3ff;
+          color: #002bb8;
         }
         .vector-theme-light .infobox-data {
-          background: #ffffff;
+          background: transparent;
           color: #202122;
-          border-color: #a2a9b1;
         }
         .vector-theme-light .infobox-label {
-          background: #f8f9fa;
-          color: #202122;
-          border-color: #a2a9b1;
+          background: transparent;
+          color: #000000;
         }
         .vector-theme-light .vector-appearance-dropdown {
           background: #ffffff;
@@ -2334,62 +2360,79 @@ export const BiographyArticle: React.FC = () => {
           line-height: 1.5;
         }
 
-        /* INFOBOX VCARD (FLOATING RIGHT) */
+        /* INFOBOX VCARD (FLOATING RIGHT - EXACT WIKIPEDIA SPEC) */
         .infobox {
-          border: 1px solid #a2a9b1;
-          background-color: #f8f9fa;
+          border: 1px solid #c8ccd1;
+          background-color: #ffffff;
           color: #202122;
-          padding: 5px;
+          padding: 4px;
           font-size: 12.5px;
-          line-height: 1.45;
+          line-height: 1.5;
           float: right;
           clear: right;
           margin: 0 0 18px 22px;
-          width: 290px;
+          width: 300px;
           border-spacing: 0;
           border-collapse: collapse;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
 
         .infobox-above {
-          font-size: 16px;
-          font-weight: bold;
-          background-color: #eaecf0;
+          font-size: 15px;
+          font-weight: 700;
+          background-color: #eaf3ff;
           text-align: center;
-          padding: 8px 6px;
-          color: #000000;
+          padding: 6px 8px;
+          color: #002bb8;
+          border-bottom: 1px solid #c8ccd1;
         }
 
         .infobox-subheader {
-          font-size: 12px;
-          font-weight: bold;
+          font-size: 11.5px;
+          font-weight: 600;
           text-align: center;
-          padding: 4px 6px 8px;
-          color: #54595d;
-          border-bottom: 1px solid #a2a9b1;
+          padding: 4px 6px;
+          color: #202122;
+          background-color: #f8f9fa;
+          border-bottom: 1px solid #c8ccd1;
+        }
+
+        .infobox-office-block {
+          text-align: center;
+          padding: 5px 8px;
+          font-size: 12px;
+          background: #f8f9fa;
+          border-bottom: 1px solid #c8ccd1;
         }
 
         .infobox-header {
-          background-color: #eaf3fb;
+          background-color: #eaf3ff;
           font-weight: 700;
-          font-size: 12px;
+          font-size: 12.5px;
           text-align: center;
-          padding: 4px 6px;
-          border-top: 1px solid #a2a9b1;
-          border-bottom: 1px solid #a2a9b1;
-          color: #202122;
+          padding: 5px 8px;
+          border-top: 1px solid #c8ccd1;
+          border-bottom: 1px solid #c8ccd1;
+          color: #000000;
+        }
+
+        .infobox-header-role {
+          background-color: #eaf3ff;
+          color: #002bb8;
         }
 
         .infobox-image {
           text-align: center;
-          padding: 10px 0 6px;
-          background: #ffffff;
+          padding: 8px 0 6px;
+          background: transparent;
         }
 
         .infobox-photo {
           margin: 0 auto;
           border: 1px solid #c8ccd1;
           display: block;
+          max-width: 100%;
+          height: auto;
         }
 
         .infobox-caption {
@@ -2399,33 +2442,34 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .infobox-label {
-          background: #f8f9fa;
+          background: transparent;
           font-weight: 700;
-          color: #202122;
-          padding: 6px 8px;
+          color: #000000;
+          padding: 4px 8px 4px 4px;
           vertical-align: top;
           text-align: left;
-          font-size: 12px;
-          border-top: 1px solid #a2a9b1;
-          width: 95px;
+          font-size: 12.5px;
+          width: 32%;
+          border: none;
         }
 
         .infobox-data {
-          background: #ffffff;
+          background: transparent;
           color: #202122;
-          padding: 6px 8px;
+          padding: 4px 4px 4px 0px;
           vertical-align: top;
-          font-size: 12px;
-          border-top: 1px solid #a2a9b1;
+          font-size: 12.5px;
+          border: none;
         }
 
         .infobox-list {
           margin: 0;
-          padding: 0 0 0 12px;
-          list-style: disc;
+          padding: 0;
+          list-style: none;
         }
         .infobox-list li {
           margin-bottom: 2px;
+          line-height: 1.45;
         }
 
         /* WIKIPEDIA STANDARD THUMBNAILS */
