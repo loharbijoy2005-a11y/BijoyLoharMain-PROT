@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Biography — Bijoy Lohar",
     description:
       "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, digital creator, and founder of Shadow Arrow.",
-    images: [{ url: "https://github.com/loharbijoy2005-a11y.png", width: 800, height: 800, alt: "Bijoy Lohar" }],
+    images: [{ url: "https://www.bijoylohar.in/images/bijoy-lohar.png", width: 800, height: 800, alt: "Bijoy Lohar" }],
     firstName: "Bijoy",
     lastName: "Lohar",
   },
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Biography — Bijoy Lohar",
     description:
       "Official biography of Bijoy Lohar, Indian self-taught software engineer, author, and Founder of Shadow Arrow.",
-    images: ["https://github.com/loharbijoy2005-a11y.png"],
+    images: ["https://www.bijoylohar.in/images/bijoy-lohar.png"],
   },
   robots: { index: true, follow: true },
 };

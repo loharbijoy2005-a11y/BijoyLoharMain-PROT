@@ -118,7 +118,7 @@ export const AboutMe: React.FC<AboutMeProps> = ({
   ventureName = "Shadow Arrow",
   location = "Bishnupur, West Bengal, India",
   siteUrl = "https://www.bijoylohar.in",
-  imageUrl = "https://github.com/loharbijoy2005-a11y.png",
+  imageUrl = "/images/bijoy-lohar.png",
   socials = {
     github: "https://github.com/loharbijoy2005-a11y",
     linkedin: "https://www.linkedin.com/in/bijoy-lohar-5a508832b",
@@ -310,9 +310,13 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                   src={imageUrl}
                   alt={name}
                   className="w-full h-full object-cover rounded-[18px] transition-transform duration-700 group-hover:scale-105"
+                  width={224}
+                  height={224}
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://ui-avatars.com/api/?name=Bijoy+Lohar&background=12100B&color=E5C158&size=400";
+                    target.src = "/hero-portrait.jpg";
                   }}
                 />
                 

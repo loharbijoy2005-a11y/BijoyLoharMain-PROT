@@ -499,11 +499,13 @@ export const BiographyArticle: React.FC = () => {
                   <td colSpan={2} className="infobox-image">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="https://github.com/loharbijoy2005-a11y.png"
+                      src="/images/bijoy-lohar.png"
                       alt="Bijoy Lohar official portrait"
                       className="infobox-photo photo"
                       width={280}
                       height={280}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="infobox-caption">Official portrait (2026)</div>
                   </td>

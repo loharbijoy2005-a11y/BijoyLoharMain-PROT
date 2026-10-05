@@ -182,9 +182,9 @@ export const WikidataProfileCard: React.FC = () => {
             </div>
 
             {/* Giant Title matching SHADOW ARROW typography */}
-            <h3 className="font-heading font-black text-3xl md:text-4xl text-deepInk group-hover:text-amberAccent transition-colors tracking-tight">
+            <h2 className="font-heading font-black text-3xl md:text-4xl text-deepInk group-hover:text-amberAccent transition-colors tracking-tight">
               SHADOW ARROW
-            </h3>
+            </h2>
 
             {/* Monospace URL & Headline Tagline */}
             <p className="font-mono text-xs text-amberAccent font-semibold mt-1.5 truncate">

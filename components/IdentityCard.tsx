@@ -121,9 +121,9 @@ export const IdentityCard: React.FC = () => {
 
           {/* Bottom Gradient Caption */}
           <div className="absolute bottom-0 inset-x-0 z-20 p-6 bg-gradient-to-t from-deepInk via-deepInk/60 to-transparent text-white">
-            <h4 className="font-heading font-bold text-xl md:text-2xl leading-tight">
+            <h3 className="font-heading font-bold text-xl md:text-2xl leading-tight">
               {currentPhoto.title}
-            </h4>
+            </h3>
             <p className="font-mono text-xs text-amber-200/90 mt-1">
               {currentPhoto.tagline}
             </p>

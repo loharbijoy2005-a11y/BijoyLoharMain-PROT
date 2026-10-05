@@ -20,7 +20,7 @@ const marqueeItems: MarqueeCardData[] = [
     tag: "Bijoy Lohar",
     title: "Systems Architect & Founder",
     type: "image",
-    src: "https://github.com/loharbijoy2005-a11y.png",
+    src: "/images/bijoy-lohar.png",
   },
   {
     id: 2,
@@ -115,6 +115,10 @@ export const MomentsMarquee: React.FC = () => {
                   src={item.src}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  width={270}
+                  height={180}
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
                   }}

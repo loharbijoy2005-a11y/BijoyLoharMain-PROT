@@ -1,13 +1,42 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegister from "../components/ServiceWorkerRegister";
 
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+  weight: ["400", "500", "600"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-heading",
+  weight: ["500", "600", "700", "800"],
+});
+
 // ─── Site-Wide Constants ──────────────────────────────────────────────────────
 const BASE_URL = "https://www.bijoylohar.in";
-const OG_IMAGE = "https://github.com/loharbijoy2005-a11y.png";
+const OG_IMAGE = "https://www.bijoylohar.in/images/bijoy-lohar.png";
 const TITLE = "Bijoy Lohar | Full-Stack Software Engineer & Founder of Shadow Arrow";
 const DESCRIPTION =
   "Official portfolio of Bijoy Lohar — Full-Stack Software Engineer and Founder of Shadow Arrow. Based in Bishnupur, West Bengal, India.";
+
+export const viewport: Viewport = {
+  themeColor: "#09090B",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 // ─── Next.js Metadata Export ─────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -119,9 +148,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
-    shortcut: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
-    apple: "https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon-192.png",
   },
   manifest: "/manifest.json",
 
@@ -629,26 +658,21 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${plusJakartaSans.variable}`}>
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#09090B" />
-        <link rel="icon" type="image/png" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
-        <link rel="shortcut icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
-        <link rel="apple-touch-icon" href="https://i.postimg.cc/25mBcsVn/Bijoy-Lohar-Icon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+        <link rel="preload" as="image" href="/images/bijoy-lohar.png" fetchPriority="high" />
 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph, null, 0) }}
         />
       </head>
-      <body className="antialiased bg-studioCanvas text-deepInk selection:bg-deepInk selection:text-white">
+      <body className="antialiased bg-studioCanvas text-deepInk selection:bg-deepInk selection:text-white font-sans">
         <div className="cursor-spotlight" id="cursorSpotlight" />
         <ServiceWorkerRegister />
         {children}

@@ -83,7 +83,7 @@ const TimelineItem: React.FC<{
     <span className="font-mono text-xs font-bold text-amberAccent">
       {year} &bull; {label}
     </span>
-    <h4 className="font-heading font-bold text-xl text-deepInk">{heading}</h4>
+    <h3 className="font-heading font-bold text-xl text-deepInk">{heading}</h3>
     <p className="text-sm text-muted max-w-2xl leading-relaxed">{body}</p>
   </motion.div>
 );
@@ -131,10 +131,10 @@ export const SystemsPhilosophy: React.FC = () => {
               className="space-y-1"
             >
               <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-7xl text-deepInk tracking-tight leading-[1.08]">
-                Engineering Resilient Systems.
-              </h1>
-              <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-7xl text-amberAccent tracking-tight leading-[1.08]">
-                Architecting Computational Scale.
+                Engineering Resilient Systems.{" "}
+                <span className="text-amberAccent block sm:inline">
+                  Architecting Computational Scale.
+                </span>
               </h1>
             </motion.div>
 
@@ -182,9 +182,14 @@ export const SystemsPhilosophy: React.FC = () => {
             <div className="lg:hidden mt-6 pt-2">
               <div className="relative w-full max-w-[320px] rounded-3xl overflow-hidden border-2 border-amberAccent/40 shadow-2xl bg-studioCard">
                 <img
-                  src="https://github.com/loharbijoy2005-a11y.png"
+                  src="/images/bijoy-lohar.png"
                   alt="Bijoy Lohar — Systems Architect & Founder"
                   className="w-full h-auto object-cover rounded-3xl"
+                  width={320}
+                  height={320}
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="async"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
                   }}
@@ -205,9 +210,14 @@ export const SystemsPhilosophy: React.FC = () => {
 
             <div className="hero-image-container w-full h-full flex justify-end items-start pr-0 mr-0">
               <img
-                src="https://github.com/loharbijoy2005-a11y.png"
+                src="/images/bijoy-lohar.png"
                 alt="Bijoy Lohar — Systems Architect & Founder"
                 className="w-full max-w-[840px] h-full max-h-screen object-cover object-top-right align-top relative z-0 block pr-0 mr-0"
+                width={840}
+                height={840}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
                 }}

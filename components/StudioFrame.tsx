@@ -77,9 +77,9 @@ export const StudioFrame: React.FC = () => {
                   <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-4">
                     <Laptop className="w-8 h-8 text-sky-400" />
                   </div>
-                  <h4 className="font-heading font-bold text-xl text-white mb-1">
+                  <h3 className="font-heading font-bold text-xl text-white mb-1">
                     {currentPhoto.title}
-                  </h4>
+                  </h3>
                   <p className="text-xs font-mono text-slate-300 max-w-[240px]">
                     {currentPhoto.desc}
                   </p>
@@ -89,9 +89,9 @@ export const StudioFrame: React.FC = () => {
                   <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center mb-4">
                     <Gamepad2 className="w-8 h-8 text-emerald-400" />
                   </div>
-                  <h4 className="font-heading font-bold text-xl text-white mb-1">
+                  <h3 className="font-heading font-bold text-xl text-white mb-1">
                     {currentPhoto.title}
-                  </h4>
+                  </h3>
                   <p className="text-xs font-mono text-slate-300 max-w-[240px]">
                     {currentPhoto.desc}
                   </p>
