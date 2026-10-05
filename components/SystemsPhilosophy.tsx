@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowDown,
@@ -111,54 +112,30 @@ export const SystemsPhilosophy: React.FC = () => {
           <div className="lg:col-span-6 space-y-4 sm:space-y-6 text-left pt-14 sm:pt-20 pb-4 z-10 max-w-[720px]">
 
             {/* Subtle pill badge */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={0}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amberAccent/10 border border-amberAccent/30 rounded-full text-[10px] sm:text-xs font-mono font-bold text-amberAccent max-w-full flex-wrap"
-            >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-amberAccent/10 border border-amberAccent/30 rounded-full text-[10px] sm:text-xs font-mono font-bold text-amberAccent max-w-full flex-wrap">
               <span className="w-1.5 h-1.5 rounded-full bg-amberAccent animate-pulse shrink-0" />
               <span className="break-words">FULL-STACK SOFTWARE ENGINEER &bull; SYSTEMS ARCHITECT &bull; FOUNDER OF SHADOW ARROW</span>
-            </motion.div>
+            </div>
 
             {/* Main headline */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={1}
-              className="space-y-1"
-            >
+            <div className="space-y-1">
               <h1 className="font-heading font-black text-3xl sm:text-5xl lg:text-7xl text-deepInk tracking-tight leading-[1.08]">
                 Engineering Resilient Systems.{" "}
                 <span className="text-amberAccent block sm:inline">
                   Architecting Computational Scale.
                 </span>
               </h1>
-            </motion.div>
+            </div>
 
             {/* Subtext */}
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={2}
-              className="text-muted text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal"
-            >
+            <p className="text-muted text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl font-normal">
               Full-Stack Software Engineer operating across high-throughput software architecture, cloud infrastructure, and real-time gaming systems.
               Founder of <strong className="text-amberAccent font-bold">Shadow Arrow</strong> based in{" "}
               <strong className="text-deepInk font-semibold">Bishnupur, West Bengal.</strong>
-            </motion.p>
+            </p>
 
             {/* CTA Buttons */}
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              animate="show"
-              custom={3}
-              className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1"
-            >
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
               <a
                 href="#origin-narrative"
                 id="cta-read-biography"
@@ -176,23 +153,19 @@ export const SystemsPhilosophy: React.FC = () => {
                 <span>Direct Comms</span>
                 <ArrowUpRight className="w-4 h-4" />
               </a>
-            </motion.div>
+            </div>
 
             {/* Mobile Portrait Photo Card (Visible only on Mobile & Tablet) */}
             <div className="lg:hidden mt-6 pt-2">
               <div className="relative w-full max-w-[320px] rounded-3xl overflow-hidden border-2 border-amberAccent/40 shadow-2xl bg-studioCard">
-                <img
+                <Image
                   src="/images/bijoy-lohar.png"
                   alt="Bijoy Lohar — Systems Architect & Founder"
                   className="w-full h-auto object-cover rounded-3xl"
                   width={320}
                   height={320}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
-                  }}
+                  priority={true}
+                  sizes="(max-width: 768px) 320px, 400px"
                 />
                 <div className="absolute bottom-2 inset-x-2 bg-studioCanvas/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amberAccent/30 flex items-center justify-between text-[11px] font-mono text-amberAccent">
                   <span className="font-bold">Bijoy Lohar</span>
@@ -209,18 +182,14 @@ export const SystemsPhilosophy: React.FC = () => {
             <HeroParticleSwarm />
 
             <div className="hero-image-container w-full h-full flex justify-end items-start pr-0 mr-0">
-              <img
+              <Image
                 src="/images/bijoy-lohar.png"
                 alt="Bijoy Lohar — Systems Architect & Founder"
                 className="w-full max-w-[840px] h-full max-h-screen object-cover object-top-right align-top relative z-0 block pr-0 mr-0"
                 width={840}
                 height={840}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/hero-portrait.jpg";
-                }}
+                priority={true}
+                sizes="(min-width: 1024px) 50vw, 840px"
               />
             </div>
           </div>
