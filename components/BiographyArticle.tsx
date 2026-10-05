@@ -1015,7 +1015,7 @@ export const BiographyArticle: React.FC = () => {
                 <li id="ref-7">
                   <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
                   <span className="reference-text">
-                    Vidyasagar University. <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">"Collegiate Higher Education Affiliation &amp; Academic Records"</a>. Midnapore, West Bengal, India.
+                    <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">"Vidyasagar University: Collegiate Higher Education Affiliation &amp; Academic Records"</a>. Vidyasagar University, Midnapore, West Bengal, India. Retrieved 2026.
                   </span>
                 </li>
                 <li id="ref-8">
