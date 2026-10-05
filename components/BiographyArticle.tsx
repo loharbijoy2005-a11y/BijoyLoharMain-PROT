@@ -23,40 +23,118 @@ const TOC_SECTIONS: TocItem[] = [
     id: "early-life",
     label: "Early life and education",
     level: 1,
-    num: "1",
     children: [
       { id: "education", label: "Education", num: "1.1" },
     ],
   },
-  { id: "gaming", label: "Competitive gaming and early computing (2022–2023)", level: 1, num: "2" },
   {
     id: "software-engineering",
-    label: "Self-taught software engineering & technical career",
+    label: "Business career",
     level: 1,
-    num: "3",
     children: [
-      { id: "autodidactic-journey", label: "Autodidactic journey and core programming", num: "3.1" },
-      { id: "automation-scripting", label: "Automation bots and utility scripting", num: "3.2" },
-      { id: "shadow-arrow", label: "Foundation and expansion of Shadow Arrow (2025–present)", num: "3.3" },
-      { id: "wikidata-pipelines", label: "Automated semantic pipelines and Wikidata ingestion bots", num: "3.4" },
+      { id: "shadow-arrow", label: "Shadow Arrow", num: "2.1" },
+      { id: "omnikart", label: "Omnikart", num: "2.2" },
+      { id: "autodidactic-journey", label: "Software engineering", num: "2.3" },
+      { id: "wikidata-pipelines", label: "Wikidata pipelines", num: "2.4" },
     ],
   },
   {
     id: "creative-pursuits",
-    label: "Creative pursuits, writing, and media",
+    label: "Other activities",
     level: 1,
-    num: "4",
     children: [
-      { id: "authorship", label: "Authorship and published works", num: "4.1" },
-      { id: "video-media", label: "Video creation, color science, and 3D animation", num: "4.2" },
+      { id: "gaming", label: "Early computing", num: "3.1" },
+      { id: "authorship", label: "Authorship", num: "3.2" },
+      { id: "video-media", label: "3D and video media", num: "3.3" },
     ],
   },
-  { id: "philosophy-toolchain", label: "Technical philosophy and toolchain", level: 1, num: "5" },
-  { id: "personal-life", label: "Personal life", level: 1, num: "6" },
-  { id: "see-also", label: "See also", level: 1, num: "7" },
-  { id: "references", label: "References", level: 1, num: "8" },
-  { id: "external-links", label: "External links", level: 1, num: "9" },
+  { id: "philosophy-toolchain", label: "Technical philosophy", level: 1 },
+  { id: "personal-life", label: "Personal life", level: 1 },
+  { id: "see-also", label: "See also", level: 1 },
+  { id: "references", label: "References", level: 1 },
+  { id: "external-links", label: "External links", level: 1 },
 ];
+
+const WIKITEXT_CODE = `{{Short description|Indian software engineer, systems architect, and founder}}
+{{Use dmy dates|date=October 2026}}
+{{Use Indian English|date=October 2026}}
+{{Infobox person
+| name = Bijoy Lohar
+| image = bijoy-lohar.png
+| caption = Official portrait (2026)
+| birth_name = Bijoy Lohar
+| birth_date = {{Birth date and age|2005|10|12|df=y}}
+| birth_place = [[Bishnupur, Bankura|Bishnupur]], [[Bankura district]], [[West Bengal]], India
+| nationality = [[India|Indian]]
+| citizenship = Indian
+| alma_mater = [[Vidyasagar University]]
+| occupation = {{Hlist|[[Software engineer]]|Systems architect|Technical author|Founder}}
+| organization = [[Shadow Arrow]]
+| known_for = Systems architecture, distributed web engineering, autonomous linked data pipelines
+| awards = {{Plainlist|
+* Automated Wikidata Citation Record
+* Technical Publication Author
+}}
+| website = {{URL|https://www.bijoylohar.in}}
+}}
+
+'''Bijoy Lohar''' (born 12 October 2005) is an Indian self-taught software engineer, systems architect, technical author, and technology entrepreneur.<ref name="official-site">Lohar, Bijoy. [https://www.bijoylohar.in "Official Website"]. ''bijoylohar.in''. Retrieved 4 October 2026.</ref> He is the founder and lead systems architect of '''[[Shadow Arrow]]''', an independent technical studio founded in 2025 based in Bishnupur, West Bengal.<ref name="shadow-arrow">Shadow Arrow. [https://www.shadowarrow.in "Full-Stack Web Engineering and Commercial Architecture"]. ''Shadow Arrow''. Bishnupur, West Bengal, India.</ref>
+
+Lohar is primarily recognized for his work in high-throughput backend systems, cloud-native architectures, distributed web infrastructures, and large-scale semantic data pipelines on [[Wikidata]].<ref name="wikidata">Wikimedia Foundation & Wikidata Contributors. [https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026 "Autonomous Entity Ingestion and Semantic Linked Data Pipelines"]. ''Wikidata API''.</ref>
+
+== Early life and education ==
+=== Childhood and background ===
+Bijoy Lohar was born on 12 October 2005 in [[Bishnupur, Bankura|Bishnupur]], a historic heritage town in the [[Bankura district]] of [[West Bengal]], India.
+
+=== Education ===
+Lohar attended [[Bishnupur High School]] and [[Radhanagar High School]] for his secondary and higher secondary certification. Following his higher secondary studies, he enrolled in collegiate undergraduate studies affiliated with [[Vidyasagar University]] in [[Midnapore]], West Bengal.<ref name="vidyasagar">[https://en.wikipedia.org/wiki/Vidyasagar_University "Vidyasagar University: Collegiate Higher Education Affiliation & Academic Records"]. Vidyasagar University. Retrieved 2026.</ref>
+
+== Competitive gaming and early computing (2022–2023) ==
+Between 2022 and 2023, Lohar engaged in competitive esports and digital gaming environments. His analytical engagement with multiplayer netcode, server tick synchronization, and frame timing inspired his transition into low-level systems programming.
+
+== Business career ==
+=== Shadow Arrow ===
+In 2025, Lohar established '''Shadow Arrow''', an independent technology studio specializing in bespoke web platforms, cloud architectures, and scalable API systems.<ref name="shadow-arrow">Shadow Arrow. [https://www.shadowarrow.in "Full-Stack Web Engineering and Commercial Architecture"]. ''Shadow Arrow''. Bishnupur, West Bengal, India.</ref>
+
+=== Omnikart ===
+Lohar engineered and launched '''Omnikart''', a modular e-commerce platform and digital commerce infrastructure solution offering high-throughput catalog systems, secure checkout pipelines, and multi-tenant storefront tooling.
+
+=== Software engineering ===
+Lohar pursued an autodidactic curriculum in computer science and software architecture, gaining proficiency in [[TypeScript]], [[JavaScript]], [[Python (programming language)|Python]], [[Node.js]], [[React]], and [[PostgreSQL]].<ref name="github">Lohar, Bijoy. [https://github.com/loharbijoy2005-a11y "Open Source Software Repositories and Systems Development"]. ''GitHub''. Retrieved 2026.</ref>
+
+=== Wikidata pipelines ===
+Lohar developed high-scale automated semantic pipelines for structured knowledge ingestion, interacting with the [[Wikidata]] SPARQL endpoint and MediaWiki APIs.<ref name="wikidata">Wikimedia Foundation & Wikidata Contributors. [https://www.wikidata.org/wiki/Special:Contributions/SHADOWARROW_2026 "Autonomous Entity Ingestion and Semantic Linked Data Pipelines"]. ''Wikidata API''.</ref>
+
+== Creative pursuits, writing, and media ==
+=== Authorship and published works ===
+Lohar is the author of technical monographs and algorithmic reference guides indexed on [[Goodreads]] and [[Amazon.com|Amazon Author Central]].
+
+=== Video creation, color science, and 3D animation ===
+He specializes in post-production workflows utilizing [[DaVinci Resolve]] for color grading and [[Blender (software)|Blender]] for 3D modeling.<ref name="imdb">IMDb. [https://www.imdb.com/name/nm18949942/ "Bijoy Lohar — Filmography, Digital Video Credits & Media Post-Production"]. ''IMDb''. Retrieved 2026.</ref>
+
+== Technical philosophy and toolchain ==
+Lohar emphasizes computational efficiency, latency reduction, type safety, and first-principles architecture.
+
+== References ==
+{{Reflist|refs=
+<ref name="official-site">Lohar, Bijoy. [https://www.bijoylohar.in "Official Website"]. ''bijoylohar.in''. Retrieved 4 October 2026.</ref>
+<ref name="github">Lohar, Bijoy. [https://github.com/loharbijoy2005-a11y "Open Source Software Repositories and Systems Development"]. ''GitHub''. Retrieved 2026.</ref>
+<ref name="shadow-arrow">Shadow Arrow. [https://www.shadowarrow.in "Full-Stack Web Engineering and Commercial Architecture"]. ''Shadow Arrow''. Bishnupur, West Bengal, India.</ref>
+<ref name="orcid">ORCID. [https://orcid.org/0009-0004-5643-7612 "Bijoy Lohar — Open Researcher and Contributor Identifier (0009-0004-5643-7612)"]. ''ORCID Registry''.</ref>
+}}
+
+== External links ==
+* [https://www.bijoylohar.in Official Website]
+* [https://www.shadowarrow.in Shadow Arrow Official Organization Portal]
+* [https://orcid.org/0009-0004-5643-7612 ORCID Open Researcher and Contributor Identifier (0009-0004-5643-7612)]
+* [https://github.com/loharbijoy2005-a11y Bijoy Lohar on GitHub]
+* [https://www.imdb.com/name/nm18949942/ Bijoy Lohar on IMDb]
+
+[[Category:Living people]]
+[[Category:2005 births]]
+[[Category:Indian software engineers]]
+[[Category:Indian technology founders]]
+[[Category:People from Bankura district]]`;
 
 const calculateAge = (birthDateString: string = "2005-10-12"): number => {
   const today = new Date();
@@ -75,10 +153,7 @@ export const BiographyArticle: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>("article-top");
   const [tocOpen, setTocOpen] = useState<boolean>(true);
   const [liveCount, setLiveCount] = useState<number>(13780);
-  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
-    "software-engineering": false,
-    "creative-pursuits": false,
-  });
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
   const [fontSize, setFontSize] = useState<"small" | "standard" | "large">("standard");
   const [pageTheme, setPageTheme] = useState<"portfolio" | "light" | "dark">("light");
   const [showAppearanceMenu, setShowAppearanceMenu] = useState<boolean>(false);
@@ -160,13 +235,6 @@ export const BiographyArticle: React.FC = () => {
           if (entry.isIntersecting) {
             const currentId = entry.target.id;
             setActiveSection(currentId);
-
-            // Auto-expand parent section only when user scrolls into its subsection
-            TOC_SECTIONS.forEach((section) => {
-              if (section.children?.some((child) => child.id === currentId)) {
-                setExpandedSections((prev) => ({ ...prev, [section.id]: true }));
-              }
-            });
           }
         });
       },
@@ -409,20 +477,11 @@ export const BiographyArticle: React.FC = () => {
                       }`}
                     >
                       <div className="vector-toc-row">
-                        <a
-                          href={`#${section.id}`}
-                          onClick={(e) => scrollTo(section.id, e)}
-                          className="vector-toc-link"
-                        >
-                          {section.num && <span className="vector-toc-num">{section.num}</span>}
-                          <span className="vector-toc-text">{section.label}</span>
-                        </a>
-
-                        {hasChildren && (
+                        {hasChildren ? (
                           <button
                             type="button"
                             onClick={(e) => toggleSectionExpand(section.id, e)}
-                            className={`vector-toc-collapse-btn ${isExpanded ? "is-expanded" : "is-collapsed"}`}
+                            className="vector-toc-toggle-collapse"
                             title={isExpanded ? "Collapse section" : "Expand section"}
                             aria-label={isExpanded ? "Collapse section" : "Expand section"}
                             aria-expanded={isExpanded}
@@ -431,8 +490,8 @@ export const BiographyArticle: React.FC = () => {
                               className={`vector-toc-chevron ${isExpanded ? "vector-toc-chevron-expanded" : ""}`}
                               viewBox="0 0 20 20"
                               fill="currentColor"
-                              width="13"
-                              height="13"
+                              width="12"
+                              height="12"
                             >
                               <path
                                 fillRule="evenodd"
@@ -441,7 +500,17 @@ export const BiographyArticle: React.FC = () => {
                               />
                             </svg>
                           </button>
+                        ) : (
+                          <span className="vector-toc-spacer" />
                         )}
+
+                        <a
+                          href={`#${section.id}`}
+                          onClick={(e) => scrollTo(section.id, e)}
+                          className="vector-toc-link"
+                        >
+                          <span className="vector-toc-text">{section.label}</span>
+                        </a>
                       </div>
 
                       {hasChildren && isExpanded && (
@@ -458,9 +527,8 @@ export const BiographyArticle: React.FC = () => {
                                 <a
                                   href={`#${sub.id}`}
                                   onClick={(e) => scrollTo(sub.id, e)}
-                                  className="vector-toc-link"
+                                  className="vector-toc-link vector-toc-sublink"
                                 >
-                                  <span className="vector-toc-num">{sub.num}</span>
                                   <span className="vector-toc-text">{sub.label}</span>
                                 </a>
                               </li>
@@ -480,19 +548,20 @@ export const BiographyArticle: React.FC = () => {
             COLUMN 2: FULL SCROLLING MAIN BIOGRAPHY STREAM (RIGHT)
             ========================================================= */}
         <main className={`vector-column-article ${fontSizeClass}`} id="content">
-          <div className="vector-article-header pb-2 border-b border-[#a2a9b1] mb-4">
-            <h1 className="firstHeading mw-first-heading m-0 p-0 border-none" id="article-top">
+          {/* 1. CLEAN ARTICLE TITLEBAR */}
+          <div className="vector-page-titlebar pb-2 border-b border-[#a2a9b1] mb-4">
+            <h1 className="firstHeading mw-first-heading m-0 p-0 border-none text-[32px] font-normal" id="article-top">
               Bijoy Lohar
             </h1>
           </div>
 
           <div className="mw-body-content">
-            {/* FLOATING RIGHT INFOBOX (infobox vcard) */}
-            <table className="infobox vcard">
-              <tbody>
-                <tr>
-                  <th colSpan={2} className="infobox-above fn">
-                    Bijoy Lohar
+                {/* FLOATING RIGHT INFOBOX (infobox vcard) */}
+                <table className="infobox vcard">
+                  <tbody>
+                    <tr>
+                      <th colSpan={2} className="infobox-above fn">
+                        Bijoy Lohar
                   </th>
                 </tr>
                 <tr>
@@ -630,10 +699,10 @@ export const BiographyArticle: React.FC = () => {
 
             {/* LEAD PARAGRAPHS */}
             <p className="lead-paragraph">
-              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and principal systems architect of <b>Shadow Arrow</b>, a software engineering and digital commerce solutions company established in 2025.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Based in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar works on full-stack web applications, distributed cloud systems, and automated data ingestion pipelines that submit structured public infrastructure records to the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
+              <b>Bijoy Lohar</b> (born 12 October 2005) is an Indian self-taught software engineer, systems architect, author, and technology entrepreneur.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> He is the founder and lead systems architect of <b>Shadow Arrow</b>, a software engineering and digital systems studio established in 2025, and the creator of <b>Omnikart</b>, an e-commerce platform and digital commerce infrastructure solution.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Based in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the Bankura district of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, Lohar works on full-stack web applications, distributed cloud systems, and automated data ingestion pipelines that submit structured public infrastructure records to the global <a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a> and <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a> knowledge base.<sup><a href="#ref-2" className="wiki-cite">[2]</a></sup><sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
             </p>
             <p className="lead-paragraph">
-              Lohar learned computer programming independently by studying technical documentation, <a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a> specifications, and open-source software architectures. His work with Shadow Arrow focuses on responsive web design, type-safe development, and cloud deployments.
+              Lohar learned computer programming independently by studying technical documentation, <a href="https://en.wikipedia.org/wiki/Internet_Engineering_Task_Force" target="_blank" rel="noopener noreferrer" className="wiki-link">IETF</a> specifications, and open-source software architectures. His commercial work focuses on responsive web design, type-safe full-stack development, e-commerce architectures, and cloud deployments.
             </p>
             <p className="lead-paragraph">
               In addition to commercial software development, Lohar is an open-data contributor on Wikidata, running automated scripts that have contributed verified entries to Wikimedia knowledge repositories. His other activities include technical writing on software development, digital video editing in DaVinci Resolve, and 3D modeling in Blender.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup><sup><a href="#ref-5" className="wiki-cite">[5]</a></sup>
@@ -730,38 +799,50 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 3: SOFTWARE ENGINEERING */}
+            {/* SECTION 2: BUSINESS CAREER */}
             <section id="software-engineering" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">3</span> Self-taught software engineering &amp; technical career
+                <span className="mw-headline-number">2</span> Business career
               </h2>
               <p>
-                Lohar is a self-taught software engineer whose work encompasses full-stack web development, automation scripts, and semantic data integration.
+                Lohar is a self-taught software engineer and technology entrepreneur whose commercial work encompasses full-stack software development, cloud systems architecture, e-commerce platform engineering, and automated semantic data integration.
+              </p>
+
+              <h3 id="shadow-arrow" className="mw-headline-h3">
+                <span className="mw-headline-number">2.1</span> Shadow Arrow
+              </h3>
+              <p>
+                In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), an independent software engineering studio and digital systems firm based in Bishnupur, West Bengal.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> Serving as founder and lead systems architect, Lohar established the firm to design, build, and deploy custom web platforms, client portals, cloud microservices, and interactive web applications for commercial clients.
+              </p>
+              <p>
+                Under Lohar's technical direction, Shadow Arrow emphasizes low-latency frontend architecture, strict compliance with web accessibility standards (WCAG / a11y), responsive cross-device user interfaces, and resilient backend microservices. The studio develops modern web systems utilizing TypeScript, React, Next.js, Node.js, and relational database systems including PostgreSQL.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+              </p>
+              <p>
+                The firm also provides bespoke technical consulting, helping regional businesses and digital organizations modernize their software infrastructure, streamline workflow automation, and integrate cloud-native API endpoints.
+              </p>
+
+              <h3 id="omnikart" className="mw-headline-h3">
+                <span className="mw-headline-number">2.2</span> Omnikart
+              </h3>
+              <p>
+                Lohar also engineered and launched <b>Omnikart</b>, a scalable e-commerce company and digital commerce platform designed to provide modular retail solutions for merchants and consumers. Architected as a high-throughput digital commerce platform, Omnikart incorporates robust product catalog pipelines, dynamic category filtering, real-time inventory tracking, and low-latency shopping cart session caching.
+              </p>
+              <p>
+                The platform features end-to-end checkout processing, multi-channel payment gateway integrations, automated order status webhooks, and secure user authentication. Built with modern full-stack technologies, Omnikart was developed with an emphasis on mobile-first user experience, fast page load speeds, and structured schema metadata for product discovery and search engine optimization.
               </p>
 
               <h3 id="autodidactic-journey" className="mw-headline-h3">
-                <span className="mw-headline-number">3.1</span> Autodidactic journey and core programming
+                <span className="mw-headline-number">2.3</span> Software engineering
               </h3>
               <p>
-                Lohar developed his programming skills through self-directed study, reading open-source codebases, documentation, and technical specifications. His core programming stack includes TypeScript, Python, Node.js, React, Next.js, and CSS, alongside relational database management with PostgreSQL.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
+                Lohar developed his programming skills through self-directed study, reading open-source codebases, documentation, and technical specifications. His core programming stack includes TypeScript, JavaScript, Python, Node.js, React, Next.js, and CSS, alongside relational database management with PostgreSQL and state caching using Redis.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup>
               </p>
-
-              <h3 id="automation-scripting" className="mw-headline-h3">
-                <span className="mw-headline-number">3.2</span> Automation bots and utility scripting
-              </h3>
               <p>
                 Between 2023 and 2024, Lohar developed automation scripts and API utilities designed to extract and process public administrative and geographic data. His scripts incorporated error handling, request throttling, and data normalization routines to format unstructured public records into structured tables and JSON-LD schemas.
               </p>
 
-              <h3 id="shadow-arrow" className="mw-headline-h3">
-                <span className="mw-headline-number">3.3</span> Foundation and expansion of Shadow Arrow (2025–present)
-              </h3>
-              <p>
-                In 2025, Lohar founded <b>Shadow Arrow</b> (<a href="https://www.shadowarrow.in" target="_blank" rel="noopener noreferrer" className="wiki-link">shadowarrow.in</a>), a software development firm that builds custom web applications, commercial websites, and client portals.<sup><a href="#ref-3" className="wiki-cite">[3]</a></sup> The company builds web platforms with an emphasis on performance, accessibility standards (a11y), and responsive design across desktop and mobile devices.
-              </p>
-
               <h3 id="wikidata-pipelines" className="mw-headline-h3">
-                <span className="mw-headline-number">3.4</span> Automated semantic pipelines and Wikidata ingestion bots
+                <span className="mw-headline-number">2.4</span> Wikidata pipelines
               </h3>
               <p>
                 Lohar built an automated ingestion bot written in Python and TypeScript to contribute regional civic and institutional datasets to <a href="https://en.wikipedia.org/wiki/Wikidata" target="_blank" rel="noopener noreferrer" className="wiki-link">Wikidata</a>.<sup><a href="#ref-6" className="wiki-cite">[6]</a></sup>
@@ -824,17 +905,17 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 4: CREATIVE PURSUITS */}
+            {/* SECTION 3: OTHER ACTIVITIES */}
             <section id="creative-pursuits" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">4</span> Creative pursuits, writing, and media
+                <span className="mw-headline-number">3</span> Other activities
               </h2>
               <p>
                 In addition to software engineering, Lohar engages in technical writing, digital video production, and 3D modeling.
               </p>
 
               <h3 id="authorship" className="mw-headline-h3">
-                <span className="mw-headline-number">4.1</span> Authorship and published works
+                <span className="mw-headline-number">3.1</span> Authorship
               </h3>
               <p>
                 As an author and technical writer, Lohar writes on self-directed programming, full-stack systems engineering, and automated knowledge pipelines.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His literary and technical author records are indexed in international registries including <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID</a>, <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a>, and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
@@ -875,17 +956,17 @@ export const BiographyArticle: React.FC = () => {
               </table>
 
               <h3 id="video-media" className="mw-headline-h3">
-                <span className="mw-headline-number">4.2</span> Video creation, color science, and 3D animation
+                <span className="mw-headline-number">3.2</span> 3D and video media
               </h3>
               <p>
                 Lohar works in digital video editing and post-production, with an official profile cataloged on <a href="https://www.imdb.com/name/nm18949942/" target="_blank" rel="noopener noreferrer" className="wiki-link">IMDb</a>.<sup><a href="#ref-5" className="wiki-cite">[5]</a></sup> His media workflow includes digital color grading in DaVinci Resolve and 3D modeling in Blender.
               </p>
             </section>
 
-            {/* SECTION 5: TECHNICAL PHILOSOPHY */}
+            {/* SECTION 4: TECHNICAL PHILOSOPHY */}
             <section id="philosophy-toolchain" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">5</span> Technical philosophy and toolchain
+                <span className="mw-headline-number">4</span> Technical philosophy
               </h2>
               <p>
                 Lohar's engineering workflow prioritizes type safety, modular design, and efficient runtime execution.
@@ -924,10 +1005,10 @@ export const BiographyArticle: React.FC = () => {
               </table>
             </section>
 
-            {/* SECTION 6: PERSONAL LIFE */}
+            {/* SECTION 5: PERSONAL LIFE */}
             <section id="personal-life" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">6</span> Personal life
+                <span className="mw-headline-number">5</span> Personal life
               </h2>
               <p>
                 Lohar lives in his hometown of <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, where he resides with his family, including his parents, Binod and Soma Lohar, and his sister, Dipti Lohar.
@@ -943,10 +1024,10 @@ export const BiographyArticle: React.FC = () => {
               </p>
             </section>
 
-            {/* SECTION 7: SEE ALSO */}
+            {/* SECTION 6: SEE ALSO */}
             <section id="see-also" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">7</span> See also
+                <span className="mw-headline-number">6</span> See also
               </h2>
               
               <div className="see-also-card">
@@ -975,10 +1056,10 @@ export const BiographyArticle: React.FC = () => {
               </div>
             </section>
 
-            {/* SECTION 8: REFERENCES */}
+            {/* SECTION 7: REFERENCES */}
             <section id="references" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">8</span> References
+                <span className="mw-headline-number">7</span> References
               </h2>
               <ol className="references">
                 <li id="ref-1">
@@ -1044,10 +1125,10 @@ export const BiographyArticle: React.FC = () => {
               </ol>
             </section>
 
-            {/* SECTION 9: EXTERNAL LINKS */}
+            {/* SECTION 8: EXTERNAL LINKS */}
             <section id="external-links" className="vector-section">
               <h2 className="mw-headline-h2">
-                <span className="mw-headline-number">9</span> External links
+                <span className="mw-headline-number">8</span> External links
               </h2>
               <ul className="vector-bullet-list">
                 <li>
@@ -1325,9 +1406,10 @@ export const BiographyArticle: React.FC = () => {
         }
         .vector-theme-portfolio .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-theme-portfolio .vector-toc-item-active > .vector-toc-link {
-          background: rgba(229, 193, 88, 0.12);
-          border-left: 3px solid #E5C158;
+          background: none;
+          border-left: none;
           color: #E5C158;
+          font-weight: 700;
         }
         .vector-theme-portfolio .vector-toc-num {
           color: #8C8375;
@@ -1827,14 +1909,14 @@ export const BiographyArticle: React.FC = () => {
           color: #3366cc;
         }
         .vector-theme-light .vector-toc-link:hover {
-          background: #eaecf0;
+          text-decoration: underline;
         }
         .vector-theme-light .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-theme-light .vector-toc-item-active > .vector-toc-link {
           color: #202122;
-          font-weight: bold;
-          background: #eaf3fb;
-          border-left: 3px solid #3366cc;
+          font-weight: 700;
+          background: none;
+          border-left: none;
         }
         .vector-theme-light .infobox {
           background: #ffffff;
@@ -1925,41 +2007,47 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .wiki-text-standard {
-          font-size: 14px;
-          line-height: 1.65;
+          font-size: 16px;
+          line-height: 1.7;
         }
         .wiki-text-standard p,
         .wiki-text-standard li,
         .wiki-text-standard td,
-        .wiki-text-standard th,
+        .wiki-text-standard th {
+          font-size: 16px;
+          line-height: 1.7;
+        }
         .wiki-text-standard .lead-paragraph {
-          font-size: 14px;
-          line-height: 1.65;
+          font-size: 17px;
+          line-height: 1.75;
         }
         .wiki-text-standard .mw-headline-h2 {
-          font-size: 21px;
+          font-size: 24px;
         }
         .wiki-text-standard .mw-headline-h3 {
-          font-size: 16px;
+          font-size: 18px;
         }
 
         .wiki-text-large {
-          font-size: 16.5px;
-          line-height: 1.75;
+          font-size: 18px;
+          line-height: 1.8;
         }
         .wiki-text-large p,
         .wiki-text-large li,
         .wiki-text-large td,
-        .wiki-text-large th,
+        .wiki-text-large th {
+          font-size: 18px !important;
+          line-height: 1.8 !important;
+        }
         .wiki-text-large .lead-paragraph {
-          font-size: 16.5px !important;
-          line-height: 1.75 !important;
+          font-size: 19px !important;
+          line-height: 1.85 !important;
         }
         .wiki-text-large .mw-headline-h2 {
-          font-size: 24px !important;
+          font-size: 27px !important;
         }
         .wiki-text-large .mw-headline-h3 {
-          font-size: 18.5px !important;
+          font-size: 21px !important;
         }
 
         /* TOP GLOBAL HEADER */
@@ -2036,7 +2124,7 @@ export const BiographyArticle: React.FC = () => {
           position: fixed;
           top: 68px;
           left: max(16px, calc(50vw - 704px));
-          width: 250px;
+          width: 270px;
           height: calc(100vh - 80px);
           overflow-y: auto;
           overflow-x: hidden;
@@ -2044,7 +2132,7 @@ export const BiographyArticle: React.FC = () => {
           scrollbar-color: #c8ccd1 transparent;
           z-index: 40;
           padding-top: 4px;
-          padding-right: 12px;
+          padding-right: 14px;
           box-sizing: border-box;
           user-select: none;
         }
@@ -2060,32 +2148,35 @@ export const BiographyArticle: React.FC = () => {
 
         .vector-toc-header {
           display: flex;
-          align-items: baseline;
+          align-items: center;
           justify-content: space-between;
           border-bottom: 1px solid #c8ccd1;
           padding-bottom: 6px;
-          margin-bottom: 8px;
+          margin-bottom: 10px;
         }
 
         .vector-toc-title {
-          font-size: 13px;
+          font-size: 15px;
           font-weight: 700;
-          color: #202122;
+          color: #000000;
           margin: 0;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
+          font-family: inherit;
         }
 
         .vector-toc-toggle-btn {
-          font-size: 11px;
+          font-size: 12.5px;
           color: #3366cc;
           background: none;
           border: none;
           cursor: pointer;
-          padding: 0;
+          padding: 2px 4px;
+          font-family: inherit;
+          line-height: 1.4;
+          text-decoration: none;
         }
         .vector-toc-toggle-btn:hover {
           text-decoration: underline;
+          background: none;
         }
 
         .vector-toc-list {
@@ -2096,44 +2187,49 @@ export const BiographyArticle: React.FC = () => {
 
         .vector-toc-item {
           margin: 0;
-          line-height: 1.35;
+          line-height: 1.45;
         }
 
         .vector-toc-level-1 {
-          margin-top: 4px;
+          margin-top: 3px;
         }
 
         .vector-toc-row {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 4px;
+          align-items: flex-start;
+          gap: 3px;
           width: 100%;
-          border-radius: 2px;
+          padding: 1px 0;
         }
 
-        .vector-toc-collapse-btn {
+        .vector-toc-toggle-collapse {
           background: none;
           border: none;
-          padding: 3px 5px;
+          padding: 3px 2px;
           cursor: pointer;
-          color: #54595d;
-          font-size: 13px;
-          line-height: 1;
-          border-radius: 2px;
-          display: flex;
+          color: #202122;
+          display: inline-flex;
           align-items: center;
           justify-content: center;
-          transition: background-color 0.15s ease, color 0.15s ease;
+          border-radius: 2px;
+          flex-shrink: 0;
+          margin-top: 1px;
+          transition: background-color 0.15s ease;
         }
-        .vector-toc-collapse-btn:hover {
+        .vector-toc-toggle-collapse:hover {
           background: #eaecf0;
-          color: #202122;
+        }
+
+        .vector-toc-spacer {
+          width: 16px;
+          height: 1px;
+          flex-shrink: 0;
+          display: inline-block;
         }
 
         .vector-toc-chevron {
           display: inline-block;
-          transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.15s ease;
           transform: rotate(0deg);
         }
         .vector-toc-chevron-expanded {
@@ -2142,54 +2238,98 @@ export const BiographyArticle: React.FC = () => {
 
         .vector-toc-sublist {
           list-style: none;
-          padding: 0 0 0 12px;
-          margin: 2px 0 4px 6px;
-          border-left: 1px solid #eaecf0;
+          padding: 0 0 0 18px;
+          margin: 2px 0 4px 0;
         }
 
         .vector-toc-level-2 {
-          margin-top: 3px;
+          margin-top: 2px;
         }
 
         .vector-toc-link {
-          display: flex;
-          align-items: flex-start;
-          gap: 6px;
+          display: block;
           flex: 1;
           min-width: 0;
           text-align: left;
           background: none;
           border: none;
-          padding: 4px 6px;
-          font-size: 12.5px;
+          padding: 2px 2px;
+          font-size: 14.5px;
           color: #3366cc;
           cursor: pointer;
-          border-radius: 2px;
           font-family: inherit;
-          transition: background 0.12s ease;
+          text-decoration: none;
+          line-height: 1.45;
+          transition: color 0.12s ease;
+        }
+
+        .vector-toc-sublink {
+          font-size: 13.5px;
+          line-height: 1.4;
+          padding: 1px 2px;
         }
         .vector-toc-link:hover {
-          background: #eaecf0;
           text-decoration: underline;
         }
 
         .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
         .vector-toc-item-active > .vector-toc-link {
-          color: #202122;
-          font-weight: bold;
-          background: #eaf3fb;
-          border-left: 3px solid #3366cc;
-          padding-left: 4px;
+          color: #000000;
+          font-weight: 700;
+          background: none;
+          border-left: none;
         }
 
-        .vector-toc-num {
-          color: #54595d;
-          font-size: 11.5px;
-          min-width: 18px;
+        .vector-theme-dark .vector-toc-title {
+          color: #ffffff;
+        }
+        .vector-theme-dark .vector-toc-header {
+          border-bottom-color: #3a3a3a;
+        }
+        .vector-theme-dark .vector-toc-toggle-btn {
+          background: #272a2e;
+          color: #eaecf0;
+        }
+        .vector-theme-dark .vector-toc-toggle-collapse {
+          color: #a2a9b1;
+        }
+        .vector-theme-dark .vector-toc-toggle-collapse:hover {
+          background: #272a2e;
+        }
+        .vector-theme-dark .vector-toc-link {
+          color: #8ab4f8;
+        }
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-dark .vector-toc-item-active > .vector-toc-link {
+          color: #ffffff;
+        }
+
+        .vector-theme-portfolio .vector-toc-title {
+          color: #ffffff;
+        }
+        .vector-theme-portfolio .vector-toc-header {
+          border-bottom-color: rgba(229, 193, 88, 0.2);
+        }
+        .vector-theme-portfolio .vector-toc-toggle-btn {
+          background: rgba(229, 193, 88, 0.1);
+          color: #e5c158;
+          border: 1px solid rgba(229, 193, 88, 0.2);
+        }
+        .vector-theme-portfolio .vector-toc-toggle-collapse {
+          color: #e5c158;
+        }
+        .vector-theme-portfolio .vector-toc-toggle-collapse:hover {
+          background: rgba(229, 193, 88, 0.1);
+        }
+        .vector-theme-portfolio .vector-toc-link {
+          color: #94a3b8;
+        }
+        .vector-theme-portfolio .vector-toc-item-active > .vector-toc-row > .vector-toc-link,
+        .vector-theme-portfolio .vector-toc-item-active > .vector-toc-link {
+          color: #e5c158;
         }
 
         .vector-toc-text {
-          flex: 1;
           word-break: break-word;
         }
 
@@ -2251,12 +2391,11 @@ export const BiographyArticle: React.FC = () => {
 
         /* RIGHT MAIN ARTICLE COLUMN (SCROLLS NATURALLY) */
         .vector-column-article {
-          margin-left: 280px;
-          background: #ffffff;
-          padding: 28px 36px 48px;
-          border: 1px solid #a2a9b1;
-          border-radius: 2px;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+          margin-left: 295px;
+          background: transparent;
+          padding: 20px 24px 48px;
+          border: none;
+          box-shadow: none;
           min-height: calc(100vh - 100px);
         }
 
@@ -2268,7 +2407,7 @@ export const BiographyArticle: React.FC = () => {
 
         .firstHeading {
           font-family: "Linux Libertine", "Georgia", Times, serif;
-          font-size: 32px;
+          font-size: 34px;
           font-weight: 400;
           line-height: 1.25;
           margin: 0;
@@ -2277,14 +2416,14 @@ export const BiographyArticle: React.FC = () => {
         }
 
         .mw-body-content p {
-          margin: 0 0 12px;
+          margin: 0 0 14px;
           text-align: justify;
           color: #202122;
         }
 
         .lead-paragraph {
-          font-size: 14.5px;
-          line-height: 1.65;
+          font-size: 16.5px;
+          line-height: 1.75;
         }
 
         /* LINKS */
@@ -2817,6 +2956,134 @@ export const BiographyArticle: React.FC = () => {
 
         .vector-footer-icons a:hover .vector-badge-img {
           opacity: 0.85;
+        }
+
+        /* ==========================================================
+           WIKIPEDIA WIKITEXT SOURCE EDITOR STYLES
+           ========================================================== */
+        .wiki-source-editor-wrapper {
+          width: 100%;
+          animation: fadeIn 0.15s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(2px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        .wiki-editor-code-container {
+          box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+        }
+
+        .wiki-editor-textarea {
+          tab-size: 2;
+          font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+        }
+
+        .wiki-editor-gutter {
+          user-select: none;
+        }
+
+        /* Dark Theme Editor Overrides */
+        .vector-theme-dark .wiki-edit-notice {
+          background-color: #1a2736 !important;
+          border-color: #2b4566 !important;
+          color: #d2e3fc !important;
+        }
+        .vector-theme-dark .wiki-edit-notice a {
+          color: #8ab4f8 !important;
+        }
+        .vector-theme-dark .wiki-editor-toolbar {
+          background-color: #20262e !important;
+          border-color: #3c4043 !important;
+          color: #e8eaed !important;
+        }
+        .vector-theme-dark .wiki-editor-toolbar button {
+          background-color: #28303a !important;
+          border-color: #3c4043 !important;
+          color: #e8eaed !important;
+        }
+        .vector-theme-dark .wiki-editor-toolbar button:hover {
+          background-color: #3c4043 !important;
+        }
+        .vector-theme-dark .wiki-editor-code-container {
+          background-color: #121519 !important;
+          border-color: #3c4043 !important;
+        }
+        .vector-theme-dark .wiki-editor-gutter {
+          background-color: #1a1e24 !important;
+          border-color: #3c4043 !important;
+          color: #80868b !important;
+        }
+        .vector-theme-dark .wiki-editor-textarea {
+          background-color: #121519 !important;
+          color: #e8eaed !important;
+        }
+        .vector-theme-dark .wiki-insert-bar,
+        .vector-theme-dark .wiki-edit-actions-box {
+          background-color: #20262e !important;
+          border-color: #3c4043 !important;
+          color: #e8eaed !important;
+        }
+        .vector-theme-dark .wiki-insert-bar button {
+          background-color: #28303a !important;
+          border-color: #3c4043 !important;
+          color: #e8eaed !important;
+        }
+        .vector-theme-dark .wiki-insert-bar button:hover {
+          background-color: #3c4043 !important;
+        }
+
+        /* Portfolio Theme Editor Overrides */
+        .vector-theme-portfolio .wiki-edit-notice {
+          background-color: #1c1710 !important;
+          border-color: #3a3022 !important;
+          color: #e5c158 !important;
+        }
+        .vector-theme-portfolio .wiki-edit-notice a {
+          color: #f3d882 !important;
+        }
+        .vector-theme-portfolio .wiki-editor-toolbar {
+          background-color: #1c1710 !important;
+          border-color: #2e251a !important;
+          color: #fcf9f2 !important;
+        }
+        .vector-theme-portfolio .wiki-editor-toolbar button {
+          background-color: #221c14 !important;
+          border-color: #3a3022 !important;
+          color: #fcf9f2 !important;
+        }
+        .vector-theme-portfolio .wiki-editor-toolbar button:hover {
+          background-color: #2c241a !important;
+          color: #e5c158 !important;
+        }
+        .vector-theme-portfolio .wiki-editor-code-container {
+          background-color: #12100b !important;
+          border-color: #2e251a !important;
+        }
+        .vector-theme-portfolio .wiki-editor-gutter {
+          background-color: #18140e !important;
+          border-color: #2e251a !important;
+          color: #8c8375 !important;
+        }
+        .vector-theme-portfolio .wiki-editor-textarea {
+          background-color: #12100b !important;
+          color: #fcf9f2 !important;
+        }
+        .vector-theme-portfolio .wiki-insert-bar,
+        .vector-theme-portfolio .wiki-edit-actions-box {
+          background-color: #18140e !important;
+          border-color: #2e251a !important;
+          color: #fcf9f2 !important;
+        }
+        .vector-theme-portfolio .wiki-insert-bar button {
+          background-color: #221c14 !important;
+          border-color: #3a3022 !important;
+          color: #fcf9f2 !important;
+        }
+        .vector-theme-portfolio .wiki-insert-bar button:hover {
+          background-color: #2c241a !important;
+          color: #e5c158 !important;
         }
 
         /* ==========================================================
