@@ -115,17 +115,36 @@ export const Navbar: React.FC = () => {
             <span>Biography</span>
             <ArrowUpRight className="w-3 h-3 text-amber-300" />
           </a>
+          <a
+            id="nav-books-link"
+            href="/books"
+            title="Explore Published Books by Bijoy Lohar"
+            className="flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-medium text-amber-300 hover:text-white hover:bg-white/10 transition-all border border-amber-500/30"
+          >
+            <span>Books</span>
+            <ArrowUpRight className="w-3 h-3 text-amber-300" />
+          </a>
         </div>
 
-        {/* Mobile Biography Link Button */}
-        <a
-          href="/biography"
-          title="Official Biography"
-          className="md:hidden inline-flex items-center gap-1 px-2.5 py-1.5 bg-studioCard/90 backdrop-blur-md border border-amberAccent/40 hover:border-amberAccent text-amberAccent text-[11px] font-bold rounded-full transition-all shadow-md shrink-0"
-        >
-          <span>Bio</span>
-          <ArrowUpRight className="w-3 h-3 text-amberAccent" />
-        </a>
+        {/* Mobile Biography & Books Link Buttons */}
+        <div className="md:hidden flex items-center gap-1.5 shrink-0">
+          <a
+            href="/biography"
+            title="Official Biography"
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-studioCard/90 backdrop-blur-md border border-amberAccent/40 hover:border-amberAccent text-amberAccent text-[11px] font-bold rounded-full transition-all shadow-md shrink-0"
+          >
+            <span>Bio</span>
+            <ArrowUpRight className="w-3 h-3 text-amberAccent" />
+          </a>
+          <a
+            href="/books"
+            title="Published Books"
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-studioCard/90 backdrop-blur-md border border-amberAccent/40 hover:border-amberAccent text-amberAccent text-[11px] font-bold rounded-full transition-all shadow-md shrink-0"
+          >
+            <span>Books</span>
+            <ArrowUpRight className="w-3 h-3 text-amberAccent" />
+          </a>
+        </div>
 
         {/* Clean White Pill Button CTA */}
         <a

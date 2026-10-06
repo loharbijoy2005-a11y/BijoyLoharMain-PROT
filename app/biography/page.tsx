@@ -121,7 +121,8 @@ const jsonLd = {
         },
         {
           "@type": "HighSchool",
-          name: "Bishnupur High School"
+          name: "Bishnupur High School",
+          sameAs: "https://en.wikipedia.org/wiki/Bishnupur_High_School_(Bankura)"
         }
       ],
       founder: {

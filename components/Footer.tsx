@@ -142,6 +142,15 @@ export const Footer: React.FC = () => {
               <ArrowUpRight className="w-3 h-3" />
             </a>
             <a
+              id="footer-books-link"
+              href="/books"
+              title="Published Books & Publications"
+              className="hover:text-amberAccent flex items-center gap-1 transition-colors"
+            >
+              <span>Books</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+            <a
               href="https://www.shadowarrow.in"
               target="_blank"
               rel="noopener noreferrer"

@@ -117,8 +117,20 @@ export const CommandPalette: React.FC = () => {
       keywords: ["cli", "terminal", "console", "command", "shell", "bash", "shadow arrow"],
     },
     {
+      id: "books-page",
+      title: "Open Dedicated Books Page (/books)",
+      category: "Navigation",
+      icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
+      action: () => {
+        setIsOpen(false);
+        window.location.href = "/books";
+      },
+      shortcut: "/books",
+      keywords: ["books", "dedicated", "page", "author", "publications", "architecting scalable web systems", "isbn", "bijoy lohar"],
+    },
+    {
       id: "books",
-      title: "Published Technical Books & Literature",
+      title: "Books Section (Page Overview)",
       category: "Navigation",
       icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
       action: () => navigateTo("#books"),

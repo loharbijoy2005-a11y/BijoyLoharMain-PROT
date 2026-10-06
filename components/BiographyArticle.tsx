@@ -87,7 +87,7 @@ Lohar is primarily recognized for his work in high-throughput backend systems, c
 Bijoy Lohar was born on 12 October 2005 in [[Bishnupur, Bankura|Bishnupur]], a historic heritage town in the [[Bankura district]] of [[West Bengal]], India.
 
 === Education ===
-Lohar attended [[Bishnupur High School]] and [[Radhanagar High School]] for his secondary and higher secondary certification. Following his higher secondary studies, he enrolled in collegiate undergraduate studies affiliated with [[Vidyasagar University]] in [[Midnapore]], West Bengal.<ref name="vidyasagar">[https://en.wikipedia.org/wiki/Vidyasagar_University "Vidyasagar University: Collegiate Higher Education Affiliation & Academic Records"]. Vidyasagar University. Retrieved 2026.</ref>
+Lohar attended [[Bishnupur High School (Bankura)|Bishnupur High School]] and [[Radhanagar High School]] for his secondary and higher secondary certification. Following his higher secondary studies, he enrolled in collegiate undergraduate studies affiliated with [[Vidyasagar University]] in [[Midnapore]], West Bengal.<ref name="vidyasagar">[https://en.wikipedia.org/wiki/Vidyasagar_University "Vidyasagar University: Collegiate Higher Education Affiliation & Academic Records"]. Vidyasagar University. Retrieved 2026.</ref>
 
 == Competitive gaming and early computing (2022–2023) ==
 Between 2022 and 2023, Lohar engaged in competitive esports and digital gaming environments. His analytical engagement with multiplayer netcode, server tick synchronization, and frame timing inspired his transition into low-level systems programming.
@@ -663,7 +663,9 @@ export const BiographyArticle: React.FC = () => {
                         <a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a> (undergraduate, 2nd year)
                       </li>
                       <li>Radhanagar High School (HS Vocational)</li>
-                      <li>Bishnupur High School (Secondary)</li>
+                      <li>
+                        <a href="https://en.wikipedia.org/wiki/Bishnupur_High_School_(Bankura)" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a> (Secondary)
+                      </li>
                     </ul>
                   </td>
                 </tr>
@@ -767,7 +769,7 @@ export const BiographyArticle: React.FC = () => {
               </div>
 
               <p>
-                Lohar attended <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a> for his secondary education, completing his coursework in physical sciences, mathematics, and basic computing.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
+                Lohar attended <a href="https://en.wikipedia.org/wiki/Bishnupur_High_School_(Bankura)" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a> for his secondary education, completing his coursework in physical sciences, mathematics, and basic computing.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
               </p>
               <p>
                 He subsequently completed his higher secondary education at Radhanagar High School in the vocational education stream (HS Vocational). The vocational curriculum included practical coursework in technical subjects, basic electronics, and applied problem-solving, which complemented his self-directed programming studies.<sup><a href="#ref-8" className="wiki-cite">[8]</a></sup>
@@ -1091,6 +1093,7 @@ export const BiographyArticle: React.FC = () => {
                       <li><b><a href="https://en.wikipedia.org/wiki/Semantic_Web" target="_blank" rel="noopener noreferrer" className="wiki-link">Semantic Web</a></b> – Standards framework for linked open data defined by W3C</li>
                       <li><b><a href="https://en.wikipedia.org/wiki/SPARQL" target="_blank" rel="noopener noreferrer" className="wiki-link">SPARQL Protocol</a></b> – Query language and protocol for RDF graph databases</li>
                       <li><b><a href="https://en.wikipedia.org/wiki/Vidyasagar_University" target="_blank" rel="noopener noreferrer" className="wiki-link">Vidyasagar University</a></b> – Public state university in West Bengal, India</li>
+                      <li><b><a href="https://en.wikipedia.org/wiki/Bishnupur_High_School_(Bankura)" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a></b> – Higher secondary school in Bankura district</li>
                       <li><b><a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur, Bankura</a></b> – Historic municipality in West Bengal</li>
                     </ul>
                   </div>
@@ -1149,7 +1152,7 @@ export const BiographyArticle: React.FC = () => {
                 <li id="ref-8">
                   <span className="mw-cite-backlink"><a href="#education">^</a></span>{" "}
                   <span className="reference-text">
-                    West Bengal State Academic Records. <i>Secondary &amp; Higher Secondary Certification (Bishnupur High School &amp; Radhanagar High School)</i>. Bankura District, West Bengal.
+                    West Bengal State Academic Records. <i>Secondary &amp; Higher Secondary Certification (<a href="https://en.wikipedia.org/wiki/Bishnupur_High_School_(Bankura)" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur High School</a> &amp; Radhanagar High School)</i>. Bankura District, West Bengal.
                   </span>
                 </li>
                 <li id="ref-9">
