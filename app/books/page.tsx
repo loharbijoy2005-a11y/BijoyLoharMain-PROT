@@ -87,7 +87,7 @@ const jsonLd = {
               datePublished: "2026-09",
               publisher: {
                 "@type": "Organization",
-                name: "Bijoy Lohar / Shadow Arrow Press"
+                name: "Bijoy Lohar / Shadow Arrow"
               },
               image: "https://covers.openlibrary.org/b/id/15259748-L.jpg",
               url: "https://openlibrary.org/works/OL46029039W",

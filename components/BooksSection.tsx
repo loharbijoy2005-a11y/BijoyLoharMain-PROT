@@ -59,7 +59,7 @@ export const BooksSection: React.FC = () => {
                 Author: Bijoy Lohar
               </span>
               <span className="px-3 py-1 bg-studioSubtle text-muted font-mono text-xs font-bold rounded-full border border-borderWarm">
-                Shadow Arrow Press
+                Shadow Arrow
               </span>
             </div>
 

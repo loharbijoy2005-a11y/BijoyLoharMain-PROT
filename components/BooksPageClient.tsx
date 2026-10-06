@@ -57,7 +57,7 @@ const VERIFIED_PUBLICATIONS: BookItem[] = [
     title: "Architecting Scalable Web Systems",
     subtitle: "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
     authors: ["Bijoy Lohar"],
-    publisher: "Bijoy Lohar / Shadow Arrow Press",
+    publisher: "Bijoy Lohar / Shadow Arrow",
     publishedDate: "September 2026",
     edition: "First Edition / Technical Manual",
     language: "English",
@@ -148,7 +148,7 @@ export const BooksPageClient: React.FC = () => {
             title: doc.title || existing?.title || "Architecting Scalable Web Systems",
             subtitle: doc.first_sentence || existing?.subtitle || "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
             authors: doc.author_name || ["Bijoy Lohar"],
-            publisher: doc.publisher ? doc.publisher[0] : existing?.publisher || "Bijoy Lohar / Shadow Arrow Press",
+            publisher: doc.publisher ? doc.publisher[0] : existing?.publisher || "Bijoy Lohar / Shadow Arrow",
             publishedDate: doc.first_publish_year ? String(doc.first_publish_year) : existing?.publishedDate || "2026",
             description: doc.description?.value || doc.description || existing?.description,
             thumbnail: coverUrl,
@@ -345,7 +345,7 @@ export const BooksPageClient: React.FC = () => {
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
               <span className="block text-xs font-mono text-muted uppercase">Author</span>
               <span className="font-heading font-extrabold text-lg text-deepInk">Bijoy Lohar</span>
-              <span className="block text-[11px] font-mono text-amberAccent">Shadow Arrow Press</span>
+              <span className="block text-[11px] font-mono text-amberAccent">Shadow Arrow</span>
             </div>
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
               <span className="block text-xs font-mono text-muted uppercase">Primary ISBN-13</span>
@@ -506,7 +506,7 @@ export const BooksPageClient: React.FC = () => {
                       {/* Meta Tags */}
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="px-3 py-1 bg-amberAccent/15 text-amberAccent font-mono text-xs font-bold rounded-full border border-amberAccent/30">
-                          {book.publisher || "Shadow Arrow Press"}
+                          {book.publisher || "Shadow Arrow"}
                         </span>
                         {book.publishedDate && (
                           <span className="px-2.5 py-1 bg-studioSubtle text-muted font-mono text-xs font-medium rounded-full border border-borderWarm">
