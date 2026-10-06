@@ -123,7 +123,7 @@ export const TerminalConsole: React.FC = () => {
           <p className="text-amberAccent font-bold">Author Publications &amp; ISBN Registry:</p>
           <div className="p-3 bg-studioSubtle border border-amberAccent/30 rounded-2xl space-y-1">
             <p className="text-deepInk font-bold">Architecting Scalable Web Systems</p>
-            <p className="text-xs text-amberAccent font-mono">ISBN: 9789334528954 &bull; Author: Bijoy Lohar &bull; Google Books Partner Review</p>
+            <p className="text-xs text-amberAccent font-mono">ISBN: 978-93-345-2895-4 &bull; Author: Bijoy Lohar &bull; Google Books Partner Review</p>
             <p className="text-xs text-muted">In-depth technical manual on high-throughput software architecture and cloud scaling.</p>
           </div>
         </div>

@@ -37,7 +37,7 @@ const VERIFIED_PUBLICATIONS: BookItem[] = [
     amazonUrl: "https://www.amazon.com/s?k=9789334528954",
     googleBooksUrl: "https://books.google.com/books?vid=ISBN9789334528954",
     categories: ["Web Engineering", "Distributed Systems", "Cloud Infrastructure", "System Design"],
-    isbn: "ISBN-13: 9789334528954",
+    isbn: "ISBN-13: 978-93-345-2895-4",
     isVerifiedLive: true,
   },
 ];
@@ -55,48 +55,65 @@ export const BooksSection: React.FC = () => {
     VERIFIED_PUBLICATIONS.forEach((b) => fetchedMap.set(b.id, b));
 
     try {
-      // 1. Fetch from Open Library API
-      const openLibRes = await fetch("https://openlibrary.org/search.json?q=Bijoy+Lohar");
-      if (openLibRes.ok) {
+      // 1. Fetch from Open Library API (Author Query + Specific ISBN Query)
+      const [openLibRes, openLibIsbnRes] = await Promise.all([
+        fetch("https://openlibrary.org/search.json?q=Bijoy+Lohar").catch(() => null),
+        fetch("https://openlibrary.org/search.json?isbn=9789334536065").catch(() => null),
+      ]);
+
+      const processDoc = (doc: any) => {
+        const isMatch =
+          doc.author_name?.some((a: string) => a.toLowerCase().includes("bijoy lohar")) ||
+          doc.isbn?.some((i: string) => i.includes("9789334536065") || i.includes("9789334528954"));
+
+        if (isMatch && doc.title) {
+          const id = doc.key ? doc.key.replace("/works/", "") : doc.cover_edition_key || doc.title;
+          const coverUrl = doc.cover_i
+            ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`
+            : "https://covers.openlibrary.org/b/id/15259748-L.jpg";
+          const openLibUrl = doc.key ? `https://openlibrary.org${doc.key}` : "https://openlibrary.org/authors/OL16612687A";
+          const isbnStr = doc.isbn ? `ISBN-13: ${doc.isbn[0]}` : "ISBN-13: 978-93-345-2895-4";
+
+          fetchedMap.set(id, {
+            id,
+            title: doc.title,
+            subtitle: doc.first_sentence || "Published Technical Manual & Software Systems Guide",
+            authors: doc.author_name || ["Bijoy Lohar"],
+            publisher: doc.publisher ? doc.publisher[0] : "Bijoy Lohar / Shadow Arrow",
+            publishedDate: doc.first_publish_year ? String(doc.first_publish_year) : "2026",
+            description:
+              doc.description?.value || doc.description || "Official published technical work by Bijoy Lohar.",
+            thumbnail: coverUrl,
+            openLibraryUrl: openLibUrl,
+            amazonUrl: `https://www.amazon.com/s?k=${encodeURIComponent((doc.isbn?.[0] || doc.title) + " Bijoy Lohar")}`,
+            googleBooksUrl: `https://books.google.com/books?q=${encodeURIComponent(doc.title)}`,
+            categories: doc.subject ? doc.subject.slice(0, 4) : ["Software Engineering", "Systems Architecture"],
+            isbn: isbnStr,
+            isVerifiedLive: true,
+          });
+        }
+      };
+
+      if (openLibRes && openLibRes.ok) {
         const openLibData = await openLibRes.json();
         if (openLibData.docs && openLibData.docs.length > 0) {
-          openLibData.docs.forEach((doc: any) => {
-            const isMatch = doc.author_name?.some((a: string) => a.toLowerCase().includes("bijoy lohar"));
-            if (isMatch && doc.title) {
-              const id = doc.key ? doc.key.replace("/works/", "") : doc.cover_edition_key || Math.random().toString();
-              const coverUrl = doc.cover_i
-                ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`
-                : "https://covers.openlibrary.org/b/id/15259748-L.jpg";
-              const openLibUrl = doc.key ? `https://openlibrary.org${doc.key}` : "https://openlibrary.org/authors/OL16612687A";
-              const isbnStr = doc.isbn ? `ISBN: ${doc.isbn[0]}` : "ISBN-13: 9789334528954";
+          openLibData.docs.forEach(processDoc);
+        }
+      }
 
-              fetchedMap.set(id, {
-                id,
-                title: doc.title,
-                subtitle: doc.first_sentence || "A Practical Guide to Modern Full Stack Development",
-                authors: doc.author_name || ["Bijoy Lohar"],
-                publisher: doc.publisher ? doc.publisher[0] : "Bijoy Lohar / Shadow Arrow",
-                publishedDate: doc.first_publish_year ? String(doc.first_publish_year) : "2026",
-                description:
-                  "Technical publication by Bijoy Lohar covering distributed computing, software architecture, and cloud systems.",
-                thumbnail: coverUrl,
-                openLibraryUrl: openLibUrl,
-                amazonUrl: `https://www.amazon.com/s?k=${encodeURIComponent(doc.title + " Bijoy Lohar")}`,
-                googleBooksUrl: `https://books.google.com/books?q=${encodeURIComponent(doc.title)}`,
-                categories: doc.subject ? doc.subject.slice(0, 4) : ["Software Engineering", "Web Systems"],
-                isbn: isbnStr,
-                isVerifiedLive: true,
-              });
-            }
-          });
+      if (openLibIsbnRes && openLibIsbnRes.ok) {
+        const openLibIsbnData = await openLibIsbnRes.json();
+        if (openLibIsbnData.docs && openLibIsbnData.docs.length > 0) {
+          openLibIsbnData.docs.forEach(processDoc);
         }
       }
 
       // 2. Fetch from Google Books API
       const googleRes = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=Bijoy+Lohar&orderBy=newest&maxResults=10`
-      );
-      if (googleRes.ok) {
+      ).catch(() => null);
+
+      if (googleRes && googleRes.ok) {
         const googleData = await googleRes.json();
         if (googleData.items && googleData.items.length > 0) {
           googleData.items.forEach((item: any) => {
@@ -104,7 +121,7 @@ export const BooksSection: React.FC = () => {
             const isMatch = info?.authors?.some((a: string) => a.toLowerCase().includes("bijoy lohar"));
             if (isMatch) {
               const isbnObj = info.industryIdentifiers?.find((i: any) => i.type.includes("ISBN"));
-              const isbnVal = isbnObj ? `${isbnObj.type}: ${isbnObj.identifier}` : "ISBN-13: 9789334528954";
+              const isbnVal = isbnObj ? `${isbnObj.type}: ${isbnObj.identifier}` : "ISBN-13: 978-93-345-2895-4";
               fetchedMap.set(item.id, {
                 id: item.id,
                 title: info.title,
