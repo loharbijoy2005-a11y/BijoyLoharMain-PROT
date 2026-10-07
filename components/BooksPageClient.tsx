@@ -26,197 +26,23 @@ import {
   Code2
 } from "lucide-react";
 import Link from "next/link";
-
-export interface BookItem {
-  id: string;
-  title: string;
-  subtitle?: string;
-  authors: string[];
-  publisher?: string;
-  publishedDate?: string;
-  description?: string;
-  thumbnail?: string;
-  openLibraryUrl?: string;
-  amazonUrl?: string;
-  googleBooksUrl?: string;
-  goodreadsUrl?: string;
-  categories?: string[];
-  isbn?: string;
-  isbn13?: string;
-  pages?: number | string;
-  language?: string;
-  edition?: string;
-  isVerifiedLive?: boolean;
-  tableOfContents?: { chapter: string; title: string; desc: string }[];
-}
-
-// Verified publications catalog for Bijoy Lohar
-const VERIFIED_PUBLICATIONS: BookItem[] = [
-  {
-    id: "OL46029039W",
-    title: "Architecting Scalable Web Systems",
-    subtitle: "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
-    authors: ["Bijoy Lohar"],
-    publisher: "Bijoy Lohar / Shadow Arrow",
-    publishedDate: "September 2026",
-    edition: "First Edition / Technical Manual",
-    language: "English",
-    pages: 280,
-    description:
-      "Architecting Scalable Web Systems is an in-depth technical manual designed for software engineers building resilient web platforms, high-throughput APIs, and distributed cloud applications. Details modern system design, connection scaling, server-side caching, database connection pooling, microservices orchestration, and production edge architecture.",
-    thumbnail: "https://covers.openlibrary.org/b/id/15259748-L.jpg",
-    openLibraryUrl: "https://openlibrary.org/works/OL46029039W",
-    amazonUrl: "https://www.amazon.com/s?k=9789334528954",
-    googleBooksUrl: "https://books.google.com/books?vid=ISBN9789334528954",
-    goodreadsUrl: "https://www.goodreads.com/bijoylohar",
-    categories: [
-      "Web Engineering",
-      "Distributed Systems",
-      "Cloud Infrastructure",
-      "System Design",
-      "API Architecture",
-      "Full-Stack Engineering"
-    ],
-    isbn: "978-93-345-2895-4",
-    isbn13: "9789334528954",
-    isVerifiedLive: true,
-    tableOfContents: [
-      {
-        chapter: "Part I",
-        title: "Foundations of High-Throughput Web Systems",
-        desc: "Latency profiles, thread pooling, event loops, and asynchronous I/O architectures."
-      },
-      {
-        chapter: "Part II",
-        title: "Resilient API Gateways & Edge Caching",
-        desc: "Rate limiting, HTTP/3, reverse proxies, and multi-region cache invalidation."
-      },
-      {
-        chapter: "Part III",
-        title: "Database Scaling & Concurrency Models",
-        desc: "Read replicas, indexing strategies, connection poolers, and distributed transactions."
-      },
-      {
-        chapter: "Part IV",
-        title: "Cloud Infrastructure & Edge Deployments",
-        desc: "Serverless orchestration, micro-frontends, telemetry observability, and CI/CD pipelines."
-      }
-    ]
-  }
-];
+import { BookItem, VERIFIED_PUBLICATIONS, fetchLiveAuthorBooks } from "@/lib/books";
 
 export const BooksPageClient: React.FC = () => {
   const [books, setBooks] = useState<BookItem[]>(VERIFIED_PUBLICATIONS);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [syncSource, setSyncSource] = useState<string>("Open Library + Google Books Live");
+  const [syncSource, setSyncSource] = useState<string>("Open Library Live Active");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [copiedIsbn, setCopiedIsbn] = useState<string | null>(null);
 
   const fetchLiveBooks = async () => {
     setIsLoading(true);
-    const fetchedMap = new Map<string, BookItem>();
-
-    // Pre-populate verified publications first
-    VERIFIED_PUBLICATIONS.forEach((b) => fetchedMap.set(b.id, b));
-
     try {
-      // 1. Fetch from Open Library API (Author Query + Specific ISBN Query)
-      const [openLibRes, openLibIsbnRes] = await Promise.all([
-        fetch("https://openlibrary.org/search.json?q=Bijoy+Lohar").catch(() => null),
-        fetch("https://openlibrary.org/search.json?isbn=9789334536065").catch(() => null),
-      ]);
-
-      const processDoc = (doc: any) => {
-        const isMatch =
-          doc.author_name?.some((a: string) => a.toLowerCase().includes("bijoy lohar")) ||
-          doc.isbn?.some((i: string) => i.includes("9789334536065") || i.includes("9789334528954"));
-
-        if (isMatch && doc.title) {
-          const id = doc.key ? doc.key.replace("/works/", "") : doc.cover_edition_key || doc.title;
-          const coverUrl = doc.cover_i
-            ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`
-            : "https://covers.openlibrary.org/b/id/15259748-L.jpg";
-          const openLibUrl = doc.key ? `https://openlibrary.org${doc.key}` : "https://openlibrary.org/authors/OL16612687A";
-          const isbnVal = doc.isbn ? doc.isbn[0] : "978-93-345-2895-4";
-
-          const existing = fetchedMap.get(id) || fetchedMap.get("OL46029039W");
-
-          fetchedMap.set(id, {
-            ...(existing || VERIFIED_PUBLICATIONS[0]),
-            id,
-            title: doc.title || existing?.title || "Architecting Scalable Web Systems",
-            subtitle: doc.first_sentence || existing?.subtitle || "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
-            authors: doc.author_name || ["Bijoy Lohar"],
-            publisher: doc.publisher ? doc.publisher[0] : existing?.publisher || "Bijoy Lohar / Shadow Arrow",
-            publishedDate: doc.first_publish_year ? String(doc.first_publish_year) : existing?.publishedDate || "2026",
-            description: doc.description?.value || doc.description || existing?.description,
-            thumbnail: coverUrl,
-            openLibraryUrl: openLibUrl,
-            amazonUrl: `https://www.amazon.com/s?k=${encodeURIComponent((doc.isbn?.[0] || doc.title) + " Bijoy Lohar")}`,
-            googleBooksUrl: `https://books.google.com/books?q=${encodeURIComponent(doc.title)}`,
-            categories: doc.subject ? doc.subject.slice(0, 5) : existing?.categories,
-            isbn: isbnVal,
-            isbn13: isbnVal.replace(/-/g, ""),
-            isVerifiedLive: true,
-          });
-        }
-      };
-
-      if (openLibRes && openLibRes.ok) {
-        const openLibData = await openLibRes.json();
-        if (openLibData.docs && openLibData.docs.length > 0) {
-          openLibData.docs.forEach(processDoc);
-        }
+      const liveBooks = await fetchLiveAuthorBooks();
+      if (liveBooks && liveBooks.length > 0) {
+        setBooks(liveBooks);
       }
-
-      if (openLibIsbnRes && openLibIsbnRes.ok) {
-        const openLibIsbnData = await openLibIsbnRes.json();
-        if (openLibIsbnData.docs && openLibIsbnData.docs.length > 0) {
-          openLibIsbnData.docs.forEach(processDoc);
-        }
-      }
-
-      // 2. Fetch from Google Books API
-      const googleRes = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=Bijoy+Lohar&orderBy=newest&maxResults=10`
-      ).catch(() => null);
-
-      if (googleRes && googleRes.ok) {
-        const googleData = await googleRes.json();
-        if (googleData.items && googleData.items.length > 0) {
-          googleData.items.forEach((item: any) => {
-            const info = item.volumeInfo;
-            const isMatch = info?.authors?.some((a: string) => a.toLowerCase().includes("bijoy lohar"));
-            if (isMatch) {
-              const isbnObj = info.industryIdentifiers?.find((i: any) => i.type.includes("ISBN"));
-              const isbnVal = isbnObj ? isbnObj.identifier : "9789334528954";
-              const existing = fetchedMap.get(item.id) || fetchedMap.get("OL46029039W");
-              
-              fetchedMap.set(item.id, {
-                ...(existing || VERIFIED_PUBLICATIONS[0]),
-                id: item.id,
-                title: info.title || existing?.title,
-                subtitle: info.subtitle || existing?.subtitle,
-                authors: info.authors || ["Bijoy Lohar"],
-                publisher: info.publisher || existing?.publisher || "Google Books / Amazon",
-                publishedDate: info.publishedDate || existing?.publishedDate,
-                description: info.description || existing?.description,
-                thumbnail: info.imageLinks?.thumbnail || info.imageLinks?.smallThumbnail || existing?.thumbnail,
-                openLibraryUrl: existing?.openLibraryUrl || "https://openlibrary.org/works/OL46029039W",
-                amazonUrl: `https://www.amazon.com/s?k=${encodeURIComponent(info.title + " Bijoy Lohar")}`,
-                googleBooksUrl: info.infoLink || info.previewLink || `https://books.google.com/books?id=${item.id}`,
-                categories: info.categories || existing?.categories,
-                isbn: isbnVal,
-                isbn13: isbnVal.replace(/-/g, ""),
-                isVerifiedLive: true,
-              });
-            }
-          });
-        }
-      }
-
-      setBooks(Array.from(fetchedMap.values()));
       setSyncSource("Open Library + Google Books Live Active");
     } catch (err) {
       console.warn("Live book sync error:", err);
@@ -506,7 +332,7 @@ export const BooksPageClient: React.FC = () => {
                       {/* Meta Tags */}
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="px-3 py-1 bg-amberAccent/15 text-amberAccent font-mono text-xs font-bold rounded-full border border-amberAccent/30">
-                          {book.publisher || "Shadow Arrow"}
+                          {book.publisher || "Bijoy Lohar"}
                         </span>
                         {book.publishedDate && (
                           <span className="px-2.5 py-1 bg-studioSubtle text-muted font-mono text-xs font-medium rounded-full border border-borderWarm">

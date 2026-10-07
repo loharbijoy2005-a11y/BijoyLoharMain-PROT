@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     absolute: "Published Books & Technical Publications | Bijoy Lohar",
   },
   description:
-    "Official books and technical publications authored by Bijoy Lohar, Founder of Shadow Arrow and Software Engineer. Explore 'Architecting Scalable Web Systems' (ISBN 978-93-345-2895-4) indexed on Open Library, Google Books, and Amazon.",
+    "Official books and technical publications authored by Bijoy Lohar. Explore 'Architecting Scalable Web Systems' (ISBN 978-93-345-2895-4) indexed on Open Library, Google Books, and Amazon.",
   alternates: {
     canonical: "https://www.bijoylohar.in/books",
   },
@@ -77,17 +77,17 @@ const jsonLd = {
               alternateName: "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
               author: {
                 "@type": "Person",
-                name: "Bijoy Lohar",
+                "name": "Bijoy Lohar",
                 url: "https://www.bijoylohar.in"
               },
               isbn: "978-93-345-2895-4",
               bookFormat: "https://schema.org/EBook",
               inLanguage: "English",
-              numberOfPages: 280,
               datePublished: "2026-09",
               publisher: {
-                "@type": "Organization",
-                name: "Bijoy Lohar / Shadow Arrow"
+                "@type": "Person",
+                name: "Bijoy Lohar",
+                url: "https://www.bijoylohar.in"
               },
               image: "https://covers.openlibrary.org/b/id/15259748-L.jpg",
               url: "https://openlibrary.org/works/OL46029039W",
