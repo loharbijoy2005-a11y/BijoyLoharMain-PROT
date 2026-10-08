@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     absolute: "Published Books & Technical Publications | Bijoy Lohar",
   },
   description:
-    "Official books and technical publications authored by Bijoy Lohar. Explore 'Architecting Scalable Web Systems' (ISBN 978-93-345-2895-4) indexed on Open Library, Google Books, and Amazon.",
+    "Official books and technical publications authored by Bijoy Lohar. Synchronized live with Goodreads, Open Library, Google Books, and Amazon.",
   alternates: {
     canonical: "https://www.bijoylohar.in/books",
   },
@@ -15,14 +15,8 @@ export const metadata: Metadata = {
     url: "https://www.bijoylohar.in/books",
     title: "Published Books & Technical Publications | Bijoy Lohar",
     description:
-      "Explore books and technical systems guides authored by Bijoy Lohar, including 'Architecting Scalable Web Systems' (ISBN 978-93-345-2895-4).",
+      "Explore books and technical systems guides authored by Bijoy Lohar, synchronized live from Goodreads and Open Library.",
     images: [
-      {
-        url: "https://covers.openlibrary.org/b/id/15259748-L.jpg",
-        width: 800,
-        height: 1200,
-        alt: "Architecting Scalable Web Systems by Bijoy Lohar",
-      },
       {
         url: "https://www.bijoylohar.in/images/bijoy-lohar.png",
         width: 800,
@@ -35,8 +29,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Published Books & Technical Publications | Bijoy Lohar",
     description:
-      "Official books and technical publications by Bijoy Lohar. 'Architecting Scalable Web Systems' (ISBN 978-93-345-2895-4).",
-    images: ["https://covers.openlibrary.org/b/id/15259748-L.jpg"],
+      "Official books and technical publications by Bijoy Lohar. Live catalog from Goodreads and Open Library.",
+    images: ["https://www.bijoylohar.in/images/bijoy-lohar.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -58,48 +52,10 @@ const jsonLd = {
         jobTitle: "Software Engineer & Author",
         url: "https://www.bijoylohar.in",
         sameAs: [
+          "https://www.goodreads.com/bijoylohar",
           "https://openlibrary.org/authors/OL16612687A",
           "https://www.amazon.com/author/bijoylohar",
-          "https://www.goodreads.com/bijoylohar",
           "https://orcid.org/0009-0004-5643-7612"
-        ]
-      },
-      mainEntity: {
-        "@type": "ItemList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            item: {
-              "@type": "Book",
-              "@id": "https://www.bijoylohar.in/books#scalable-web-systems",
-              name: "Architecting Scalable Web Systems",
-              alternateName: "A Practical Guide to Modern Full Stack Development, APIs, and Cloud Infrastructure",
-              author: {
-                "@type": "Person",
-                "name": "Bijoy Lohar",
-                url: "https://www.bijoylohar.in"
-              },
-              isbn: "978-93-345-2895-4",
-              bookFormat: "https://schema.org/EBook",
-              inLanguage: "English",
-              datePublished: "2026-09",
-              publisher: {
-                "@type": "Person",
-                name: "Bijoy Lohar",
-                url: "https://www.bijoylohar.in"
-              },
-              image: "https://covers.openlibrary.org/b/id/15259748-L.jpg",
-              url: "https://openlibrary.org/works/OL46029039W",
-              sameAs: [
-                "https://openlibrary.org/works/OL46029039W",
-                "https://books.google.com/books?vid=ISBN9789334528954",
-                "https://www.amazon.com/s?k=9789334528954"
-              ],
-              description:
-                "Architecting Scalable Web Systems is an in-depth technical manual designed for software engineers building resilient web platforms, high-throughput APIs, and distributed cloud applications."
-            }
-          }
         ]
       }
     }

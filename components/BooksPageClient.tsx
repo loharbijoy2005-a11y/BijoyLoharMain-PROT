@@ -25,13 +25,20 @@ import {
   ShieldCheck,
   Code2
 } from "lucide-react";
+import {
+  BookItem,
+  fetchLiveAuthorBooks,
+  GOODREADS_AUTHOR_URL,
+  AUTHOR_OPEN_LIBRARY_ID,
+  AMAZON_AUTHOR_URL,
+  ORCID_URL,
+} from "@/lib/books";
 import Link from "next/link";
-import { BookItem, VERIFIED_PUBLICATIONS, fetchLiveAuthorBooks } from "@/lib/books";
 
 export const BooksPageClient: React.FC = () => {
-  const [books, setBooks] = useState<BookItem[]>(VERIFIED_PUBLICATIONS);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [syncSource, setSyncSource] = useState<string>("Open Library Live Active");
+  const [books, setBooks] = useState<BookItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [syncSource, setSyncSource] = useState<string>("Amazon + Goodreads + Open Library Live Sync");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [copiedIsbn, setCopiedIsbn] = useState<string | null>(null);
@@ -43,10 +50,9 @@ export const BooksPageClient: React.FC = () => {
       if (liveBooks && liveBooks.length > 0) {
         setBooks(liveBooks);
       }
-      setSyncSource("Open Library + Google Books Live Active");
+      setSyncSource("Amazon + Goodreads + Open Library + Google Books + ORCID Live");
     } catch (err) {
       console.warn("Live book sync error:", err);
-      setBooks(VERIFIED_PUBLICATIONS);
     } finally {
       setIsLoading(false);
     }
@@ -110,7 +116,7 @@ export const BooksPageClient: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <Link
               href="/biography"
               className="text-xs font-mono font-bold px-3 py-1.5 rounded-full text-amberAccent border border-amberAccent/30 hover:bg-amberAccent/10 transition-all flex items-center gap-1"
@@ -120,13 +126,23 @@ export const BooksPageClient: React.FC = () => {
             </Link>
 
             <a
-              href="https://www.amazon.com/author/bijoylohar"
+              href={AMAZON_AUTHOR_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-heading font-extrabold px-3.5 py-1.5 bg-amberAccent text-studioCanvas hover:bg-amberLight rounded-full transition-all shadow-md"
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-heading font-extrabold px-3 py-1.5 bg-studioSubtle hover:bg-borderWarm text-deepInk border border-borderWarm rounded-full transition-all shadow-sm"
             >
-              <ShoppingCart className="w-3 h-3" />
-              <span>Amazon Profile</span>
+              <ShoppingCart className="w-3 h-3 text-amberAccent" />
+              <span>Amazon Author</span>
+            </a>
+
+            <a
+              href={GOODREADS_AUTHOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-heading font-extrabold px-3.5 py-1.5 bg-amberAccent text-studioCanvas hover:bg-amberLight rounded-full transition-all shadow-md"
+            >
+              <Star className="w-3 h-3 fill-studioCanvas" />
+              <span>Goodreads</span>
             </a>
           </div>
         </div>
@@ -138,7 +154,7 @@ export const BooksPageClient: React.FC = () => {
         <section className="mb-14 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-amberAccent uppercase tracking-widest mb-3 bg-amberAccent/10 px-3.5 py-1 rounded-full border border-amberAccent/30">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>OFFICIAL AUTHOR CATALOG &bull; ISBN INDEX</span>
+            <span>OFFICIAL AUTHOR CATALOG &bull; AUTOMATED MULTI-REGISTRY PIPELINE</span>
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
@@ -148,7 +164,7 @@ export const BooksPageClient: React.FC = () => {
               </h1>
               <p className="mt-3 text-sm sm:text-base text-[#D4CEBF] max-w-2xl leading-relaxed">
                 Technical manuals, architectural guides, and software engineering handbooks authored by{" "}
-                <strong className="text-amberAccent font-semibold">Bijoy Lohar</strong>. Globally indexed across Open Library, Google Books, and Amazon.
+                <strong className="text-amberAccent font-semibold">Bijoy Lohar</strong>. Dynamically synchronized live across Amazon Author Central, Goodreads, Open Library, Google Books, and ORCID.
               </p>
             </div>
 
@@ -157,11 +173,11 @@ export const BooksPageClient: React.FC = () => {
               <button
                 onClick={fetchLiveBooks}
                 disabled={isLoading}
-                title="Force refresh live catalog from Open Library & Google Books"
+                title="Force refresh live catalog from Amazon, Goodreads & Open Library"
                 className="inline-flex items-center gap-1.5 text-xs font-mono text-amberAccent font-bold hover:underline"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? "animate-spin" : ""}`} />
-                <span>{isLoading ? "Syncing..." : syncSource}</span>
+                <span>{isLoading ? "Syncing Live..." : syncSource}</span>
               </button>
             </div>
           </div>
@@ -169,24 +185,54 @@ export const BooksPageClient: React.FC = () => {
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mt-8 pt-8 border-t border-borderWarm/60">
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
-              <span className="block text-xs font-mono text-muted uppercase">Author</span>
-              <span className="font-heading font-extrabold text-lg text-deepInk">Bijoy Lohar</span>
-              <span className="block text-[11px] font-mono text-amberAccent">Shadow Arrow</span>
+              <span className="block text-xs font-mono text-muted uppercase">Amazon Author</span>
+              <a
+                href={AMAZON_AUTHOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading font-extrabold text-sm sm:text-base text-amberAccent hover:underline block truncate mt-1"
+              >
+                amazon.com/author/bijoylohar
+              </a>
+              <span className="block text-[11px] font-mono text-emerald-400">Verified Profile</span>
             </div>
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
-              <span className="block text-xs font-mono text-muted uppercase">Primary ISBN-13</span>
-              <span className="font-heading font-extrabold text-lg text-deepInk">978-93-345-2895-4</span>
-              <span className="block text-[11px] font-mono text-emerald-400">Verified &amp; Assigned</span>
+              <span className="block text-xs font-mono text-muted uppercase">Goodreads Profile</span>
+              <a
+                href={GOODREADS_AUTHOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading font-extrabold text-sm sm:text-base text-amberAccent hover:underline block truncate mt-1"
+              >
+                goodreads.com/bijoylohar
+              </a>
+              <span className="block text-[11px] font-mono text-emerald-400">Live Synced</span>
             </div>
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
-              <span className="block text-xs font-mono text-muted uppercase">Open Library ID</span>
-              <span className="font-heading font-extrabold text-lg text-deepInk">OL46029039W</span>
-              <span className="block text-[11px] font-mono text-amberAccent">Live Record</span>
+              <span className="block text-xs font-mono text-muted uppercase">Open Library</span>
+              <a
+                href={`https://openlibrary.org/authors/${AUTHOR_OPEN_LIBRARY_ID}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading font-extrabold text-lg text-deepInk hover:text-amberAccent block truncate"
+              >
+                {AUTHOR_OPEN_LIBRARY_ID}
+              </a>
+              <span className="block text-[11px] font-mono text-amberAccent">Author Works</span>
             </div>
             <div className="p-4 bg-studioCard/80 border border-borderWarm rounded-2xl">
-              <span className="block text-xs font-mono text-muted uppercase">Global Indexing</span>
-              <span className="font-heading font-extrabold text-lg text-deepInk">Google Books</span>
-              <span className="block text-[11px] font-mono text-emerald-400">Active Distribution</span>
+              <span className="block text-xs font-mono text-muted uppercase">ORCID &amp; Google Books</span>
+              <a
+                href={ORCID_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-heading font-extrabold text-xs sm:text-sm text-deepInk hover:text-amberAccent block truncate mt-1"
+              >
+                0009-0004-5643-7612
+              </a>
+              <span className="block text-[11px] font-mono text-emerald-400">
+                {isLoading ? "Syncing..." : `${books.length} Works Loaded`}
+              </span>
             </div>
           </div>
         </section>
@@ -237,22 +283,71 @@ export const BooksPageClient: React.FC = () => {
 
         {/* Books Showcase List */}
         <section className="space-y-12">
-          <AnimatePresence>
-            {filteredBooks.length === 0 ? (
+          <AnimatePresence mode="wait">
+            {isLoading || (books.length === 0 && !searchQuery && selectedCategory === "all") ? (
               <motion.div
+                key="skeleton-loader"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="p-12 text-center bg-studioCard border border-borderWarm rounded-3xl"
+                exit={{ opacity: 0 }}
+                className="space-y-6"
+              >
+                {/* Modern Animated Skeleton Card */}
+                <div className="bg-studioCard border border-borderWarm rounded-3xl p-6 sm:p-8 lg:p-10 relative overflow-hidden shadow-2xl">
+                  <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+                    {/* Skeleton Cover */}
+                    <div className="w-48 sm:w-56 h-72 sm:h-80 bg-studioSubtle/80 border border-borderWarm/60 rounded-2xl shrink-0 flex flex-col items-center justify-center p-6 mx-auto sm:mx-0 shadow-inner relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-amberAccent/10 via-transparent to-amberAccent/5 animate-pulse" />
+                      <div className="relative z-10 flex flex-col items-center text-center">
+                        <div className="w-12 h-12 rounded-full border-3 border-amberAccent border-t-transparent animate-spin mb-4 shadow-lg" />
+                        <span className="text-xs font-mono text-amberAccent font-extrabold uppercase tracking-wider">
+                          Syncing Live
+                        </span>
+                        <span className="text-[11px] font-mono text-muted text-center mt-2 leading-relaxed">
+                          Amazon &bull; Goodreads &bull; Open Library &bull; Google Books
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Skeleton Details */}
+                    <div className="flex-1 w-full space-y-4 animate-pulse">
+                      <div className="flex gap-2">
+                        <div className="w-28 h-6 bg-studioSubtle rounded-full" />
+                        <div className="w-36 h-6 bg-studioSubtle rounded-full" />
+                      </div>
+                      <div className="w-3/4 h-10 bg-studioSubtle rounded-xl" />
+                      <div className="w-1/2 h-5 bg-studioSubtle rounded-lg" />
+                      <div className="space-y-2.5 pt-3">
+                        <div className="w-full h-4 bg-studioSubtle rounded" />
+                        <div className="w-full h-4 bg-studioSubtle rounded" />
+                        <div className="w-4/5 h-4 bg-studioSubtle rounded" />
+                      </div>
+                      <div className="flex flex-wrap gap-3 pt-6">
+                        <div className="w-36 h-11 bg-studioSubtle rounded-xl" />
+                        <div className="w-36 h-11 bg-studioSubtle rounded-xl" />
+                        <div className="w-36 h-11 bg-studioSubtle rounded-xl" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ) : filteredBooks.length === 0 ? (
+              <motion.div
+                key="empty-state"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="p-12 text-center bg-studioCard border border-borderWarm rounded-3xl shadow-lg"
               >
                 <BookOpen className="w-12 h-12 text-muted mx-auto mb-3" />
-                <h3 className="font-heading font-bold text-lg text-deepInk">No books found</h3>
-                <p className="text-xs text-muted mt-1">Try resetting your search query or filters.</p>
+                <h3 className="font-heading font-bold text-lg text-deepInk">No matching books found</h3>
+                <p className="text-xs text-muted mt-1">Try resetting your search query or filter topics.</p>
                 <button
                   onClick={() => {
                     setSearchQuery("");
                     setSelectedCategory("all");
                   }}
-                  className="mt-4 px-4 py-2 bg-amberAccent text-studioCanvas font-mono text-xs font-bold rounded-xl"
+                  className="mt-4 px-4 py-2 bg-amberAccent hover:bg-amberAccent/90 text-studioCanvas font-mono text-xs font-bold rounded-xl transition-all shadow-md"
                 >
                   Reset Filters
                 </button>
@@ -394,34 +489,6 @@ export const BooksPageClient: React.FC = () => {
                         </div>
                       )}
 
-                      {/* Chapter / Syllabus Outline (If provided) */}
-                      {book.tableOfContents && book.tableOfContents.length > 0 && (
-                        <div className="pt-4 border-t border-borderWarm/70">
-                          <h4 className="text-xs font-mono font-bold text-amberAccent uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                            <Layers className="w-3.5 h-3.5" />
-                            <span>Syllabus &amp; Structural Outline</span>
-                          </h4>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                            {book.tableOfContents.map((toc) => (
-                              <div
-                                key={toc.chapter}
-                                className="p-3 bg-studioSubtle/80 border border-borderWarm/70 rounded-xl"
-                              >
-                                <div className="text-[10px] font-mono text-amberAccent font-bold">
-                                  {toc.chapter}
-                                </div>
-                                <div className="text-xs font-heading font-extrabold text-deepInk mt-0.5">
-                                  {toc.title}
-                                </div>
-                                <div className="text-[11px] text-muted mt-1 leading-snug">
-                                  {toc.desc}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
                       {/* Platform Purchase & Read Actions */}
                       <div className="pt-6 border-t border-borderWarm flex flex-wrap items-center gap-3">
                         {book.amazonUrl && (
@@ -445,7 +512,7 @@ export const BooksPageClient: React.FC = () => {
                             className="inline-flex items-center gap-2 px-4 py-2.5 bg-studioSubtle hover:bg-borderWarm text-deepInk border border-borderWarm font-heading font-extrabold text-xs sm:text-sm rounded-xl shadow-sm transition-all"
                           >
                             <Library className="w-4 h-4 text-amberAccent" />
-                            <span>Open Library (OL46029039W)</span>
+                            <span>Open Library</span>
                             <ExternalLink className="w-3.5 h-3.5 text-muted" />
                           </a>
                         )}
@@ -472,6 +539,19 @@ export const BooksPageClient: React.FC = () => {
                           >
                             <Star className="w-4 h-4 text-amberAccent" />
                             <span>Goodreads</span>
+                            <ExternalLink className="w-3.5 h-3.5 text-muted" />
+                          </a>
+                        )}
+
+                        {book.orcidUrl && (
+                          <a
+                            href={book.orcidUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 bg-studioSubtle hover:bg-borderWarm text-deepInk border border-borderWarm font-heading font-extrabold text-xs sm:text-sm rounded-xl shadow-sm transition-all"
+                          >
+                            <Globe2 className="w-4 h-4 text-amberAccent" />
+                            <span>ORCID Record</span>
                             <ExternalLink className="w-3.5 h-3.5 text-muted" />
                           </a>
                         )}

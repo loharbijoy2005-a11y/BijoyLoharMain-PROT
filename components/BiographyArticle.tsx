@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Sparkles, Sun, Moon, Settings, ArrowLeft } from "lucide-react";
+import { LiveBiographyBooks } from "@/components/LiveBiographyBooks";
+import { WikipediaHoverPreview } from "@/components/WikipediaHoverPreview";
 
 interface TocSubItem {
   id: string;
@@ -604,7 +606,7 @@ export const BiographyArticle: React.FC = () => {
                     <span className="birthplace">
                       <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>,{" "}
                       <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a>,<br />
-                      <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India
+                      <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, <a href="https://en.wikipedia.org/wiki/India" target="_blank" rel="noopener noreferrer" className="wiki-link">India</a>
                     </span>
                   </td>
                 </tr>
@@ -713,7 +715,7 @@ export const BiographyArticle: React.FC = () => {
                 <span className="mw-headline-number">1</span> Early life and education
               </h2>
               <p>
-                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a town in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, India.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> The town is known for its seventeenth-century Malla dynasty terracotta temples, classical Bishnupur gharana music, and traditional Baluchari weaving.
+                Bijoy Lohar was born on 12 October 2005 in <a href="https://en.wikipedia.org/wiki/Bishnupur,_Bankura" target="_blank" rel="noopener noreferrer" className="wiki-link">Bishnupur</a>, a town in the <a href="https://en.wikipedia.org/wiki/Bankura_district" target="_blank" rel="noopener noreferrer" className="wiki-link">Bankura district</a> of <a href="https://en.wikipedia.org/wiki/West_Bengal" target="_blank" rel="noopener noreferrer" className="wiki-link">West Bengal</a>, <a href="https://en.wikipedia.org/wiki/India" target="_blank" rel="noopener noreferrer" className="wiki-link">India</a>.<sup><a href="#ref-1" className="wiki-cite">[1]</a></sup> The town is known for its seventeenth-century Malla dynasty terracotta temples, classical Bishnupur gharana music, and traditional Baluchari weaving.
               </p>
               <p>
                 He was raised in Bishnupur by his parents, Binod Lohar and Soma Lohar, along with his sister, Dipti Lohar. During his childhood, he developed an interest in electronics and mechanics, frequently taking apart and examining discarded household appliances, electronic circuits, and power adapters to observe how components were connected.
@@ -910,39 +912,10 @@ export const BiographyArticle: React.FC = () => {
                 As an author and technical writer, Lohar writes on self-directed programming, full-stack systems engineering, zero-day cybersecurity mechanics, and automated knowledge pipelines.<sup><a href="#ref-4" className="wiki-cite">[4]</a></sup> His literary and technical author records are indexed in international registries including <a href="https://orcid.org/0009-0004-5643-7612" target="_blank" rel="noopener noreferrer" className="wiki-link">ORCID</a>, <a href="https://www.amazon.com/author/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Amazon Author Central</a>, and <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noopener noreferrer" className="wiki-link">Goodreads</a>.
               </p>
               <p>
-                His published books and monographs focus on pragmatic engineering workflows, defensive systems security, autodidactic software mastery, and real-world semantic data architectures:
+                His published books and technical monographs are dynamically indexed across international bibliographic registries:
               </p>
 
-              <table className="wikitable">
-                <thead>
-                  <tr>
-                    <th>Title &amp; Work</th>
-                    <th>Year</th>
-                    <th>Subject / Discipline</th>
-                    <th>Catalog &amp; Identifiers</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><i><b>The Zero-Day Protocol: The Code That Bleeds</b></i></td>
-                    <td>2026</td>
-                    <td>Cybersecurity, Defensive Systems &amp; Threat Vectors</td>
-                    <td>ISBN: 978-93-345-3606-5 • Amazon / Goodreads / ORCID</td>
-                  </tr>
-                  <tr>
-                    <td><i><b>Architecting Scalable Web Systems</b></i></td>
-                    <td>2026</td>
-                    <td>Distributed Architecture, APIs &amp; Cloud Infrastructure</td>
-                    <td>ISBN: 978-93-345-2895-4 • Open Library (OL46029039W) / Google Books</td>
-                  </tr>
-                  <tr>
-                    <td><i><b>The Autodidact Engineer: Building Scalable Systems Through Self-Directed Code</b></i></td>
-                    <td>2025</td>
-                    <td>Software Engineering &amp; Modern Web Architecture</td>
-                    <td>Amazon / Goodreads / ORCID</td>
-                  </tr>
-                </tbody>
-              </table>
+              <LiveBiographyBooks />
 
               <p>
                 The automated pipeline processes entries across public infrastructure in India, including courts, educational institutions, administrative divisions, and public health facilities.
@@ -3239,6 +3212,9 @@ export const BiographyArticle: React.FC = () => {
         }
 
       `}</style>
+
+      {/* Dynamic Wikipedia Page Preview Hovercard */}
+      <WikipediaHoverPreview theme={pageTheme} />
     </div>
   );
 };

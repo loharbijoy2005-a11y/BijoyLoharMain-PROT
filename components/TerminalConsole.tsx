@@ -120,11 +120,14 @@ export const TerminalConsole: React.FC = () => {
     } else if (lower === "books" || lower === "publications") {
       outputNode = (
         <div className="space-y-2 text-xs sm:text-sm my-1">
-          <p className="text-amberAccent font-bold">Author Publications &amp; ISBN Registry:</p>
-          <div className="p-3 bg-studioSubtle border border-amberAccent/30 rounded-2xl space-y-1">
-            <p className="text-deepInk font-bold">Architecting Scalable Web Systems</p>
-            <p className="text-xs text-amberAccent font-mono">ISBN: 978-93-345-2895-4 &bull; Author: Bijoy Lohar &bull; Google Books Partner Review</p>
-            <p className="text-xs text-muted">In-depth technical manual on high-throughput software architecture and cloud scaling.</p>
+          <p className="text-amberAccent font-bold">Live Synchronized Author Bibliography:</p>
+          <div className="p-3 bg-studioSubtle border border-amberAccent/30 rounded-2xl space-y-1.5">
+            <p className="text-deepInk font-bold">Goodreads &amp; Open Library Live Index</p>
+            <p className="text-xs text-muted">Author publications are fetched dynamically from Goodreads and Open Library registries.</p>
+            <div className="flex items-center gap-3 pt-1 text-xs font-mono">
+              <a href="https://www.goodreads.com/bijoylohar" target="_blank" rel="noreferrer" className="text-amberAccent underline font-bold">Goodreads Profile ↗</a>
+              <a href="/books" className="text-amberAccent underline font-bold">View /books Page ↗</a>
+            </div>
           </div>
         </div>
       );

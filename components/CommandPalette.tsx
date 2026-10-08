@@ -118,7 +118,7 @@ export const CommandPalette: React.FC = () => {
     },
     {
       id: "books-page",
-      title: "Open Dedicated Books Page (/books)",
+      title: "Author Publications & Books (/books)",
       category: "Navigation",
       icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
       action: () => {
@@ -126,16 +126,7 @@ export const CommandPalette: React.FC = () => {
         window.location.href = "/books";
       },
       shortcut: "/books",
-      keywords: ["books", "dedicated", "page", "author", "publications", "architecting scalable web systems", "isbn", "bijoy lohar"],
-    },
-    {
-      id: "books",
-      title: "Books Section (Page Overview)",
-      category: "Navigation",
-      icon: <BookOpen className="w-4 h-4 text-amberAccent" />,
-      action: () => navigateTo("#books"),
-      shortcut: "Books",
-      keywords: ["books", "author", "goodreads", "amazon", "technical writing", "bijoy lohar"],
+      keywords: ["books", "dedicated", "page", "author", "publications", "goodreads", "open library", "bijoy lohar"],
     },
     {
       id: "contact",
