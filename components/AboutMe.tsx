@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 import {
   MapPin,
   Briefcase,
@@ -22,6 +23,8 @@ import {
   Video,
   Box,
   BookOpen,
+  BookMarked,
+  Library,
 } from "lucide-react";
 
 // Official Sharp Vector Icon for X (Twitter)
@@ -200,9 +203,18 @@ export const AboutMe: React.FC<AboutMeProps> = ({
       badge: "Official Profile",
     },
     {
+      name: "Published Books & Publications",
+      handle: "Official Releases & Engineering Manuals",
+      url: "/books",
+      icon: BookMarked,
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
+      badge: "Author Catalog",
+      isInternal: true,
+    },
+    {
       name: "Goodreads",
       handle: "bijoylohar",
-      url: socials.goodreads,
+      url: socials.goodreads || "https://www.goodreads.com/bijoylohar",
       icon: BookOpen,
       glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Author Profile",
@@ -210,10 +222,26 @@ export const AboutMe: React.FC<AboutMeProps> = ({
     {
       name: "Amazon Author Central",
       handle: "author/bijoylohar",
-      url: socials.amazonAuthor,
+      url: socials.amazonAuthor || "https://www.amazon.com/author/bijoylohar",
       icon: Globe,
       glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
       badge: "Verified Author",
+    },
+    {
+      name: "Open Library",
+      handle: "OL16612687A",
+      url: "https://openlibrary.org/authors/OL16612687A",
+      icon: Library,
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
+      badge: "Bibliographic Registry",
+    },
+    {
+      name: "ORCID",
+      handle: "0009-0004-5643-7612",
+      url: "https://orcid.org/0009-0004-5643-7612",
+      icon: CheckCircle2,
+      glowColor: "hover:border-amberAccent hover:bg-amberAccent/10",
+      badge: "Scholarly Record",
     },
     {
       name: "Shadow Arrow",
@@ -490,16 +518,9 @@ export const AboutMe: React.FC<AboutMeProps> = ({
             {socialButtons.map((btn) => {
               if (!btn.url) return null;
               const Icon = btn.icon;
-              return (
-                <motion.a
-                  key={btn.name}
-                  href={btn.url}
-                  target="_blank"
-                  rel="noopener noreferrer me"
-                  whileHover={{ scale: 1.02, y: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group relative flex items-center justify-between p-5 rounded-2xl bg-studioSubtle border border-borderWarm hover:border-amberAccent/70 text-deepInk transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(229,193,88,0.12)]"
-                >
+
+              const innerContent = (
+                <>
                   <div className="flex items-center gap-4 min-w-0 flex-1 pr-3">
                     <div className="w-11 h-11 rounded-xl bg-amberAccent/10 border border-amberAccent/30 flex items-center justify-center text-amberAccent group-hover:bg-amberAccent group-hover:text-studioCanvas group-hover:scale-105 transition-all duration-300 shrink-0">
                       <Icon className="w-5 h-5" />
@@ -523,8 +544,43 @@ export const AboutMe: React.FC<AboutMeProps> = ({
                   </div>
 
                   <div className="w-8 h-8 rounded-lg bg-studioCanvas/60 border border-borderSubtle flex items-center justify-center text-muted group-hover:text-amberAccent group-hover:border-amberAccent/50 group-hover:bg-amberAccent/10 transition-all shrink-0">
-                    <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    {btn.isInternal ? (
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    ) : (
+                      <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    )}
                   </div>
+                </>
+              );
+
+              if (btn.isInternal) {
+                return (
+                  <motion.div
+                    key={btn.name}
+                    whileHover={{ scale: 1.02, y: -3 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Link
+                      href={btn.url}
+                      className="group relative flex items-center justify-between p-5 rounded-2xl bg-studioSubtle border border-borderWarm hover:border-amberAccent/70 text-deepInk transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(229,193,88,0.12)]"
+                    >
+                      {innerContent}
+                    </Link>
+                  </motion.div>
+                );
+              }
+
+              return (
+                <motion.a
+                  key={btn.name}
+                  href={btn.url}
+                  target="_blank"
+                  rel="noopener noreferrer me"
+                  whileHover={{ scale: 1.02, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative flex items-center justify-between p-5 rounded-2xl bg-studioSubtle border border-borderWarm hover:border-amberAccent/70 text-deepInk transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(229,193,88,0.12)]"
+                >
+                  {innerContent}
                 </motion.a>
               );
             })}
